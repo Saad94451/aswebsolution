@@ -40,61 +40,31 @@
   .hide-mobile { display: none !important; }
 
   /* ── HERO ── */
-  .hero { padding: 24px 0 32px; text-align: center; }
-
-  .hero-grid {
-    grid-template-columns: 1fr !important;
-    justify-items: center;
-    gap: 32px;
+  .hero-content {
+    padding: 120px 0 70px;
+    align-items: center;
+    text-align: center;
   }
-
   .hero-copy {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
+    max-width: 100%;
   }
-
-  .lead {
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
+  .hero h1 { text-align: center; }
+  .lead { text-align: center; margin-left: auto; margin-right: auto; }
   .hero-actions {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 12px;
     width: 100%;
-    max-width: 340px;
-    margin: 0 auto 24px;
   }
-
   .hero-actions .btn {
     width: 100%;
+    max-width: 320px;
     justify-content: center;
-  }
-
-  .hero-trust {
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 12px;
-  }
-
-  .trust-copy { text-align: center; }
-
-  .hero-visual {
-    min-height: auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    width: 100%;
-  }
-
-  .hero-img {
-    border-radius: 14px;
   }
 
   /* ── TRUST STRIP ── */

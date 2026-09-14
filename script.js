@@ -26,16 +26,19 @@
     const toggle = document.getElementById("menuToggle");
     const nav = document.getElementById("nav");
     if (!toggle || !nav) return;
+
     const close = () => {
       nav.classList.remove("open");
       toggle.classList.remove("open");
       toggle.setAttribute("aria-expanded", "false");
     };
+
     toggle.addEventListener("click", () => {
-      const open = nav.classList.toggle("open");
-      toggle.classList.toggle("open", open);
-      toggle.setAttribute("aria-expanded", String(open));
+      const isOpen = nav.classList.toggle("open");
+      toggle.classList.toggle("open", isOpen);
+      toggle.setAttribute("aria-expanded", String(isOpen));
     });
+
     nav.querySelectorAll("a").forEach((link) => link.addEventListener("click", close));
     document.addEventListener("click", (e) => {
       if (!nav.contains(e.target) && !toggle.contains(e.target)) close();
