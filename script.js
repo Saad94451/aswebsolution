@@ -154,7 +154,10 @@
     }
 
     function go(i) {
-      index = Math.max(0, Math.min(i, maxIndex()));
+      // infinite loop — wrap around
+      if (i > maxIndex()) i = 0;
+      if (i < 0) i = maxIndex();
+      index = i;
       const gap = parseFloat(window.getComputedStyle(track).gap) || 18;
       const cardWidth = cards[0].getBoundingClientRect().width;
       track.style.transform = `translateX(-${index * (cardWidth + gap)}px)`;
@@ -165,7 +168,7 @@
 
     function play() {
       stop();
-      timer = setInterval(() => go(index >= maxIndex() ? 0 : index + 1), 5000);
+      timer = setInterval(() => go(index + 1), 5000);
     }
     function stop() { clearInterval(timer); }
 
