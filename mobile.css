@@ -1,0 +1,563 @@
+/* =========================================================
+   AS Web Solution — Mobile Responsive (Center Everything)
+   Applied at max-width: 767px
+   ========================================================= */
+
+@media (max-width: 767px) {
+
+  /* ── GLOBAL CENTERING ── */
+  h1, h2, h3, h4 { text-align: center !important; }
+  p { text-align: center; }
+
+  .section-kicker,
+  .eyebrow {
+    text-align: center !important;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .section-head {
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+
+  .section-head > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .section-sub {
+    text-align: center;
+    margin: 8px auto 0;
+  }
+
+  .hide-mobile { display: none !important; }
+
+  /* ── HERO ── */
+  .hero { padding: 24px 0 32px; text-align: center; }
+
+  .hero-grid {
+    grid-template-columns: 1fr !important;
+    justify-items: center;
+    gap: 32px;
+  }
+
+  .hero-copy {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .lead {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    max-width: 340px;
+    margin: 0 auto 24px;
+  }
+
+  .hero-actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .hero-trust {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .trust-copy { text-align: center; }
+
+  .hero-visual {
+    min-height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 100%;
+  }
+
+  .hero-img {
+    border-radius: 14px;
+  }
+
+  /* ── TRUST STRIP ── */
+  .strip-title { text-align: center; }
+
+  .strip-row {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .strip-item { justify-content: center; }
+
+  /* ── BUILDER / SOLUTIONS ── */
+  .builder-header { text-align: center; }
+
+  .builder-panel { padding: 28px 18px; }
+
+  .builder-cta {
+    grid-template-columns: 1fr !important;
+    gap: 28px;
+  }
+
+  .cta-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .cta-features { align-items: center; }
+
+  .feature-item { justify-content: center; }
+
+  .btn-large {
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+    justify-content: center;
+  }
+
+  .cta-visual { justify-content: center; }
+  .quote-preview { max-width: 100%; margin: 0 auto; }
+
+  /* ── SERVICES ── */
+  .service-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px;
+  }
+
+  .service-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 24px 18px;
+  }
+
+  .icon-box { margin: 0 auto 16px; }
+
+  .service-card h3,
+  .service-card p { text-align: center; }
+
+  .service-card .link-arrow {
+    justify-content: center;
+    margin: 0 auto;
+  }
+
+  /* ── STATS ── */
+  .stats-header { text-align: center; }
+
+  .stats-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px;
+  }
+
+  .stat-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .stat-icon { margin: 0 auto 14px; }
+
+  .stat-number,
+  .stat-label,
+  .stat-desc { text-align: center; }
+
+  /* ── WORK / PORTFOLIO ── */
+  .work-grid {
+    grid-template-columns: 1fr !important;
+    gap: 18px;
+  }
+
+  .work-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .work-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+  }
+
+  .work-meta { justify-content: center; }
+  .work-link { justify-content: center; margin: 0 auto; }
+
+  /* ── ABOUT ── */
+  .about-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .about-copy {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .about-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    margin: 0 auto 24px;
+  }
+
+  .about-features {
+    grid-template-columns: 1fr !important;
+    gap: 14px;
+  }
+
+  .about-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  /* ── PROCESS ── */
+  .process-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px;
+  }
+
+  .process-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 24px 16px;
+  }
+
+  .process-step-header {
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 14px;
+  }
+
+  .process-card-top {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+  }
+
+  .process-icon-box { margin: 0 auto 12px; }
+
+  .process-deliverables {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 0;
+    gap: 6px;
+  }
+
+  .process-deliverables li { justify-content: center; }
+
+  .process-phase-badge {
+    margin: 0 auto;
+    justify-content: center;
+  }
+
+  .process-banner {
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    padding: 22px 16px !important;
+    gap: 16px;
+  }
+
+  .banner-badge { margin: 0 auto; }
+
+  .process-banner-content { text-align: center; }
+
+  .process-banner-action {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 8px;
+  }
+
+  .process-banner-action .btn { margin: 0 auto; }
+
+  /* ── TECHNOLOGY ── */
+  .tech-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 14px;
+  }
+
+  .tech-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 22px 10px 18px;
+  }
+
+  .tech-logo {
+    margin: 0 auto 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .tech-name, .tech-sub { text-align: center; }
+
+  /* ── TESTIMONIALS ── */
+  .testimonials .section-head {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .carousel-nav { justify-content: center; }
+
+  .quote-card {
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+    min-width: 100% !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .quote-person {
+    justify-content: center;
+    margin: 0 auto;
+  }
+
+  .quote-person div { text-align: center; }
+  .dots { justify-content: center; }
+
+  /* ── PRESENCE ── */
+  .presence-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .presence-story { grid-template-columns: 1fr !important; }
+
+  .story-copy {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 24px 18px;
+  }
+
+  .story-media {
+    min-height: 200px !important;
+    max-height: 220px !important;
+  }
+
+  .presence-map { text-align: center; }
+
+  .flags {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .flags li { justify-content: center; }
+
+  /* ── FAQ + CTA ── */
+  .faq-cta-grid {
+    grid-template-columns: 1fr !important;
+    gap: 28px;
+  }
+
+  .faq {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .accordion { width: 100%; }
+
+  .acc-btn { text-align: left; }
+
+  .final-cta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 28px 18px;
+  }
+
+  .cta-kicker { text-align: center; }
+
+  .cta-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: 12px;
+  }
+
+  .cta-actions .btn {
+    width: 100%;
+    max-width: 300px;
+    justify-content: center;
+  }
+
+  /* ── FOOTER ── */
+  .footer { padding: 52px 0 24px; }
+
+  .footer-grid {
+    grid-template-columns: 1fr !important;
+    gap: 36px;
+    justify-items: center;
+  }
+
+  .footer-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+  }
+
+  .footer-col-brand .logo {
+    justify-content: center;
+    margin: 0 auto 14px;
+  }
+
+  .logo-text { align-items: center; }
+
+  .footer-desc {
+    text-align: center;
+    margin: 0 auto 18px;
+    max-width: 400px;
+  }
+
+  .footer-ratings-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin: 0 auto 16px;
+  }
+
+  .footer-ratings-row {
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .rating-badge-card {
+    justify-content: center;
+    margin: 0 auto;
+  }
+
+  .footer-heading {
+    text-align: center;
+    display: block;
+    width: 100%;
+  }
+
+  .footer-heading::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .footer-links {
+    align-items: center;
+    width: 100%;
+    padding: 0;
+  }
+
+  .footer-links li {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .footer-links li a { justify-content: center; }
+
+  .footer-contact-details {
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto;
+  }
+
+  .contact-line {
+    justify-content: flex-start;
+    width: 100%;
+  }
+
+  .footer-response-speed { justify-content: center; }
+
+  .footer-book-btn {
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .footer-bottom-inner {
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    gap: 16px;
+  }
+
+  .footer-copy { text-align: center; }
+
+  .socials { justify-content: center; }
+
+  .legal {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 480px) {
+  .tech-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 10px;
+  }
+
+  .tech-card { padding: 18px 8px 14px; }
+  .tech-name { font-size: 0.9rem; }
+  .tech-sub { font-size: 0.7rem; }
+
+  .footer-ratings-row { gap: 8px; }
+
+  .rating-badge-card {
+    flex: 1 1 calc(50% - 5px);
+    padding: 6px 10px;
+    justify-content: center;
+  }
+
+  .rating-badge-img {
+    height: 24px;
+    max-width: 108px;
+  }
+
+  .hero-actions .btn { width: 100%; }
+}

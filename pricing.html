@@ -1,0 +1,1091 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Get a Free Quote — ASWebSolution</title>
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <style>
+    :root {
+      --brand: #0057ff;
+      --brand-dark: #0040cc;
+      --brand-light: #e8f0ff;
+      --success: #10b981;
+      --gray-50: #f8fafc;
+      --gray-100: #f1f5f9;
+      --gray-200: #e2e8f0;
+      --gray-400: #94a3b8;
+      --gray-600: #475569;
+      --gray-800: #1e293b;
+      --radius: 14px;
+      --shadow: 0 4px 24px rgba(0,0,0,0.08);
+      --shadow-lg: 0 12px 48px rgba(0,0,0,0.12);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--gray-50);
+      color: var(--gray-800);
+      min-height: 100vh;
+    }
+
+    /* ── TOP BAR ── */
+    .topbar {
+      background: #fff;
+      border-bottom: 1px solid var(--gray-200);
+      padding: 14px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .topbar-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .topbar-logo img { height: 36px; }
+    .topbar-logo span { font-size: 18px; font-weight: 700; color: var(--brand); }
+    .topbar-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: var(--brand-light); color: var(--brand);
+      font-size: 12px; font-weight: 600; padding: 6px 14px;
+      border-radius: 30px; border: 1px solid rgba(0,87,255,0.2);
+    }
+
+    /* ── STEPPER ── */
+    .stepper-wrap {
+      background: #fff;
+      border-bottom: 1px solid var(--gray-200);
+      padding: 0 32px;
+    }
+    .stepper {
+      display: flex;
+      align-items: center;
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 20px 0;
+      gap: 0;
+    }
+    .step-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex: 1;
+      cursor: default;
+    }
+    .step-circle {
+      width: 32px; height: 32px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 13px; font-weight: 700;
+      border: 2px solid var(--gray-200);
+      background: #fff;
+      color: var(--gray-400);
+      flex-shrink: 0;
+      transition: all 0.3s;
+    }
+    .step-item.active .step-circle {
+      background: var(--brand); border-color: var(--brand); color: #fff;
+    }
+    .step-item.done .step-circle {
+      background: var(--success); border-color: var(--success); color: #fff;
+    }
+    .step-label { font-size: 13px; font-weight: 500; color: var(--gray-400); white-space: nowrap; }
+    .step-item.active .step-label, .step-item.done .step-label { color: var(--gray-800); }
+    .step-line { flex: 1; height: 2px; background: var(--gray-200); margin: 0 8px; transition: background 0.3s; }
+    .step-line.done { background: var(--success); }
+
+    /* ── MAIN LAYOUT ── */
+    .wizard-outer {
+      max-width: 960px;
+      margin: 40px auto;
+      padding: 0 20px 80px;
+    }
+    .wizard-card {
+      background: #fff;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 40px;
+    }
+    .step-label-small {
+      font-size: 12px; font-weight: 600; color: var(--brand);
+      text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px;
+    }
+    .step-title {
+      font-size: 26px; font-weight: 800; color: var(--gray-800); margin-bottom: 6px;
+    }
+    .step-subtitle {
+      font-size: 15px; color: var(--gray-600); margin-bottom: 32px;
+    }
+
+    /* ── WEBSITE TYPE CARDS ── */
+    .type-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 14px;
+    }
+    .type-card {
+      border: 2px solid var(--gray-200);
+      border-radius: var(--radius);
+      padding: 20px 16px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .type-card:hover { border-color: var(--brand); background: var(--brand-light); }
+    .type-card.selected { border-color: var(--brand); background: var(--brand-light); }
+    .type-card i { font-size: 26px; color: var(--brand); margin-bottom: 10px; display: block; }
+    .type-card h6 { font-size: 13px; font-weight: 700; color: var(--gray-800); margin-bottom: 3px; }
+    .type-card p { font-size: 11px; color: var(--gray-600); margin: 0; }
+
+    /* ── CATALOG DESIGN GRID ── */
+    .design-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 16px;
+    }
+    .design-card {
+      border: 2px solid var(--gray-200);
+      border-radius: var(--radius);
+      overflow: hidden;
+      cursor: pointer;
+      transition: all 0.2s;
+      position: relative;
+    }
+    .design-card:hover { border-color: var(--brand); transform: translateY(-3px); box-shadow: var(--shadow); }
+    .design-card.selected { border-color: var(--brand); }
+    .design-card img { width: 100%; height: 130px; object-fit: cover; object-position: top; display: block; }
+    .design-card-body { padding: 10px 12px; }
+    .design-card-body h6 { font-size: 12px; font-weight: 700; color: var(--gray-800); margin-bottom: 2px; }
+    .design-card-body p { font-size: 11px; color: var(--gray-600); margin: 0; }
+    .design-card .check-badge {
+      position: absolute; top: 8px; right: 8px;
+      width: 24px; height: 24px; border-radius: 50%;
+      background: var(--brand); color: #fff;
+      display: none; align-items: center; justify-content: center;
+      font-size: 12px;
+    }
+    .design-card.selected .check-badge { display: flex; }
+    .custom-option {
+      border: 2px dashed var(--gray-400);
+      border-radius: var(--radius);
+      padding: 30px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .custom-option:hover, .custom-option.selected {
+      border-color: var(--brand); background: var(--brand-light);
+    }
+    .custom-option i { font-size: 32px; color: var(--brand); margin-bottom: 10px; display: block; }
+    .custom-option h6 { font-size: 14px; font-weight: 700; color: var(--gray-800); }
+    .custom-option p { font-size: 13px; color: var(--gray-600); }
+
+    /* Custom description textarea */
+    #customDesc {
+      display: none;
+      margin-top: 16px;
+    }
+    #customDesc textarea {
+      width: 100%;
+      border: 1.5px solid var(--gray-200);
+      border-radius: 10px;
+      padding: 12px 16px;
+      font-size: 14px;
+      font-family: 'Inter', sans-serif;
+      resize: vertical;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    #customDesc textarea:focus { border-color: var(--brand); }
+
+    /* ── STYLE CARDS ── */
+    .style-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 14px;
+    }
+    .style-card {
+      border: 2px solid var(--gray-200);
+      border-radius: var(--radius);
+      cursor: pointer;
+      transition: all 0.2s;
+      text-align: center;
+    }
+    .style-card:hover { border-color: var(--brand); background: var(--brand-light); }
+    .style-card.selected { border-color: var(--brand); background: var(--brand-light); }
+    .style-preview { display: none; }
+    .style-name {
+      padding: 16px 12px;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--gray-800);
+      text-align: center;
+    }
+    .style-card.selected .style-name { color: var(--brand); }
+
+    /* ── FEATURES ── */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 12px;
+    }
+    .feature-check {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      border: 2px solid var(--gray-200);
+      border-radius: 10px;
+      padding: 14px 16px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .feature-check:hover { border-color: var(--brand); background: var(--brand-light); }
+    .feature-check.checked { border-color: var(--brand); background: var(--brand-light); }
+    .feature-check input[type=checkbox] { display: none; }
+    .feature-icon-box {
+      width: 36px; height: 36px; border-radius: 8px;
+      background: var(--brand-light); display: flex;
+      align-items: center; justify-content: center;
+      font-size: 16px; color: var(--brand); flex-shrink: 0;
+    }
+    .feature-check.checked .feature-icon-box { background: var(--brand); color: #fff; }
+    .feature-check span { font-size: 13px; font-weight: 600; color: var(--gray-800); }
+    .feature-check .check-mark {
+      margin-left: auto; color: var(--brand); display: none; font-size: 16px;
+    }
+    .feature-check.checked .check-mark { display: block; }
+
+    /* ── SUMMARY ── */
+    .summary-section { margin-bottom: 28px; }
+    .summary-section h5 {
+      font-size: 13px; font-weight: 700; color: var(--gray-600);
+      text-transform: uppercase; letter-spacing: 1px;
+      margin-bottom: 12px; padding-bottom: 8px;
+      border-bottom: 1px solid var(--gray-200);
+    }
+    .summary-row {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 8px 0; font-size: 14px;
+    }
+    .summary-row .label { color: var(--gray-600); }
+    .summary-row .value { font-weight: 600; color: var(--gray-800); }
+    .summary-design-img {
+      width: 100%; border-radius: 10px;
+      overflow: hidden; margin-bottom: 12px;
+      border: 2px solid var(--gray-200);
+    }
+    .summary-design-img img { width: 100%; height: 160px; object-fit: cover; object-position: top; display: block; }
+    .features-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .feat-tag {
+      display: inline-flex; align-items: center; gap: 5px;
+      background: var(--brand-light); color: var(--brand);
+      font-size: 12px; font-weight: 600; padding: 4px 12px;
+      border-radius: 20px;
+    }
+    .price-box {
+      background: linear-gradient(135deg, #0057ff, #0040cc);
+      border-radius: var(--radius);
+      padding: 28px;
+      color: #fff;
+      text-align: center;
+      margin-top: 8px;
+    }
+    .price-label { font-size: 13px; opacity: 0.8; margin-bottom: 6px; }
+    .price-main { font-size: 36px; font-weight: 800; margin-bottom: 4px; }
+    .price-sub { font-size: 12px; opacity: 0.7; margin-bottom: 20px; }
+    .currency-tabs {
+      display: flex; gap: 8px; justify-content: center; margin-bottom: 20px;
+    }
+    .currency-tab {
+      padding: 6px 18px; border-radius: 20px; font-size: 13px; font-weight: 600;
+      cursor: pointer; border: 2px solid rgba(255,255,255,0.3);
+      background: transparent; color: rgba(255,255,255,0.7);
+      transition: all 0.2s;
+    }
+    .currency-tab.active { background: rgba(255,255,255,0.2); color: #fff; border-color: rgba(255,255,255,0.6); }
+    .price-note { font-size: 12px; opacity: 0.6; margin-top: 10px; }
+
+    /* ── BUTTONS ── */
+    .btn-next {
+      background: var(--brand);
+      color: #fff;
+      border: none;
+      padding: 14px 32px;
+      border-radius: 10px;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .btn-next:hover { background: var(--brand-dark); transform: translateY(-1px); }
+    .btn-back {
+      background: transparent;
+      color: var(--gray-600);
+      border: 2px solid var(--gray-200);
+      padding: 12px 24px;
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s;
+    }
+    .btn-back:hover { border-color: var(--gray-400); color: var(--gray-800); }
+    .btn-home {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: #fff; color: var(--brand);
+      border: 2px solid var(--brand);
+      padding: 13px 28px; border-radius: 10px;
+      font-size: 15px; font-weight: 700;
+      text-decoration: none;
+      transition: all 0.2s;
+      margin-top: 16px;
+    }
+    .btn-home:hover { background: var(--brand); color: #fff; }
+    .btn-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 36px;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    /* ── THANK YOU ── */
+    .thankyou-box {
+      text-align: center;
+      padding: 20px;
+    }
+    .thankyou-icon {
+      width: 80px; height: 80px; border-radius: 50%;
+      background: var(--brand-light);
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 24px;
+      font-size: 36px; color: var(--brand);
+    }
+    .thankyou-box h2 { font-size: 28px; font-weight: 800; margin-bottom: 12px; }
+    .thankyou-box p { font-size: 16px; color: var(--gray-600); max-width: 400px; margin: 0 auto 28px; }
+    .next-steps { text-align: left; background: var(--gray-50); border-radius: var(--radius); padding: 24px; margin: 28px 0; }
+    .next-steps h5 { font-size: 14px; font-weight: 700; color: var(--gray-800); margin-bottom: 16px; }
+    .next-step-item { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 12px; }
+    .step-num { width: 28px; height: 28px; border-radius: 50%; background: var(--brand); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; flex-shrink: 0; }
+    .step-text { font-size: 14px; color: var(--gray-600); padding-top: 4px; }
+
+    /* ── EDIT BUTTON ── */
+    .edit-btn {
+      font-size: 12px; color: var(--brand); cursor: pointer;
+      background: none; border: none; padding: 0;
+      font-weight: 600; text-decoration: underline;
+    }
+
+    /* ── HIDDEN ── */
+    .step-panel { display: none; }
+    .step-panel.active { display: block; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .wizard-card { padding: 24px 20px; }
+      .step-title { font-size: 20px; }
+      .type-grid { grid-template-columns: repeat(2, 1fr); }
+      .design-grid { grid-template-columns: repeat(2, 1fr); }
+      .topbar { padding: 12px 16px; }
+      .stepper-wrap { padding: 0 16px; }
+      .step-label { display: none; }
+      .price-main { font-size: 28px; }
+    }
+    @media (max-width: 480px) {
+      .type-grid { grid-template-columns: repeat(2, 1fr); }
+      .features-grid { grid-template-columns: 1fr; }
+      .style-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body>
+
+
+
+  <!-- STEPPER -->
+  <div class="stepper-wrap">
+    <div class="stepper">
+      <div class="step-item active" id="si-1">
+        <div class="step-circle" id="sc-1">1</div>
+        <div class="step-label">Website Type</div>
+      </div>
+      <div class="step-line" id="sl-1"></div>
+      <div class="step-item" id="si-2">
+        <div class="step-circle" id="sc-2">2</div>
+        <div class="step-label">Design</div>
+      </div>
+      <div class="step-line" id="sl-2"></div>
+      <div class="step-item" id="si-3">
+        <div class="step-circle" id="sc-3">3</div>
+        <div class="step-label">Style & Features</div>
+      </div>
+      <div class="step-line" id="sl-3"></div>
+      <div class="step-item" id="si-4">
+        <div class="step-circle" id="sc-4">4</div>
+        <div class="step-label">Summary</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- WIZARD -->
+  <div class="wizard-outer">
+
+    <!-- ══ STEP 1: WEBSITE TYPE ══ -->
+    <div class="step-panel active" id="panel-1">
+      <div class="wizard-card">
+        <div class="step-label-small">Step 1 of 4</div>
+        <h1 class="step-title">What Type of Website Do You Need?</h1>
+        <p class="step-subtitle">Select the type that best fits your business goals.</p>
+
+        <div class="type-grid" id="typeGrid">
+          <div class="type-card" data-type="Business Website" data-base="299">
+            <i class="bi bi-building"></i>
+            <h6>Business Website</h6>
+            <p>Company / Corporate</p>
+          </div>
+          <div class="type-card" data-type="E-Commerce" data-base="499">
+            <i class="bi bi-cart3"></i>
+            <h6>E-Commerce</h6>
+            <p>Online Store</p>
+          </div>
+          <div class="type-card" data-type="Portfolio" data-base="199">
+            <i class="bi bi-grid-3x3-gap"></i>
+            <h6>Portfolio</h6>
+            <p>Showcase Work</p>
+          </div>
+          <div class="type-card" data-type="Restaurant" data-base="349">
+            <i class="bi bi-cup-hot"></i>
+            <h6>Restaurant</h6>
+            <p>Food & Beverages</p>
+          </div>
+          <div class="type-card" data-type="Real Estate" data-base="449">
+            <i class="bi bi-house-door"></i>
+            <h6>Real Estate</h6>
+            <p>Property Listings</p>
+          </div>
+          <div class="type-card" data-type="Healthcare" data-base="399">
+            <i class="bi bi-heart-pulse"></i>
+            <h6>Healthcare</h6>
+            <p>Clinic / Hospital</p>
+          </div>
+          <div class="type-card" data-type="Education" data-base="349">
+            <i class="bi bi-mortarboard"></i>
+            <h6>Education</h6>
+            <p>School / University</p>
+          </div>
+          <div class="type-card" data-type="Travel" data-base="399">
+            <i class="bi bi-airplane"></i>
+            <h6>Travel</h6>
+            <p>Tours & Booking</p>
+          </div>
+          <div class="type-card" data-type="Construction" data-base="349">
+            <i class="bi bi-hammer"></i>
+            <h6>Construction</h6>
+            <p>Building & Roofing</p>
+          </div>
+          <div class="type-card" data-type="NGO/Charity" data-base="249">
+            <i class="bi bi-leaf"></i>
+            <h6>NGO / Charity</h6>
+            <p>Non-Profit</p>
+          </div>
+          <div class="type-card" data-type="Agency" data-base="449">
+            <i class="bi bi-megaphone"></i>
+            <h6>Agency</h6>
+            <p>Marketing / Digital</p>
+          </div>
+          <div class="type-card" data-type="Custom" data-base="599">
+            <i class="bi bi-sliders"></i>
+            <h6>Custom</h6>
+            <p>Other / Specific Needs</p>
+          </div>
+        </div>
+
+        <div class="btn-footer">
+          <a href="index.html" class="btn-back"><i class="bi bi-arrow-left"></i> Back to Home</a>
+          <button class="btn-next" onclick="goNext(1)">Next Step <i class="bi bi-arrow-right"></i></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══ STEP 2: CHOOSE DESIGN ══ -->
+    <div class="step-panel" id="panel-2">
+      <div class="wizard-card">
+        <div class="step-label-small">Step 2 of 4</div>
+        <h1 class="step-title">Choose a Design from Our Catalog</h1>
+        <p class="step-subtitle">Pick a design you like or choose Custom to describe your own.</p>
+
+        <div class="design-grid" id="designGrid">
+          <!-- Filled by JS based on website type -->
+        </div>
+
+        <!-- Custom Option -->
+        <div id="customOption" class="custom-option mt-4" onclick="selectCustom()">
+          <i class="bi bi-pencil-square"></i>
+          <h6>Custom Design</h6>
+          <p>We'll build a fully custom design from scratch (+$20 extra)</p>
+        </div>
+
+        <div class="btn-footer">
+          <button class="btn-back" onclick="goBack(2)"><i class="bi bi-arrow-left"></i> Back</button>
+          <button class="btn-next" onclick="goNext(2)">Next Step <i class="bi bi-arrow-right"></i></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══ STEP 3: STYLE & FEATURES ══ -->
+    <div class="step-panel" id="panel-3">
+      <div class="wizard-card">
+        <div class="step-label-small">Step 3 of 4</div>
+        <h1 class="step-title">Choose Your Style & Features</h1>
+        <p class="step-subtitle">Pick a design style and select the features you need.</p>
+
+        <h5 style="font-size:15px;font-weight:700;margin-bottom:16px;color:var(--gray-800)">Design Style</h5>
+        <div class="style-grid" id="styleGrid">
+          <div class="style-card" data-style="Modern" data-price="0"><div class="style-name">Modern</div></div>
+          <div class="style-card" data-style="Luxury" data-price="100"><div class="style-name">Luxury</div></div>
+          <div class="style-card" data-style="Minimal" data-price="0"><div class="style-name">Minimal</div></div>
+          <div class="style-card" data-style="Corporate" data-price="50"><div class="style-name">Corporate</div></div>
+          <div class="style-card" data-style="Creative" data-price="80"><div class="style-name">Creative</div></div>
+          <div class="style-card" data-style="Dark" data-price="60"><div class="style-name">Dark Mode</div></div>
+          <div class="style-card" data-style="Cozy" data-price="30"><div class="style-name">Cozy</div></div>
+          <div class="style-card" data-style="Techy" data-price="70"><div class="style-name">Techy</div></div>
+        </div>
+
+        <h5 style="font-size:15px;font-weight:700;margin:28px 0 16px;color:var(--gray-800)">Features</h5>
+        <div class="features-grid" id="featuresGrid">
+          <div class="feature-check" data-feature="Contact Form" data-price="0" onclick="toggleFeature(this)">
+            <input type="checkbox"><div class="feature-icon-box"><i class="bi bi-envelope"></i></div>
+            <span>Contact Form</span><i class="bi bi-check2 check-mark"></i>
+          </div>
+          <div class="feature-check" data-feature="WhatsApp Chat" data-price="30" onclick="toggleFeature(this)">
+            <input type="checkbox"><div class="feature-icon-box"><i class="bi bi-whatsapp"></i></div>
+            <span>WhatsApp Chat</span><i class="bi bi-check2 check-mark"></i>
+          </div>
+          <div class="feature-check" data-feature="Online Booking" data-price="80" onclick="toggleFeature(this)">
+            <input type="checkbox"><div class="feature-icon-box"><i class="bi bi-calendar-check"></i></div>
+            <span>Online Booking</span><i class="bi bi-check2 check-mark"></i>
+          </div>
+          <div class="feature-check" data-feature="Blog / News" data-price="60" onclick="toggleFeature(this)">
+            <input type="checkbox"><div class="feature-icon-box"><i class="bi bi-newspaper"></i></div>
+            <span>Blog / News</span><i class="bi bi-check2 check-mark"></i>
+          </div>
+          <div class="feature-check" data-feature="E-Commerce" data-price="150" onclick="toggleFeature(this)">
+            <input type="checkbox"><div class="feature-icon-box"><i class="bi bi-bag"></i></div>
+            <span>E-Commerce</span><i class="bi bi-check2 check-mark"></i>
+          </div>
+          <div class="feature-check" data-feature="Live Chat" data-price="50" onclick="toggleFeature(this)">
+            <input type="checkbox"><div class="feature-icon-box"><i class="bi bi-chat-dots"></i></div>
+            <span>Live Chat</span><i class="bi bi-check2 check-mark"></i>
+          </div>
+          <div class="feature-check" data-feature="SEO Optimization" data-price="100" onclick="toggleFeature(this)">
+            <input type="checkbox"><div class="feature-icon-box"><i class="bi bi-graph-up-arrow"></i></div>
+            <span>SEO Optimization</span><i class="bi bi-check2 check-mark"></i>
+          </div>
+          <div class="feature-check" data-feature="Multi-Language" data-price="120" onclick="toggleFeature(this)">
+            <input type="checkbox"><div class="feature-icon-box"><i class="bi bi-translate"></i></div>
+            <span>Multi-Language</span><i class="bi bi-check2 check-mark"></i>
+          </div>
+          <div class="feature-check" data-feature="Payment Gateway" data-price="100" onclick="toggleFeature(this)">
+            <input type="checkbox"><div class="feature-icon-box"><i class="bi bi-credit-card"></i></div>
+            <span>Payment Gateway</span><i class="bi bi-check2 check-mark"></i>
+          </div>
+          <div class="feature-check" data-feature="Admin Dashboard" data-price="200" onclick="toggleFeature(this)">
+            <input type="checkbox"><div class="feature-icon-box"><i class="bi bi-speedometer2"></i></div>
+            <span>Admin Dashboard</span><i class="bi bi-check2 check-mark"></i>
+          </div>
+          <div class="feature-check" data-feature="Social Media" data-price="30" onclick="toggleFeature(this)">
+            <input type="checkbox"><div class="feature-icon-box"><i class="bi bi-share"></i></div>
+            <span>Social Media Links</span><i class="bi bi-check2 check-mark"></i>
+          </div>
+          <div class="feature-check" data-feature="Google Analytics" data-price="40" onclick="toggleFeature(this)">
+            <input type="checkbox"><div class="feature-icon-box"><i class="bi bi-bar-chart"></i></div>
+            <span>Google Analytics</span><i class="bi bi-check2 check-mark"></i>
+          </div>
+        </div>
+
+        <div class="btn-footer">
+          <button class="btn-back" onclick="goBack(3)"><i class="bi bi-arrow-left"></i> Back</button>
+          <button class="btn-next" onclick="goNext(3)">Next Step <i class="bi bi-arrow-right"></i></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══ STEP 4: SUMMARY ══ -->
+    <div class="step-panel" id="panel-4">
+      <div class="wizard-card">
+        <div class="step-label-small">Step 4 of 4</div>
+        <h1 class="step-title">Your Project Summary</h1>
+        <p class="step-subtitle">Review your selections and see your estimated investment.</p>
+
+        <div class="row g-4">
+          <!-- Left: Details -->
+          <div class="col-lg-7">
+
+            <div class="summary-section">
+              <h5>Website Type <button class="edit-btn" onclick="goToStep(1)">Edit</button></h5>
+              <div class="summary-row">
+                <span class="label">Type</span>
+                <span class="value" id="s-type">—</span>
+              </div>
+            </div>
+
+            <div class="summary-section">
+              <h5>Selected Design <button class="edit-btn" onclick="goToStep(2)">Edit</button></h5>
+              <div id="s-design-img" class="summary-design-img" style="display:none">
+                <img id="s-design-preview" src="" alt="Selected Design">
+              </div>
+              <div class="summary-row">
+                <span class="label">Design</span>
+                <span class="value" id="s-design">—</span>
+              </div>
+            </div>
+
+            <div class="summary-section">
+              <h5>Style & Features <button class="edit-btn" onclick="goToStep(3)">Edit</button></h5>
+              <div class="summary-row">
+                <span class="label">Style</span>
+                <span class="value" id="s-style">—</span>
+              </div>
+              <div class="summary-row" style="margin-top:10px;flex-direction:column;align-items:flex-start;gap:8px">
+                <span class="label" style="margin-bottom:4px">Features</span>
+                <div class="features-tags" id="s-features"></div>
+              </div>
+            </div>
+
+            <div class="summary-section">
+              <h5>Price Breakdown</h5>
+              <div class="summary-row">
+                <span class="label">Base Price (Website Type)</span>
+                <span class="value" id="s-base-price">—</span>
+              </div>
+              <div class="summary-row">
+                <span class="label">Design Add-on</span>
+                <span class="value" id="s-design-price">—</span>
+              </div>
+              <div class="summary-row">
+                <span class="label">Style Add-on</span>
+                <span class="value" id="s-style-price">—</span>
+              </div>
+              <div class="summary-row">
+                <span class="label">Features Total</span>
+                <span class="value" id="s-features-price">—</span>
+              </div>
+              <div class="summary-row" style="border-top:2px solid var(--gray-200);margin-top:8px;padding-top:12px">
+                <span class="label" style="font-weight:700;color:var(--gray-800)">Estimated Total</span>
+                <span class="value" style="font-size:18px;color:var(--brand)" id="s-total-usd">—</span>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Right: Price box -->
+          <div class="col-lg-5">
+            <div style="position:sticky;top:100px">
+              <div class="price-box">
+                <div class="price-label">Estimated Investment</div>
+                <div class="currency-tabs">
+                  <button class="currency-tab active" onclick="setCurrency('usd',this)">USD $</button>
+                  <button class="currency-tab" onclick="setCurrency('cad',this)">CAD $</button>
+                  <button class="currency-tab" onclick="setCurrency('pkr',this)">PKR ₨</button>
+                </div>
+                <div class="price-main" id="price-display">$ —</div>
+                <div class="price-note">* Based on selected design & features</div>
+                <div class="price-note" id="price-range-note" style="margin-top:4px"></div>
+              </div>
+
+              <a href="contact.html" class="btn-home w-100 mt-3 justify-content-center">
+                <i class="bi bi-envelope"></i> Request This Design
+              </a>
+
+              <button class="btn-home w-100 justify-content-center" onclick="downloadSummary()" style="margin-top:10px;cursor:pointer">
+                <i class="bi bi-download"></i> Download Summary
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="btn-footer">
+          <button class="btn-back" onclick="goBack(4)"><i class="bi bi-arrow-left"></i> Back</button>
+          <a href="index.html" class="btn-home"><i class="bi bi-house"></i> Back to Home</a>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /wizard-outer -->
+
+<script>
+/* ════════════════════════════════════════════
+   STATE
+════════════════════════════════════════════ */
+const state = {
+  step: 1,
+  type: null,
+  typeBase: 0,
+  design: null,
+  designImg: null,
+  designCustom: false,
+  designPrice: 0,
+  style: null,
+  stylePrice: 0,
+  features: [],
+  featuresPrice: 0,
+  currency: 'usd'
+};
+
+const RATES = { usd: 1, cad: 1.36, pkr: 278 };
+const SYMBOLS = { usd: 'USD $', cad: 'CAD $', pkr: 'PKR ₨' };
+
+/* ════════════════════════════════════════════
+   CATALOG DATA (grouped by website type)
+════════════════════════════════════════════ */
+const catalog = {
+  "Business Website": [
+    { name:"Modern Corporate",       img:"WhatsApp%20Image%202026-09-08%20at%2011.41.10%20PM.jpeg", price:0  },
+    { name:"Clean Business Pro",     img:"WhatsApp%20Image%202026-09-08%20at%2011.41.11%20PM.jpeg", price:50 },
+    { name:"Corporate Blue",         img:"WhatsApp%20Image%202026-09-08%20at%2011.41.12%20PM.jpeg", price:30 },
+    { name:"Agency Classic",         img:"WhatsApp%20Image%202026-09-08%20at%2011.41.13%20PM.jpeg", price:40 },
+  ],
+  "E-Commerce": [
+    { name:"ShopPro",                img:"WhatsApp%20Image%202026-09-08%20at%2011.41.14%20PM.jpeg", price:80  },
+    { name:"Store Modern",           img:"WhatsApp%20Image%202026-09-08%20at%2011.41.15%20PM.jpeg", price:100 },
+    { name:"EcomLux",                img:"WhatsApp%20Image%202026-09-08%20at%2011.41.16%20PM.jpeg", price:120 },
+  ],
+  "Portfolio": [
+    { name:"Creative Portfolio",     img:"WhatsApp%20Image%202026-09-08%20at%2011.41.17%20PM.jpeg", price:0  },
+    { name:"Minimal Portfolio",      img:"WhatsApp%20Image%202026-09-08%20at%2011.41.18%20PM.jpeg", price:30 },
+    { name:"Dark Portfolio",         img:"WhatsApp%20Image%202026-09-08%20at%2011.41.19%20PM.jpeg", price:40 },
+  ],
+  "Restaurant": [
+    { name:"FoodHouse",              img:"WhatsApp%20Image%202026-09-08%20at%2011.39.55%20PM.jpeg", price:0  },
+    { name:"Cozy Café",              img:"WhatsApp%20Image%202026-09-08%20at%2011.39.57%20PM.jpeg", price:40 },
+    { name:"Fine Dining",            img:"WhatsApp%20Image%202026-09-08%20at%2011.39.58%20PM.jpeg", price:60 },
+  ],
+  "Real Estate": [
+    { name:"Estafb Properties",      img:"WhatsApp%20Image%202026-09-08%20at%2011.40.40%20PM.jpeg", price:0  },
+    { name:"LuxVilla Homes",         img:"WhatsApp%20Image%202026-09-08%20at%2011.40.41%20PM.jpeg", price:60 },
+    { name:"PropSearch",             img:"WhatsApp%20Image%202026-09-08%20at%2011.40.41%20PM%20(1).jpeg", price:40 },
+    { name:"DreamAddress",           img:"WhatsApp%20Image%202026-09-08%20at%2011.40.40%20PM%20(1).jpeg", price:30 },
+  ],
+  "Healthcare": [
+    { name:"MiCare+ Dental",         img:"WhatsApp%20Image%202026-09-08%20at%2011.40.31%20PM.jpeg", price:0  },
+    { name:"WellCare Hospital",      img:"WhatsApp%20Image%202026-09-08%20at%2011.40.37%20PM.jpeg", price:60 },
+    { name:"VitalCare",              img:"WhatsApp%20Image%202026-09-08%20at%2011.40.38%20PM.jpeg", price:40 },
+  ],
+  "Education": [
+    { name:"EduPro",                 img:"WhatsApp%20Image%202026-09-08%20at%2011.41.02%20PM.jpeg", price:0  },
+    { name:"Campus Modern",          img:"WhatsApp%20Image%202026-09-08%20at%2011.41.03%20PM.jpeg", price:40 },
+  ],
+  "Travel": [
+    { name:"TravelPerk",             img:"WhatsApp%20Image%202026-09-08%20at%2011.40.23%20PM.jpeg", price:0  },
+    { name:"WanderLux",              img:"WhatsApp%20Image%202026-09-08%20at%2011.40.25%20PM.jpeg", price:50 },
+    { name:"HorizonTrips",           img:"WhatsApp%20Image%202026-09-08%20at%2011.40.26%20PM.jpeg", price:40 },
+  ],
+  "Construction": [
+    { name:"Antixr Roofing",         img:"WhatsApp%20Image%202026-09-08%20at%2011.40.43%20PM.jpeg", price:0  },
+    { name:"Anti Architecture",      img:"WhatsApp%20Image%202026-09-08%20at%2011.40.44%20PM.jpeg", price:40 },
+    { name:"BuildLegacy",            img:"WhatsApp%20Image%202026-09-08%20at%2011.40.45%20PM.jpeg", price:30 },
+  ],
+  "NGO/Charity": [
+    { name:"Anti Green NGO",         img:"WhatsApp%20Image%202026-09-08%20at%2011.40.50%20PM%20(2).jpeg", price:0  },
+    { name:"GreenEarth Cause",       img:"WhatsApp%20Image%202026-09-08%20at%2011.40.51%20PM.jpeg", price:30 },
+    { name:"OceanKeepers",           img:"WhatsApp%20Image%202026-09-08%20at%2011.40.55%20PM.jpeg", price:20 },
+  ],
+  "Agency": [
+    { name:"Creative Agency",        img:"WhatsApp%20Image%202026-09-08%20at%2011.41.04%20PM.jpeg", price:0  },
+    { name:"Digital Pro",            img:"WhatsApp%20Image%202026-09-08%20at%2011.41.05%20PM.jpeg", price:50 },
+  ],
+  "Custom": []
+};
+
+/* ════════════════════════════════════════════
+   STEP 1 — Type selection
+════════════════════════════════════════════ */
+document.querySelectorAll('.type-card').forEach(card => {
+  card.addEventListener('click', () => {
+    document.querySelectorAll('.type-card').forEach(c => c.classList.remove('selected'));
+    card.classList.add('selected');
+    state.type = card.dataset.type;
+    state.typeBase = parseInt(card.dataset.base);
+  });
+});
+
+/* ════════════════════════════════════════════
+   STEP 2 — Design grid
+════════════════════════════════════════════ */
+const ALL_DESIGNS = [
+  {name:"Template 1",  img:"WhatsApp%20Image%202026-09-08%20at%2011.39.55%20PM.jpeg"},
+  {name:"Template 2",  img:"WhatsApp%20Image%202026-09-08%20at%2011.39.57%20PM.jpeg"},
+  {name:"Template 3",  img:"WhatsApp%20Image%202026-09-08%20at%2011.39.58%20PM.jpeg"},
+  {name:"Template 4",  img:"WhatsApp%20Image%202026-09-08%20at%2011.39.59%20PM.jpeg"},
+  {name:"Template 5",  img:"WhatsApp%20Image%202026-09-08%20at%2011.40.00%20PM.jpeg"},
+  {name:"Template 6",  img:"WhatsApp%20Image%202026-09-08%20at%2011.40.01%20PM.jpeg"},
+  {name:"Template 7",  img:"WhatsApp%20Image%202026-09-08%20at%2011.40.02%20PM.jpeg"},
+  {name:"Template 8",  img:"WhatsApp%20Image%202026-09-08%20at%2011.40.04%20PM.jpeg"},
+  {name:"Template 9",  img:"WhatsApp%20Image%202026-09-08%20at%2011.40.05%20PM.jpeg"},
+  {name:"Template 10", img:"WhatsApp%20Image%202026-09-08%20at%2011.40.07%20PM.jpeg"},
+  {name:"Template 11", img:"WhatsApp%20Image%202026-09-08%20at%2011.40.08%20PM.jpeg"},
+  {name:"Template 12", img:"WhatsApp%20Image%202026-09-08%20at%2011.40.10%20PM.jpeg"},
+  {name:"Template 13", img:"WhatsApp%20Image%202026-09-08%20at%2011.40.15%20PM.jpeg"},
+  {name:"Template 14", img:"WhatsApp%20Image%202026-09-08%20at%2011.40.16%20PM.jpeg"},
+  {name:"Template 15", img:"WhatsApp%20Image%202026-09-08%20at%2011.40.18%20PM.jpeg"},
+  {name:"Template 16", img:"WhatsApp%20Image%202026-09-08%20at%2011.40.19%20PM.jpeg"},
+  {name:"Template 17", img:"WhatsApp%20Image%202026-09-08%20at%2011.40.19%20PM%20(1).jpeg"},
+  {name:"Template 18", img:"WhatsApp%20Image%202026-09-08%20at%2011.40.21%20PM.jpeg"},
+  {name:"Template 19", img:"WhatsApp%20Image%202026-09-08%20at%2011.40.22%20PM.jpeg"},
+  {name:"Template 20", img:"WhatsApp%20Image%202026-09-08%20at%2011.40.22%20PM%20(1).jpeg"},
+  {name:"Template 21", img:"WhatsApp%20Image%202026-09-08%20at%2011.40.23%20PM.jpeg"},
+  {name:"Template 22", img:"WhatsApp%20Image%202026-09-08%20at%2011.40.25%20PM.jpeg"},
+  {name:"Template 23", img:"WhatsApp%20Image%202026-09-08%20at%2011.40.26%20PM.jpeg"},
+  {name:"Template 24", img:"WhatsApp%20Image%202026-09-08%20at%2011.40.27%20PM.jpeg"},
+  {name:"Template 25", img:"WhatsApp%20Image%202026-09-08%20at%2011.40.28%20PM.jpeg"},
+  {name:"Template 26", img:"WhatsApp%20Image%202026-09-08%20at%2011.40.29%20PM.jpeg"},
+  {name:"Template 27", img:"WhatsApp%20Image%202026-09-08%20at%2011.40.29%20PM%20(1).jpeg"},
+  {name:"Template 28", img:"WhatsApp%20Image%202026-09-08%20at%2011.40.30%20PM.jpeg"},
+  {name:"Template 29", img:"WhatsApp%20Image%202026-09-08%20at%2011.40.31%20PM.jpeg"},
+  {name:"Template 30", img:"WhatsApp%20Image%202026-09-08%20at%2011.40.31%20PM%20(1).jpeg"},
+  {name:"Template 31", img:"WhatsApp%20Image%202026-09-08%20at%2011.40.33%20PM.jpeg"},
+  {name:"Template 32", img:"WhatsApp%20Image%202026-09-08%20at%2011.40.33%20PM%20(1).jpeg"},
+  {name:"Template 33", img:"WhatsApp%20Image%202026-09-08%20at%2011.40.37%20PM.jpeg"},
+  {name:"Template 34", img:"WhatsApp%20Image%202026-09-08%20at%2011.40.38%20PM.jpeg"},
+  {name:"Template 35", img:"WhatsApp%20Image%202026-09-08%20at%2011.40.39%20PM.jpeg"},
+  {name:"Template 36", img:"WhatsApp%20Image%202026-09-08%20at%2011.40.39%20PM%20(1).jpeg"},
+  {name:"Template 37", img:"WhatsApp%20Image%202026-09-08%20at%2011.40.40%20PM.jpeg"},
+  {name:"Template 38", img:"WhatsApp%20Image%202026-09-08%20at%2011.40.40%20PM%20(1).jpeg"},
+  {name:"Template 39", img:"WhatsApp%20Image%202026-09-08%20at%2011.40.41%20PM.jpeg"},
+  {name:"Template 40", img:"WhatsApp%20Image%202026-09-08%20at%2011.40.41%20PM%20(1).jpeg"},
+  {name:"Template 41", img:"WhatsApp%20Image%202026-09-08%20at%2011.40.41%20PM%20(2).jpeg"},
+  {name:"Template 42", img:"WhatsApp%20Image%202026-09-08%20at%2011.40.42%20PM.jpeg"},
+  {name:"Template 43", img:"WhatsApp%20Image%202026-09-08%20at%2011.40.43%20PM.jpeg"},
+  {name:"Template 44", img:"WhatsApp%20Image%202026-09-08%20at%2011.40.44%20PM.jpeg"},
+  {name:"Template 45", img:"WhatsApp%20Image%202026-09-08%20at%2011.40.44%20PM%20(1).jpeg"},
+  {name:"Template 46", img:"WhatsApp%20Image%202026-09-08%20at%2011.40.45%20PM.jpeg"},
+  {name:"Template 47", img:"WhatsApp%20Image%202026-09-08%20at%2011.40.46%20PM.jpeg"},
+  {name:"Template 48", img:"WhatsApp%20Image%202026-09-08%20at%2011.40.46%20PM%20(1).jpeg"},
+  {name:"Template 49", img:"WhatsApp%20Image%202026-09-08%20at%2011.40.50%20PM.jpeg"},
+  {name:"Template 50", img:"WhatsApp%20Image%202026-09-08%20at%2011.40.50%20PM%20(1).jpeg"},
+  {name:"Template 51", img:"WhatsApp%20Image%202026-09-08%20at%2011.40.50%20PM%20(2).jpeg"},
+  {name:"Template 52", img:"WhatsApp%20Image%202026-09-08%20at%2011.40.51%20PM.jpeg"},
+  {name:"Template 53", img:"WhatsApp%20Image%202026-09-08%20at%2011.40.54%20PM.jpeg"},
+  {name:"Template 54", img:"WhatsApp%20Image%202026-09-08%20at%2011.40.55%20PM.jpeg"},
+  {name:"Template 55", img:"WhatsApp%20Image%202026-09-08%20at%2011.40.55%20PM%20(1).jpeg"},
+  {name:"Template 56", img:"WhatsApp%20Image%202026-09-08%20at%2011.40.55%20PM%20(2).jpeg"},
+  {name:"Template 57", img:"WhatsApp%20Image%202026-09-08%20at%2011.40.57%20PM.jpeg"},
+  {name:"Template 58", img:"WhatsApp%20Image%202026-09-08%20at%2011.40.57%20PM%20(1).jpeg"},
+ 
+];
+
+function buildDesignGrid() {
+  const grid = document.getElementById('designGrid');
+  grid.innerHTML = '';
+  ALL_DESIGNS.forEach((d, idx) => {
+    const card = document.createElement('div');
+    card.className = 'design-card';
+    card.innerHTML = `
+      <img src="assets/img/new/${d.img}" alt="${d.name}" loading="lazy">
+      <div class="design-card-body">
+        <h6>${d.name}</h6>
+        <p>Template #${idx+1}</p>
+      </div>
+      <div class="check-badge"><i class="bi bi-check2"></i></div>`;
+    card.addEventListener('click', () => {
+      document.querySelectorAll('.design-card').forEach(c => c.classList.remove('selected'));
+      card.classList.add('selected');
+      state.design = d.name;
+      state.designImg = d.img;
+      state.designPrice = 0;
+      state.designCustom = false;
+      document.getElementById('customOption').classList.remove('selected');
+      document.getElementById('customDesc').style.display = 'none';
+    });
+    grid.appendChild(card);
+  });
+}
+
+function selectCustom() {
+  document.querySelectorAll('.design-card').forEach(c => c.classList.remove('selected'));
+  document.getElementById('customOption').classList.add('selected');
+  state.design = 'Custom Design';
+  state.designImg = null;
+  state.designPrice = 20;
+  state.designCustom = true;
+}
+
+/* ════════════════════════════════════════════
+   STEP 3 — Style
+════════════════════════════════════════════ */
+document.querySelectorAll('.style-card').forEach(card => {
+  card.addEventListener('click', () => {
+    document.querySelectorAll('.style-card').forEach(c => c.classList.remove('selected'));
+    card.classList.add('selected');
+    state.style = card.dataset.style;
+    state.stylePrice = parseInt(card.dataset.price);
+  });
+});
+
+function toggleFeature(el) {
+  el.classList.toggle('checked');
+  const feat = el.dataset.feature;
+  const price = parseInt(el.dataset.price);
+  if (el.classList.contains('checked')) {
+    if (!state.features.includes(feat)) state.features.push(feat);
+    state.featuresPrice += price;
+  } else {
+    state.features = state.features.filter(f => f !== feat);
+    state.featuresPrice -= price;
+  }
+}
+
+/* ════════════════════════════════════════════
+   STEP 4 — Summary
+════════════════════════════════════════════ */
+function buildSummary() {
+  document.getElementById('s-type').textContent = state.type || '—';
+
+  document.getElementById('s-design').textContent = state.design || '—';
+  const imgWrap = document.getElementById('s-design-img');
+  if (state.designImg) {
+    document.getElementById('s-design-preview').src = `assets/img/new/${state.designImg}`;
+    imgWrap.style.display = 'block';
+  } else { imgWrap.style.display = 'none'; }
+
+  document.getElementById('s-style').textContent = state.style || '—';
+
+  const featsEl = document.getElementById('s-features');
+  featsEl.innerHTML = '';
+  if (state.features.length === 0) {
+    featsEl.innerHTML = '<span style="color:var(--gray-400);font-size:13px">None selected</span>';
+  } else {
+    state.features.forEach(f => {
+      featsEl.innerHTML += `<span class="feat-tag"><i class="bi bi-check2"></i>${f}</span>`;
+    });
+  }
+
+  const total = state.typeBase + state.designPrice + state.stylePrice + state.featuresPrice;
+  document.getElementById('s-base-price').textContent = `$${state.typeBase}`;
+  document.getElementById('s-design-price').textContent = state.designCustom ? `+$200 (Custom)` : (state.designPrice > 0 ? `+$${state.designPrice}` : 'Included');
+  document.getElementById('s-style-price').textContent = state.stylePrice > 0 ? `+$${state.stylePrice}` : 'Included';
+  document.getElementById('s-features-price').textContent = `+$${state.featuresPrice}`;
+  document.getElementById('s-total-usd').textContent = `USD $${total}`;
+
+  state._totalUSD = total;
+  updatePriceDisplay();
+}
+
+function setCurrency(cur, btn) {
+  state.currency = cur;
+  document.querySelectorAll('.currency-tab').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  updatePriceDisplay();
+}
+
+function updatePriceDisplay() {
+  const t = state._totalUSD || 0;
+  const rate = RATES[state.currency];
+  const sym = SYMBOLS[state.currency];
+  const converted = Math.round(t * rate);
+  const lo = Math.round(converted * 0.9);
+  const hi = Math.round(converted * 1.15);
+  document.getElementById('price-display').textContent = `${sym} ${converted.toLocaleString()}`;
+  document.getElementById('price-range-note').textContent = `Range: ${sym} ${lo.toLocaleString()} – ${hi.toLocaleString()}`;
+}
+
+function downloadSummary() {
+  const t = state._totalUSD || 0;
+  const lines = [
+    '════════════════════════════════',
+    '     ASWebSolution — Quote Summary',
+    '════════════════════════════════',
+    '',
+    `Website Type  : ${state.type}`,
+    `Design        : ${state.design}`,
+    `Style         : ${state.style}`,
+    `Features      : ${state.features.join(', ') || 'None'}`,
+    '',
+    '── Price Breakdown ──────────────',
+    `Base Price    : USD $${state.typeBase}`,
+    `Design Add-on : USD $${state.designPrice}`,
+    `Style Add-on  : USD $${state.stylePrice}`,
+    `Features      : USD $${state.featuresPrice}`,
+    '',
+    `TOTAL (USD)   : USD $${t}`,
+    `TOTAL (CAD)   : CAD $${Math.round(t * RATES.cad).toLocaleString()}`,
+    `TOTAL (PKR)   : PKR ₨${Math.round(t * RATES.pkr).toLocaleString()}`,
+    '',
+    '* Estimated range ±10–15%',
+    '',
+    'Contact: info@aswebsolution.com',
+    'Phone  : +92 343 3458001',
+    '════════════════════════════════',
+  ];
+  const blob = new Blob([lines.join('\n')], { type: 'text/plain' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'ASWebSolution_Quote.txt';
+  a.click();
+}
+
+/* ════════════════════════════════════════════
+   NAVIGATION
+════════════════════════════════════════════ */
+function goNext(from) {
+  if (from === 1) {
+    if (!state.type) { alert('Please select a website type.'); return; }
+    buildDesignGrid();
+  }
+  if (from === 2) {
+    if (!state.design) { alert('Please select a design or choose Custom.'); return; }
+  }
+  if (from === 3) {
+    if (!state.style) { alert('Please select a design style.'); return; }
+    buildSummary();
+  }
+  goToStep(from + 1);
+}
+
+function goBack(from) {
+  goToStep(from - 1);
+}
+
+function goToStep(n) {
+  // Hide all panels
+  document.querySelectorAll('.step-panel').forEach(p => p.classList.remove('active'));
+  document.getElementById(`panel-${n}`).classList.add('active');
+  state.step = n;
+  updateStepper(n);
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function updateStepper(current) {
+  for (let i = 1; i <= 4; i++) {
+    const item = document.getElementById(`si-${i}`);
+    const circle = document.getElementById(`sc-${i}`);
+    item.classList.remove('active', 'done');
+    if (i < current) {
+      item.classList.add('done');
+      circle.innerHTML = '<i class="bi bi-check2" style="font-size:13px"></i>';
+    } else if (i === current) {
+      item.classList.add('active');
+      circle.textContent = i;
+    } else {
+      circle.textContent = i;
+    }
+    if (i < 4) {
+      const line = document.getElementById(`sl-${i}`);
+      line.classList.toggle('done', i < current);
+    }
+  }
+}
+</script>
+
+</body>
+</html>
