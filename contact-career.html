@@ -1,0 +1,194 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Career Support | AS Web Solution</title>
+  <meta name="description" content="Explore career opportunities at AS Web Solution. Join our team of talented designers and developers.">
+  <meta name="theme-color" content="#062A5C">
+  <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="mobile.css">
+  <link rel="stylesheet" href="contact-common.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="header" id="header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo" aria-label="AS Web Solution home">
+        <img src="./assets/img/logo-removebg.png" alt="AS Logo" style="height:52px;width:52px;">
+        <span class="logo-text"><strong>AS Web Solution</strong><small>Digital solutions for a better tomorrow</small></span>
+      </a>
+      <nav class="nav" id="nav" aria-label="Primary">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="whyus.html" class="nav-link">Why Us</a>
+        <a href="catalog.html" class="nav-link">Services</a>
+        <div class="nav-dropdown">
+          <button class="nav-link nav-dropdown-trigger active" type="button" aria-expanded="false" aria-haspopup="true">Contact <i data-lucide="chevron-down" class="dd-arrow"></i></button>
+          <div class="nav-dropdown-menu" role="menu">
+            <a href="contact-project.html" class="nav-dropdown-item" role="menuitem">
+              <div class="ndi-icon"><i data-lucide="rocket"></i></div>
+              <div><strong>Project Inquiry</strong><span>Start a new project</span></div>
+            </a>
+            <a href="contact-client.html" class="nav-dropdown-item" role="menuitem">
+              <div class="ndi-icon"><i data-lucide="headphones"></i></div>
+              <div><strong>Client Support</strong><span>Existing client help</span></div>
+            </a>
+            <a href="contact-career.html" class="nav-dropdown-item active" role="menuitem">
+              <div class="ndi-icon"><i data-lucide="briefcase"></i></div>
+              <div><strong>Career Support</strong><span>Jobs and opportunities</span></div>
+            </a>
+          </div>
+        </div>
+        <a href="pricing.html" class="nav-link">Pricing</a>
+      </nav>
+      <div class="header-actions">
+        <a href="contact-project.html" class="btn btn-primary header-cta">Start a Project <i data-lucide="arrow-right"></i></a>
+        <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+  <main id="main">
+    <section class="page-hero page-hero--career">
+      <div class="container">
+        <p class="eyebrow reveal">JOIN OUR TEAM</p>
+        <h1 class="reveal">Build Your Career <span class="grad-light">With Us</span></h1>
+        <p class="lead reveal delay-1">We are always looking for talented, passionate individuals to join our growing team. Apply below or send your CV directly.</p>
+      </div>
+    </section>
+    
+
+  
+
+    <section class="inquiry-section" id="apply">
+      <div class="container">
+        <div class="inquiry-grid">
+          <div class="inquiry-sidebar reveal">
+            <div class="sidebar-info-card sidebar-info-card--purple">
+              <h3>Why Work With Us?</h3>
+              <p>We believe great talent deserves a great environment to thrive.</p>
+              <div class="sidebar-process">
+                <div class="process-step"><div class="step-num step-num--purple"><i data-lucide="globe"></i></div><div class="step-text"><strong>100% Remote-Friendly</strong><span>Work from anywhere in Pakistan</span></div></div>
+                <div class="process-step"><div class="step-num step-num--purple"><i data-lucide="trending-up"></i></div><div class="step-text"><strong>Growth Opportunities</strong><span>Learn, grow and lead projects</span></div></div>
+                <div class="process-step"><div class="step-num step-num--purple"><i data-lucide="users"></i></div><div class="step-text"><strong>Collaborative Culture</strong><span>A team that has your back</span></div></div>
+                <div class="process-step"><div class="step-num step-num--purple"><i data-lucide="star"></i></div><div class="step-text"><strong>Meaningful Work</strong><span>Real projects, real impact</span></div></div>
+              </div>
+            </div>
+            <div class="sidebar-quick-card">
+              <h4>Questions about roles?</h4>
+              <div class="quick-contact-item">
+                <div class="qc-icon"><i data-lucide="mail"></i></div>
+                <div class="qc-info"><strong><a href="mailto:careers@aswebsolution.com">careers@aswebsolution.com</a></strong><span>Career enquiries</span></div>
+              </div>
+              
+            </div>
+          </div>
+          <div class="inquiry-form-card reveal delay-1">
+            <div class="form-card-header">
+              <h2>Apply for a Position</h2>
+              <p>Do not see the perfect role? Apply anyway - we are always looking for great talent.</p>
+            </div>
+            <form id="careerForm" novalidate>
+              <div class="form-row">
+                <div class="form-group"><label for="crName">Full Name <span>*</span></label><input type="text" id="crName" name="name" placeholder="Your Full Name" required></div>
+                <div class="form-group"><label for="crEmail">Email Address <span>*</span></label><input type="email" id="crEmail" name="email" placeholder="you@email.com" required></div>
+              </div>
+              <div class="form-row">
+                <div class="form-group"><label for="crPhone">Phone / WhatsApp <span>*</span></label><input type="tel" id="crPhone" name="phone" placeholder="+92 300 0000000" required></div>
+                <div class="form-group"><label for="crCity">City / Location</label><input type="text" id="crCity" name="city" placeholder="Karachi, Lahore..."></div>
+              </div>
+              <div class="form-group">
+                <label for="crRole">Position Applying For <span>*</span></label>
+                <select id="crRole" name="role" required>
+                  <option value="" disabled selected>Select a position...</option>
+                  <option value="fullstack">Full-Stack Developer</option>
+                  <option value="frontend">Frontend Developer</option>
+                  <option value="backend">Backend Developer</option>
+                  <option value="uiux">UI/UX Designer</option>
+                  <option value="marketing">Digital Marketing Executive</option>
+                  <option value="ai">AI / Automation Engineer</option>
+                  <option value="pm">Project Manager</option>
+                  <option value="other">Other / Internship</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="crExperience">Years of Experience</label>
+                <select id="crExperience" name="experience">
+                  <option value="" disabled selected>Select experience level...</option>
+                  <option value="fresher">Fresher / Student</option>
+                  <option value="1year">Less than 1 year</option>
+                  <option value="1-2">1-2 years</option>
+                  <option value="2-5">2-5 years</option>
+                  <option value="5+">5+ years</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="crPortfolio">Portfolio / LinkedIn / GitHub</label>
+                <input type="url" id="crPortfolio" name="portfolio" placeholder="https://yourportfolio.com or linkedin.com/in/...">
+              </div>
+              <div class="form-group">
+                <label for="crCV">CV / Resume Link <span>*</span></label>
+                <input type="url" id="crCV" name="cv" placeholder="https://drive.google.com/... or any shareable link" required>
+              </div>
+              <div class="form-group">
+                <label for="crCover">Cover Letter / Why You?</label>
+                <textarea id="crCover" name="cover" placeholder="Tell us about yourself, your skills and why you want to join AS Web Solution..."></textarea>
+              </div>
+              <div class="form-submit-row">
+                <button type="submit" class="btn btn-primary" id="crSubmitBtn">Submit Application <i data-lucide="send"></i></button>
+                <div class="form-guarantee"><i data-lucide="shield-check"></i><span>Confidential and secure</span></div>
+              </div>
+              <div class="form-status-msg" id="crFormStatus"></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="footer">
+    <div class="container footer-main">
+      <div class="footer-grid">
+        <div class="footer-col footer-col-brand">
+          <a href="index.html" class="logo light"><img src="./assets/img/logo-removebg.png" alt="AS Logo" style="height:52px;width:52px;"><span class="logo-text"><strong>AS Web Solution</strong><small>Digital solutions for a better tomorrow</small></span></a>
+          <p class="footer-desc">We engineer high-performance web applications, enterprise eCommerce platforms, and smart automated systems.</p>
+          <div class="footer-ratings-wrap"><div class="footer-ratings-row"><a href="#" class="rating-badge-card"><img src="assets/img/googlerating.png" alt="Google Rating" class="rating-badge-img"></a><a href="#" class="rating-badge-card"><img src="assets/img/clutchrating.png" alt="Clutch Rating" class="rating-badge-img"></a></div></div>
+        </div>
+        <div class="footer-col"><h4 class="footer-heading">Quick Links</h4><ul class="footer-links"><li><a href="index.html"><i data-lucide="chevron-right"></i> Home</a></li><li><a href="about.html"><i data-lucide="chevron-right"></i> About Us</a></li><li><a href="whyus.html"><i data-lucide="chevron-right"></i> Why Choose Us</a></li><li><a href="catalog.html"><i data-lucide="chevron-right"></i> Services</a></li></ul></div>
+        <div class="footer-col"><h4 class="footer-heading">Contact</h4><ul class="footer-links"><li><a href="contact-project.html"><i data-lucide="chevron-right"></i> Project Inquiry</a></li><li><a href="contact-client.html"><i data-lucide="chevron-right"></i> Client Support</a></li><li><a href="contact-career.html"><i data-lucide="chevron-right"></i> Career Support</a></li></ul></div>
+        <div class="footer-col"><h4 class="footer-heading">Reach Us</h4><ul class="footer-links"><li><a href="mailto:info@aswebsolution.com"><i data-lucide="chevron-right"></i> info@aswebsolution.com</a></li><li><a href="tel:+923433458001"><i data-lucide="chevron-right"></i> +92 343 3458001</a></li><li><a href="pricing.html"><i data-lucide="chevron-right"></i> Get a Quote</a></li></ul></div>
+      </div>
+    </div>
+    <div class="footer-bottom-bar"><div class="container footer-bottom-inner"><div class="footer-copy"><p>2026 AS Web Solution. All rights reserved.</p></div><div class="socials"><a href="https://linkedin.com" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a></div><div class="legal"><a href="#">Privacy Policy</a><span class="legal-divider">-</span><a href="#">Terms of Service</a></div></div></div>
+  </footer>
+  <button class="to-top" id="toTop" type="button" aria-label="Back to top"><i data-lucide="chevron-up"></i></button>
+  <script src="script.js"></script>
+  <script>
+    const form = document.getElementById('careerForm');
+    const statusEl = document.getElementById('crFormStatus');
+    const submitBtn = document.getElementById('crSubmitBtn');
+    if (form) {
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = 'Submitting... <i data-lucide="loader-2"></i>';
+        lucide.createIcons();
+        setTimeout(() => {
+          statusEl.textContent = 'Application received! We will review it and get back to you soon.';
+          statusEl.classList.add('success');
+          submitBtn.innerHTML = 'Application Sent! <i data-lucide="check"></i>';
+          lucide.createIcons();
+          form.reset();
+          setTimeout(() => { submitBtn.disabled = false; submitBtn.innerHTML = 'Submit Application <i data-lucide="send"></i>'; statusEl.textContent = ''; statusEl.classList.remove('success'); lucide.createIcons(); }, 5000);
+        }, 1400);
+      });
+    }
+  </script>
+</body>
+</html>

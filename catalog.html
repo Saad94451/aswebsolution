@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Services Catalog | AS Web Solution</title>
-  <meta name="description" content="Explore the full range of digital services offered by AS Web Solution — web development, eCommerce, UI/UX, automation and AI.">
+  <title>Client Projects & Live Catalog | AS Web Solution</title>
+  <meta name="description" content="Explore our live interactive website showcase and client catalog. High-performance web development, digital platforms, and automation delivered worldwide by AS Web Solution.">
   <meta name="theme-color" content="#062A5C">
   <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,93 +14,684 @@
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="mobile.css">
   <style>
+    /* PAGE HERO */
     .page-hero {
-      padding: 100px 0 70px;
-      background: radial-gradient(900px 420px at 80% 20%, rgba(37,99,235,.12), transparent 60%),
-                  linear-gradient(#fff, #F7FAFF);
+      position: relative;
+      padding: 85px 0 65px;
+      background: url("https://images.unsplash.com/photo-1547658719-da2b51169166?w=1600&h=800&fit=crop") center/cover no-repeat;
+      text-align: center;
+      overflow: hidden;
+    }
+    .page-hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(6,42,92,.88) 0%, rgba(3,27,61,.78) 100%);
+      z-index: 0;
+    }
+    .page-hero .container { position: relative; z-index: 1; }
+    .page-hero h1 { color: #fff; margin-bottom: 14px; font-weight: 800; }
+    .page-hero .lead { color: rgba(255,255,255,.88); max-width: 660px; margin: 0 auto 26px; font-size: 1.05rem; }
+    .page-hero .eyebrow { color: #93C5FD; margin-bottom: 12px; }
+
+    .hero-stats-strip {
+      display: inline-flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 20px 32px;
+      margin-top: 26px;
+      padding: 12px 28px;
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.16);
+      border-radius: 999px;
+      backdrop-filter: blur(10px);
+    }
+    .hero-stat-item {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      color: #fff;
+      font-size: 0.86rem;
+      font-weight: 500;
+    }
+    .hero-stat-item i, .hero-stat-item svg { width: 17px; height: 17px; color: #60A5FA; }
+
+    /* CATALOG MAIN SECTION */
+    .catalog-section { padding: 75px 0 85px; background: #FAFCFF; }
+
+    /* FILTER TABS & SEARCH */
+    .catalog-toolbar {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      margin-bottom: 45px;
+    }
+    .filter-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+    }
+    .filter-btn {
+      padding: 10px 22px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: #fff;
+      color: #334155;
+      font-size: 0.88rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      transition: all .25s ease;
+      box-shadow: var(--shadow-sm);
+    }
+    .filter-btn:hover {
+      border-color: var(--blue);
+      color: var(--blue);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(37, 99, 235, 0.12);
+    }
+    .filter-btn.active {
+      background: var(--blue);
+      color: #fff;
+      border-color: var(--blue);
+      box-shadow: 0 8px 22px rgba(37, 99, 235, 0.28);
+    }
+
+    /* PROJECTS GRID */
+    .showcase-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    /* PROJECT CARD WITH BROWSER MOCKUP */
+    .showcase-card {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      transition: transform .32s cubic-bezier(.16,1,.3,1), box-shadow .32s ease, border-color .32s ease;
+      position: relative;
+    }
+    .showcase-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 22px 48px rgba(6, 42, 92, 0.14);
+      border-color: #BFDBFE;
+    }
+
+    /* BROWSER TOP BAR */
+    .browser-frame {
+      background: #F1F5F9;
+      border-bottom: 1px solid #E2E8F0;
+      padding: 10px 14px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .browser-dots {
+      display: flex;
+      gap: 6px;
+      align-items: center;
+    }
+    .browser-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+    }
+    .browser-dot.red { background: #EF4444; }
+    .browser-dot.yellow { background: #F59E0B; }
+    .browser-dot.green { background: #10B981; }
+    
+    .browser-url {
+      flex: 1;
+      background: #fff;
+      border: 1px solid #CBD5E1;
+      border-radius: 6px;
+      padding: 3px 10px;
+      font-size: 0.72rem;
+      color: #64748B;
+      font-family: monospace;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .browser-url i, .browser-url svg { width: 12px; height: 12px; color: #10B981; flex-shrink: 0; }
+
+    /* CARD PREVIEW IFRAME WRAPPER */
+    .card-preview {
+      position: relative;
+      height: 270px;
+      overflow: hidden;
+      background: #0f172a;
+    }
+
+    /* REAL LIVE IFRAME CONTAINER */
+    .iframe-container {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      overflow: hidden;
+      background: #fff;
+    }
+
+    /* Scaled iframe so it renders the real site scaled down */
+    .live-iframe {
+      width: 200%;
+      height: 200%;
+      border: none;
+      transform: scale(0.5);
+      transform-origin: top left;
+      pointer-events: none; /* Allows page scroll smoothly over cards */
+      transition: transform 0.15s ease-out;
+      display: block;
+      background: #fff;
+    }
+
+    /* Fallback image if site has SAMEORIGIN restriction */
+    .card-preview img.fallback-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.25s ease-out;
+    }
+
+    /* Interactive overlay for click / smooth handling */
+    .iframe-overlay-link {
+      position: absolute;
+      inset: 0;
+      z-index: 5;
+      cursor: pointer;
+    }
+
+    .live-status-pill {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: rgba(6, 42, 92, 0.88);
+      backdrop-filter: blur(8px);
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.25);
+      border-radius: 999px;
+      padding: 4px 12px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      z-index: 6;
+      pointer-events: none;
+    }
+    .live-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #22C55E;
+      box-shadow: 0 0 0 2px rgba(34, 197, 94, 0.35);
+      animation: pulseDot 1.8s infinite;
+    }
+    @keyframes pulseDot {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.3); opacity: 0.75; }
+    }
+
+    .category-badge {
+      position: absolute;
+      bottom: 12px;
+      left: 12px;
+      background: rgba(255, 255, 255, 0.94);
+      color: var(--blue-deep);
+      font-weight: 700;
+      font-size: 0.74rem;
+      padding: 4px 11px;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+      z-index: 6;
+      letter-spacing: 0.03em;
+      pointer-events: none;
+    }
+
+    /* CARD DETAILS */
+    .card-body {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+    .showcase-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+    .showcase-desc {
+      font-size: 0.9rem;
+      color: #475569;
+      line-height: 1.6;
+      margin-bottom: 18px;
+      flex: 1;
+    }
+    
+    .tech-stack-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 20px;
+    }
+    .tech-chip {
+      background: #EFF6FF;
+      color: var(--blue);
+      font-size: 0.74rem;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 6px;
+      border: 1px solid #DBEAFE;
+    }
+
+    .card-actions-bar {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: auto;
+      padding-top: 14px;
+      border-top: 1px solid #F1F5F9;
+    }
+    .btn-live-view {
+      flex: 1;
+      background: var(--blue);
+      color: #fff;
+      padding: 10px 18px;
+      border-radius: 999px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: all .25s ease;
+      box-shadow: 0 4px 14px rgba(37,99,235,0.22);
+    }
+    .btn-live-view:hover {
+      background: var(--blue-deep);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(37,99,235,0.35);
+      color: #fff;
+    }
+    .btn-live-view i, .btn-live-view svg {
+      width: 15px;
+      height: 15px;
+      transition: transform .2s ease;
+    }
+    .btn-live-view:hover i, .btn-live-view:hover svg {
+      transform: translate(2px, -2px);
+    }
+
+    .btn-inquire-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: #F8FAFC;
+      border: 1px solid var(--line);
+      display: grid;
+      place-items: center;
+      color: #64748B;
+      transition: all .25s ease;
+    }
+    .btn-inquire-icon:hover {
+      background: var(--light);
+      border-color: var(--blue);
+      color: var(--blue);
+      transform: translateY(-2px);
+    }
+    .btn-inquire-icon i, .btn-inquire-icon svg { width: 18px; height: 18px; }
+
+    /* CORE SERVICES SECTION */
+    .services-overview {
+      padding: 85px 0;
+      background: #fff;
+      border-top: 1px solid var(--line);
+    }
+    .services-grid-mini {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 48px;
+    }
+    .service-box {
+      background: #F8FAFC;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 30px 26px;
+      transition: all .3s ease;
+    }
+    .service-box:hover {
+      background: #fff;
+      border-color: #BFDBFE;
+      transform: translateY(-6px);
+      box-shadow: var(--shadow);
+    }
+    .service-box-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      background: var(--light);
+      color: var(--blue);
+      display: grid;
+      place-items: center;
+      margin-bottom: 20px;
+      transition: all .3s ease;
+    }
+    .service-box:hover .service-box-icon {
+      background: var(--blue);
+      color: #fff;
+      transform: scale(1.08);
+    }
+    .service-box-icon i, .service-box-icon svg { width: 24px; height: 24px; }
+    .service-box h3 { margin-bottom: 10px; color: var(--navy); font-size: 1.15rem; }
+    .service-box p { font-size: 0.9rem; color: #64748B; line-height: 1.6; margin-bottom: 16px; }
+    .service-features-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 22px;
+    }
+    .service-features-list li {
+      font-size: 0.85rem;
+      color: #334155;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .service-features-list li::before {
+      content: "✓";
+      color: #16A34A;
+      font-weight: 700;
+    }
+
+    /* PACKAGES TEASER */
+    .packages-cta-strip {
+      padding: 70px 0;
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-dark) 100%);
+      color: #fff;
       text-align: center;
     }
-    .page-hero .eyebrow { margin-bottom: 14px; }
-    .page-hero h1 { margin-bottom: 18px; }
-    .page-hero .lead { max-width: 600px; margin: 0 auto 32px; font-size: 1.05rem; }
-    .breadcrumb { display: flex; justify-content: center; align-items: center; gap: 8px;
-      font-size: 0.82rem; color: var(--muted); margin-bottom: 24px; }
-    .breadcrumb a { color: var(--blue); font-weight: 500; }
+    .packages-cta-strip h2 { color: #fff; margin-bottom: 12px; }
+    .packages-cta-strip p { color: #CBD5E1; max-width: 600px; margin: 0 auto 28px; font-size: 1.02rem; }
 
-    /* FILTER TABS */
-    .catalog-section { padding: 80px 0; }
-    .filter-tabs { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-bottom: 48px; }
-    .filter-tab { padding: 9px 20px; border-radius: 999px; border: 1px solid var(--line);
-      background: #fff; color: var(--text); font-size: 0.88rem; font-weight: 600;
-      cursor: pointer; transition: background .25s, color .25s, border-color .25s, transform .25s; }
-    .filter-tab:hover { border-color: var(--blue); color: var(--blue); transform: translateY(-2px); }
-    .filter-tab.active { background: var(--blue); color: #fff; border-color: var(--blue); }
+    /* RESPONSIVE */
+    @media (max-width: 1050px) {
+      .showcase-grid { grid-template-columns: repeat(2, 1fr); }
+      .services-grid-mini { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 767px) {
+      .page-hero { padding: 60px 0 45px; }
+      .page-hero h1 { font-size: clamp(1.9rem, 7.5vw, 2.6rem); }
+      .showcase-grid { grid-template-columns: 1fr; }
+      .services-grid-mini { grid-template-columns: 1fr; }
+      .hero-stats-strip { border-radius: 18px; padding: 14px 20px; }
+    }
 
-    /* SERVICE CARDS */
-    .catalog-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; }
-    .catalog-card { background: #fff; border: 1px solid var(--line); border-radius: 24px;
-      overflow: hidden; box-shadow: var(--shadow-sm);
-      transition: transform .3s, box-shadow .3s, border-color .3s;
-      display: flex; flex-direction: column; }
-    .catalog-card:hover { transform: translateY(-8px); box-shadow: var(--shadow); border-color: #BFDBFE; }
-    .card-img { height: 180px; overflow: hidden; }
-    .card-img img { width: 100%; height: 100%; object-fit: cover;
-      transition: transform .4s ease; }
-    .catalog-card:hover .card-img img { transform: scale(1.06); }
-    .card-body { padding: 24px; flex: 1; display: flex; flex-direction: column; }
-    .card-tag { display: inline-block; font-size: 0.72rem; font-weight: 700; letter-spacing: .1em;
-      text-transform: uppercase; color: var(--blue); background: var(--light);
-      padding: 4px 10px; border-radius: 6px; margin-bottom: 12px; }
-    .card-body h3 { margin-bottom: 10px; transition: color .3s; }
-    .catalog-card:hover .card-body h3 { color: var(--blue); }
-    .card-body p { font-size: 0.9rem; margin-bottom: 16px; flex: 1; }
-    .card-features { list-style: none; margin-bottom: 20px; display: flex; flex-direction: column; gap: 7px; }
-    .card-features li { display: flex; align-items: center; gap: 8px; font-size: 0.85rem;
-      color: var(--text); font-weight: 500; }
-    .card-features li::before { content: "✔"; color: #16A34A; font-size: 0.8rem; }
-    .card-price { font-size: 0.82rem; color: var(--muted); margin-bottom: 16px; }
-    .card-price strong { color: var(--blue); font-size: 1rem; }
-    .card-actions { display: flex; gap: 10px; margin-top: auto; }
+    /* =========================================================
+       CATALOG GALLERY SECTION (59+ Images Auto-Scrollable)
+       ========================================================= */
+    .catalog-gallery-section {
+      padding: 90px 0 100px;
+      /* background: #061A35; */
+      background-color: white;
+      color: #061A35;
+      position: relative;
+      overflow: hidden;
+    }
+    .catalog-gallery-section::before {
+      content: "";
+      position: absolute;
+      top: -150px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 800px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(37,99,235,0.25), transparent 70%);
+      filter: blur(50px);
+      pointer-events: none;
+    }
+    .gallery-head {
+      text-align: center;
+      margin-bottom: 52px;
+      position: relative;
+      z-index: 2;
+    }
+    .gallery-head .eyebrow {
+      color: #061A35;
+      font-size: 0.8rem;
+      letter-spacing: 0.18em;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .gallery-head h2 {
+      color: #061A35;
+      font-size: clamp(2rem, 4.5vw, 3.2rem);
+      font-weight: 800;
+      margin-bottom: 16px;
+    }
+    .gallery-head p {
+      color: #061A35;
+      max-width: 650px;
+      margin: 0 auto;
+      font-size: 1.02rem;
+      line-height: 1.65;
+    }
+    .gallery-scroll-indicator {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(255,255,255,0.08);
+      /* border: 1px solid rgba(255,255,255,0.18); */
+      padding: 8px 20px;
+      border-radius: 999px;
+      font-size: 0.84rem;
+      color: #061A35;
+      margin-top: 20px;
+    }
+    .gallery-scroll-indicator i, .gallery-scroll-indicator svg {
+      width: 16px;
+      height: 16px;
+      animation: bounceArrow 1.5s infinite;
+    }
+    @keyframes bounceArrow {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(4px); }
+    }
 
-    /* PACKAGES */
-    .packages { padding: 80px 0; background: var(--light-2); }
-    .packages-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; margin-top: 48px; }
-    .pkg-card { background: #fff; border: 1px solid var(--line); border-radius: 24px;
-      padding: 34px 28px; box-shadow: var(--shadow-sm);
-      transition: transform .3s, box-shadow .3s; position: relative; }
-    .pkg-card:hover { transform: translateY(-8px); box-shadow: var(--shadow); }
-    .pkg-card.popular { border-color: var(--blue); box-shadow: 0 0 0 2px rgba(37,99,235,.15), var(--shadow); }
-    .popular-badge { position: absolute; top: -14px; left: 50%; transform: translateX(-50%);
-      background: var(--blue); color: #fff; font-size: 0.72rem; font-weight: 700;
-      letter-spacing: .08em; padding: 5px 16px; border-radius: 999px; white-space: nowrap; }
-    .pkg-name { font-size: 0.78rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
-      color: var(--blue); margin-bottom: 10px; }
-    .pkg-price { font-size: 2.2rem; font-weight: 800; color: var(--navy); line-height: 1;
-      margin-bottom: 4px; }
-    .pkg-price span { font-size: 1rem; font-weight: 500; color: var(--muted); }
-    .pkg-desc { font-size: 0.88rem; color: var(--muted); margin-bottom: 22px; }
-    .pkg-features { list-style: none; display: flex; flex-direction: column; gap: 10px; margin-bottom: 28px; }
-    .pkg-features li { display: flex; align-items: center; gap: 10px; font-size: 0.88rem;
-      color: var(--text); font-weight: 500; }
-    .pkg-features li i, .pkg-features li svg { width: 16px; height: 16px; color: #16A34A; flex-shrink: 0; }
-    .pkg-features li.unavailable { color: var(--muted); }
-    .pkg-features li.unavailable i { color: #CBD5E1; }
+    /* GALLERY GRID */
+    .catalog-designs-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      position: relative;
+      z-index: 2;
+    }
+    .catalog-design-card {
+      background: #0B2447;
+      /* border: 1px solid rgba(255,255,255,0.1); */
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+      display: flex;
+      flex-direction: column;
+      transition: transform .35s cubic-bezier(.16,1,.3,1), box-shadow .35s ease, border-color .35s ease;
+    }
+    .catalog-design-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 25px 50px rgba(37, 99, 235, 0.25);
+      border-color: #3B82F6;
+    }
+    .catalog-design-top {
+      padding: 10px 14px;
+      background: #071933;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .catalog-design-top .dots {
+      display: flex;
+      gap: 6px;
+    }
+    .catalog-design-top .dots span {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+    }
+    .catalog-design-top .dots span:nth-child(1) { background: #EF4444; }
+    .catalog-design-top .dots span:nth-child(2) { background: #F59E0B; }
+    .catalog-design-top .dots span:nth-child(3) { background: #10B981; }
+    .catalog-design-top .pill {
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: #94A3B8;
+      font-family: monospace;
+      letter-spacing: 0.05em;
+    }
 
-    @media (max-width: 1000px) {
-      .catalog-grid { grid-template-columns: 1fr 1fr; }
-      .packages-grid { grid-template-columns: 1fr 1fr; }
+    /* SCROLL WINDOW (Card inner window with dynamic scroll) */
+    .catalog-design-window {
+      position: relative;
+      height: 380px;
+      overflow: hidden;
+      background: #020C1B;
+    }
+    .catalog-design-window img.design-scroll-img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.12s ease-out;
+      will-change: transform;
+    }
+
+    /* HOVER OVERLAY */
+    .catalog-design-window .window-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(3,15,38,0.85) 0%, rgba(3,15,38,0.1) 60%, transparent 100%);
+      opacity: 0;
+      transition: opacity .3s ease;
+      display: flex;
+      align-items: flex-end;
+      padding: 20px;
+      z-index: 3;
+    }
+    .catalog-design-card:hover .window-overlay {
+      opacity: 1;
+    }
+    .window-overlay-btn {
+      width: 100%;
+      background: var(--blue);
+      color: #fff;
+      padding: 10px 16px;
+      border-radius: 999px;
+      font-size: 0.86rem;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      box-shadow: 0 8px 20px rgba(37,99,235,0.4);
+      transition: background .2s, transform .2s;
+    }
+    .window-overlay-btn:hover {
+      background: #1D4ED8;
+      transform: translateY(-2px);
+      color: #fff;
+    }
+
+    /* CARD BOTTOM INFO */
+    .catalog-design-footer {
+      padding: 18px 20px;
+      background: #0B2447;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+    .catalog-design-footer h4 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 3px;
+    }
+    .catalog-design-footer p {
+      font-size: 0.78rem;
+      color: #94A3B8;
+      margin: 0;
+    }
+    .catalog-design-footer .select-btn {
+      padding: 7px 15px;
+      border-radius: 999px;
+      background: rgba(37,99,235,0.15);
+      border: 1px solid rgba(59,130,246,0.3);
+      color: #93C5FD;
+      font-size: 0.78rem;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      transition: all .25s ease;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .catalog-design-footer .select-btn:hover {
+      background: var(--blue);
+      color: #fff;
+      border-color: var(--blue);
+      transform: translateY(-2px);
+    }
+
+    /* LOAD MORE BUTTON */
+    .catalog-load-more-wrap {
+      text-align: center;
+      margin-top: 50px;
+      position: relative;
+      z-index: 2;
+    }
+
+    @media (max-width: 1050px) {
+      .catalog-designs-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+      .catalog-design-window { height: 340px; }
     }
     @media (max-width: 640px) {
-      .catalog-grid, .packages-grid { grid-template-columns: 1fr; }
+      .catalog-designs-grid { grid-template-columns: 1fr; gap: 20px; }
+      .catalog-design-window { height: 320px; }
     }
+
   </style>
 </head>
 <body>
 
+  <!-- HEADER -->
   <header class="header" id="header">
     <div class="container header-inner">
       <a href="index.html" class="logo" aria-label="AS Web Solution home">
-        <span class="logo-mark">AS</span>
+        <img src="./assets/img/logo-removebg.png" alt="AS Logo" style="height:52px;width:52px;">
         <span class="logo-text">
           <strong>AS Web Solution</strong>
           <small>Digital solutions for a better tomorrow</small>
@@ -110,8 +701,15 @@
         <a href="index.html" class="nav-link">Home</a>
         <a href="about.html" class="nav-link">About</a>
         <a href="whyus.html" class="nav-link">Why Us</a>
-        <a href="catalog.html" class="nav-link active">Services</a>
-        <a href="contact.html" class="nav-link">Contact</a>
+        <a href="catalog.html" class="nav-link active">Catalog & Services</a>
+        <div class="nav-dropdown">
+          <button class="nav-link nav-dropdown-trigger" type="button" aria-expanded="false" aria-haspopup="true">Contact <i data-lucide="chevron-down" class="dd-arrow"></i></button>
+          <div class="nav-dropdown-menu" role="menu">
+            <a href="contact-project.html" class="nav-dropdown-item" role="menuitem"><div class="ndi-icon"><i data-lucide="rocket"></i></div><div><strong>Project Inquiry</strong><span>Start a new project</span></div></a>
+            <a href="contact-client.html" class="nav-dropdown-item" role="menuitem"><div class="ndi-icon"><i data-lucide="headphones"></i></div><div><strong>Client Support</strong><span>Existing client help</span></div></a>
+            <a href="contact-career.html" class="nav-dropdown-item" role="menuitem"><div class="ndi-icon"><i data-lucide="briefcase"></i></div><div><strong>Career Support</strong><span>Jobs and opportunities</span></div></a>
+          </div>
+        </div>
         <a href="pricing.html" class="nav-link">Pricing</a>
       </nav>
       <div class="header-actions">
@@ -125,265 +723,1254 @@
 
   <main id="main">
 
+    <!-- HERO SECTION -->
     <section class="page-hero">
       <div class="container">
-        <div class="breadcrumb reveal">
-          <a href="index.html">Home</a><span>/</span><span>Services</span>
+        <p class="eyebrow">OUR PROVEN WORK & DIGITAL CATALOG</p>
+        <h1>Live Website Showcase.<br><span class="grad">Interactive Client Sites</span></h1>
+        <p class="lead">Scroll the page to watch live website previews move dynamically in sync. Click any card to launch and explore the full live site.</p>
+        
+        <div style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
+          <a href="#showcase" class="btn btn-primary">Browse Live Showcase <i data-lucide="arrow-down"></i></a>
+          <a href="contact.html" class="btn btn-outline">Build Your Website </a>
         </div>
-        <p class="eyebrow reveal">SERVICES CATALOG</p>
-        <h1 class="reveal">Everything You Need to<br><span class="grad">Dominate Online</span></h1>
-        <p class="lead reveal delay-1">From stunning websites to powerful web apps, eCommerce stores and smart automation — explore our full range of digital services.</p>
-        <div class="reveal delay-2" style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
-          <a href="contact.html" class="btn btn-primary">Get a Free Quote <i data-lucide="arrow-right"></i></a>
-          <a href="pricing.html" class="btn btn-outline">View Pricing</a>
+
+        <div class="hero-stats-strip">
+          <div class="hero-stat-item">
+            <i data-lucide="globe"></i>
+            <span>Global Client Deployments</span>
+          </div>
+          <div class="hero-stat-item">
+            <i data-lucide="shield-check"></i>
+            <span>100% Mobile & SEO Optimized</span>
+          </div>
+          <div class="hero-stat-item">
+            <i data-lucide="zap"></i>
+            <span>Auto-Scrolling Live Iframes</span>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- SERVICES CATALOG -->
-    <section class="catalog-section">
+    <!-- LIVE WEBSITES CATALOG SHOWCASE -->
+    <section class="catalog-section" id="showcase">
       <div class="container">
 
-        <div class="catalog-grid">
+       
 
-          <!-- Web Development -->
-          <div class="catalog-card reveal">
-            <div class="card-img">
-              <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?w=600&h=360&fit=crop" alt="Web Development">
-            </div>
-            <div class="card-body">
-              <span class="card-tag">Development</span>
-              <h3>Web Development</h3>
-              <p>High-performance, custom-built websites engineered around your business goals. Fast, secure and mobile-first.</p>
-              <ul class="card-features">
-                <li>Custom design & development</li>
-                <li>Mobile-first responsive layout</li>
-                <li>95+ PageSpeed score</li>
-                <li>SEO-ready structure</li>
-                <li>CMS integration</li>
-              </ul>
-              <p class="card-price">Starting from <strong>$800</strong></p>
-              <div class="card-actions">
-                <a href="contact.html" class="btn btn-primary" style="flex:1;">Get Started <i data-lucide="arrow-right"></i></a>
-                <a href="pricing.html" class="btn btn-outline">Pricing</a>
+        <div class="showcase-grid" id="showcaseGrid">
+
+          <!-- 1. AS Automate -->
+          <article class="showcase-card" data-category="tech">
+             <div class="browser-frame">
+              
+              <div class="browser-url">
+                <i data-lucide="lock"></i> asautomate.com
               </div>
             </div>
+            <div class="card-preview">
+              <a href="https://asautomate.com/" target="_blank" rel="noopener noreferrer" class="iframe-overlay-link" aria-label="Open AS Automate in new tab"></a>
+              <div class="iframe-container">
+                <iframe src="https://asautomate.com/" title="AS Automate Live Preview" class="live-iframe" loading="lazy"></iframe>
+              </div>
+             
+              <span class="category-badge">Tech & Automation</span>
+            </div>
+            <div class="card-body">
+              <h3 class="showcase-title">AS Automate</h3>
+              <p class="showcase-desc">High-performance digital engineering agency platform highlighting custom software, workflow automation, AI solutions, and full-stack web platforms.</p>
+              <div class="tech-stack-wrap">
+                <span class="tech-chip">Digital Solutions</span>
+                <span class="tech-chip">AI Integration</span>
+                <span class="tech-chip">Automation</span>
+                <span class="tech-chip">Cloud Ready</span>
+              </div>
+              <div class="card-actions-bar">
+                <a href="https://asautomate.com/" target="_blank" rel="noopener noreferrer" class="btn-live-view" aria-label="Visit AS Automate live website">
+                  Visit Live Website <i data-lucide="external-link"></i>
+                </a>
+                <a href="contact-project.html?ref=asautomate" class="btn-inquire-icon" title="Build something like this" aria-label="Inquire similar website">
+                  <i data-lucide="message-square-plus"></i>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 2. Cleaning Express -->
+          <article class="showcase-card" data-category="services">
+            <div class="browser-frame">
+             
+              <div class="browser-url">
+                <i data-lucide="lock"></i> cleaning-express.com
+              </div>
+            </div>
+            <div class="card-preview">
+              <a href="https://cleaning-express.com/" target="_blank" rel="noopener noreferrer" class="iframe-overlay-link" aria-label="Open Cleaning Express in new tab"></a>
+              <div class="iframe-container">
+                <iframe src="https://cleaning-express.com/" title="Cleaning Express Live Preview" class="live-iframe" loading="lazy"></iframe>
+              </div>
+             
+              <span class="category-badge">Commercial Cleaning</span>
+            </div>
+            <div class="card-body">
+              <h3 class="showcase-title">Cleaning Express</h3>
+              <p class="showcase-desc">Leading commercial & domestic cleaning services portal based in London, UK. Built with instant quotation flows, booking requests, and multi-service catalog.</p>
+              <div class="tech-stack-wrap">
+                <span class="tech-chip">Quote Calculator</span>
+                <span class="tech-chip">Online Booking</span>
+                <span class="tech-chip">London, UK</span>
+                <span class="tech-chip">Local SEO</span>
+              </div>
+              <div class="card-actions-bar">
+                <a href="https://cleaning-express.com/" target="_blank" rel="noopener noreferrer" class="btn-live-view" aria-label="Visit Cleaning Express live website">
+                  Visit Live Website <i data-lucide="external-link"></i>
+                </a>
+                <a href="contact-project.html?ref=cleaning-express" class="btn-inquire-icon" title="Build something like this" aria-label="Inquire similar website">
+                  <i data-lucide="message-square-plus"></i>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 3. Diamond Cleaners USA -->
+          <article class="showcase-card" data-category="services">
+            <div class="browser-frame">
+             
+              <div class="browser-url">
+                <i data-lucide="lock"></i> diamondcleanersusa.com
+              </div>
+            </div>
+            <div class="card-preview">
+              <a href="https://diamondcleanersusa.com/" target="_blank" rel="noopener noreferrer" class="iframe-overlay-link" aria-label="Open Diamond Cleaners USA in new tab"></a>
+              <div class="iframe-container">
+                <iframe src="https://diamondcleanersusa.com/" title="Diamond Cleaners USA Live Preview" class="live-iframe" loading="lazy"></iframe>
+              </div>
+             
+              <span class="category-badge">Cleaning & Facility</span>
+            </div>
+            <div class="card-body">
+              <h3 class="showcase-title">Diamond Cleaners USA</h3>
+              <p class="showcase-desc">Professional residential and commercial eco-friendly cleaning services company in the United States, optimized for customer inquiries and booking conversions.</p>
+              <div class="tech-stack-wrap">
+                <span class="tech-chip">Commercial & Home</span>
+                <span class="tech-chip">USA Market</span>
+                <span class="tech-chip">Lead Generation</span>
+                <span class="tech-chip">Fast UI</span>
+              </div>
+              <div class="card-actions-bar">
+                <a href="https://diamondcleanersusa.com/" target="_blank" rel="noopener noreferrer" class="btn-live-view" aria-label="Visit Diamond Cleaners USA live website">
+                  Visit Live Website <i data-lucide="external-link"></i>
+                </a>
+                <a href="contact-project.html?ref=diamondcleanersusa" class="btn-inquire-icon" title="Build something like this" aria-label="Inquire similar website">
+                  <i data-lucide="message-square-plus"></i>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 4. CST Tax Advisors -->
+          <article class="showcase-card" data-category="finance">
+            <div class="browser-frame">
+             
+              <div class="browser-url">
+                <i data-lucide="lock"></i> csttax.com
+              </div>
+            </div>
+            <div class="card-preview">
+              <a href="https://csttax.com/" target="_blank" rel="noopener noreferrer" class="iframe-overlay-link" aria-label="Open CST Tax Advisors in new tab"></a>
+              <div class="iframe-container">
+                <iframe src="https://csttax.com/" title="CST Tax Advisors Live Preview" class="live-iframe" loading="lazy"></iframe>
+              </div>
+             
+              <span class="category-badge">Finance & Tax</span>
+            </div>
+            <div class="card-body">
+              <h3 class="showcase-title">CST Tax Advisors</h3>
+              <p class="showcase-desc">Premier international tax advisory and private client accounting firm serving global expats and international enterprises across the US, UK, and Asia-Pacific.</p>
+              <div class="tech-stack-wrap">
+                <span class="tech-chip">International CPA</span>
+                <span class="tech-chip">Cross-Border Tax</span>
+                <span class="tech-chip">Enterprise Portal</span>
+                <span class="tech-chip">Multi-Regional</span>
+              </div>
+              <div class="card-actions-bar">
+                <a href="https://csttax.com/" target="_blank" rel="noopener noreferrer" class="btn-live-view" aria-label="Visit CST Tax live website">
+                  Visit Live Website <i data-lucide="external-link"></i>
+                </a>
+                <a href="contact-project.html?ref=csttax" class="btn-inquire-icon" title="Build something like this" aria-label="Inquire similar website">
+                  <i data-lucide="message-square-plus"></i>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 5. Harnoor Pallak Construction -->
+          <article class="showcase-card" data-category="construction">
+            <div class="browser-frame">
+             
+              <div class="browser-url">
+                <i data-lucide="lock"></i> harnoorpallakconstruction.ca
+              </div>
+            </div>
+            <div class="card-preview">
+              <a href="https://harnoorpallakconstruction.ca/" target="_blank" rel="noopener noreferrer" class="iframe-overlay-link" aria-label="Open Harnoor Pallak Construction in new tab"></a>
+              <div class="iframe-container">
+                <iframe src="https://harnoorpallakconstruction.ca/" title="Harnoor Pallak Construction Live Preview" class="live-iframe" loading="lazy"></iframe>
+              </div>
+             
+              <span class="category-badge">Construction & Infra</span>
+            </div>
+            <div class="card-body">
+              <h3 class="showcase-title">Harnoor Pallak Construction</h3>
+              <p class="showcase-desc">Canadian construction and framing specialist portal showcasing civil engineering projects, residential buildouts, heavy structural work, and project bids.</p>
+              <div class="tech-stack-wrap">
+                <span class="tech-chip">Canada (.ca)</span>
+                <span class="tech-chip">Portfolio Gallery</span>
+                <span class="tech-chip">Project Quotations</span>
+                <span class="tech-chip">Responsive Grid</span>
+              </div>
+              <div class="card-actions-bar">
+                <a href="https://harnoorpallakconstruction.ca/" target="_blank" rel="noopener noreferrer" class="btn-live-view" aria-label="Visit Harnoor Pallak Construction live website">
+                  Visit Live Website <i data-lucide="external-link"></i>
+                </a>
+                <a href="contact-project.html?ref=harnoorpallak" class="btn-inquire-icon" title="Build something like this" aria-label="Inquire similar website">
+                  <i data-lucide="message-square-plus"></i>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 6. Masjid Ul Ummah -->
+          <article class="showcase-card" data-category="community">
+            <div class="browser-frame">
+             
+              <div class="browser-url">
+                <i data-lucide="lock"></i> masjidulummah.ca
+              </div>
+            </div>
+            <div class="card-preview">
+              <a href="https://masjidulummah.ca/" target="_blank" rel="noopener noreferrer" class="iframe-overlay-link" aria-label="Open Masjid Ul Ummah in new tab"></a>
+              <div class="iframe-container">
+                <iframe src="https://masjidulummah.ca/" title="Masjid Ul Ummah Live Preview" class="live-iframe" loading="lazy"></iframe>
+              </div>
+             
+              <span class="category-badge">Community & Islamic Center</span>
+            </div>
+            <div class="card-body">
+              <h3 class="showcase-title">Masjid Ul Ummah</h3>
+              <p class="showcase-desc">Official Islamic center community hub in Canada featuring live prayer timetables, community event schedules, educational programs, and secure online donations.</p>
+              <div class="tech-stack-wrap">
+                <span class="tech-chip">Prayer Times API</span>
+                <span class="tech-chip">Donations</span>
+                <span class="tech-chip">Events Calendar</span>
+                <span class="tech-chip">Community Portal</span>
+              </div>
+              <div class="card-actions-bar">
+                <a href="https://masjidulummah.ca/" target="_blank" rel="noopener noreferrer" class="btn-live-view" aria-label="Visit Masjid Ul Ummah live website">
+                  Visit Live Website <i data-lucide="external-link"></i>
+                </a>
+                <a href="contact-project.html?ref=masjidulummah" class="btn-inquire-icon" title="Build something like this" aria-label="Inquire similar website">
+                  <i data-lucide="message-square-plus"></i>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 7. United Kanadian Foundations Club -->
+          <article class="showcase-card" data-category="community">
+            <div class="browser-frame">
+             
+              <div class="browser-url">
+                <i data-lucide="lock"></i> unitedkanadianfoundationsclub.com
+              </div>
+            </div>
+            <div class="card-preview">
+              <a href="https://unitedkanadianfoundationsclub.com/" target="_blank" rel="noopener noreferrer" class="iframe-overlay-link" aria-label="Open United Kanadian Foundations Club in new tab"></a>
+              <div class="iframe-container">
+                <iframe src="https://unitedkanadianfoundationsclub.com/" title="United Kanadian Foundations Club Live Preview" class="live-iframe" loading="lazy"></iframe>
+              </div>
+             
+              <span class="category-badge">Club & Non-Profit</span>
+            </div>
+            <div class="card-body">
+              <h3 class="showcase-title">UKFC (United Kanadian)</h3>
+              <p class="showcase-desc">Community association and foundation web platform delivering youth engagement programs, cultural events, membership management, and welfare initiatives.</p>
+              <div class="tech-stack-wrap">
+                <span class="tech-chip">Membership Hub</span>
+                <span class="tech-chip">Non-Profit</span>
+                <span class="tech-chip">Events & Welfare</span>
+                <span class="tech-chip">Mobile First</span>
+              </div>
+              <div class="card-actions-bar">
+                <a href="https://unitedkanadianfoundationsclub.com/" target="_blank" rel="noopener noreferrer" class="btn-live-view" aria-label="Visit United Kanadian Foundations Club live website">
+                  Visit Live Website <i data-lucide="external-link"></i>
+                </a>
+                <a href="contact-project.html?ref=ukfc" class="btn-inquire-icon" title="Build something like this" aria-label="Inquire similar website">
+                  <i data-lucide="message-square-plus"></i>
+                </a>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         WEBSITE DEVELOPMENT PACKAGES
+         ========================================================= -->
+    <section class="dev-packages-section" id="packages">
+      <div class="container">
+        <!-- Header -->
+        <div class="pkg-header-row">
+          <div>
+            
+           
+            <span class="pkg-title-eyebrow">WEBSITE DEVELOPMENT</span>
+            <h2 class="pkg-main-title">Packages</h2>
+            <p class="pkg-subtitle">Professional websites. Modern design. Built for your success.</p>
+          </div>
+         
+        </div>
+
+        <!-- Pricing Cards -->
+        <div class="pkg-cards-grid">
+
+          <!-- BASIC CARD -->
+          <div class="pkg-card">
+            <span class="pkg-tier-label">BASIC</span>
+            <h3 class="pkg-plan-name">Website Development</h3>
+            <p class="pkg-plan-desc">Perfect for small businesses &amp; startups needing a professional online presence.</p>
+
+            <div class="pkg-price-row">
+              <div class="pkg-price-col">
+                <span class="pkg-price-curr">USD</span>
+                <span class="pkg-price-val">$499</span>
+              </div>
+              <div class="pkg-price-divider"></div>
+              <div class="pkg-price-col">
+                <span class="pkg-price-curr">CAD</span>
+                <span class="pkg-price-val">$699</span>
+              </div>
+            </div>
+
+            <ul class="pkg-features-list">
+              <li class="pkg-feature-item">
+                <span class="pkg-check-icon"><i data-lucide="check"></i></span>
+                <span>5 Custom Pages (Home, About, Services, etc.)</span>
+              </li>
+              <li class="pkg-feature-item">
+                <span class="pkg-check-icon"><i data-lucide="check"></i></span>
+                <span>100% Mobile &amp; Tablet Responsive</span>
+              </li>
+              <li class="pkg-feature-item">
+                <span class="pkg-check-icon"><i data-lucide="check"></i></span>
+                <span>Contact &amp; Inquiry Form Integration</span>
+              </li>
+              <li class="pkg-feature-item">
+                <span class="pkg-check-icon"><i data-lucide="check"></i></span>
+                <span>Basic On-Page SEO Optimization</span>
+              </li>
+              <li class="pkg-feature-item">
+                <span class="pkg-check-icon"><i data-lucide="check"></i></span>
+                <span>Social Media Links Integration</span>
+              </li>
+              <li class="pkg-feature-item">
+                <span class="pkg-check-icon"><i data-lucide="check"></i></span>
+                <span>High-Speed Performance Optimization</span>
+              </li>
+            </ul>
+
+          
+          </div>
+
+          <!-- PREMIUM CARD (MOST POPULAR) -->
+          <div class="pkg-card featured">
+            <span class="pkg-popular-badge">MOST POPULAR</span>
+            <span class="pkg-tier-label">PREMIUM</span>
+            <h3 class="pkg-plan-name">Website Development</h3>
+            <p class="pkg-plan-desc">Ideal for growing businesses looking for advanced features and better performance.</p>
+
+            <div class="pkg-price-row">
+              <div class="pkg-price-col">
+                <span class="pkg-price-curr">USD</span>
+                <span class="pkg-price-val">$999</span>
+              </div>
+              <div class="pkg-price-divider"></div>
+              <div class="pkg-price-col">
+                <span class="pkg-price-curr">CAD</span>
+                <span class="pkg-price-val">$1,399</span>
+              </div>
+            </div>
+
+            <ul class="pkg-features-list">
+              <li class="pkg-feature-item">
+                <span class="pkg-check-icon"><i data-lucide="check"></i></span>
+                <span>Up to 12 Custom Designed Pages</span>
+              </li>
+              <li class="pkg-feature-item">
+                <span class="pkg-check-icon"><i data-lucide="check"></i></span>
+                <span>Modern Glassmorphism &amp; Animations</span>
+              </li>
+              <li class="pkg-feature-item">
+                <span class="pkg-check-icon"><i data-lucide="check"></i></span>
+                <span>Dynamic Blog / CMS Integration</span>
+              </li>
+              <li class="pkg-feature-item">
+                <span class="pkg-check-icon"><i data-lucide="check"></i></span>
+                <span>Advanced Technical &amp; On-Page SEO</span>
+              </li>
+              <li class="pkg-feature-item">
+                <span class="pkg-check-icon"><i data-lucide="check"></i></span>
+                <span>Custom Lead Generation Forms</span>
+              </li>
+              <li class="pkg-feature-item">
+                <span class="pkg-check-icon"><i data-lucide="check"></i></span>
+                <span>Speed &amp; Security Hardening (SSL/CDN)</span>
+              </li>
+              <li class="pkg-feature-item">
+                <span class="pkg-check-icon"><i data-lucide="check"></i></span>
+                <span>WhatsApp Chat &amp; Live Support</span>
+              </li>
+              <li class="pkg-feature-item">
+                <span class="pkg-check-icon"><i data-lucide="check"></i></span>
+                <span>1 Month Free Post-Launch Support</span>
+              </li>
+            </ul>
+
+           
+          </div>
+
+          <!-- ADVANCE CARD -->
+          <div class="pkg-card">
+            <span class="pkg-tier-label">ADVANCE</span>
+            <h3 class="pkg-plan-name">Website Development</h3>
+            <p class="pkg-plan-desc">Full-scale custom web applications, e-commerce stores, and custom software systems.</p>
+
+            <div class="pkg-price-row">
+              <div class="pkg-price-col">
+                <span class="pkg-price-curr">USD</span>
+                <span class="pkg-price-val">$1,499</span>
+              </div>
+              <div class="pkg-price-divider"></div>
+              <div class="pkg-price-col">
+                <span class="pkg-price-curr">CAD</span>
+                <span class="pkg-price-val">$1,999</span>
+              </div>
+            </div>
+
+            <ul class="pkg-features-list">
+              <li class="pkg-feature-item">
+                <span class="pkg-check-icon"><i data-lucide="check"></i></span>
+                <span>Unlimited Custom Pages &amp; Workflows</span>
+              </li>
+              <li class="pkg-feature-item">
+                <span class="pkg-check-icon"><i data-lucide="check"></i></span>
+                <span>Full E-Commerce / Custom Portal</span>
+              </li>
+              <li class="pkg-feature-item">
+                <span class="pkg-check-icon"><i data-lucide="check"></i></span>
+                <span>Payment Gateways (Stripe/PayPal)</span>
+              </li>
+              <li class="pkg-feature-item">
+                <span class="pkg-check-icon"><i data-lucide="check"></i></span>
+                <span>Admin Dashboard &amp; Database Backend</span>
+              </li>
+              <li class="pkg-feature-item">
+                <span class="pkg-check-icon"><i data-lucide="check"></i></span>
+                <span>API Integration &amp; Cloud Deployment</span>
+              </li>
+              <li class="pkg-feature-item">
+                <span class="pkg-check-icon"><i data-lucide="check"></i></span>
+                <span>Enterprise Grade Security &amp; Firewall</span>
+              </li>
+              <li class="pkg-feature-item">
+                <span class="pkg-check-icon"><i data-lucide="check"></i></span>
+                <span>GEO / AI Search Optimization</span>
+              </li>
+              <li class="pkg-feature-item">
+                <span class="pkg-check-icon"><i data-lucide="check"></i></span>
+                <span>3 Months Priority VIP Support &amp; SLA</span>
+              </li>
+            </ul>
+
+           
+          </div>
+
+        </div>
+
+        <!-- Bottom Disclaimer Banner -->
+        <div class="pkg-disclaimer-card">
+          <div class="pkg-disclaimer-left">
+            <div class="pkg-disclaimer-icon">
+              <i data-lucide="server"></i>
+            </div>
+            <div>
+              <div class="pkg-disclaimer-title">HOSTING &amp; DOMAIN ARE EXCLUDED</div>
+              <p class="pkg-disclaimer-text">In all packages. You can choose your own hosting and domain provider or we can help you with the setup if needed.</p>
+            </div>
+          </div>
+          <div class="pkg-disclaimer-script">
+            Let's Build Something Great
+          </div>
+        </div>
+
+    
+
+      </div>
+    </section>
+    <section class="catalog-gallery-section" id="catalog-gallery">
+      <div class="container">
+        <div class="gallery-head">
+        
+          <h2>Explore Our Complete Catalog</h2>
+          <p>Scroll down or up to explore how each website template moves interactively. Choose any layout you love and our team will customize it for your brand.</p>
+          <div class="gallery-scroll-indicator">
+            <i data-lucide="arrow-down"></i>
+          
+          </div>
+        </div>
+
+        <div class="catalog-designs-grid" id="catalogDesignsGrid">
+
+          <div class="catalog-design-card" data-design-id="1">
+            <div class="catalog-design-window">
+              <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.39.55%20PM.jpeg" alt="Website Template Design 01" class="design-scroll-img" loading="lazy">
+              <div class="window-overlay">
+                <a href="contact-project.html?design=PRO-01" class="window-overlay-btn">
+                  Choose This Design <i data-lucide="arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="catalog-design-card" data-design-id="2">
+            <div class="catalog-design-window">
+              <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.39.57%20PM.jpeg" alt="Website Template Design 02" class="design-scroll-img" loading="lazy">
+              <div class="window-overlay">
+                <a href="contact-project.html?design=PRO-02" class="window-overlay-btn">
+                  Choose This Design <i data-lucide="arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="catalog-design-card" data-design-id="3">
+            <div class="catalog-design-window">
+              <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.39.58%20PM.jpeg" alt="Website Template Design 03" class="design-scroll-img" loading="lazy">
+              <div class="window-overlay">
+                <a href="contact-project.html?design=PRO-03" class="window-overlay-btn">
+                  Choose This Design <i data-lucide="arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="catalog-design-card" data-design-id="4">
+            <div class="catalog-design-window">
+              <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.39.59%20PM.jpeg" alt="Website Template Design 04" class="design-scroll-img" loading="lazy">
+              <div class="window-overlay">
+                <a href="contact-project.html?design=PRO-04" class="window-overlay-btn">
+                  Choose This Design <i data-lucide="arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="catalog-design-card" data-design-id="5">
+            <div class="catalog-design-window">
+              <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.00%20PM.jpeg" alt="Website Template Design 05" class="design-scroll-img" loading="lazy">
+              <div class="window-overlay">
+                <a href="contact-project.html?design=PRO-05" class="window-overlay-btn">
+                  Choose This Design <i data-lucide="arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="catalog-design-card" data-design-id="6">
+            <div class="catalog-design-window">
+              <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.01%20PM.jpeg" alt="Website Template Design 06" class="design-scroll-img" loading="lazy">
+              <div class="window-overlay">
+                <a href="contact-project.html?design=PRO-06" class="window-overlay-btn">
+                  Choose This Design <i data-lucide="arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="catalog-design-card" data-design-id="7">
+            <div class="catalog-design-window">
+              <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.02%20PM.jpeg" alt="Website Template Design 07" class="design-scroll-img" loading="lazy">
+              <div class="window-overlay">
+                <a href="contact-project.html?design=PRO-07" class="window-overlay-btn">
+                  Choose This Design <i data-lucide="arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="catalog-design-card" data-design-id="8">
+            <div class="catalog-design-window">
+              <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.04%20PM.jpeg" alt="Website Template Design 08" class="design-scroll-img" loading="lazy">
+              <div class="window-overlay">
+                <a href="contact-project.html?design=PRO-08" class="window-overlay-btn">
+                  Choose This Design <i data-lucide="arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="catalog-design-card" data-design-id="9">
+            <div class="catalog-design-window">
+              <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.05%20PM.jpeg" alt="Website Template Design 09" class="design-scroll-img" loading="lazy">
+              <div class="window-overlay">
+                <a href="contact-project.html?design=PRO-09" class="window-overlay-btn">
+                  Choose This Design <i data-lucide="arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="catalog-design-card" data-design-id="10">
+            <div class="catalog-design-window">
+              <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.07%20PM.jpeg" alt="Website Template Design 10" class="design-scroll-img" loading="lazy">
+              <div class="window-overlay">
+                <a href="contact-project.html?design=PRO-10" class="window-overlay-btn">
+                  Choose This Design <i data-lucide="arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="catalog-design-card" data-design-id="11">
+            <div class="catalog-design-window">
+              <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.08%20PM.jpeg" alt="Website Template Design 11" class="design-scroll-img" loading="lazy">
+              <div class="window-overlay">
+                <a href="contact-project.html?design=PRO-11" class="window-overlay-btn">
+                  Choose This Design <i data-lucide="arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="catalog-design-card" data-design-id="12">
+            <div class="catalog-design-window">
+              <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.10%20PM.jpeg" alt="Website Template Design 12" class="design-scroll-img" loading="lazy">
+              <div class="window-overlay">
+                <a href="contact-project.html?design=PRO-12" class="window-overlay-btn">
+                  Choose This Design <i data-lucide="arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="catalog-design-card extra-catalog-card" data-design-id="13" style="display:none;">
+            <div class="catalog-design-window">
+              <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.15%20PM.jpeg" alt="Website Template Design 13" class="design-scroll-img" loading="lazy">
+              <div class="window-overlay">
+                <a href="contact-project.html?design=PRO-13" class="window-overlay-btn">
+                  Choose This Design <i data-lucide="arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="catalog-design-card extra-catalog-card" data-design-id="14" style="display:none;">
+            <div class="catalog-design-window">
+              <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.16%20PM.jpeg" alt="Website Template Design 14" class="design-scroll-img" loading="lazy">
+              <div class="window-overlay">
+                <a href="contact-project.html?design=PRO-14" class="window-overlay-btn">
+                  Choose This Design <i data-lucide="arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="catalog-design-card extra-catalog-card" data-design-id="15" style="display:none;">
+            <div class="catalog-design-window">
+              <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.18%20PM.jpeg" alt="Website Template Design 15" class="design-scroll-img" loading="lazy">
+              <div class="window-overlay">
+                <a href="contact-project.html?design=PRO-15" class="window-overlay-btn">
+                  Choose This Design <i data-lucide="arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="catalog-design-card extra-catalog-card" data-design-id="16" style="display:none;">
+            <div class="catalog-design-window">
+              <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.19%20PM%20(1).jpeg" alt="Website Template Design 16" class="design-scroll-img" loading="lazy">
+              <div class="window-overlay">
+                <a href="contact-project.html?design=PRO-16" class="window-overlay-btn">
+                  Choose This Design <i data-lucide="arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="catalog-design-card extra-catalog-card" data-design-id="17" style="display:none;">
+            <div class="catalog-design-window">
+              <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.19%20PM.jpeg" alt="Website Template Design 17" class="design-scroll-img" loading="lazy">
+              <div class="window-overlay">
+                <a href="contact-project.html?design=PRO-17" class="window-overlay-btn">
+                  Choose This Design <i data-lucide="arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="catalog-design-card extra-catalog-card" data-design-id="18" style="display:none;">
+            <div class="catalog-design-window">
+              <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.21%20PM.jpeg" alt="Website Template Design 18" class="design-scroll-img" loading="lazy">
+              <div class="window-overlay">
+                <a href="contact-project.html?design=PRO-18" class="window-overlay-btn">
+                  Choose This Design <i data-lucide="arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="catalog-design-card extra-catalog-card" data-design-id="19" style="display:none;">
+            <div class="catalog-design-window">
+              <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.22%20PM%20(1).jpeg" alt="Website Template Design 19" class="design-scroll-img" loading="lazy">
+              <div class="window-overlay">
+                <a href="contact-project.html?design=PRO-19" class="window-overlay-btn">
+                  Choose This Design <i data-lucide="arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="catalog-design-card extra-catalog-card" data-design-id="20" style="display:none;">
+            <div class="catalog-design-window">
+              <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.22%20PM.jpeg" alt="Website Template Design 20" class="design-scroll-img" loading="lazy">
+              <div class="window-overlay">
+                <a href="contact-project.html?design=PRO-20" class="window-overlay-btn">
+                  Choose This Design <i data-lucide="arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="catalog-design-card extra-catalog-card" data-design-id="21" style="display:none;">
+            <div class="catalog-design-window">
+              <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.23%20PM.jpeg" alt="Website Template Design 21" class="design-scroll-img" loading="lazy">
+              <div class="window-overlay">
+                <a href="contact-project.html?design=PRO-21" class="window-overlay-btn">
+                  Choose This Design <i data-lucide="arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="catalog-design-card extra-catalog-card" data-design-id="22" style="display:none;">
+            <div class="catalog-design-window">
+              <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.25%20PM.jpeg" alt="Website Template Design 22" class="design-scroll-img" loading="lazy">
+              <div class="window-overlay">
+                <a href="contact-project.html?design=PRO-22" class="window-overlay-btn">
+                  Choose This Design <i data-lucide="arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="catalog-design-card extra-catalog-card" data-design-id="23" style="display:none;">
+            <div class="catalog-design-window">
+              <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.26%20PM.jpeg" alt="Website Template Design 23" class="design-scroll-img" loading="lazy">
+              <div class="window-overlay">
+                <a href="contact-project.html?design=PRO-23" class="window-overlay-btn">
+                  Choose This Design <i data-lucide="arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="catalog-design-card extra-catalog-card" data-design-id="24" style="display:none;">
+            <div class="catalog-design-window">
+              <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.27%20PM.jpeg" alt="Website Template Design 24" class="design-scroll-img" loading="lazy">
+              <div class="window-overlay">
+                <a href="contact-project.html?design=PRO-24" class="window-overlay-btn">
+                  Choose This Design <i data-lucide="arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="catalog-design-card extra-catalog-card" data-design-id="25" style="display:none;">
+            <div class="catalog-design-window">
+              <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.28%20PM.jpeg" alt="Website Template Design 25" class="design-scroll-img" loading="lazy">
+              <div class="window-overlay">
+                <a href="contact-project.html?design=PRO-25" class="window-overlay-btn">
+                  Choose This Design <i data-lucide="arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="catalog-design-card extra-catalog-card" data-design-id="26" style="display:none;">
+            <div class="catalog-design-window">
+              <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.29%20PM%20(1).jpeg" alt="Website Template Design 26" class="design-scroll-img" loading="lazy">
+              <div class="window-overlay">
+                <a href="contact-project.html?design=PRO-26" class="window-overlay-btn">
+                  Choose This Design <i data-lucide="arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="catalog-design-card extra-catalog-card" data-design-id="27" style="display:none;">
+            <div class="catalog-design-window">
+              <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.29%20PM.jpeg" alt="Website Template Design 27" class="design-scroll-img" loading="lazy">
+              <div class="window-overlay">
+                <a href="contact-project.html?design=PRO-27" class="window-overlay-btn">
+                  Choose This Design <i data-lucide="arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="catalog-design-card extra-catalog-card" data-design-id="28" style="display:none;">
+            <div class="catalog-design-window">
+              <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.30%20PM.jpeg" alt="Website Template Design 28" class="design-scroll-img" loading="lazy">
+              <div class="window-overlay">
+                <a href="contact-project.html?design=PRO-28" class="window-overlay-btn">
+                  Choose This Design <i data-lucide="arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="catalog-design-card extra-catalog-card" data-design-id="29" style="display:none;">
+            <div class="catalog-design-window">
+              <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.31%20PM%20(1).jpeg" alt="Website Template Design 29" class="design-scroll-img" loading="lazy">
+              <div class="window-overlay">
+                <a href="contact-project.html?design=PRO-29" class="window-overlay-btn">
+                  Choose This Design <i data-lucide="arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="catalog-design-card extra-catalog-card" data-design-id="30" style="display:none;">
+            <div class="catalog-design-window">
+              <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.31%20PM.jpeg" alt="Website Template Design 30" class="design-scroll-img" loading="lazy">
+              <div class="window-overlay">
+                <a href="contact-project.html?design=PRO-30" class="window-overlay-btn">
+                  Choose This Design <i data-lucide="arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="catalog-design-card extra-catalog-card" data-design-id="31" style="display:none;">
+            <div class="catalog-design-window">
+              <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.33%20PM%20(1).jpeg" alt="Website Template Design 31" class="design-scroll-img" loading="lazy">
+              <div class="window-overlay">
+                <a href="contact-project.html?design=PRO-31" class="window-overlay-btn">
+                  Choose This Design <i data-lucide="arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="catalog-design-card extra-catalog-card" data-design-id="32" style="display:none;">
+            <div class="catalog-design-window">
+              <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.33%20PM.jpeg" alt="Website Template Design 32" class="design-scroll-img" loading="lazy">
+              <div class="window-overlay">
+                <a href="contact-project.html?design=PRO-32" class="window-overlay-btn">
+                  Choose This Design <i data-lucide="arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="catalog-design-card extra-catalog-card" data-design-id="33" style="display:none;">
+            <div class="catalog-design-window">
+              <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.37%20PM.jpeg" alt="Website Template Design 33" class="design-scroll-img" loading="lazy">
+              <div class="window-overlay">
+                <a href="contact-project.html?design=PRO-33" class="window-overlay-btn">
+                  Choose This Design <i data-lucide="arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="catalog-design-card extra-catalog-card" data-design-id="34" style="display:none;">
+            <div class="catalog-design-window">
+              <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.38%20PM.jpeg" alt="Website Template Design 34" class="design-scroll-img" loading="lazy">
+              <div class="window-overlay">
+                <a href="contact-project.html?design=PRO-34" class="window-overlay-btn">
+                  Choose This Design <i data-lucide="arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="catalog-design-card extra-catalog-card" data-design-id="35" style="display:none;">
+            <div class="catalog-design-window">
+              <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.39%20PM%20(1).jpeg" alt="Website Template Design 35" class="design-scroll-img" loading="lazy">
+              <div class="window-overlay">
+                <a href="contact-project.html?design=PRO-35" class="window-overlay-btn">
+                  Choose This Design <i data-lucide="arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="catalog-design-card extra-catalog-card" data-design-id="36" style="display:none;">
+            <div class="catalog-design-window">
+              <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.39%20PM.jpeg" alt="Website Template Design 36" class="design-scroll-img" loading="lazy">
+              <div class="window-overlay">
+                <a href="contact-project.html?design=PRO-36" class="window-overlay-btn">
+                  Choose This Design <i data-lucide="arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="catalog-design-card extra-catalog-card" data-design-id="37" style="display:none;">
+            <div class="catalog-design-window">
+              <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.40%20PM%20(1).jpeg" alt="Website Template Design 37" class="design-scroll-img" loading="lazy">
+              <div class="window-overlay">
+                <a href="contact-project.html?design=PRO-37" class="window-overlay-btn">
+                  Choose This Design <i data-lucide="arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="catalog-design-card extra-catalog-card" data-design-id="38" style="display:none;">
+            <div class="catalog-design-window">
+              <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.40%20PM.jpeg" alt="Website Template Design 38" class="design-scroll-img" loading="lazy">
+              <div class="window-overlay">
+                <a href="contact-project.html?design=PRO-38" class="window-overlay-btn">
+                  Choose This Design <i data-lucide="arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="catalog-design-card extra-catalog-card" data-design-id="39" style="display:none;">
+            <div class="catalog-design-window">
+              <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.41%20PM%20(1).jpeg" alt="Website Template Design 39" class="design-scroll-img" loading="lazy">
+              <div class="window-overlay">
+                <a href="contact-project.html?design=PRO-39" class="window-overlay-btn">
+                  Choose This Design <i data-lucide="arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="catalog-design-card extra-catalog-card" data-design-id="40" style="display:none;">
+            <div class="catalog-design-window">
+              <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.41%20PM%20(2).jpeg" alt="Website Template Design 40" class="design-scroll-img" loading="lazy">
+              <div class="window-overlay">
+                <a href="contact-project.html?design=PRO-40" class="window-overlay-btn">
+                  Choose This Design <i data-lucide="arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="catalog-design-card extra-catalog-card" data-design-id="41" style="display:none;">
+            <div class="catalog-design-window">
+              <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.41%20PM.jpeg" alt="Website Template Design 41" class="design-scroll-img" loading="lazy">
+              <div class="window-overlay">
+                <a href="contact-project.html?design=PRO-41" class="window-overlay-btn">
+                  Choose This Design <i data-lucide="arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="catalog-design-card extra-catalog-card" data-design-id="42" style="display:none;">
+            <div class="catalog-design-window">
+              <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.42%20PM.jpeg" alt="Website Template Design 42" class="design-scroll-img" loading="lazy">
+              <div class="window-overlay">
+                <a href="contact-project.html?design=PRO-42" class="window-overlay-btn">
+                  Choose This Design <i data-lucide="arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="catalog-design-card extra-catalog-card" data-design-id="43" style="display:none;">
+            <div class="catalog-design-window">
+              <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.43%20PM.jpeg" alt="Website Template Design 43" class="design-scroll-img" loading="lazy">
+              <div class="window-overlay">
+                <a href="contact-project.html?design=PRO-43" class="window-overlay-btn">
+                  Choose This Design <i data-lucide="arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="catalog-design-card extra-catalog-card" data-design-id="44" style="display:none;">
+            <div class="catalog-design-window">
+              <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.44%20PM%20(1).jpeg" alt="Website Template Design 44" class="design-scroll-img" loading="lazy">
+              <div class="window-overlay">
+                <a href="contact-project.html?design=PRO-44" class="window-overlay-btn">
+                  Choose This Design <i data-lucide="arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="catalog-design-card extra-catalog-card" data-design-id="45" style="display:none;">
+            <div class="catalog-design-window">
+              <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.44%20PM.jpeg" alt="Website Template Design 45" class="design-scroll-img" loading="lazy">
+              <div class="window-overlay">
+                <a href="contact-project.html?design=PRO-45" class="window-overlay-btn">
+                  Choose This Design <i data-lucide="arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="catalog-design-card extra-catalog-card" data-design-id="46" style="display:none;">
+            <div class="catalog-design-window">
+              <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.45%20PM.jpeg" alt="Website Template Design 46" class="design-scroll-img" loading="lazy">
+              <div class="window-overlay">
+                <a href="contact-project.html?design=PRO-46" class="window-overlay-btn">
+                  Choose This Design <i data-lucide="arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="catalog-design-card extra-catalog-card" data-design-id="47" style="display:none;">
+            <div class="catalog-design-window">
+              <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.46%20PM%20(1).jpeg" alt="Website Template Design 47" class="design-scroll-img" loading="lazy">
+              <div class="window-overlay">
+                <a href="contact-project.html?design=PRO-47" class="window-overlay-btn">
+                  Choose This Design <i data-lucide="arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="catalog-design-card extra-catalog-card" data-design-id="48" style="display:none;">
+            <div class="catalog-design-window">
+              <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.46%20PM.jpeg" alt="Website Template Design 48" class="design-scroll-img" loading="lazy">
+              <div class="window-overlay">
+                <a href="contact-project.html?design=PRO-48" class="window-overlay-btn">
+                  Choose This Design <i data-lucide="arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="catalog-design-card extra-catalog-card" data-design-id="49" style="display:none;">
+            <div class="catalog-design-window">
+              <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.50%20PM%20(1).jpeg" alt="Website Template Design 49" class="design-scroll-img" loading="lazy">
+              <div class="window-overlay">
+                <a href="contact-project.html?design=PRO-49" class="window-overlay-btn">
+                  Choose This Design <i data-lucide="arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="catalog-design-card extra-catalog-card" data-design-id="50" style="display:none;">
+            <div class="catalog-design-window">
+              <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.50%20PM%20(2).jpeg" alt="Website Template Design 50" class="design-scroll-img" loading="lazy">
+              <div class="window-overlay">
+                <a href="contact-project.html?design=PRO-50" class="window-overlay-btn">
+                  Choose This Design <i data-lucide="arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="catalog-design-card extra-catalog-card" data-design-id="51" style="display:none;">
+            <div class="catalog-design-window">
+              <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.50%20PM.jpeg" alt="Website Template Design 51" class="design-scroll-img" loading="lazy">
+              <div class="window-overlay">
+                <a href="contact-project.html?design=PRO-51" class="window-overlay-btn">
+                  Choose This Design <i data-lucide="arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="catalog-design-card extra-catalog-card" data-design-id="52" style="display:none;">
+            <div class="catalog-design-window">
+              <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.51%20PM.jpeg" alt="Website Template Design 52" class="design-scroll-img" loading="lazy">
+              <div class="window-overlay">
+                <a href="contact-project.html?design=PRO-52" class="window-overlay-btn">
+                  Choose This Design <i data-lucide="arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="catalog-design-card extra-catalog-card" data-design-id="53" style="display:none;">
+            <div class="catalog-design-window">
+              <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.54%20PM.jpeg" alt="Website Template Design 53" class="design-scroll-img" loading="lazy">
+              <div class="window-overlay">
+                <a href="contact-project.html?design=PRO-53" class="window-overlay-btn">
+                  Choose This Design <i data-lucide="arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="catalog-design-card extra-catalog-card" data-design-id="54" style="display:none;">
+            <div class="catalog-design-window">
+              <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.55%20PM%20(1).jpeg" alt="Website Template Design 54" class="design-scroll-img" loading="lazy">
+              <div class="window-overlay">
+                <a href="contact-project.html?design=PRO-54" class="window-overlay-btn">
+                  Choose This Design <i data-lucide="arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="catalog-design-card extra-catalog-card" data-design-id="55" style="display:none;">
+            <div class="catalog-design-window">
+              <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.55%20PM%20(2).jpeg" alt="Website Template Design 55" class="design-scroll-img" loading="lazy">
+              <div class="window-overlay">
+                <a href="contact-project.html?design=PRO-55" class="window-overlay-btn">
+                  Choose This Design <i data-lucide="arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="catalog-design-card extra-catalog-card" data-design-id="56" style="display:none;">
+            <div class="catalog-design-window">
+              <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.55%20PM.jpeg" alt="Website Template Design 56" class="design-scroll-img" loading="lazy">
+              <div class="window-overlay">
+                <a href="contact-project.html?design=PRO-56" class="window-overlay-btn">
+                  Choose This Design <i data-lucide="arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="catalog-design-card extra-catalog-card" data-design-id="57" style="display:none;">
+            <div class="catalog-design-window">
+              <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.57%20PM%20(1).jpeg" alt="Website Template Design 57" class="design-scroll-img" loading="lazy">
+              <div class="window-overlay">
+                <a href="contact-project.html?design=PRO-57" class="window-overlay-btn">
+                  Choose This Design <i data-lucide="arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="catalog-design-card extra-catalog-card" data-design-id="58" style="display:none;">
+            <div class="catalog-design-window">
+              <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.57%20PM%20(2).jpeg" alt="Website Template Design 58" class="design-scroll-img" loading="lazy">
+              <div class="window-overlay">
+                <a href="contact-project.html?design=PRO-58" class="window-overlay-btn">
+                  Choose This Design <i data-lucide="arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="catalog-design-card extra-catalog-card" data-design-id="59" style="display:none;">
+            <div class="catalog-design-window">
+              <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.57%20PM.jpeg" alt="Website Template Design 59" class="design-scroll-img" loading="lazy">
+              <div class="window-overlay">
+                <a href="contact-project.html?design=PRO-59" class="window-overlay-btn">
+                  Choose This Design <i data-lucide="arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="catalog-load-more-wrap">
+          <button type="button" class="btn btn-primary" id="btnLoadMoreCatalog" style="padding: 14px 34px; font-size: 1rem;">
+            View All 59 Designs <i data-lucide="chevron-down"></i>
+          </button>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- CORE CAPABILITIES & SERVICES -->
+    <section class="services-overview">
+      <div class="container">
+        <div class="section-head" style="text-align:center; display:block;">
+          <p class="section-kicker">WHAT WE BUILD FOR YOU</p>
+          <h2>Our Core Technical Capabilities</h2>
+          <p class="section-sub" style="margin: 10px auto 0;">From single-page web portfolios to full enterprise digital infrastructures — tailored to your exact industry.</p>
+        </div>
+
+        <div class="services-grid-mini">
+
+          <!-- Web Development -->
+          <div class="service-box">
+            <div class="service-box-icon"><i data-lucide="code"></i></div>
+            <h3>Custom Web Development</h3>
+            <p>Modern, responsive, ultra-fast websites engineered to turn visitors into paying clients.</p>
+            <ul class="service-features-list">
+              <li>Responsive mobile-first architecture</li>
+              <li>95+ Google PageSpeed performance</li>
+              <li>SEO-ready structure & schema</li>
+            </ul>
+            <a href="contact-project.html" class="link-arrow">Start Development <i data-lucide="arrow-right"></i></a>
           </div>
 
           <!-- eCommerce -->
-          <div class="catalog-card reveal delay-1">
-            <div class="card-img">
-              <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=360&fit=crop" alt="eCommerce">
-            </div>
-            <div class="card-body">
-              <span class="card-tag">eCommerce</span>
-              <h3>eCommerce Stores</h3>
-              <p>Conversion-optimized online stores built to sell. Shopify, WooCommerce or fully custom headless solutions.</p>
-              <ul class="card-features">
-                <li>Product catalog & inventory</li>
-                <li>Secure payment gateways</li>
-                <li>Order & shipping management</li>
-                <li>Shopify / WooCommerce</li>
-                <li>Analytics & reporting</li>
-              </ul>
-              <p class="card-price">Starting from <strong>$1,200</strong></p>
-              <div class="card-actions">
-                <a href="contact.html" class="btn btn-primary" style="flex:1;">Get Started <i data-lucide="arrow-right"></i></a>
-                <a href="pricing.html" class="btn btn-outline">Pricing</a>
-              </div>
-            </div>
+          <div class="service-box">
+            <div class="service-box-icon"><i data-lucide="shopping-bag"></i></div>
+            <h3>eCommerce Stores</h3>
+            <p>High-converting stores with smooth checkout experiences and automated order management.</p>
+            <ul class="service-features-list">
+              <li>Shopify & custom cart systems</li>
+              <li>Payment gateways & multi-currency</li>
+              <li>Automated stock & inventory sync</li>
+            </ul>
+            <a href="contact-project.html" class="link-arrow">Build an eCommerce Store <i data-lucide="arrow-right"></i></a>
           </div>
 
-          <!-- Web Apps -->
-          <div class="catalog-card reveal delay-2">
-            <div class="card-img">
-              <img src="https://images.unsplash.com/photo-1531403009284-440f080d1e12?w=600&h=360&fit=crop" alt="Web Applications">
-            </div>
-            <div class="card-body">
-              <span class="card-tag">Applications</span>
-              <h3>Web Applications</h3>
-              <p>Custom platforms, SaaS products, dashboards and internal tools built with modern, scalable architecture.</p>
-              <ul class="card-features">
-                <li>React / Next.js frontend</li>
-                <li>Node.js / Laravel backend</li>
-                <li>REST & GraphQL APIs</li>
-                <li>Role-based access control</li>
-                <li>Cloud deployment (AWS)</li>
-              </ul>
-              <p class="card-price">Starting from <strong>$2,500</strong></p>
-              <div class="card-actions">
-                <a href="contact.html" class="btn btn-primary" style="flex:1;">Get Started <i data-lucide="arrow-right"></i></a>
-                <a href="pricing.html" class="btn btn-outline">Pricing</a>
-              </div>
-            </div>
-          </div>
-
-          <!-- UI/UX Design -->
-          <div class="catalog-card reveal">
-            <div class="card-img">
-              <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=600&h=360&fit=crop" alt="UI/UX Design">
-            </div>
-            <div class="card-body">
-              <span class="card-tag">Design</span>
-              <h3>UI/UX Design</h3>
-              <p>Beautiful, intuitive interfaces designed to delight users and drive conversions. From wireframes to pixel-perfect prototypes.</p>
-              <ul class="card-features">
-                <li>User research & personas</li>
-                <li>Wireframes & prototypes</li>
-                <li>Figma design system</li>
-                <li>Responsive design</li>
-                <li>Usability testing</li>
-              </ul>
-              <p class="card-price">Starting from <strong>$600</strong></p>
-              <div class="card-actions">
-                <a href="contact.html" class="btn btn-primary" style="flex:1;">Get Started <i data-lucide="arrow-right"></i></a>
-                <a href="pricing.html" class="btn btn-outline">Pricing</a>
-              </div>
-            </div>
-          </div>
-
-          <!-- Automation -->
-          <div class="catalog-card reveal delay-1">
-            <div class="card-img">
-              <img src="https://images.unsplash.com/photo-1518186285589-2f7649de83e0?w=600&h=360&fit=crop" alt="Automation">
-            </div>
-            <div class="card-body">
-              <span class="card-tag">Automation</span>
-              <h3>Business Automation</h3>
-              <p>Connect your tools and automate repetitive workflows to save time, reduce errors and scale your operations.</p>
-              <ul class="card-features">
-                <li>Zapier / Make / n8n flows</li>
-                <li>CRM & ERP integrations</li>
-                <li>Email & notification systems</li>
-                <li>Data sync & pipelines</li>
-                <li>Custom workflow bots</li>
-              </ul>
-              <p class="card-price">Starting from <strong>$500</strong></p>
-              <div class="card-actions">
-                <a href="contact.html" class="btn btn-primary" style="flex:1;">Get Started <i data-lucide="arrow-right"></i></a>
-                <a href="pricing.html" class="btn btn-outline">Pricing</a>
-              </div>
-            </div>
-          </div>
-
-          <!-- AI Solutions -->
-          <div class="catalog-card reveal delay-2">
-            <div class="card-img">
-              <img src="https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=600&h=360&fit=crop" alt="AI Solutions">
-            </div>
-            <div class="card-body">
-              <span class="card-tag">AI</span>
-              <h3>AI Solutions</h3>
-              <p>Intelligent tools powered by OpenAI, LLMs and machine learning — chatbots, content generators, smart analytics and more.</p>
-              <ul class="card-features">
-                <li>AI chatbots & assistants</li>
-                <li>OpenAI / GPT integration</li>
-                <li>Document & data analysis</li>
-                <li>Smart recommendation engines</li>
-                <li>Custom AI workflows</li>
-              </ul>
-              <p class="card-price">Starting from <strong>$1,000</strong></p>
-              <div class="card-actions">
-                <a href="contact.html" class="btn btn-primary" style="flex:1;">Get Started <i data-lucide="arrow-right"></i></a>
-                <a href="pricing.html" class="btn btn-outline">Pricing</a>
-              </div>
-            </div>
+          <!-- Business Automation -->
+          <div class="service-box">
+            <div class="service-box-icon"><i data-lucide="cpu"></i></div>
+            <h3>Automation & AI Integration</h3>
+            <p>Connect your internal tools, eliminate manual data entry, and integrate smart AI assistants.</p>
+            <ul class="service-features-list">
+              <li>CRM & WhatsApp / Email bots</li>
+              <li>Custom API & webhook pipelines</li>
+              <li>OpenAI / LLM smart workflows</li>
+            </ul>
+            <a href="contact-project.html" class="link-arrow">Automate Your Business <i data-lucide="arrow-right"></i></a>
           </div>
 
         </div>
       </div>
     </section>
 
-    <!-- PACKAGES -->
-    <section class="packages">
+    <!-- BOTTOM STRIP / CTA -->
+    <section class="packages-cta-strip">
       <div class="container">
-        <div class="section-head reveal" style="justify-content:center; text-align:center; display:block;">
-          <p class="section-kicker">READY-MADE PACKAGES</p>
-          <h2>Pick a Package, Launch Faster</h2>
-          <p class="section-sub" style="margin: 10px auto 0; text-align:center;">Pre-defined packages for common business needs. Clear scope, fixed price, fast delivery.</p>
-        </div>
-        <div class="packages-grid">
-
-          <!-- Starter -->
-          <div class="pkg-card reveal">
-            <div class="pkg-name">Starter</div>
-            <div class="pkg-price">$800 <span>/ project</span></div>
-            <p class="pkg-desc">Perfect for small businesses launching their first professional website.</p>
-            <ul class="pkg-features">
-              <li><i data-lucide="check-circle"></i> Up to 5 pages</li>
-              <li><i data-lucide="check-circle"></i> Mobile responsive design</li>
-              <li><i data-lucide="check-circle"></i> Contact form integration</li>
-              <li><i data-lucide="check-circle"></i> Basic SEO setup</li>
-              <li><i data-lucide="check-circle"></i> 2 weeks delivery</li>
-              <li class="unavailable"><i data-lucide="x-circle"></i> Custom animations</li>
-              <li class="unavailable"><i data-lucide="x-circle"></i> eCommerce features</li>
-            </ul>
-            <a href="contact.html" class="btn btn-outline btn-block">Get Started <i data-lucide="arrow-right"></i></a>
-          </div>
-
-          <!-- Professional -->
-          <div class="pkg-card popular reveal delay-1">
-            <span class="popular-badge">⭐ Most Popular</span>
-            <div class="pkg-name">Professional</div>
-            <div class="pkg-price">$2,200 <span>/ project</span></div>
-            <p class="pkg-desc">For growing businesses that need a powerful digital presence with full features.</p>
-            <ul class="pkg-features">
-              <li><i data-lucide="check-circle"></i> Up to 15 pages</li>
-              <li><i data-lucide="check-circle"></i> Custom UI/UX design</li>
-              <li><i data-lucide="check-circle"></i> CMS integration</li>
-              <li><i data-lucide="check-circle"></i> Advanced SEO + analytics</li>
-              <li><i data-lucide="check-circle"></i> Animations & interactions</li>
-              <li><i data-lucide="check-circle"></i> 4 weeks delivery</li>
-              <li><i data-lucide="check-circle"></i> 30 days free support</li>
-            </ul>
-            <a href="contact.html" class="btn btn-primary btn-block">Get Started <i data-lucide="arrow-right"></i></a>
-          </div>
-
-          <!-- Enterprise -->
-          <div class="pkg-card reveal delay-2">
-            <div class="pkg-name">Enterprise</div>
-            <div class="pkg-price">Custom <span>/ project</span></div>
-            <p class="pkg-desc">Full-scale digital solutions for established businesses with complex requirements.</p>
-            <ul class="pkg-features">
-              <li><i data-lucide="check-circle"></i> Unlimited pages & features</li>
-              <li><i data-lucide="check-circle"></i> Custom web application</li>
-              <li><i data-lucide="check-circle"></i> API & third-party integrations</li>
-              <li><i data-lucide="check-circle"></i> AI & automation setup</li>
-              <li><i data-lucide="check-circle"></i> Dedicated project manager</li>
-              <li><i data-lucide="check-circle"></i> Priority support SLA</li>
-              <li><i data-lucide="check-circle"></i> 90 days post-launch support</li>
-            </ul>
-            <a href="contact.html" class="btn btn-outline btn-block">Contact Us <i data-lucide="arrow-right"></i></a>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- BOTTOM CTA -->
-    <section style="padding: 80px 0; text-align:center;">
-      <div class="container">
-        <p class="section-kicker reveal">NOT SURE WHAT YOU NEED?</p>
-        <h2 class="reveal">Let's Figure It Out Together</h2>
-        <p class="reveal delay-1" style="max-width:500px; margin: 14px auto 28px;">Book a free 30-minute consultation and our team will recommend the best solution for your business.</p>
-        <div class="reveal delay-2" style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
-          <a href="contact.html" class="btn btn-primary">Book Free Consultation <i data-lucide="arrow-right"></i></a>
-          <a href="pricing.html" class="btn btn-outline">Instant Price Calculator</a>
+        <p class="section-kicker light">READY TO LAUNCH YOUR OWN PLATFORM?</p>
+        <h2>Get Your Custom Website Built by AS Web Solution</h2>
+        <p>Whether you need a commercial services website, corporate advisory portal, or custom web platform, our team is ready to deliver.</p>
+        <div style="display:flex; gap:14px; justify-content:center; flex-wrap:wrap;">
+          <a href="contact-project.html" class="btn btn-primary" style="background:#fff; color:var(--navy); box-shadow:none;">Get a Free Proposal <i data-lucide="arrow-right"></i></a>
+          <a href="pricing.html" class="btn btn-outline" style="background:transparent; color:#fff; border-color:rgba(255,255,255,.5);">Check Pricing Packages</a>
         </div>
       </div>
     </section>
 
   </main>
 
+  <!-- FOOTER -->
   <footer class="footer">
     <div class="container footer-main">
       <div class="footer-grid">
         <div class="footer-col footer-col-brand">
           <a href="index.html" class="logo light">
-            <span class="logo-mark">AS</span>
+            <img src="./assets/img/logo-removebg.png" alt="AS Logo" style="height:52px;width:52px;">
             <span class="logo-text"><strong>AS Web Solution</strong><small>Digital solutions for a better tomorrow</small></span>
           </a>
-          <p class="footer-desc">We engineer high-performance web applications, enterprise eCommerce platforms, and smart automated systems.</p>
+          <p class="footer-desc">We engineer high-performance web applications, enterprise eCommerce platforms, and smart automated systems for worldwide brands.</p>
           <div class="footer-ratings-wrap">
             <div class="footer-ratings-row">
               <a href="#" class="rating-badge-card"><img src="assets/img/googlerating.png" alt="Google Rating" class="rating-badge-img"></a>
@@ -397,18 +1984,19 @@
             <li><a href="index.html"><i data-lucide="chevron-right"></i> Home</a></li>
             <li><a href="about.html"><i data-lucide="chevron-right"></i> About Us</a></li>
             <li><a href="whyus.html"><i data-lucide="chevron-right"></i> Why Choose Us</a></li>
-            <li><a href="catalog.html"><i data-lucide="chevron-right"></i> Services</a></li>
+            <li><a href="catalog.html"><i data-lucide="chevron-right"></i> Live Catalog</a></li>
+            <li><a href="pricing.html"><i data-lucide="chevron-right"></i> Pricing</a></li>
             <li><a href="contact.html"><i data-lucide="chevron-right"></i> Contact</a></li>
           </ul>
         </div>
         <div class="footer-col">
-          <h4 class="footer-heading">Services</h4>
+          <h4 class="footer-heading">Featured Projects</h4>
           <ul class="footer-links">
-            <li><a href="catalog.html"><i data-lucide="chevron-right"></i> Web Development</a></li>
-            <li><a href="catalog.html"><i data-lucide="chevron-right"></i> eCommerce</a></li>
-            <li><a href="catalog.html"><i data-lucide="chevron-right"></i> UI/UX Design</a></li>
-            <li><a href="catalog.html"><i data-lucide="chevron-right"></i> Automation</a></li>
-            <li><a href="catalog.html"><i data-lucide="chevron-right"></i> AI Solutions</a></li>
+            <li><a href="https://asautomate.com/" target="_blank" rel="noopener"><i data-lucide="external-link"></i> AS Automate</a></li>
+            <li><a href="https://cleaning-express.com/" target="_blank" rel="noopener"><i data-lucide="external-link"></i> Cleaning Express</a></li>
+            <li><a href="https://diamondcleanersusa.com/" target="_blank" rel="noopener"><i data-lucide="external-link"></i> Diamond Cleaners USA</a></li>
+            <li><a href="https://csttax.com/" target="_blank" rel="noopener"><i data-lucide="external-link"></i> CST Tax Advisors</a></li>
+            <li><a href="https://masjidulummah.ca/" target="_blank" rel="noopener"><i data-lucide="external-link"></i> Masjid Ul Ummah</a></li>
           </ul>
         </div>
         <div class="footer-col">
@@ -416,7 +2004,7 @@
           <ul class="footer-links">
             <li><a href="mailto:info@aswebsolution.com"><i data-lucide="chevron-right"></i> info@aswebsolution.com</a></li>
             <li><a href="tel:+923433458001"><i data-lucide="chevron-right"></i> +92 343 3458001</a></li>
-            <li><a href="contact.html"><i data-lucide="chevron-right"></i> Get a Quote</a></li>
+            <li><a href="contact-project.html"><i data-lucide="chevron-right"></i> Get a Quote</a></li>
           </ul>
         </div>
       </div>
@@ -438,6 +2026,128 @@
   </footer>
 
   <button class="to-top" id="toTop" type="button" aria-label="Back to top"><i data-lucide="chevron-up"></i></button>
+
   <script src="script.js"></script>
+  <script>
+    // Filtering logic & Auto-scroll synchronization
+    document.addEventListener('DOMContentLoaded', function () {
+      if (window.lucide) lucide.createIcons();
+
+      // Filter tabs handling
+      const filterBtns = document.querySelectorAll('.filter-btn');
+      const cards = document.querySelectorAll('.showcase-card');
+
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', function () {
+          filterBtns.forEach(b => b.classList.remove('active'));
+          this.classList.add('active');
+
+          const filter = this.getAttribute('data-filter');
+
+          cards.forEach(card => {
+            const cat = card.getAttribute('data-category');
+            if (filter === 'all' || cat === filter) {
+              card.style.display = 'flex';
+            } else {
+              card.style.display = 'none';
+            }
+          });
+        });
+      });
+
+      // Synchronized scroll effect:
+      // Jab user page ko upar ya neeche scroll karta hai, to iframes aur previews
+      // ke content automatically upar aur neeche scroll/translate hotay hain!
+      const iframes = document.querySelectorAll('.live-iframe');
+      const scrollImgs = document.querySelectorAll('.live-scroll-img');
+
+      let ticking = false;
+
+      function onScrollSync() {
+        const showcaseSection = document.getElementById('showcase');
+        if (!showcaseSection) return;
+
+        const rect = showcaseSection.getBoundingClientRect();
+        const windowHeight = window.innerHeight;
+
+        // Check if showcase section is visible in viewport
+        if (rect.bottom > 0 && rect.top < windowHeight) {
+          // Calculate how far we scrolled through the showcase section (0 to 1)
+          const totalDistance = rect.height + windowHeight;
+          const currentProgress = (windowHeight - rect.top) / totalDistance;
+          const clamped = Math.max(0, Math.min(1, currentProgress));
+
+          // Move the iframes content up/down proportionally (up to -260px)
+          const offsetY = Math.round(clamped * 260);
+
+          iframes.forEach(iframe => {
+            iframe.style.transform = `scale(0.5) translateY(-${offsetY}px)`;
+          });
+
+          scrollImgs.forEach(img => {
+            img.style.transform = `translateY(-${Math.round(clamped * 45)}px)`;
+          });
+        }
+        ticking = false;
+      }
+
+      window.addEventListener('scroll', function () {
+        if (!ticking) {
+          requestAnimationFrame(onScrollSync);
+          ticking = true;
+        }
+      }, { passive: true });
+
+      // Run once on load
+      onScrollSync();
+
+      // =========================================================
+      // DYNAMIC CATALOG IMAGES AUTO-SCROLL (UPAR TO UPAR, NEECHE TO NEECHE)
+      // =========================================================
+      const catalogImgs = document.querySelectorAll('.design-scroll-img');
+      const gallerySection = document.getElementById('catalog-gallery');
+
+      function syncCatalogImagesScroll() {
+        if (!gallerySection) return;
+
+        const rect = gallerySection.getBoundingClientRect();
+        const winHeight = window.innerHeight;
+
+        // If gallery section is partially in view
+        if (rect.bottom > 0 && rect.top < winHeight) {
+          const totalDist = rect.height + winHeight;
+          const currentPos = (winHeight - rect.top) / totalDist;
+          const progress = Math.max(0, Math.min(1, currentPos));
+
+          // Move the catalog screenshots up and down proportionally (up to -260px)
+          const scrollDistance = Math.round(progress * 260);
+
+          catalogImgs.forEach(img => {
+            img.style.transform = 'translateY(-' + scrollDistance + 'px)';
+          });
+        }
+      }
+
+      window.addEventListener('scroll', function () {
+        requestAnimationFrame(syncCatalogImagesScroll);
+      }, { passive: true });
+
+      // Run initially
+      syncCatalogImagesScroll();
+
+      // "Load More" functionality for remaining designs
+      const btnLoadMore = document.getElementById('btnLoadMoreCatalog');
+      if (btnLoadMore) {
+        btnLoadMore.addEventListener('click', function () {
+          const extras = document.querySelectorAll('.extra-catalog-card');
+          extras.forEach(card => card.style.display = 'flex');
+          btnLoadMore.style.display = 'none';
+          if (window.lucide) lucide.createIcons();
+          syncCatalogImagesScroll();
+        });
+      }
+
+    });
+  </script>
 </body>
 </html>

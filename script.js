@@ -9,6 +9,7 @@
   function init() {
     if (window.lucide) lucide.createIcons();
     setupMenu();
+    setupNavDropdown();
     setupStickyHeader();
     setupHeroVideos();
     setupSmoothScroll();
@@ -21,7 +22,34 @@
     setupContactForm();
   }
 
-  /* ---------- Mobile menu ---------- */
+  /* ---------- Nav Dropdown (Contact) ---------- */
+  function setupNavDropdown() {
+    const triggers = document.querySelectorAll('.nav-dropdown-trigger');
+    triggers.forEach(trigger => {
+      const menu = trigger.nextElementSibling;
+      if (!menu) return;
+
+      // Mobile: toggle on click
+      trigger.addEventListener('click', (e) => {
+        const isMobile = window.innerWidth <= 900;
+        if (!isMobile) return;
+        e.stopPropagation();
+        const isOpen = menu.classList.contains('open');
+        menu.classList.toggle('open', !isOpen);
+        trigger.setAttribute('aria-expanded', !isOpen);
+      });
+    });
+
+    // Close dropdown when clicking outside
+    document.addEventListener('click', () => {
+      document.querySelectorAll('.nav-dropdown-menu.open').forEach(m => {
+        m.classList.remove('open');
+        const t = m.previousElementSibling;
+        if (t) t.setAttribute('aria-expanded', 'false');
+      });
+    });
+  }
+
   function setupMenu() {
     const toggle = document.getElementById("menuToggle");
     const nav = document.getElementById("nav");
@@ -101,8 +129,19 @@
     const stats = document.querySelectorAll(".stat-number");
     if (!stats.length) return;
     const animate = (el) => {
-      const target = Number(el.dataset.count);
-      const suffix = el.dataset.suffix || "";
+      let target = Number(el.dataset.count);
+      let suffix = el.dataset.suffix;
+      if (isNaN(target)) {
+        const text = (el.textContent || "").trim();
+        const match = text.match(/^(\d+)(.*)$/);
+        if (match) {
+          target = Number(match[1]);
+          if (suffix === undefined) suffix = match[2];
+        } else {
+          return;
+        }
+      }
+      suffix = suffix || "";
       const start = performance.now();
       const duration = 1400;
       const tick = (now) => {
@@ -142,6 +181,7 @@
     const maxIndex = () => Math.max(0, cards.length - perView());
 
     function buildDots() {
+      if (!dotsWrap) return;
       dotsWrap.innerHTML = "";
       const total = maxIndex() + 1;
       for (let i = 0; i < total; i++) {
@@ -159,11 +199,13 @@
       if (i < 0) i = maxIndex();
       index = i;
       const gap = parseFloat(window.getComputedStyle(track).gap) || 18;
-      const cardWidth = cards[0].getBoundingClientRect().width;
+      const cardWidth = cards[0] ? cards[0].getBoundingClientRect().width : 0;
       track.style.transform = `translateX(-${index * (cardWidth + gap)}px)`;
-      [...dotsWrap.children].forEach((dot, di) => {
-        dot.classList.toggle("active", di === index);
-      });
+      if (dotsWrap) {
+        [...dotsWrap.children].forEach((dot, di) => {
+          dot.classList.toggle("active", di === index);
+        });
+      }
     }
 
     function play() {
@@ -172,8 +214,8 @@
     }
     function stop() { clearInterval(timer); }
 
-    prev.addEventListener("click", () => { go(index - 1); play(); });
-    next.addEventListener("click", () => { go(index + 1); play(); });
+    if (prev) prev.addEventListener("click", () => { go(index - 1); play(); });
+    if (next) next.addEventListener("click", () => { go(index + 1); play(); });
     track.addEventListener("mouseenter", stop);
     track.addEventListener("mouseleave", play);
 

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -16,18 +16,23 @@
   <style>
     /* ── PAGE HERO ── */
     .page-hero {
-      padding: 100px 0 70px;
-      background: radial-gradient(900px 420px at 80% 20%, rgba(37,99,235,.12), transparent 60%),
-                  linear-gradient(#fff, #F7FAFF);
+      position: relative;
+      padding: 70px 0 50px;
+      background: url("https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1600&h=800&fit=crop") center/cover no-repeat;
       text-align: center;
+      overflow: hidden;
     }
-    .page-hero .eyebrow { margin-bottom: 14px; }
-    .page-hero h1 { margin-bottom: 18px; }
-    .page-hero .lead { max-width: 600px; margin: 0 auto 32px; font-size: 1.05rem; }
-    .breadcrumb { display: flex; justify-content: center; align-items: center; gap: 8px;
-      font-size: 0.82rem; color: var(--muted); margin-bottom: 24px; }
-    .breadcrumb a { color: var(--blue); font-weight: 500; }
-    .breadcrumb span { color: var(--muted); }
+    .page-hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(6,42,92,.78) 0%, rgba(3,27,61,.65) 100%);
+      z-index: 0;
+    }
+    .page-hero .container { position: relative; z-index: 1; }
+    .page-hero h1 { color: #fff; margin-bottom: 14px; }
+    .page-hero .lead { color: rgba(255,255,255,.85); max-width: 600px; margin: 0 auto 24px; font-size: 1.05rem; }
+    .page-hero .eyebrow { color: #93C5FD; margin-bottom: 10px; }
 
     /* ── STORY ── */
     .about-story { padding: 80px 0; }
@@ -73,39 +78,224 @@
     .team-socials a:hover { background: var(--blue); color: #fff; transform: scale(1.1); }
     .team-socials svg { width: 14px; height: 14px; }
 
-    /* ── MILESTONES ── */
-    .milestones { padding: 80px 0; background: linear-gradient(135deg, var(--navy) 0%, var(--navy-dark) 100%); }
-    .milestones .section-kicker { color: #93C5FD; }
-    .milestones h2 { color: #fff; }
-    .milestones .section-sub { color: #B8C7DC; }
-    .timeline { margin-top: 52px; position: relative; }
-    .timeline::before { content: ""; position: absolute; left: 50%; top: 0; bottom: 0;
-      width: 2px; background: rgba(255,255,255,.15); transform: translateX(-50%); }
-    .timeline-item { display: grid; grid-template-columns: 1fr 60px 1fr; gap: 0;
-      align-items: center; margin-bottom: 40px; }
-    .timeline-item:nth-child(even) .tl-content { order: 3; text-align: left; }
-    .timeline-item:nth-child(even) .tl-empty { order: 1; }
-    .tl-content { background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.12);
-      border-radius: 16px; padding: 20px 22px; }
-    .tl-content h3 { color: #fff; font-size: 1rem; margin-bottom: 6px; }
-    .tl-content p { color: #B8C7DC; font-size: 0.88rem; margin: 0; }
-    .tl-dot { display: flex; flex-direction: column; align-items: center; gap: 4px; }
-    .tl-year { font-size: 0.75rem; font-weight: 700; color: #93C5FD; }
-    .tl-circle { width: 14px; height: 14px; border-radius: 50%; background: var(--blue);
-      border: 2px solid #fff; box-shadow: 0 0 12px rgba(37,99,235,.5); }
+    /* ── MILESTONES (OUR JOURNEY) ── */
+    .milestones {
+      padding: 90px 0;
+      position: relative;
+      background: radial-gradient(circle at 50% 10%, rgba(37, 99, 235, 0.16) 0%, transparent 60%),
+                  linear-gradient(180deg, #031B3D 0%, #062A5C 50%, #031B3D 100%);
+      overflow: hidden;
+    }
+    .milestones::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 85% 20%, rgba(59, 130, 246, 0.08), transparent 45%),
+                  radial-gradient(circle at 15% 85%, rgba(37, 99, 235, 0.1), transparent 45%);
+      pointer-events: none;
+    }
+    .milestones .section-head {
+      text-align: center;
+      max-width: 650px;
+      margin: 0 auto 55px;
+      position: relative;
+      z-index: 2;
+    }
+    .milestones .section-kicker {
+      color: #93C5FD;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 14px;
+      background: rgba(37, 99, 235, 0.18);
+      border: 1px solid rgba(147, 197, 253, 0.25);
+      border-radius: 999px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      margin-bottom: 12px;
+    }
+    .milestones h2 {
+      color: #fff;
+      font-size: clamp(2rem, 3.8vw, 2.6rem);
+      margin-bottom: 14px;
+    }
+    .milestones .section-sub {
+      color: #CBD5E1;
+      font-size: 1rem;
+      line-height: 1.65;
+    }
+    .timeline {
+      margin-top: 20px;
+      position: relative;
+      max-width: 980px;
+      margin-inline: auto;
+    }
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 15px;
+      bottom: 15px;
+      width: 2px;
+      background: linear-gradient(180deg, rgba(37,99,235,0.2) 0%, #3B82F6 25%, #60A5FA 75%, rgba(37,99,235,0.2) 100%);
+      transform: translateX(-50%);
+      box-shadow: 0 0 14px rgba(59, 130, 246, 0.45);
+    }
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 1fr 90px 1fr;
+      align-items: center;
+      margin-bottom: 46px;
+      position: relative;
+    }
+    .timeline-item:last-child {
+      margin-bottom: 0;
+    }
+    .timeline-item .tl-dot {
+      grid-column: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      z-index: 2;
+    }
+    .timeline-item:nth-child(odd) .tl-content {
+      grid-column: 1;
+      text-align: right;
+    }
+    .timeline-item:nth-child(odd) .tl-empty {
+      grid-column: 3;
+    }
+    .timeline-item:nth-child(even) .tl-empty {
+      grid-column: 1;
+    }
+    .timeline-item:nth-child(even) .tl-content {
+      grid-column: 3;
+      text-align: left;
+    }
+    .tl-content {
+      background: rgba(255, 255, 255, 0.04);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      padding: 24px 26px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+      transition: transform .35s cubic-bezier(.16,1,.3,1), border-color .35s, box-shadow .35s, background .35s;
+      position: relative;
+    }
+    .timeline-item:hover .tl-content {
+      transform: translateY(-5px);
+      background: rgba(255, 255, 255, 0.07);
+      border-color: rgba(147, 197, 253, 0.4);
+      box-shadow: 0 16px 40px rgba(3, 27, 61, 0.5), 0 0 24px rgba(37, 99, 235, 0.2);
+    }
+    .tl-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #93C5FD;
+      background: rgba(37, 99, 235, 0.25);
+      border: 1px solid rgba(147, 197, 253, 0.22);
+      padding: 4px 10px;
+      border-radius: 999px;
+      margin-bottom: 10px;
+    }
+    .tl-badge i, .tl-badge svg {
+      width: 12px;
+      height: 12px;
+    }
+    .tl-content h3 {
+      color: #fff;
+      font-size: 1.18rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .tl-content p {
+      color: #CBD5E1;
+      font-size: 0.92rem;
+      line-height: 1.6;
+      margin: 0;
+    }
+    .tl-highlight {
+      margin-top: 12px;
+      display: inline-block;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: #93C5FD;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 3px 10px;
+      border-radius: 6px;
+    }
+    .tl-year-pill {
+      font-size: 0.75rem;
+      font-weight: 800;
+      color: #fff;
+      background: linear-gradient(135deg, #2563EB, #1D4ED8);
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      padding: 3px 10px;
+      border-radius: 999px;
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.35);
+      margin-bottom: 6px;
+      letter-spacing: 0.04em;
+    }
+    .tl-circle {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: #3B82F6;
+      border: 3px solid #031B3D;
+      outline: 2px solid #60A5FA;
+      box-shadow: 0 0 14px rgba(59, 130, 246, 0.75);
+      transition: transform .3s ease, background-color .3s ease, outline-color .3s ease;
+    }
+    .timeline-item:hover .tl-circle {
+      transform: scale(1.3);
+      background: #60A5FA;
+      /* outline-color: #fff; */
+    }
 
     @media (max-width: 900px) {
       .story-grid { grid-template-columns: 1fr; }
       .values-grid { grid-template-columns: 1fr 1fr; }
       .team-grid { grid-template-columns: 1fr 1fr; }
-      .timeline::before { left: 20px; }
-      .timeline-item { grid-template-columns: 40px 1fr; }
-      .tl-empty { display: none; }
-      .timeline-item:nth-child(even) .tl-content { order: unset; text-align: left; }
-      .timeline-item:nth-child(even) .tl-empty { display: none; }
+      .timeline::before { left: 28px; transform: none; }
+      .timeline-item { grid-template-columns: 56px 1fr; gap: 16px; margin-bottom: 32px; }
+      .tl-empty { display: none !important; }
+      .timeline-item .tl-dot,
+      .timeline-item:nth-child(even) .tl-dot,
+      .timeline-item:nth-child(odd) .tl-dot {
+        grid-column: 1 !important;
+        grid-row: 1;
+        align-items: center;
+        justify-self: center;
+      }
+      .tl-year-pill { font-size: 0.68rem; padding: 2px 7px; margin-bottom: 5px; }
+      .timeline-item .tl-content,
+      .timeline-item:nth-child(even) .tl-content,
+      .timeline-item:nth-child(odd) .tl-content {
+        grid-column: 2 !important;
+        grid-row: 1;
+        text-align: left !important;
+        padding: 20px 18px;
+      }
     }
     @media (max-width: 600px) {
       .values-grid, .team-grid { grid-template-columns: 1fr; }
+    }
+  
+    /* ── PAGE HERO MOBILE ── */
+    @media (max-width: 767px) {
+      .page-hero { padding: 50px 0 35px; }
+      .page-hero h1 { font-size: clamp(1.8rem, 7vw, 2.8rem); }
+      .page-hero .lead { font-size: 0.95rem; }
     }
   </style>
 </head>
@@ -115,7 +305,7 @@
   <header class="header" id="header">
     <div class="container header-inner">
       <a href="index.html" class="logo" aria-label="AS Web Solution home">
-        <span class="logo-mark" aria-hidden="true">AS</span>
+        <img src="./assets/img/logo-removebg.png" alt="AS Logo" style="height:52px;width:52px;">
         <span class="logo-text">
           <strong>AS Web Solution</strong>
           <small>Digital solutions for a better tomorrow</small>
@@ -126,7 +316,14 @@
         <a href="about.html" class="nav-link active">About</a>
         <a href="whyus.html" class="nav-link">Why Us</a>
         <a href="catalog.html" class="nav-link">Services</a>
-        <a href="contact.html" class="nav-link">Contact</a>
+        <div class="nav-dropdown">
+          <button class="nav-link nav-dropdown-trigger" type="button" aria-expanded="false" aria-haspopup="true">Contact <i data-lucide="chevron-down" class="dd-arrow"></i></button>
+          <div class="nav-dropdown-menu" role="menu">
+            <a href="contact-project.html" class="nav-dropdown-item" role="menuitem"><div class="ndi-icon"><i data-lucide="rocket"></i></div><div><strong>Project Inquiry</strong><span>Start a new project</span></div></a>
+            <a href="contact-client.html" class="nav-dropdown-item" role="menuitem"><div class="ndi-icon"><i data-lucide="headphones"></i></div><div><strong>Client Support</strong><span>Existing client help</span></div></a>
+            <a href="contact-career.html" class="nav-dropdown-item" role="menuitem"><div class="ndi-icon"><i data-lucide="briefcase"></i></div><div><strong>Career Support</strong><span>Jobs and opportunities</span></div></a>
+          </div>
+        </div>
         <a href="pricing.html" class="nav-link">Pricing</a>
       </nav>
       <div class="header-actions">
@@ -143,11 +340,6 @@
     <!-- ── PAGE HERO ── -->
     <section class="page-hero">
       <div class="container">
-        <div class="breadcrumb reveal">
-          <a href="index.html">Home</a>
-          <span>/</span>
-          <span>About Us</span>
-        </div>
         <p class="eyebrow reveal">WHO WE ARE</p>
         <h1 class="reveal">Building Digital <span class="grad">Futures</span><br>Since 2016</h1>
         <p class="lead reveal delay-1">We are a team of passionate designers, developers and strategists dedicated to building powerful digital solutions that help businesses grow.</p>
@@ -228,28 +420,28 @@
           <div class="stat-card reveal">
             <div class="stat-icon"><i data-lucide="rocket"></i></div>
             <div class="stat-content">
-              <div class="stat-number">50+</div>
+              <div class="stat-number" data-count="50" data-suffix="+">0+</div>
               <h3>Projects Delivered</h3>
             </div>
           </div>
           <div class="stat-card reveal delay-1">
             <div class="stat-icon"><i data-lucide="users"></i></div>
             <div class="stat-content">
-              <div class="stat-number">20+</div>
+              <div class="stat-number" data-count="20" data-suffix="+">0+</div>
               <h3>Happy Clients</h3>
             </div>
           </div>
           <div class="stat-card reveal delay-2">
             <div class="stat-icon"><i data-lucide="globe"></i></div>
             <div class="stat-content">
-              <div class="stat-number">5+</div>
+              <div class="stat-number" data-count="5" data-suffix="+">0+</div>
               <h3>Countries Served</h3>
             </div>
           </div>
           <div class="stat-card reveal">
             <div class="stat-icon"><i data-lucide="award"></i></div>
             <div class="stat-content">
-              <div class="stat-number">8+</div>
+              <div class="stat-number" data-count="8" data-suffix="+">0+</div>
               <h3>Years Experience</h3>
             </div>
           </div>
@@ -313,65 +505,421 @@
       <div class="container">
         <div class="section-head reveal">
           <div>
-            <p class="section-kicker">OUR JOURNEY</p>
+            <p class="section-kicker"><i data-lucide="compass"></i> OUR JOURNEY</p>
             <h2>Milestones That Define Us</h2>
-            <p class="section-sub">From a two-person startup to an internationally trusted agency — here's our story in numbers.</p>
+            <p class="section-sub">From a two-person startup to an internationally trusted agency — here's how we turned relentless craft into enduring digital growth.</p>
           </div>
         </div>
         <div class="timeline">
+          <!-- 2016 -->
           <div class="timeline-item reveal">
-            <div class="tl-content" style="text-align:right;">
+            <div class="tl-content">
+              <span class="tl-badge"><i data-lucide="sparkles"></i> Genesis</span>
               <h3>Founded AS Web Solution</h3>
-              <p>Started with a vision to deliver world-class digital solutions from Pakistan to the world.</p>
+              <p>Started with two dedicated engineers and a clear mission: delivering world-class digital craft and performance engineering from Pakistan to global clients.</p>
+              <span class="tl-highlight">2 Founders &nbsp;•&nbsp; 1 Shared Vision</span>
             </div>
-            <div class="tl-dot"><span class="tl-year">2016</span><span class="tl-circle"></span></div>
+            <div class="tl-dot">
+              <span class="tl-year-pill">2016</span>
+              <span class="tl-circle"></span>
+            </div>
             <div class="tl-empty"></div>
           </div>
+
+          <!-- 2018 -->
           <div class="timeline-item reveal delay-1">
             <div class="tl-empty"></div>
-            <div class="tl-dot"><span class="tl-year">2018</span><span class="tl-circle"></span></div>
+            <div class="tl-dot">
+              <span class="tl-year-pill">2018</span>
+              <span class="tl-circle"></span>
+            </div>
             <div class="tl-content">
-              <h3>First International Client</h3>
-              <p>Secured our first client from Canada, marking our global expansion.</p>
+              <span class="tl-badge"><i data-lucide="globe"></i> Global Expansion</span>
+              <h3>First International Clients</h3>
+              <p>Onboarded our first enterprise clients across Canada and the United Kingdom, establishing our reputation as a trusted global engineering partner.</p>
+              <span class="tl-highlight">Canada &nbsp;•&nbsp; North America & Europe Reach</span>
             </div>
           </div>
+
+          <!-- 2020 -->
           <div class="timeline-item reveal">
-            <div class="tl-content" style="text-align:right;">
+            <div class="tl-content">
+              <span class="tl-badge"><i data-lucide="shopping-bag"></i> Modern Commerce</span>
               <h3>Launched eCommerce Division</h3>
-              <p>Expanded into Shopify and custom eCommerce solutions for retail businesses.</p>
+              <p>Expanded dedicated capabilities across Shopify Plus, custom headless storefronts, and high-conversion retail web platforms.</p>
+              <span class="tl-highlight">Shopify Plus &nbsp;•&nbsp; Custom Checkouts & Retail</span>
             </div>
-            <div class="tl-dot"><span class="tl-year">2020</span><span class="tl-circle"></span></div>
+            <div class="tl-dot">
+              <span class="tl-year-pill">2020</span>
+              <span class="tl-circle"></span>
+            </div>
             <div class="tl-empty"></div>
           </div>
+
+          <!-- 2022 -->
           <div class="timeline-item reveal delay-1">
             <div class="tl-empty"></div>
-            <div class="tl-dot"><span class="tl-year">2022</span><span class="tl-circle"></span></div>
+            <div class="tl-dot">
+              <span class="tl-year-pill">2022</span>
+              <span class="tl-circle"></span>
+            </div>
             <div class="tl-content">
-              <h3>AI & Automation Services</h3>
-              <p>Added AI integrations and business automation to our service lineup.</p>
+              <span class="tl-badge"><i data-lucide="cpu"></i> Automation & AI</span>
+              <h3>AI & Intelligent Automation</h3>
+              <p>Integrated cutting-edge AI assistants, automated webhook pipelines, and custom business workflows, saving clients hundreds of operational hours.</p>
+              <span class="tl-highlight">Smart AI Tools &nbsp;•&nbsp; Custom Automations</span>
             </div>
           </div>
+
+          <!-- 2024 -->
           <div class="timeline-item reveal">
-            <div class="tl-content" style="text-align:right;">
-              <h3>50+ Projects Delivered</h3>
-              <p>Reached the milestone of 50 successful projects across 5 countries.</p>
+            <div class="tl-content">
+              <span class="tl-badge"><i data-lucide="award"></i> Proven Track Record</span>
+              <h3>50+ Projects Across 5 Countries</h3>
+              <p>Delivered 50+ enterprise and startup launches across Pakistan, USA, Canada, UK, and UAE with an outstanding 99% client satisfaction rate.</p>
+              <span class="tl-highlight">50+ Launches &nbsp;•&nbsp; 99% Client Retention</span>
             </div>
-            <div class="tl-dot"><span class="tl-year">2024</span><span class="tl-circle"></span></div>
+            <div class="tl-dot">
+              <span class="tl-year-pill">2024+</span>
+              <span class="tl-circle"></span>
+            </div>
             <div class="tl-empty"></div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ── CTA ── -->
-    <section style="padding: 80px 0; background: var(--light-2);">
-      <div class="container" style="text-align:center;">
-        <p class="section-kicker reveal">READY TO START?</p>
-        <h2 class="reveal">Let's Build Something Great Together</h2>
-        <p class="reveal delay-1" style="max-width:500px; margin: 14px auto 28px;">Whether you have a project in mind or just want to say hello — we'd love to hear from you.</p>
-        <div class="reveal delay-2" style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
-          <a href="contact.html" class="btn btn-primary">Get in Touch <i data-lucide="arrow-right"></i></a>
-          <a href="catalog.html" class="btn btn-outline">View Our Services</a>
+    <!-- ===================== TESTIMONIALS ===================== -->
+    <section class="testimonials" id="testimonials">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <p class="section-kicker">WHAT OUR CLIENTS SAY</p>
+            <h2>See Our Contribution.</h2>
+          </div>
+          <div class="carousel-nav">
+            <button type="button" id="prevTestimonial" aria-label="Previous testimonial"><i data-lucide="chevron-left"></i></button>
+            <button type="button" id="nextTestimonial" aria-label="Next testimonial"><i data-lucide="chevron-right"></i></button>
+          </div>
+        </div>
+
+        <div class="testimonial-viewport">
+          <div class="testimonial-track" id="testimonialTrack">
+            <article class="quote-card">
+              <p>“AS Web Solution transformed our ideas into a professional digital experience that exceeded our expectations.”</p>
+              <div class="quote-person">
+                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=80&h=80&fit=crop&crop=faces" alt="Portrait of Ahmed Khan">
+                <div>
+                  <strong>Ahmed Khan</strong>
+                  <span>CEO, Diamond Key Properties</span>
+                </div>
+              </div>
+            </article>
+            <article class="quote-card">
+              <p>“Their team is professional, creative and always delivers on time. Our website is now our biggest asset.”</p>
+              <div class="quote-person">
+                <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=80&h=80&fit=crop&crop=faces" alt="Portrait of Saad Ahmad">
+                <div>
+                  <strong>Saad Ahmad</strong>
+                  <span>Founder, Northline SaaS</span>
+                </div>
+              </div>
+            </article>
+            <article class="quote-card">
+              <p>“Excellent service, great communication and amazing results. Highly recommend them for any web project.”</p>
+              <div class="quote-person">
+                <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=80&h=80&fit=crop&crop=faces" alt="Portrait of Jenna Carter">
+                <div>
+                  <strong>Jenna Carter</strong>
+                  <span>Director, Horizon Commerce</span>
+                </div>
+              </div>
+            </article>
+            <article class="quote-card">
+              <p>“They understood our workflow and automated the parts that used to slow us down every week.”</p>
+              <div class="quote-person">
+                <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=80&h=80&fit=crop&crop=faces" alt="Portrait of Amina Noor">
+                <div>
+                  <strong>Amina Noor</strong>
+                  <span>Operations Lead, EduForge</span>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+        <div class="dots" id="testimonialDots" aria-label="Testimonial pagination"></div>
+      </div>
+    </section>
+
+<!-- =========================================================
+         WEBSITE DEVELOPMENT PACKAGES
+         ========================================================= -->
+    <section class="dev-packages-section" id="packages">
+      <div class="container">
+        <!-- Header -->
+        <div class="pkg-header-row">
+          <div>
+            
+           
+            <span class="pkg-title-eyebrow">WEBSITE DEVELOPMENT</span>
+            <h2 class="pkg-main-title">Packages</h2>
+            <p class="pkg-subtitle">Professional websites. Modern design. Built for your success.</p>
+          </div>
+         
+        </div>
+
+        <!-- Pricing Cards -->
+        <div class="pkg-cards-grid">
+
+          <!-- BASIC CARD -->
+          <div class="pkg-card">
+            <span class="pkg-tier-label">BASIC</span>
+            <h3 class="pkg-plan-name">Website Development</h3>
+            <p class="pkg-plan-desc">Perfect for small businesses &amp; startups needing a professional online presence.</p>
+
+            <div class="pkg-price-row">
+              <div class="pkg-price-col">
+                <span class="pkg-price-curr">USD</span>
+                <span class="pkg-price-val">$499</span>
+              </div>
+              <div class="pkg-price-divider"></div>
+              <div class="pkg-price-col">
+                <span class="pkg-price-curr">CAD</span>
+                <span class="pkg-price-val">$699</span>
+              </div>
+            </div>
+
+            <ul class="pkg-features-list">
+              <li class="pkg-feature-item">
+                <span class="pkg-check-icon"><i data-lucide="check"></i></span>
+                <span>5 Custom Pages (Home, About, Services, etc.)</span>
+              </li>
+              <li class="pkg-feature-item">
+                <span class="pkg-check-icon"><i data-lucide="check"></i></span>
+                <span>100% Mobile &amp; Tablet Responsive</span>
+              </li>
+              <li class="pkg-feature-item">
+                <span class="pkg-check-icon"><i data-lucide="check"></i></span>
+                <span>Contact &amp; Inquiry Form Integration</span>
+              </li>
+              <li class="pkg-feature-item">
+                <span class="pkg-check-icon"><i data-lucide="check"></i></span>
+                <span>Basic On-Page SEO Optimization</span>
+              </li>
+              <li class="pkg-feature-item">
+                <span class="pkg-check-icon"><i data-lucide="check"></i></span>
+                <span>Social Media Links Integration</span>
+              </li>
+              <li class="pkg-feature-item">
+                <span class="pkg-check-icon"><i data-lucide="check"></i></span>
+                <span>High-Speed Performance Optimization</span>
+              </li>
+            </ul>
+
+          
+          </div>
+
+          <!-- PREMIUM CARD (MOST POPULAR) -->
+          <div class="pkg-card featured">
+            <span class="pkg-popular-badge">MOST POPULAR</span>
+            <span class="pkg-tier-label">PREMIUM</span>
+            <h3 class="pkg-plan-name">Website Development</h3>
+            <p class="pkg-plan-desc">Ideal for growing businesses looking for advanced features and better performance.</p>
+
+            <div class="pkg-price-row">
+              <div class="pkg-price-col">
+                <span class="pkg-price-curr">USD</span>
+                <span class="pkg-price-val">$999</span>
+              </div>
+              <div class="pkg-price-divider"></div>
+              <div class="pkg-price-col">
+                <span class="pkg-price-curr">CAD</span>
+                <span class="pkg-price-val">$1,399</span>
+              </div>
+            </div>
+
+            <ul class="pkg-features-list">
+              <li class="pkg-feature-item">
+                <span class="pkg-check-icon"><i data-lucide="check"></i></span>
+                <span>Up to 12 Custom Designed Pages</span>
+              </li>
+              <li class="pkg-feature-item">
+                <span class="pkg-check-icon"><i data-lucide="check"></i></span>
+                <span>Modern Glassmorphism &amp; Animations</span>
+              </li>
+              <li class="pkg-feature-item">
+                <span class="pkg-check-icon"><i data-lucide="check"></i></span>
+                <span>Dynamic Blog / CMS Integration</span>
+              </li>
+              <li class="pkg-feature-item">
+                <span class="pkg-check-icon"><i data-lucide="check"></i></span>
+                <span>Advanced Technical &amp; On-Page SEO</span>
+              </li>
+              <li class="pkg-feature-item">
+                <span class="pkg-check-icon"><i data-lucide="check"></i></span>
+                <span>Custom Lead Generation Forms</span>
+              </li>
+              <li class="pkg-feature-item">
+                <span class="pkg-check-icon"><i data-lucide="check"></i></span>
+                <span>Speed &amp; Security Hardening (SSL/CDN)</span>
+              </li>
+              <li class="pkg-feature-item">
+                <span class="pkg-check-icon"><i data-lucide="check"></i></span>
+                <span>WhatsApp Chat &amp; Live Support</span>
+              </li>
+              <li class="pkg-feature-item">
+                <span class="pkg-check-icon"><i data-lucide="check"></i></span>
+                <span>1 Month Free Post-Launch Support</span>
+              </li>
+            </ul>
+
+           
+          </div>
+
+          <!-- ADVANCE CARD -->
+          <div class="pkg-card">
+            <span class="pkg-tier-label">ADVANCE</span>
+            <h3 class="pkg-plan-name">Website Development</h3>
+            <p class="pkg-plan-desc">Full-scale custom web applications, e-commerce stores, and custom software systems.</p>
+
+            <div class="pkg-price-row">
+              <div class="pkg-price-col">
+                <span class="pkg-price-curr">USD</span>
+                <span class="pkg-price-val">$1,499</span>
+              </div>
+              <div class="pkg-price-divider"></div>
+              <div class="pkg-price-col">
+                <span class="pkg-price-curr">CAD</span>
+                <span class="pkg-price-val">$1,999</span>
+              </div>
+            </div>
+
+            <ul class="pkg-features-list">
+              <li class="pkg-feature-item">
+                <span class="pkg-check-icon"><i data-lucide="check"></i></span>
+                <span>Unlimited Custom Pages &amp; Workflows</span>
+              </li>
+              <li class="pkg-feature-item">
+                <span class="pkg-check-icon"><i data-lucide="check"></i></span>
+                <span>Full E-Commerce / Custom Portal</span>
+              </li>
+              <li class="pkg-feature-item">
+                <span class="pkg-check-icon"><i data-lucide="check"></i></span>
+                <span>Payment Gateways (Stripe/PayPal)</span>
+              </li>
+              <li class="pkg-feature-item">
+                <span class="pkg-check-icon"><i data-lucide="check"></i></span>
+                <span>Admin Dashboard &amp; Database Backend</span>
+              </li>
+              <li class="pkg-feature-item">
+                <span class="pkg-check-icon"><i data-lucide="check"></i></span>
+                <span>API Integration &amp; Cloud Deployment</span>
+              </li>
+              <li class="pkg-feature-item">
+                <span class="pkg-check-icon"><i data-lucide="check"></i></span>
+                <span>Enterprise Grade Security &amp; Firewall</span>
+              </li>
+              <li class="pkg-feature-item">
+                <span class="pkg-check-icon"><i data-lucide="check"></i></span>
+                <span>GEO / AI Search Optimization</span>
+              </li>
+              <li class="pkg-feature-item">
+                <span class="pkg-check-icon"><i data-lucide="check"></i></span>
+                <span>3 Months Priority VIP Support &amp; SLA</span>
+              </li>
+            </ul>
+
+           
+          </div>
+
+        </div>
+
+        <!-- Bottom Disclaimer Banner -->
+        <div class="pkg-disclaimer-card">
+          <div class="pkg-disclaimer-left">
+            <div class="pkg-disclaimer-icon">
+              <i data-lucide="server"></i>
+            </div>
+            <div>
+              <div class="pkg-disclaimer-title">HOSTING &amp; DOMAIN ARE EXCLUDED</div>
+              <p class="pkg-disclaimer-text">In all packages. You can choose your own hosting and domain provider or we can help you with the setup if needed.</p>
+            </div>
+          </div>
+          <div class="pkg-disclaimer-script">
+            Let's Build Something Great
+          </div>
+        </div>
+
+    
+
+      </div>
+    </section>
+
+    <!-- ===================== FAQ + CTA ===================== -->
+    <section class="faq-cta" id="faq">
+      <div class="container">
+        <div class="section-head reveal" style="margin-bottom:52px;">
+          <div>
+            <p class="section-kicker">FAQ</p>
+            <h2>Questions? We Have Answers.</h2>
+            <p class="section-sub">Everything you need to know before starting your project with us.</p>
+          </div>
+          <a href="contact.html" class="btn btn-outline hide-mobile">Ask a Question <i data-lucide="arrow-right"></i></a>
+        </div>
+
+        <div class="faq-index-wrap">
+          <div class="faq-index-col reveal">
+            <div class="faq-index-item">
+              <button class="faq-index-q open" type="button">How long does web development take?<span class="faq-index-icon"><i data-lucide="plus"></i></span></button>
+              <div class="faq-index-a open">
+                <p>Most marketing websites take 3-6 weeks. Custom web applications and eCommerce builds typically take 6-12 weeks depending on scope.</p>
+              </div>
+            </div>
+            <div class="faq-index-item">
+              <button class="faq-index-q" type="button">Do you work with international clients?<span class="faq-index-icon"><i data-lucide="plus"></i></span></button>
+              <div class="faq-index-a">
+                <p>Yes. We collaborate with teams in Pakistan, Canada, USA, UK and UAE using clear communication and structured sprints.</p>
+              </div>
+            </div>
+            <div class="faq-index-item">
+              <button class="faq-index-q" type="button">Can you help with custom software?<span class="faq-index-icon"><i data-lucide="plus"></i></span></button>
+              <div class="faq-index-a">
+                <p>Absolutely. We design and develop custom platforms, dashboards, internal tools and SaaS products tailored to your operations.</p>
+              </div>
+            </div>
+          </div>
+          <div class="faq-index-col reveal delay-1">
+            <div class="faq-index-item">
+              <button class="faq-index-q" type="button">Do you provide website maintenance?<span class="faq-index-icon"><i data-lucide="plus"></i></span></button>
+              <div class="faq-index-a">
+                <p>Yes. After launch we offer retainers for updates, performance, security, backups and ongoing improvements.</p>
+              </div>
+            </div>
+            <div class="faq-index-item">
+              <button class="faq-index-q" type="button">Can you integrate APIs and automation?<span class="faq-index-icon"><i data-lucide="plus"></i></span></button>
+              <div class="faq-index-a">
+                <p>We connect CRMs, payment gateways, ERPs and third-party APIs then automate repetitive workflows.</p>
+              </div>
+            </div>
+            <div class="faq-index-item">
+              <button class="faq-index-q" type="button">Can you build an eCommerce website?<span class="faq-index-icon"><i data-lucide="plus"></i></span></button>
+              <div class="faq-index-a">
+                <p>Yes. We build conversion-focused stores on Shopify, custom stacks and headless setups.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-cta-banner reveal">
+          <div class="faq-cta-banner-left">
+            <p class="cta-kicker">LETS BUILD TOGETHER</p>
+            <h2>Your next digital experience starts here.</h2>
+            <p>Have an idea, a business or a problem that needs a digital solution? Let us build it together.</p>
+          </div>
+          <div class="faq-cta-banner-right">
+            <a href="contact.html" class="btn btn-white">Start a Project <i data-lucide="arrow-right"></i></a>
+            <a href="catalog.html" class="btn btn-white-outline">View Services</a>
+          </div>
         </div>
       </div>
     </section>
@@ -384,7 +932,7 @@
       <div class="footer-grid">
         <div class="footer-col footer-col-brand">
           <a href="index.html" class="logo light">
-            <span class="logo-mark">AS</span>
+            <img src="./assets/img/logo-removebg.png" alt="AS Logo" style="height:52px;width:52px;">
             <span class="logo-text"><strong>AS Web Solution</strong><small>Digital solutions for a better tomorrow</small></span>
           </a>
           <p class="footer-desc">We engineer high-performance web applications, enterprise eCommerce platforms, and smart automated systems.</p>

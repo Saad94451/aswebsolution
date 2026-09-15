@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -14,19 +14,24 @@
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="mobile.css">
   <style>
-    /* ── PAGE HERO ── */
     .page-hero {
-      padding: 100px 0 70px;
-      background: radial-gradient(900px 420px at 80% 20%, rgba(37,99,235,.12), transparent 60%),
-                  linear-gradient(#fff, #F7FAFF);
+      position: relative;
+      padding: 70px 0 50px;
+      background: url("https://images.unsplash.com/photo-1423666639041-f56000c27a9a?w=1600&h=800&fit=crop") center/cover no-repeat;
       text-align: center;
+      overflow: hidden;
     }
-    .page-hero .eyebrow { margin-bottom: 14px; }
-    .page-hero h1 { margin-bottom: 18px; }
-    .page-hero .lead { max-width: 580px; margin: 0 auto; font-size: 1.05rem; }
-    .breadcrumb { display:flex; justify-content:center; align-items:center; gap:8px;
-      font-size:0.82rem; color:var(--muted); margin-bottom:24px; }
-    .breadcrumb a { color:var(--blue); font-weight:500; }
+    .page-hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(6,42,92,.78) 0%, rgba(3,27,61,.65) 100%);
+      z-index: 0;
+    }
+    .page-hero .container { position: relative; z-index: 1; }
+    .page-hero h1 { color: #fff; margin-bottom: 14px; }
+    .page-hero .lead { color: rgba(255,255,255,.85); max-width: 580px; margin: 0 auto; font-size: 1.05rem; }
+    .page-hero .eyebrow { color: #93C5FD; margin-bottom: 10px; }
 
     /* ── QUICK CONTACT STRIP ── */
     .contact-strip { background: var(--navy); padding: 28px 0; }
@@ -187,6 +192,13 @@
       .faq-col:first-child .faq-item:last-child { border-bottom:none; }
       .map-meta { grid-template-columns:1fr; }
     }
+  
+    /* ── PAGE HERO MOBILE ── */
+    @media (max-width: 767px) {
+      .page-hero { padding: 50px 0 35px; }
+      .page-hero h1 { font-size: clamp(1.8rem, 7vw, 2.8rem); }
+      .page-hero .lead { font-size: 0.95rem; }
+    }
   </style>
 </head>
 <body>
@@ -194,7 +206,7 @@
   <header class="header" id="header">
     <div class="container header-inner">
       <a href="index.html" class="logo" aria-label="AS Web Solution home">
-        <span class="logo-mark">AS</span>
+        <img src="./assets/img/logo-removebg.png" alt="AS Logo" style="height:52px;width:52px;">
         <span class="logo-text">
           <strong>AS Web Solution</strong>
           <small>Digital solutions for a better tomorrow</small>
@@ -205,7 +217,14 @@
         <a href="about.html" class="nav-link">About</a>
         <a href="whyus.html" class="nav-link">Why Us</a>
         <a href="catalog.html" class="nav-link">Services</a>
-        <a href="contact.html" class="nav-link active">Contact</a>
+        <div class="nav-dropdown">
+          <button class="nav-link nav-dropdown-trigger active" type="button" aria-expanded="false" aria-haspopup="true">Contact <i data-lucide="chevron-down" class="dd-arrow"></i></button>
+          <div class="nav-dropdown-menu" role="menu">
+            <a href="contact-project.html" class="nav-dropdown-item" role="menuitem"><div class="ndi-icon"><i data-lucide="rocket"></i></div><div><strong>Project Inquiry</strong><span>Start a new project</span></div></a>
+            <a href="contact-client.html" class="nav-dropdown-item" role="menuitem"><div class="ndi-icon"><i data-lucide="headphones"></i></div><div><strong>Client Support</strong><span>Existing client help</span></div></a>
+            <a href="contact-career.html" class="nav-dropdown-item" role="menuitem"><div class="ndi-icon"><i data-lucide="briefcase"></i></div><div><strong>Career Support</strong><span>Jobs and opportunities</span></div></a>
+          </div>
+        </div>
         <a href="pricing.html" class="nav-link">Pricing</a>
       </nav>
       <div class="header-actions">
@@ -222,9 +241,6 @@
     <!-- ── PAGE HERO ── -->
     <section class="page-hero">
       <div class="container">
-        <div class="breadcrumb reveal">
-          <a href="index.html">Home</a><span>/</span><span>Contact</span>
-        </div>
         <p class="eyebrow reveal">GET IN TOUCH</p>
         <h1 class="reveal">Let's Build Something<br><span class="grad">Remarkable Together</span></h1>
         <p class="lead reveal delay-1">Have a project in mind? Need a quote? Or just want to chat about your digital goals? We're here and happy to help.</p>
@@ -580,7 +596,7 @@
       <div class="footer-grid">
         <div class="footer-col footer-col-brand">
           <a href="index.html" class="logo light">
-            <span class="logo-mark">AS</span>
+            <img src="./assets/img/logo-removebg.png" alt="AS Logo" style="height:52px;width:52px;">
             <span class="logo-text"><strong>AS Web Solution</strong><small>Digital solutions for a better tomorrow</small></span>
           </a>
           <p class="footer-desc">We engineer high-performance web applications, enterprise eCommerce platforms, and smart automated systems.</p>

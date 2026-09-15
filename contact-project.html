@@ -1,0 +1,214 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project Inquiry | AS Web Solution</title>
+  <meta name="description" content="Start your project with AS Web Solution. Tell us about your idea and we will craft a tailored proposal.">
+  <meta name="theme-color" content="#062A5C">
+  <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="mobile.css">
+  <link rel="stylesheet" href="contact-common.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="header" id="header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo" aria-label="AS Web Solution home">
+        <img src="./assets/img/logo-removebg.png" alt="AS Logo" style="height:52px;width:52px;">
+        <span class="logo-text"><strong>AS Web Solution</strong><small>Digital solutions for a better tomorrow</small></span>
+      </a>
+      <nav class="nav" id="nav" aria-label="Primary">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="whyus.html" class="nav-link">Why Us</a>
+        <a href="catalog.html" class="nav-link">Services</a>
+        <div class="nav-dropdown">
+          <button class="nav-link nav-dropdown-trigger active" type="button" aria-expanded="false" aria-haspopup="true">Contact <i data-lucide="chevron-down" class="dd-arrow"></i></button>
+          <div class="nav-dropdown-menu" role="menu">
+            <a href="contact-project.html" class="nav-dropdown-item active" role="menuitem">
+              <div class="ndi-icon"><i data-lucide="rocket"></i></div>
+              <div><strong>Project Inquiry</strong><span>Start a new project</span></div>
+            </a>
+            <a href="contact-client.html" class="nav-dropdown-item" role="menuitem">
+              <div class="ndi-icon"><i data-lucide="headphones"></i></div>
+              <div><strong>Client Support</strong><span>Existing client help</span></div>
+            </a>
+            <a href="contact-career.html" class="nav-dropdown-item" role="menuitem">
+              <div class="ndi-icon"><i data-lucide="briefcase"></i></div>
+              <div><strong>Career Support</strong><span>Jobs and opportunities</span></div>
+            </a>
+          </div>
+        </div>
+        <a href="pricing.html" class="nav-link">Pricing</a>
+      </nav>
+      <div class="header-actions">
+        <a href="contact-project.html" class="btn btn-primary header-cta">Start a Project <i data-lucide="arrow-right"></i></a>
+        <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+  <main id="main">
+    <section class="page-hero page-hero--project">
+      <div class="container">
+        <p class="eyebrow reveal">PROJECT INQUIRY</p>
+        <h1 class="reveal">Let us Build Your <span class="grad-light">Next Big Thing</span></h1>
+        <p class="lead reveal delay-1">Tell us about your vision and we will craft a tailored proposal within 24 hours.</p>
+      </div>
+    </section>
+   
+    <section class="inquiry-section">
+      <div class="container">
+        <div class="inquiry-grid">
+          <div class="inquiry-sidebar reveal">
+            <div class="sidebar-info-card">
+              <h3>Our Process</h3>
+              <p>From first message to launch, here is what to expect.</p>
+              <div class="sidebar-process">
+                <div class="process-step"><div class="step-num">1</div><div class="step-text"><strong>Fill the form</strong><span>Takes about 3 minutes</span></div></div>
+                <div class="process-step"><div class="step-num">2</div><div class="step-text"><strong>We review and respond</strong><span>Within 4 business hours</span></div></div>
+                <div class="process-step"><div class="step-num">3</div><div class="step-text"><strong>Free discovery call</strong><span>30-45 min to align on goals</span></div></div>
+                <div class="process-step"><div class="step-num">4</div><div class="step-text"><strong>Proposal and kickoff</strong><span>Scope, timeline and price</span></div></div>
+              </div>
+            </div>
+            <div class="sidebar-quick-card">
+              <h4>Prefer to reach out directly?</h4>
+              <div class="quick-contact-item">
+                <div class="qc-icon"><i data-lucide="mail"></i></div>
+                <div class="qc-info"><strong><a href="mailto:info@aswebsolution.com">info@aswebsolution.com</a></strong><span>Best for detailed briefs</span></div>
+              </div>
+              <div class="quick-contact-item">
+                <div class="qc-icon"><i data-lucide="smartphone"></i></div>
+                <div class="qc-info"><strong><a href="tel:+923433458001">+92 343 3458001</a></strong><span>WhatsApp or call</span></div>
+              </div>
+            
+            </div>
+          </div>
+          <div class="inquiry-form-card reveal delay-1">
+            <div class="form-card-header">
+              <h2>Tell Us About Your Project</h2>
+              <p>The more detail you share, the better we can tailor our proposal.</p>
+            </div>
+            <form id="projectForm" novalidate>
+              <div class="form-row">
+                <div class="form-group"><label for="piFirstName">First Name <span>*</span></label><input type="text" id="piFirstName" name="firstName" placeholder="Ali" required></div>
+                <div class="form-group"><label for="piLastName">Last Name <span>*</span></label><input type="text" id="piLastName" name="lastName" placeholder="Hassan" required></div>
+              </div>
+              <div class="form-row">
+                <div class="form-group"><label for="piEmail">Email Address <span>*</span></label><input type="email" id="piEmail" name="email" placeholder="ali@company.com" required></div>
+                <div class="form-group"><label for="piPhone">Phone / WhatsApp</label><input type="tel" id="piPhone" name="phone" placeholder="+92 300 0000000"></div>
+              </div>
+              <div class="form-row">
+                <div class="form-group"><label for="piCompany">Company / Brand</label><input type="text" id="piCompany" name="company" placeholder="Your Company Name"></div>
+                <div class="form-group"><label for="piWebsite">Current Website</label><input type="url" id="piWebsite" name="website" placeholder="https://yoursite.com"></div>
+              </div>
+              <div class="form-group">
+                <label for="piService">Service Needed <span>*</span></label>
+                <select id="piService" name="service" required>
+                  <option value="" disabled selected>Select a service...</option>
+                  <option value="web">Web Development</option>
+                  <option value="ecommerce">eCommerce Store</option>
+                  <option value="webapp">Web Application / SaaS</option>
+                  <option value="uiux">UI/UX Design</option>
+                  <option value="automation">Business Automation</option>
+                  <option value="ai">AI Solutions</option>
+                  <option value="seo">SEO and Digital Marketing</option>
+                  <option value="other">Other / Not Sure</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Budget Range</label>
+                <div class="budget-options">
+                  <div class="budget-opt"><input type="radio" name="budget" id="b1" value="under1k"><label for="b1">Under $1K</label></div>
+                  <div class="budget-opt"><input type="radio" name="budget" id="b2" value="1k-3k"><label for="b2">$1K - $3K</label></div>
+                  <div class="budget-opt"><input type="radio" name="budget" id="b3" value="3k-8k"><label for="b3">$3K - $8K</label></div>
+                  <div class="budget-opt"><input type="radio" name="budget" id="b4" value="8k-20k"><label for="b4">$8K - $20K</label></div>
+                  <div class="budget-opt"><input type="radio" name="budget" id="b5" value="20k+"><label for="b5">$20K+</label></div>
+                  <div class="budget-opt"><input type="radio" name="budget" id="b6" value="discuss"><label for="b6">Let us Discuss</label></div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="piTimeline">Ideal Timeline</label>
+                <select id="piTimeline" name="timeline">
+                  <option value="" disabled selected>When do you need this?</option>
+                  <option value="asap">ASAP (within 2 weeks)</option>
+                  <option value="1month">Within 1 month</option>
+                  <option value="3months">1-3 months</option>
+                  <option value="flexible">I am flexible</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Features You Need</label>
+                <div class="checkboxes-row">
+                  <div class="checkbox-item"><input type="checkbox" id="f1" name="features" value="payment"><label for="f1">Payment Integration</label></div>
+                  <div class="checkbox-item"><input type="checkbox" id="f2" name="features" value="cms"><label for="f2">CMS / Blog</label></div>
+                  <div class="checkbox-item"><input type="checkbox" id="f3" name="features" value="auth"><label for="f3">User Authentication</label></div>
+                  <div class="checkbox-item"><input type="checkbox" id="f4" name="features" value="api"><label for="f4">API Integration</label></div>
+                  <div class="checkbox-item"><input type="checkbox" id="f5" name="features" value="dashboard"><label for="f5">Admin Dashboard</label></div>
+                  <div class="checkbox-item"><input type="checkbox" id="f6" name="features" value="mobile"><label for="f6">Mobile App</label></div>
+                  <div class="checkbox-item"><input type="checkbox" id="f7" name="features" value="seo"><label for="f7">SEO Optimization</label></div>
+                  <div class="checkbox-item"><input type="checkbox" id="f8" name="features" value="automation"><label for="f8">Automation</label></div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="piDetails">Project Details <span>*</span></label>
+                <textarea id="piDetails" name="details" placeholder="Describe your project goals, target audience, key features and timeline..." required></textarea>
+              </div>
+              <div class="form-submit-row">
+                <button type="submit" class="btn btn-primary" id="piSubmitBtn">Send Inquiry <i data-lucide="send"></i></button>
+                <div class="form-guarantee"><i data-lucide="shield-check"></i><span>100% private and secure</span></div>
+              </div>
+              <div class="form-status-msg" id="piFormStatus"></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="footer">
+    <div class="container footer-main">
+      <div class="footer-grid">
+        <div class="footer-col footer-col-brand">
+          <a href="index.html" class="logo light"><img src="./assets/img/logo-removebg.png" alt="AS Logo" style="height:52px;width:52px;"><span class="logo-text"><strong>AS Web Solution</strong><small>Digital solutions for a better tomorrow</small></span></a>
+          <p class="footer-desc">We engineer high-performance web applications, enterprise eCommerce platforms, and smart automated systems.</p>
+          <div class="footer-ratings-wrap"><div class="footer-ratings-row"><a href="#" class="rating-badge-card"><img src="assets/img/googlerating.png" alt="Google Rating" class="rating-badge-img"></a><a href="#" class="rating-badge-card"><img src="assets/img/clutchrating.png" alt="Clutch Rating" class="rating-badge-img"></a></div></div>
+        </div>
+        <div class="footer-col"><h4 class="footer-heading">Quick Links</h4><ul class="footer-links"><li><a href="index.html"><i data-lucide="chevron-right"></i> Home</a></li><li><a href="about.html"><i data-lucide="chevron-right"></i> About Us</a></li><li><a href="whyus.html"><i data-lucide="chevron-right"></i> Why Choose Us</a></li><li><a href="catalog.html"><i data-lucide="chevron-right"></i> Services</a></li></ul></div>
+        <div class="footer-col"><h4 class="footer-heading">Contact</h4><ul class="footer-links"><li><a href="contact-project.html"><i data-lucide="chevron-right"></i> Project Inquiry</a></li><li><a href="contact-client.html"><i data-lucide="chevron-right"></i> Client Support</a></li><li><a href="contact-career.html"><i data-lucide="chevron-right"></i> Career Support</a></li></ul></div>
+        <div class="footer-col"><h4 class="footer-heading">Reach Us</h4><ul class="footer-links"><li><a href="mailto:info@aswebsolution.com"><i data-lucide="chevron-right"></i> info@aswebsolution.com</a></li><li><a href="tel:+923433458001"><i data-lucide="chevron-right"></i> +92 343 3458001</a></li><li><a href="pricing.html"><i data-lucide="chevron-right"></i> Get a Quote</a></li></ul></div>
+      </div>
+    </div>
+    <div class="footer-bottom-bar"><div class="container footer-bottom-inner"><div class="footer-copy"><p>2026 AS Web Solution. All rights reserved.</p></div><div class="socials"><a href="https://linkedin.com" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a></div><div class="legal"><a href="#">Privacy Policy</a><span class="legal-divider">-</span><a href="#">Terms of Service</a></div></div></div>
+  </footer>
+  <button class="to-top" id="toTop" type="button" aria-label="Back to top"><i data-lucide="chevron-up"></i></button>
+  <script src="script.js"></script>
+  <script>
+    const form = document.getElementById('projectForm');
+    const statusEl = document.getElementById('piFormStatus');
+    const submitBtn = document.getElementById('piSubmitBtn');
+    if (form) {
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = 'Sending... <i data-lucide="loader-2"></i>';
+        lucide.createIcons();
+        setTimeout(() => {
+          statusEl.textContent = 'Inquiry received! We will get back to you within 4 hours.';
+          statusEl.classList.add('success');
+          submitBtn.innerHTML = 'Sent! <i data-lucide="check"></i>';
+          lucide.createIcons();
+          form.reset();
+          setTimeout(() => { submitBtn.disabled = false; submitBtn.innerHTML = 'Send Inquiry <i data-lucide="send"></i>'; statusEl.textContent = ''; statusEl.classList.remove('success'); lucide.createIcons(); }, 5000);
+        }, 1400);
+      });
+    }
+  </script>
+</body>
+</html>
