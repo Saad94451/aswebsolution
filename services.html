@@ -1,0 +1,1287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Services | AS Web Solution</title>
+  <meta name="description" content="Explore our comprehensive web development services including custom websites, eCommerce stores, web applications, UI/UX design, automation, and AI solutions. Browse our complete website design catalog.">
+  <meta name="theme-color" content="#062A5C">
+  <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="mobile.css">
+  <style>
+    /* PAGE HERO */
+    .page-hero {
+      position: relative;
+      padding: 85px 0 65px;
+      background: url("https://images.unsplash.com/photo-1547658719-da2b51169166?w=1600&h=800&fit=crop") center/cover no-repeat;
+      text-align: center;
+      overflow: hidden;
+    }
+    .page-hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(6,42,92,.88) 0%, rgba(3,27,61,.78) 100%);
+      z-index: 0;
+    }
+    .page-hero .container { position: relative; z-index: 1; }
+    .page-hero h1 { color: #fff; margin-bottom: 14px; font-weight: 800; }
+    .page-hero .lead { color: rgba(255,255,255,.88); max-width: 660px; margin: 0 auto 26px; font-size: 1.05rem; }
+    .page-hero .eyebrow { color: #93C5FD; margin-bottom: 12px; }
+
+    .hero-stats-strip {
+      display: inline-flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 20px 32px;
+      margin-top: 26px;
+      padding: 12px 28px;
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.16);
+      border-radius: 999px;
+      backdrop-filter: blur(10px);
+    }
+    .hero-stat-item {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      color: #fff;
+      font-size: 0.86rem;
+      font-weight: 500;
+    }
+    .hero-stat-item i, .hero-stat-item svg { width: 17px; height: 17px; color: #60A5FA; }
+
+    /* SERVICES MAIN SECTION */
+    .services-main-section { padding: 75px 0 85px; background: #FAFCFF; }
+
+    /* LIVE WEBSITES SHOWCASE SECTION */
+    .catalog-section { padding: 75px 0 85px; background: #FAFCFF; }
+
+    /* PROJECTS GRID */
+    .showcase-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    /* PROJECT CARD WITH BROWSER MOCKUP */
+    .showcase-card {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      transition: transform .32s cubic-bezier(.16,1,.3,1), box-shadow .32s ease, border-color .32s ease;
+      position: relative;
+    }
+    .showcase-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 22px 48px rgba(6, 42, 92, 0.14);
+      border-color: #BFDBFE;
+    }
+
+    /* BROWSER TOP BAR */
+    .browser-frame {
+      background: #F1F5F9;
+      border-bottom: 1px solid #E2E8F0;
+      padding: 10px 14px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .browser-dots {
+      display: flex;
+      gap: 6px;
+      align-items: center;
+    }
+    .browser-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+    }
+    .browser-dot.red { background: #EF4444; }
+    .browser-dot.yellow { background: #F59E0B; }
+    .browser-dot.green { background: #10B981; }
+
+    .browser-url {
+      flex: 1;
+      background: #fff;
+      border: 1px solid #CBD5E1;
+      border-radius: 6px;
+      padding: 3px 10px;
+      font-size: 0.72rem;
+      color: #64748B;
+      font-family: monospace;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .browser-url i, .browser-url svg { width: 12px; height: 12px; color: #10B981; flex-shrink: 0; }
+
+    /* CARD PREVIEW IFRAME WRAPPER */
+    .card-preview {
+      position: relative;
+      height: 270px;
+      overflow: hidden;
+      background: #0f172a;
+    }
+
+    /* REAL LIVE IFRAME CONTAINER */
+    .iframe-container {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      overflow: hidden;
+      background: #fff;
+    }
+
+    /* Scaled iframe so it renders the real site scaled down */
+    .live-iframe {
+      width: 200%;
+      height: 200%;
+      border: none;
+      transform: scale(0.5);
+      transform-origin: top left;
+      pointer-events: none;
+      transition: transform 0.15s ease-out;
+      display: block;
+      background: #fff;
+    }
+
+    /* Interactive overlay for click / smooth handling */
+    .iframe-overlay-link {
+      position: absolute;
+      inset: 0;
+      z-index: 5;
+      cursor: pointer;
+    }
+
+    .live-status-pill {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: rgba(6, 42, 92, 0.88);
+      backdrop-filter: blur(8px);
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.25);
+      border-radius: 999px;
+      padding: 4px 12px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      z-index: 6;
+      pointer-events: none;
+    }
+    .live-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #22C55E;
+      box-shadow: 0 0 0 2px rgba(34, 197, 94, 0.35);
+      animation: pulseDot 1.8s infinite;
+    }
+    @keyframes pulseDot {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.3); opacity: 0.75; }
+    }
+
+    .category-badge {
+      position: absolute;
+      bottom: 12px;
+      left: 12px;
+      background: rgba(255, 255, 255, 0.94);
+      color: var(--blue-deep);
+      font-weight: 700;
+      font-size: 0.74rem;
+      padding: 4px 11px;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+      z-index: 6;
+      letter-spacing: 0.03em;
+      pointer-events: none;
+    }
+
+    /* CARD DETAILS */
+    .card-body {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+    .showcase-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+    .showcase-desc {
+      font-size: 0.9rem;
+      color: #475569;
+      line-height: 1.6;
+      margin-bottom: 18px;
+      flex: 1;
+    }
+
+    .tech-stack-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 20px;
+    }
+    .tech-chip {
+      background: #EFF6FF;
+      color: var(--blue);
+      font-size: 0.74rem;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 6px;
+      border: 1px solid #DBEAFE;
+    }
+
+    .card-actions-bar {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: auto;
+      padding-top: 14px;
+      border-top: 1px solid #F1F5F9;
+    }
+    .btn-live-view {
+      flex: 1;
+      background: var(--blue);
+      color: #fff;
+      padding: 10px 18px;
+      border-radius: 999px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: all .25s ease;
+      box-shadow: 0 4px 14px rgba(37,99,235,0.22);
+    }
+    .btn-live-view:hover {
+      background: var(--blue-deep);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(37,99,235,0.35);
+      color: #fff;
+    }
+    .btn-live-view i, .btn-live-view svg {
+      width: 15px;
+      height: 15px;
+      transition: transform .2s ease;
+    }
+    .btn-live-view:hover i, .btn-live-view:hover svg {
+      transform: translate(2px, -2px);
+    }
+
+    .btn-inquire-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: #F8FAFC;
+      border: 1px solid var(--line);
+      display: grid;
+      place-items: center;
+      color: #64748B;
+      transition: all .25s ease;
+    }
+    .btn-inquire-icon:hover {
+      background: var(--light);
+      border-color: var(--blue);
+      color: var(--blue);
+      transform: translateY(-2px);
+    }
+    .btn-inquire-icon i, .btn-inquire-icon svg { width: 18px; height: 18px; }
+
+    /* CORE SERVICES SECTION */
+    .services-overview {
+      padding: 85px 0;
+      background: #fff;
+      border-top: 1px solid var(--line);
+    }
+    .services-grid-mini {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 48px;
+    }
+    .service-box {
+      background: #F8FAFC;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 30px 26px;
+      transition: all .3s ease;
+    }
+    .service-box:hover {
+      background: #fff;
+      border-color: #BFDBFE;
+      transform: translateY(-6px);
+      box-shadow: var(--shadow);
+    }
+    .service-box-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      background: var(--light);
+      color: var(--blue);
+      display: grid;
+      place-items: center;
+      margin-bottom: 20px;
+      transition: all .3s ease;
+    }
+    .service-box:hover .service-box-icon {
+      background: var(--blue);
+      color: #fff;
+      transform: scale(1.08);
+    }
+    .service-box-icon i, .service-box-icon svg { width: 24px; height: 24px; }
+    .service-box h3 { margin-bottom: 10px; color: var(--navy); font-size: 1.15rem; }
+    .service-box p { font-size: 0.9rem; color: #64748B; line-height: 1.6; margin-bottom: 16px; }
+    .service-features-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 22px;
+    }
+    .service-features-list li {
+      font-size: 0.85rem;
+      color: #334155;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .service-features-list li::before {
+      content: "✓";
+      color: #16A34A;
+      font-weight: 700;
+    }
+
+
+
+    /* CTA STRIP */
+    .packages-cta-strip {
+      padding: 70px 0;
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-dark) 100%);
+      color: #fff;
+      text-align: center;
+    }
+    .packages-cta-strip h2 { color: #fff; margin-bottom: 12px; }
+    .packages-cta-strip p { color: #CBD5E1; max-width: 600px; margin: 0 auto 28px; font-size: 1.02rem; }
+
+    /* PACKAGES SECTION */
+    .dev-packages-section {
+      padding: 85px 0;
+      background: #fff;
+      border-top: 1px solid var(--line);
+    }
+    .pkg-header-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 48px;
+    }
+    .pkg-title-eyebrow {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 8px;
+    }
+    .pkg-main-title {
+      font-size: clamp(1.8rem, 3.4vw, 3rem);
+      font-weight: 800;
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+    .pkg-subtitle {
+      font-size: 1.02rem;
+      color: #64748B;
+      max-width: 600px;
+    }
+    .pkg-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+    .pkg-card {
+      background: #F8FAFC;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 36px 30px;
+      position: relative;
+      transition: all .3s ease;
+    }
+    .pkg-card:hover {
+      background: #fff;
+      border-color: #BFDBFE;
+      transform: translateY(-6px);
+      box-shadow: var(--shadow);
+    }
+    .pkg-card.featured {
+      background: linear-gradient(135deg, #EAF3FF 0%, #EFF6FF 100%);
+      border-color: #93C5FD;
+    }
+    .pkg-card.featured:hover {
+      background: #fff;
+      border-color: var(--blue);
+    }
+    .pkg-popular-badge {
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--blue);
+      color: #fff;
+      padding: 6px 16px;
+      border-radius: 999px;
+      font-size: 0.74rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+    }
+    .pkg-tier-label {
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #64748B;
+      margin-bottom: 12px;
+    }
+    .pkg-plan-name {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+    .pkg-plan-desc {
+      font-size: 0.9rem;
+      color: #64748B;
+      line-height: 1.6;
+      margin-bottom: 24px;
+    }
+    .pkg-price-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+    .pkg-price-col {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .pkg-price-curr {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: #64748B;
+      text-transform: uppercase;
+    }
+    .pkg-price-val {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--navy);
+    }
+    .pkg-price-divider {
+      width: 1px;
+      height: 40px;
+      background: var(--line);
+    }
+    .pkg-features-list {
+      list-style: none;
+      margin-bottom: 28px;
+    }
+    .pkg-feature-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+    .pkg-check-icon {
+      width: 20px;
+      height: 20px;
+      background: #DCFCE7;
+      color: #16A34A;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+    }
+    .pkg-check-icon i, .pkg-check-icon svg { width: 12px; height: 12px; }
+    .pkg-feature-item span {
+      font-size: 0.9rem;
+      color: #334155;
+      line-height: 1.5;
+    }
+    .pkg-disclaimer-card {
+      margin-top: 48px;
+      background: #F8FAFC;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 24px 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+    .pkg-disclaimer-left {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .pkg-disclaimer-icon {
+      width: 48px;
+      height: 48px;
+      background: var(--light);
+      color: var(--blue);
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+    }
+    .pkg-disclaimer-icon i, .pkg-disclaimer-icon svg { width: 24px; height: 24px; }
+    .pkg-disclaimer-title {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 4px;
+    }
+    .pkg-disclaimer-text {
+      font-size: 0.85rem;
+      color: #64748B;
+      line-height: 1.5;
+    }
+    .pkg-disclaimer-script {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--blue);
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 1050px) {
+      .showcase-grid { grid-template-columns: repeat(2, 1fr); }
+      .services-grid-mini { grid-template-columns: repeat(2, 1fr); }
+      .pkg-cards-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 767px) {
+      .page-hero { padding: 60px 0 45px; }
+      .page-hero h1 { font-size: clamp(1.9rem, 7.5vw, 2.6rem); }
+      .showcase-grid { grid-template-columns: 1fr; }
+      .services-grid-mini { grid-template-columns: 1fr; }
+      .hero-stats-strip { border-radius: 18px; padding: 14px 20px; }
+      .pkg-cards-grid { grid-template-columns: 1fr; }
+      .pkg-header-row { flex-direction: column; align-items: flex-start; gap: 16px; }
+      .pkg-disclaimer-card { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <div id="header"></div>
+
+  <main id="main">
+
+    <!-- HERO SECTION -->
+    <section class="page-hero">
+      <div class="container">
+        <p class="eyebrow">OUR COMPREHENSIVE SERVICES</p>
+        <h1>Everything You Need to Build Online.</h1>
+        <p class="lead">From stunning websites to smart automation, we provide end-to-end digital solutions for businesses of all sizes.</p>
+        
+        <div style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
+          <a href="#services" class="btn btn-primary">Explore Services <i data-lucide="arrow-down"></i></a>
+          <a href="contact.html" class="btn btn-outline">Get a Quote</a>
+        </div>
+
+        <div class="hero-stats-strip">
+          <div class="hero-stat-item">
+            <i data-lucide="rocket"></i>
+            <span>50+ Projects Delivered</span>
+          </div>
+          <div class="hero-stat-item">
+            <i data-lucide="users"></i>
+            <span>20+ Happy Clients</span>
+          </div>
+          <div class="hero-stat-item">
+            <i data-lucide="globe"></i>
+            <span>5+ Countries Served</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES MAIN SECTION -->
+    <section class="services-main-section" id="services">
+      <div class="container">
+        <div class="section-head" style="text-align:center; display:block;">
+          <p class="section-kicker">OUR SERVICES</p>
+          <h2>Everything You Need to Build Online.</h2>
+          <p class="section-sub" style="margin: 10px auto 0;">From stunning websites to smart automation, we provide end-to-end digital solutions for businesses of all sizes.</p>
+        </div>
+
+        <div class="service-grid">
+          <article class="service-card reveal">
+            <div class="icon-box"><i data-lucide="monitor"></i></div>
+            <h3>Web Development</h3>
+            <p>High-performance websites engineered around your business goals.</p>
+            <a href="contact.html" class="link-arrow">Learn More <i data-lucide="arrow-right"></i></a>
+          </article>
+          <article class="service-card reveal delay-1">
+            <div class="icon-box"><i data-lucide="shopping-cart"></i></div>
+            <h3>eCommerce</h3>
+            <p>Conversion-focused online stores built to sell.</p>
+            <a href="contact.html" class="link-arrow">Learn More <i data-lucide="arrow-right"></i></a>
+          </article>
+          <article class="service-card reveal delay-2">
+            <div class="icon-box"><i data-lucide="code-2"></i></div>
+            <h3>Web Applications</h3>
+            <p>Custom platforms, dashboards and business systems.</p>
+            <a href="contact.html" class="link-arrow">Learn More <i data-lucide="arrow-right"></i></a>
+          </article>
+          <article class="service-card reveal">
+            <div class="icon-box"><i data-lucide="pen-tool"></i></div>
+            <h3>UI/UX Design</h3>
+            <p>Interfaces designed to be beautiful, intuitive and effective.</p>
+            <a href="contact.html" class="link-arrow">Learn More <i data-lucide="arrow-right"></i></a>
+          </article>
+          <article class="service-card reveal delay-1">
+            <div class="icon-box"><i data-lucide="settings"></i></div>
+            <h3>Automation</h3>
+            <p>Connect your tools and automate repetitive business processes.</p>
+            <a href="contact.html" class="link-arrow">Learn More <i data-lucide="arrow-right"></i></a>
+          </article>
+          <article class="service-card reveal delay-2">
+            <div class="icon-box"><i data-lucide="brain"></i></div>
+            <h3>AI Solutions</h3>
+            <p>Intelligent tools that help businesses work smarter.</p>
+            <a href="contact.html" class="link-arrow">Learn More <i data-lucide="arrow-right"></i></a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- LIVE WEBSITES SHOWCASE -->
+    <section class="catalog-section" id="showcase">
+      <div class="container">
+        <div class="section-head" style="text-align:center; display:block;">
+          <p class="section-kicker">LIVE WEBSITE SHOWCASE</p>
+          <h2>Our Client Projects</h2>
+          <p class="section-sub" style="margin: 10px auto 0;">Explore our live client websites. Click any card to visit the actual live site.</p>
+        </div>
+
+        <div class="showcase-grid" id="showcaseGrid">
+
+          <!-- 1. AS Automate -->
+          <article class="showcase-card" data-category="tech">
+             <div class="browser-frame">
+              <div class="browser-dots">
+                <span class="browser-dot red"></span>
+                <span class="browser-dot yellow"></span>
+                <span class="browser-dot green"></span>
+              </div>
+              <div class="browser-url">
+                <i data-lucide="lock"></i> asautomate.com
+              </div>
+            </div>
+            <div class="card-preview">
+              <a href="https://asautomate.com/" target="_blank" rel="noopener noreferrer" class="iframe-overlay-link" aria-label="Open AS Automate in new tab"></a>
+              <div class="iframe-container">
+                <iframe src="https://asautomate.com/" title="AS Automate Live Preview" class="live-iframe" loading="lazy"></iframe>
+              </div>
+              <span class="category-badge">Tech & Automation</span>
+            </div>
+            <div class="card-body">
+              <h3 class="showcase-title">AS Automate</h3>
+              <p class="showcase-desc">High-performance digital engineering agency platform highlighting custom software, workflow automation, AI solutions, and full-stack web platforms.</p>
+              <div class="tech-stack-wrap">
+                <span class="tech-chip">Digital Solutions</span>
+                <span class="tech-chip">AI Integration</span>
+                <span class="tech-chip">Automation</span>
+                <span class="tech-chip">Cloud Ready</span>
+              </div>
+              <div class="card-actions-bar">
+                <a href="https://asautomate.com/" target="_blank" rel="noopener noreferrer" class="btn-live-view" aria-label="Visit AS Automate live website">
+                  Visit Live Website <i data-lucide="external-link"></i>
+                </a>
+                <a href="contact-project.html?ref=asautomate" class="btn-inquire-icon" title="Build something like this" aria-label="Inquire similar website">
+                  <i data-lucide="message-square-plus"></i>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 2. Cleaning Express -->
+          <article class="showcase-card" data-category="services">
+            <div class="browser-frame">
+              <div class="browser-dots">
+                <span class="browser-dot red"></span>
+                <span class="browser-dot yellow"></span>
+                <span class="browser-dot green"></span>
+              </div>
+              <div class="browser-url">
+                <i data-lucide="lock"></i> cleaning-express.com
+              </div>
+            </div>
+            <div class="card-preview">
+              <a href="https://cleaning-express.com/" target="_blank" rel="noopener noreferrer" class="iframe-overlay-link" aria-label="Open Cleaning Express in new tab"></a>
+              <div class="iframe-container">
+                <iframe src="https://cleaning-express.com/" title="Cleaning Express Live Preview" class="live-iframe" loading="lazy"></iframe>
+              </div>
+              <span class="category-badge">Commercial Cleaning</span>
+            </div>
+            <div class="card-body">
+              <h3 class="showcase-title">Cleaning Express</h3>
+              <p class="showcase-desc">Leading commercial & domestic cleaning services portal based in London, UK. Built with instant quotation flows, booking requests, and multi-service catalog.</p>
+              <div class="tech-stack-wrap">
+                <span class="tech-chip">Quote Calculator</span>
+                <span class="tech-chip">Online Booking</span>
+                <span class="tech-chip">London, UK</span>
+                <span class="tech-chip">Local SEO</span>
+              </div>
+              <div class="card-actions-bar">
+                <a href="https://cleaning-express.com/" target="_blank" rel="noopener noreferrer" class="btn-live-view" aria-label="Visit Cleaning Express live website">
+                  Visit Live Website <i data-lucide="external-link"></i>
+                </a>
+                <a href="contact-project.html?ref=cleaning-express" class="btn-inquire-icon" title="Build something like this" aria-label="Inquire similar website">
+                  <i data-lucide="message-square-plus"></i>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 3. Diamond Cleaners USA -->
+          <article class="showcase-card" data-category="services">
+            <div class="browser-frame">
+              <div class="browser-dots">
+                <span class="browser-dot red"></span>
+                <span class="browser-dot yellow"></span>
+                <span class="browser-dot green"></span>
+              </div>
+              <div class="browser-url">
+                <i data-lucide="lock"></i> diamondcleanersusa.com
+              </div>
+            </div>
+            <div class="card-preview">
+              <a href="https://diamondcleanersusa.com/" target="_blank" rel="noopener noreferrer" class="iframe-overlay-link" aria-label="Open Diamond Cleaners USA in new tab"></a>
+              <div class="iframe-container">
+                <iframe src="https://diamondcleanersusa.com/" title="Diamond Cleaners USA Live Preview" class="live-iframe" loading="lazy"></iframe>
+              </div>
+              <span class="category-badge">Cleaning & Facility</span>
+            </div>
+            <div class="card-body">
+              <h3 class="showcase-title">Diamond Cleaners USA</h3>
+              <p class="showcase-desc">Professional residential and commercial eco-friendly cleaning services company in the United States, optimized for customer inquiries and booking conversions.</p>
+              <div class="tech-stack-wrap">
+                <span class="tech-chip">Commercial & Home</span>
+                <span class="tech-chip">USA Market</span>
+                <span class="tech-chip">Lead Generation</span>
+                <span class="tech-chip">Fast UI</span>
+              </div>
+              <div class="card-actions-bar">
+                <a href="https://diamondcleanersusa.com/" target="_blank" rel="noopener noreferrer" class="btn-live-view" aria-label="Visit Diamond Cleaners USA live website">
+                  Visit Live Website <i data-lucide="external-link"></i>
+                </a>
+                <a href="contact-project.html?ref=diamondcleanersusa" class="btn-inquire-icon" title="Build something like this" aria-label="Inquire similar website">
+                  <i data-lucide="message-square-plus"></i>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 4. CST Tax Advisors -->
+          <article class="showcase-card" data-category="finance">
+            <div class="browser-frame">
+              <div class="browser-dots">
+                <span class="browser-dot red"></span>
+                <span class="browser-dot yellow"></span>
+                <span class="browser-dot green"></span>
+              </div>
+              <div class="browser-url">
+                <i data-lucide="lock"></i> csttax.com
+              </div>
+            </div>
+            <div class="card-preview">
+              <a href="https://csttax.com/" target="_blank" rel="noopener noreferrer" class="iframe-overlay-link" aria-label="Open CST Tax Advisors in new tab"></a>
+              <div class="iframe-container">
+                <iframe src="https://csttax.com/" title="CST Tax Advisors Live Preview" class="live-iframe" loading="lazy"></iframe>
+              </div>
+              <span class="category-badge">Finance & Tax</span>
+            </div>
+            <div class="card-body">
+              <h3 class="showcase-title">CST Tax Advisors</h3>
+              <p class="showcase-desc">Premier international tax advisory and private client accounting firm serving global expats and international enterprises across the US, UK, and Asia-Pacific.</p>
+              <div class="tech-stack-wrap">
+                <span class="tech-chip">International CPA</span>
+                <span class="tech-chip">Cross-Border Tax</span>
+                <span class="tech-chip">Enterprise Portal</span>
+                <span class="tech-chip">Multi-Regional</span>
+              </div>
+              <div class="card-actions-bar">
+                <a href="https://csttax.com/" target="_blank" rel="noopener noreferrer" class="btn-live-view" aria-label="Visit CST Tax live website">
+                  Visit Live Website <i data-lucide="external-link"></i>
+                </a>
+                <a href="contact-project.html?ref=csttax" class="btn-inquire-icon" title="Build something like this" aria-label="Inquire similar website">
+                  <i data-lucide="message-square-plus"></i>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 5. Harnoor Pallak Construction -->
+          <article class="showcase-card" data-category="construction">
+            <div class="browser-frame">
+              <div class="browser-dots">
+                <span class="browser-dot red"></span>
+                <span class="browser-dot yellow"></span>
+                <span class="browser-dot green"></span>
+              </div>
+              <div class="browser-url">
+                <i data-lucide="lock"></i> harnoorpallakconstruction.ca
+              </div>
+            </div>
+            <div class="card-preview">
+              <a href="https://harnoorpallakconstruction.ca/" target="_blank" rel="noopener noreferrer" class="iframe-overlay-link" aria-label="Open Harnoor Pallak Construction in new tab"></a>
+              <div class="iframe-container">
+                <iframe src="https://harnoorpallakconstruction.ca/" title="Harnoor Pallak Construction Live Preview" class="live-iframe" loading="lazy"></iframe>
+              </div>
+              <span class="category-badge">Construction & Infra</span>
+            </div>
+            <div class="card-body">
+              <h3 class="showcase-title">Harnoor Pallak Construction</h3>
+              <p class="showcase-desc">Canadian construction and framing specialist portal showcasing civil engineering projects, residential buildouts, heavy structural work, and project bids.</p>
+              <div class="tech-stack-wrap">
+                <span class="tech-chip">Canada (.ca)</span>
+                <span class="tech-chip">Portfolio Gallery</span>
+                <span class="tech-chip">Project Quotations</span>
+                <span class="tech-chip">Responsive Grid</span>
+              </div>
+              <div class="card-actions-bar">
+                <a href="https://harnoorpallakconstruction.ca/" target="_blank" rel="noopener noreferrer" class="btn-live-view" aria-label="Visit Harnoor Pallak Construction live website">
+                  Visit Live Website <i data-lucide="external-link"></i>
+                </a>
+                <a href="contact-project.html?ref=harnoorpallak" class="btn-inquire-icon" title="Build something like this" aria-label="Inquire similar website">
+                  <i data-lucide="message-square-plus"></i>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 6. Masjid Ul Ummah -->
+          <article class="showcase-card" data-category="community">
+            <div class="browser-frame">
+              <div class="browser-dots">
+                <span class="browser-dot red"></span>
+                <span class="browser-dot yellow"></span>
+                <span class="browser-dot green"></span>
+              </div>
+              <div class="browser-url">
+                <i data-lucide="lock"></i> masjidulummah.ca
+              </div>
+            </div>
+            <div class="card-preview">
+              <a href="https://masjidulummah.ca/" target="_blank" rel="noopener noreferrer" class="iframe-overlay-link" aria-label="Open Masjid Ul Ummah in new tab"></a>
+              <div class="iframe-container">
+                <iframe src="https://masjidulummah.ca/" title="Masjid Ul Ummah Live Preview" class="live-iframe" loading="lazy"></iframe>
+              </div>
+              <span class="category-badge">Community & Islamic Center</span>
+            </div>
+            <div class="card-body">
+              <h3 class="showcase-title">Masjid Ul Ummah</h3>
+              <p class="showcase-desc">Official Islamic center community hub in Canada featuring live prayer timetables, community event schedules, educational programs, and secure online donations.</p>
+              <div class="tech-stack-wrap">
+                <span class="tech-chip">Prayer Times API</span>
+                <span class="tech-chip">Donations</span>
+                <span class="tech-chip">Events Calendar</span>
+                <span class="tech-chip">Community Portal</span>
+              </div>
+              <div class="card-actions-bar">
+                <a href="https://masjidulummah.ca/" target="_blank" rel="noopener noreferrer" class="btn-live-view" aria-label="Visit Masjid Ul Ummah live website">
+                  Visit Live Website <i data-lucide="external-link"></i>
+                </a>
+                <a href="contact-project.html?ref=masjidulummah" class="btn-inquire-icon" title="Build something like this" aria-label="Inquire similar website">
+                  <i data-lucide="message-square-plus"></i>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 7. United Kanadian Foundations Club -->
+          <article class="showcase-card" data-category="community">
+            <div class="browser-frame">
+              <div class="browser-dots">
+                <span class="browser-dot red"></span>
+                <span class="browser-dot yellow"></span>
+                <span class="browser-dot green"></span>
+              </div>
+              <div class="browser-url">
+                <i data-lucide="lock"></i> unitedkanadianfoundationsclub.com
+              </div>
+            </div>
+            <div class="card-preview">
+              <a href="https://unitedkanadianfoundationsclub.com/" target="_blank" rel="noopener noreferrer" class="iframe-overlay-link" aria-label="Open United Kanadian Foundations Club in new tab"></a>
+              <div class="iframe-container">
+                <iframe src="https://unitedkanadianfoundationsclub.com/" title="United Kanadian Foundations Club Live Preview" class="live-iframe" loading="lazy"></iframe>
+              </div>
+              <span class="category-badge">Club & Non-Profit</span>
+            </div>
+            <div class="card-body">
+              <h3 class="showcase-title">UKFC (United Kanadian)</h3>
+              <p class="showcase-desc">Community association and foundation web platform delivering youth engagement programs, cultural events, membership management, and welfare initiatives.</p>
+              <div class="tech-stack-wrap">
+                <span class="tech-chip">Membership Hub</span>
+                <span class="tech-chip">Non-Profit</span>
+                <span class="tech-chip">Events & Welfare</span>
+                <span class="tech-chip">Mobile First</span>
+              </div>
+              <div class="card-actions-bar">
+                <a href="https://unitedkanadianfoundationsclub.com/" target="_blank" rel="noopener noreferrer" class="btn-live-view" aria-label="Visit United Kanadian Foundations Club live website">
+                  Visit Live Website <i data-lucide="external-link"></i>
+                </a>
+                <a href="contact-project.html?ref=ukfc" class="btn-inquire-icon" title="Build something like this" aria-label="Inquire similar website">
+                  <i data-lucide="message-square-plus"></i>
+                </a>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CORE CAPABILITIES & SERVICES -->
+    <section class="services-overview">
+      <div class="container">
+        <div class="section-head" style="text-align:center; display:block;">
+          <p class="section-kicker">WHAT WE BUILD FOR YOU</p>
+          <h2>Our Core Technical Capabilities</h2>
+          <p class="section-sub" style="margin: 10px auto 0;">From single-page web portfolios to full enterprise digital infrastructures — tailored to your exact industry.</p>
+        </div>
+
+        <div class="services-grid-mini">
+
+          <!-- Web Development -->
+          <div class="service-box">
+            <div class="service-box-icon"><i data-lucide="code"></i></div>
+            <h3>Custom Web Development</h3>
+            <p>Modern, responsive, ultra-fast websites engineered to turn visitors into paying clients.</p>
+            <ul class="service-features-list">
+              <li>Responsive mobile-first architecture</li>
+              <li>95+ Google PageSpeed performance</li>
+              <li>SEO-ready structure & schema</li>
+            </ul>
+            <a href="contact-project.html" class="link-arrow">Start Development <i data-lucide="arrow-right"></i></a>
+          </div>
+
+          <!-- eCommerce -->
+          <div class="service-box">
+            <div class="service-box-icon"><i data-lucide="shopping-bag"></i></div>
+            <h3>eCommerce Stores</h3>
+            <p>High-converting stores with smooth checkout experiences and automated order management.</p>
+            <ul class="service-features-list">
+              <li>Shopify & custom cart systems</li>
+              <li>Payment gateways & multi-currency</li>
+              <li>Automated stock & inventory sync</li>
+            </ul>
+            <a href="contact-project.html" class="link-arrow">Build an eCommerce Store <i data-lucide="arrow-right"></i></a>
+          </div>
+
+          <!-- Business Automation -->
+          <div class="service-box">
+            <div class="service-box-icon"><i data-lucide="cpu"></i></div>
+            <h3>Automation & AI Integration</h3>
+            <p>Connect your internal tools, eliminate manual data entry, and integrate smart AI assistants.</p>
+            <ul class="service-features-list">
+              <li>CRM & WhatsApp / Email bots</li>
+              <li>Custom API & webhook pipelines</li>
+              <li>OpenAI / LLM smart workflows</li>
+            </ul>
+            <a href="contact-project.html" class="link-arrow">Automate Your Business <i data-lucide="arrow-right"></i></a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- WEBSITE DEVELOPMENT PACKAGES -->
+    <section class="dev-packages-section" id="packages">
+      <div class="container">
+        <!-- Header -->
+        <div class="pkg-header-row">
+          <div>
+            <span class="pkg-title-eyebrow">WEBSITE DEVELOPMENT</span>
+            <h2 class="pkg-main-title">Packages</h2>
+            <p class="pkg-subtitle">Professional websites. Modern design. Built for your success.</p>
+          </div>
+        </div>
+
+        <!-- Pricing Cards -->
+        <div class="pkg-cards-grid">
+
+          <!-- BASIC CARD -->
+          <div class="pkg-card">
+            <span class="pkg-tier-label">BASIC</span>
+            <h3 class="pkg-plan-name">Website Development</h3>
+            <p class="pkg-plan-desc">Perfect for small businesses &amp; startups needing a professional online presence.</p>
+
+            <div class="pkg-price-row">
+              <div class="pkg-price-col">
+                <span class="pkg-price-curr">USD</span>
+                <span class="pkg-price-val">$499</span>
+              </div>
+              <div class="pkg-price-divider"></div>
+              <div class="pkg-price-col">
+                <span class="pkg-price-curr">CAD</span>
+                <span class="pkg-price-val">$699</span>
+              </div>
+            </div>
+
+            <ul class="pkg-features-list">
+              <li class="pkg-feature-item">
+                <span class="pkg-check-icon"><i data-lucide="check"></i></span>
+                <span>5 Custom Pages (Home, About, Services, etc.)</span>
+              </li>
+              <li class="pkg-feature-item">
+                <span class="pkg-check-icon"><i data-lucide="check"></i></span>
+                <span>100% Mobile &amp; Tablet Responsive</span>
+              </li>
+              <li class="pkg-feature-item">
+                <span class="pkg-check-icon"><i data-lucide="check"></i></span>
+                <span>Contact &amp; Inquiry Form Integration</span>
+              </li>
+              <li class="pkg-feature-item">
+                <span class="pkg-check-icon"><i data-lucide="check"></i></span>
+                <span>Basic On-Page SEO Optimization</span>
+              </li>
+              <li class="pkg-feature-item">
+                <span class="pkg-check-icon"><i data-lucide="check"></i></span>
+                <span>Social Media Links Integration</span>
+              </li>
+              <li class="pkg-feature-item">
+                <span class="pkg-check-icon"><i data-lucide="check"></i></span>
+                <span>High-Speed Performance Optimization</span>
+              </li>
+            </ul>
+
+          </div>
+
+          <!-- PREMIUM CARD (MOST POPULAR) -->
+          <div class="pkg-card featured">
+            <span class="pkg-popular-badge">MOST POPULAR</span>
+            <span class="pkg-tier-label">PREMIUM</span>
+            <h3 class="pkg-plan-name">Website Development</h3>
+            <p class="pkg-plan-desc">Ideal for growing businesses looking for advanced features and better performance.</p>
+
+            <div class="pkg-price-row">
+              <div class="pkg-price-col">
+                <span class="pkg-price-curr">USD</span>
+                <span class="pkg-price-val">$999</span>
+              </div>
+              <div class="pkg-price-divider"></div>
+              <div class="pkg-price-col">
+                <span class="pkg-price-curr">CAD</span>
+                <span class="pkg-price-val">$1,399</span>
+              </div>
+            </div>
+
+            <ul class="pkg-features-list">
+              <li class="pkg-feature-item">
+                <span class="pkg-check-icon"><i data-lucide="check"></i></span>
+                <span>Up to 12 Custom Designed Pages</span>
+              </li>
+              <li class="pkg-feature-item">
+                <span class="pkg-check-icon"><i data-lucide="check"></i></span>
+                <span>Modern Glassmorphism &amp; Animations</span>
+              </li>
+              <li class="pkg-feature-item">
+                <span class="pkg-check-icon"><i data-lucide="check"></i></span>
+                <span>Dynamic Blog / CMS Integration</span>
+              </li>
+              <li class="pkg-feature-item">
+                <span class="pkg-check-icon"><i data-lucide="check"></i></span>
+                <span>Advanced Technical &amp; On-Page SEO</span>
+              </li>
+              <li class="pkg-feature-item">
+                <span class="pkg-check-icon"><i data-lucide="check"></i></span>
+                <span>Custom Lead Generation Forms</span>
+              </li>
+              <li class="pkg-feature-item">
+                <span class="pkg-check-icon"><i data-lucide="check"></i></span>
+                <span>Speed &amp; Security Hardening (SSL/CDN)</span>
+              </li>
+              <li class="pkg-feature-item">
+                <span class="pkg-check-icon"><i data-lucide="check"></i></span>
+                <span>WhatsApp Chat &amp; Live Support</span>
+              </li>
+              <li class="pkg-feature-item">
+                <span class="pkg-check-icon"><i data-lucide="check"></i></span>
+                <span>1 Month Free Post-Launch Support</span>
+              </li>
+            </ul>
+
+          </div>
+
+          <!-- ADVANCE CARD -->
+          <div class="pkg-card">
+            <span class="pkg-tier-label">ADVANCE</span>
+            <h3 class="pkg-plan-name">Website Development</h3>
+            <p class="pkg-plan-desc">Full-scale custom web applications, e-commerce stores, and custom software systems.</p>
+
+            <div class="pkg-price-row">
+              <div class="pkg-price-col">
+                <span class="pkg-price-curr">USD</span>
+                <span class="pkg-price-val">$1,499</span>
+              </div>
+              <div class="pkg-price-divider"></div>
+              <div class="pkg-price-col">
+                <span class="pkg-price-curr">CAD</span>
+                <span class="pkg-price-val">$1,999</span>
+              </div>
+            </div>
+
+            <ul class="pkg-features-list">
+              <li class="pkg-feature-item">
+                <span class="pkg-check-icon"><i data-lucide="check"></i></span>
+                <span>Unlimited Custom Pages &amp; Workflows</span>
+              </li>
+              <li class="pkg-feature-item">
+                <span class="pkg-check-icon"><i data-lucide="check"></i></span>
+                <span>Full E-Commerce / Custom Portal</span>
+              </li>
+              <li class="pkg-feature-item">
+                <span class="pkg-check-icon"><i data-lucide="check"></i></span>
+                <span>Payment Gateways (Stripe/PayPal)</span>
+              </li>
+              <li class="pkg-feature-item">
+                <span class="pkg-check-icon"><i data-lucide="check"></i></span>
+                <span>Admin Dashboard &amp; Database Backend</span>
+              </li>
+              <li class="pkg-feature-item">
+                <span class="pkg-check-icon"><i data-lucide="check"></i></span>
+                <span>API Integration &amp; Cloud Deployment</span>
+              </li>
+              <li class="pkg-feature-item">
+                <span class="pkg-check-icon"><i data-lucide="check"></i></span>
+                <span>Enterprise Grade Security &amp; Firewall</span>
+              </li>
+              <li class="pkg-feature-item">
+                <span class="pkg-check-icon"><i data-lucide="check"></i></span>
+                <span>GEO / AI Search Optimization</span>
+              </li>
+              <li class="pkg-feature-item">
+                <span class="pkg-check-icon"><i data-lucide="check"></i></span>
+                <span>3 Months Priority VIP Support &amp; SLA</span>
+              </li>
+            </ul>
+
+          </div>
+
+        </div>
+
+        <!-- Bottom Disclaimer Banner -->
+        <div class="pkg-disclaimer-card">
+          <div class="pkg-disclaimer-left">
+            <div class="pkg-disclaimer-icon">
+              <i data-lucide="server"></i>
+            </div>
+            <div>
+              <div class="pkg-disclaimer-title">HOSTING &amp; DOMAIN ARE EXCLUDED</div>
+              <p class="pkg-disclaimer-text">In all packages. You can choose your own hosting and domain provider or we can help you with the setup if needed.</p>
+            </div>
+          </div>
+          <div class="pkg-disclaimer-script">
+            Let's Build Something Great
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- BOTTOM STRIP / CTA -->
+    <section class="packages-cta-strip">
+      <div class="container">
+        <p class="section-kicker light">READY TO LAUNCH YOUR OWN PLATFORM?</p>
+        <h2>Get Your Custom Website Built by AS Web Solution</h2>
+        <p>Whether you need a commercial services website, corporate advisory portal, or custom web platform, our team is ready to deliver.</p>
+        <div style="display:flex; gap:14px; justify-content:center; flex-wrap:wrap;">
+          <a href="contact-project.html" class="btn btn-primary" style="background:#fff; color:var(--navy); box-shadow:none;">Get a Free Proposal <i data-lucide="arrow-right"></i></a>
+          <a href="pricing.html" class="btn btn-outline" style="background:transparent; color:#fff; border-color:rgba(255,255,255,.5);">Check Pricing Packages</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <div id="footer"></div>
+
+  <script src="script.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      if (window.lucide) lucide.createIcons();
+
+      // =========================================================
+      // LIVE IFRAMES AUTO-SCROLL SYNCHRONIZATION
+      // =========================================================
+      const iframes = document.querySelectorAll('.live-iframe');
+      const showcaseSection = document.getElementById('showcase');
+
+      let ticking = false;
+
+      function onScrollSync() {
+        if (!showcaseSection) return;
+
+        const rect = showcaseSection.getBoundingClientRect();
+        const windowHeight = window.innerHeight;
+
+        // Check if showcase section is visible in viewport
+        if (rect.bottom > 0 && rect.top < windowHeight) {
+          // Calculate how far we scrolled through the showcase section (0 to 1)
+          const totalDistance = rect.height + windowHeight;
+          const currentProgress = (windowHeight - rect.top) / totalDistance;
+          const clamped = Math.max(0, Math.min(1, currentProgress));
+
+          // Move the iframes content up/down proportionally (up to -260px)
+          const offsetY = Math.round(clamped * 260);
+
+          iframes.forEach(iframe => {
+            iframe.style.transform = `scale(0.5) translateY(-${offsetY}px)`;
+          });
+        }
+        ticking = false;
+      }
+
+      window.addEventListener('scroll', function () {
+        if (!ticking) {
+          requestAnimationFrame(onScrollSync);
+          ticking = true;
+        }
+      }, { passive: true });
+
+      // Run once on load
+      onScrollSync();
+
+    });
+  </script>
+</body>
+</html>

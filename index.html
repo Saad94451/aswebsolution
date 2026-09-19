@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -25,48 +25,7 @@
   <a class="skip-link" href="#main">Skip to content</a>
 
   <!-- ===================== HEADER ===================== -->
-  <header class="header" id="header">
-    <div class="container header-inner">
-      <a href="#home" class="logo" aria-label="AS Web Solution home">
-       
-          <img src="./assets/img/logo-removebg.png" alt="" style="height: 100px;width: 100px;">
-       
-      </a>
-
-      <nav class="nav" id="nav" aria-label="Primary">
-        <a href="index.html" class="nav-link active">Home</a>
-        <a href="about.html" class="nav-link">About</a>
-        <a href="whyus.html" class="nav-link">Why Us</a>
-        <a href="catalog.html" class="nav-link">Services</a>
-        <div class="nav-dropdown">
-          <button class="nav-link nav-dropdown-trigger" type="button" aria-expanded="false" aria-haspopup="true">Contact <i data-lucide="chevron-down" class="dd-arrow"></i></button>
-          <div class="nav-dropdown-menu" role="menu">
-            <a href="contact-project.html" class="nav-dropdown-item" role="menuitem">
-              <div class="ndi-icon"><i data-lucide="rocket"></i></div>
-              <div><strong>Project Inquiry</strong><span>Start a new project</span></div>
-            </a>
-            <a href="contact-client.html" class="nav-dropdown-item" role="menuitem">
-              <div class="ndi-icon"><i data-lucide="headphones"></i></div>
-              <div><strong>Client Support</strong><span>Existing client help</span></div>
-            </a>
-            <a href="contact-career.html" class="nav-dropdown-item" role="menuitem">
-              <div class="ndi-icon"><i data-lucide="briefcase"></i></div>
-              <div><strong>Career Support</strong><span>Jobs and opportunities</span></div>
-            </a>
-          </div>
-        </div>
-        <a href="pricing.html" class="nav-link">Pricing</a>
-      </nav>
-      <div class="nav-overlay" id="navOverlay"></div>
-
-      <div class="header-actions">
-        <a href="#contact" class="btn btn-primary header-cta">Start a Project <i data-lucide="arrow-right"></i></a>
-        <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav">
-          <span></span><span></span><span></span>
-        </button>
-      </div>
-    </div>
-  </header>
+  <div id="header"></div>
 
   <main id="main">
     <!-- ===================== HERO ===================== -->
@@ -97,7 +56,7 @@
           </p>
           <div class="hero-actions">
             <a href="contact.html" class="btn btn-primary">Start a Project <i data-lucide="arrow-right"></i></a>
-            <a href="#services" class="btn btn-hero-outline">Explore Our Services</a>
+            <a href="pricing.html" class="btn btn-hero-outline">Calculate Your Cost</a>
           </div>
         </div>
 
@@ -133,139 +92,6 @@
           <div class="brand-item"><span class="brand-uber">Uber</span></div>
           <div class="brand-item"><span class="brand-spotify">Spotify</span></div>
           <div class="brand-item"><span class="brand-paypal">PayPal</span></div>
-        </div>
-      </div>
-    </section>
-
-        <!-- ===================== PROJECT BUILDER ===================== -->
-    <section class="builder" id="solutions">
-      <div class="container">
-        <div class="builder-header reveal">
-          <p class="section-kicker">OUR SIGNATURE PROCESS</p>
-          <h2>Build Your Perfect Digital Solution</h2>
-          <p class="builder-subtitle">Answer a few questions and get an instant price estimate right here.</p>
-        </div>
-
-        <div class="inline-wizard reveal delay-1">
-
-          <div class="iw-stepper">
-            <div class="iw-step active" id="iw-si-1"><div class="iw-circle" id="iw-sc-1">1</div><span>Website Type</span></div>
-            <div class="iw-line" id="iw-sl-1"></div>
-            <div class="iw-step" id="iw-si-2"><div class="iw-circle" id="iw-sc-2">2</div><span>Design</span></div>
-            <div class="iw-line" id="iw-sl-2"></div>
-            <div class="iw-step" id="iw-si-3"><div class="iw-circle" id="iw-sc-3">3</div><span>Style & Features</span></div>
-            <div class="iw-line" id="iw-sl-3"></div>
-            <div class="iw-step" id="iw-si-4"><div class="iw-circle" id="iw-sc-4">4</div><span>Summary</span></div>
-          </div>
-
-          <div class="iw-panel active" id="iw-panel-1">
-            <p class="iw-label">Step 1 of 4</p>
-            <h3 class="iw-title">What Type of Website Do You Need?</h3>
-            <p class="iw-sub">Select the type that best fits your business goals.</p>
-            <div class="iw-type-grid">
-              <div class="iw-type-card" data-type="Business Website" data-base="299" onclick="iwSelectType(this)"><i data-lucide="building-2"></i><h6>Business</h6><p> Corporate</p></div>
-              <div class="iw-type-card" data-type="E-Commerce" data-base="499" onclick="iwSelectType(this)"><i data-lucide="shopping-cart"></i><h6>E-Commerce</h6><p>Online Store</p></div>
-              <div class="iw-type-card" data-type="Portfolio" data-base="199" onclick="iwSelectType(this)"><i data-lucide="layout-grid"></i><h6>Portfolio</h6><p>Showcase Work</p></div>
-              <div class="iw-type-card" data-type="Restaurant" data-base="349" onclick="iwSelectType(this)"><i data-lucide="utensils"></i><h6>Restaurant</h6><p>Food & Beverages</p></div>
-              <div class="iw-type-card" data-type="Real Estate" data-base="449" onclick="iwSelectType(this)"><i data-lucide="home"></i><h6>Real Estate</h6><p>Property Listings</p></div>
-              <div class="iw-type-card" data-type="Healthcare" data-base="399" onclick="iwSelectType(this)"><i data-lucide="heart-pulse"></i><h6>Healthcare</h6><p>Clinic / Hospital</p></div>
-              <div class="iw-type-card" data-type="Education" data-base="349" onclick="iwSelectType(this)"><i data-lucide="graduation-cap"></i><h6>Education</h6><p>School / University</p></div>
-              <div class="iw-type-card" data-type="Travel" data-base="399" onclick="iwSelectType(this)"><i data-lucide="plane"></i><h6>Travel</h6><p>Tours & Booking</p></div>
-              <div class="iw-type-card" data-type="Construction" data-base="349" onclick="iwSelectType(this)"><i data-lucide="hammer"></i><h6>Construction</h6><p>Building & Roofing</p></div>
-              <div class="iw-type-card" data-type="Agency" data-base="449" onclick="iwSelectType(this)"><i data-lucide="megaphone"></i><h6>Agency</h6><p>Marketing / Digital</p></div>
-              <div class="iw-type-card" data-type="NGO/Charity" data-base="249" onclick="iwSelectType(this)"><i data-lucide="heart-handshake"></i><h6>NGO / Charity</h6><p>Non-Profit</p></div>
-              <div class="iw-type-card" data-type="Custom" data-base="599" onclick="iwSelectType(this)"><i data-lucide="sliders"></i><h6>Custom</h6><p>Other / Specific</p></div>
-            </div>
-            <div class="iw-footer"><button class="btn btn-primary" onclick="iwNext(1)">Next Step <i data-lucide="arrow-right"></i></button></div>
-          </div>
-
-          
-          <div class="iw-panel" id="iw-panel-2">
-            <p class="iw-label">Step 2 of 4</p>
-            <h3 class="iw-title">Choose a Design Style</h3>
-            <p class="iw-sub">Pick the style that best fits your brand.</p>
-            <div class="iw-style-grid">
-              <div class="iw-style-card" data-style="Modern" data-price="0" onclick="iwSelectStyle(this)">Modern</div>
-              <div class="iw-style-card" data-style="Luxury" data-price="100" onclick="iwSelectStyle(this)">Luxury</div>
-              <div class="iw-style-card" data-style="Minimal" data-price="0" onclick="iwSelectStyle(this)">Minimal</div>
-              <div class="iw-style-card" data-style="Corporate" data-price="50" onclick="iwSelectStyle(this)">Corporate</div>
-              <div class="iw-style-card" data-style="Creative" data-price="80" onclick="iwSelectStyle(this)">Creative</div>
-              <div class="iw-style-card" data-style="Dark Mode" data-price="60" onclick="iwSelectStyle(this)">Dark Mode</div>
-              <div class="iw-style-card" data-style="Cozy" data-price="30" onclick="iwSelectStyle(this)">Cozy</div>
-              <div class="iw-style-card" data-style="Techy" data-price="70" onclick="iwSelectStyle(this)">Techy</div>
-            </div>
-            <div class="iw-custom-opt" id="iw-customOpt" onclick="iwSelectCustom()">
-              <i data-lucide="pencil"></i>
-              <div><strong>Custom Design</strong><span>We build from scratch — fully unique (+$200)</span></div>
-            </div>
-            <div class="iw-footer">
-              <button class="btn btn-outline" onclick="iwBack(2)"><i data-lucide="arrow-left"></i> Back</button>
-              <button class="btn btn-primary" onclick="iwNext(2)">Next Step <i data-lucide="arrow-right"></i></button>
-            </div>
-          </div>
-
-          <div class="iw-panel" id="iw-panel-3">
-            <p class="iw-label">Step 3 of 4</p>
-            <h3 class="iw-title">Choose Your Features</h3>
-            <p class="iw-sub">Select the features you need for your website.</p>
-            <div class="iw-feat-grid">
-              <div class="iw-feat" data-feature="Contact Form" data-price="0" onclick="iwToggleFeat(this)"><i data-lucide="mail"></i><span>Contact Form</span></div>
-              <div class="iw-feat" data-feature="WhatsApp Chat" data-price="30" onclick="iwToggleFeat(this)"><i data-lucide="message-circle"></i><span>WhatsApp Chat</span></div>
-              <div class="iw-feat" data-feature="Online Booking" data-price="80" onclick="iwToggleFeat(this)"><i data-lucide="calendar-check"></i><span>Online Booking</span></div>
-              <div class="iw-feat" data-feature="Blog / News" data-price="60" onclick="iwToggleFeat(this)"><i data-lucide="newspaper"></i><span>Blog / News</span></div>
-              <div class="iw-feat" data-feature="E-Commerce" data-price="150" onclick="iwToggleFeat(this)"><i data-lucide="shopping-bag"></i><span>E-Commerce</span></div>
-              <div class="iw-feat" data-feature="SEO Optimization" data-price="100" onclick="iwToggleFeat(this)"><i data-lucide="trending-up"></i><span>SEO Setup</span></div>
-              <div class="iw-feat" data-feature="Multi-Language" data-price="120" onclick="iwToggleFeat(this)"><i data-lucide="languages"></i><span>Multi-Language</span></div>
-              <div class="iw-feat" data-feature="Payment Gateway" data-price="100" onclick="iwToggleFeat(this)"><i data-lucide="credit-card"></i><span>Payment Gateway</span></div>
-              <div class="iw-feat" data-feature="Admin Dashboard" data-price="200" onclick="iwToggleFeat(this)"><i data-lucide="layout-dashboard"></i><span>Admin Dashboard</span></div>
-              <div class="iw-feat" data-feature="Live Chat" data-price="50" onclick="iwToggleFeat(this)"><i data-lucide="message-square"></i><span>Live Chat</span></div>
-              <div class="iw-feat" data-feature="Social Media" data-price="30" onclick="iwToggleFeat(this)"><i data-lucide="share-2"></i><span>Social Media</span></div>
-              <div class="iw-feat" data-feature="Google Analytics" data-price="40" onclick="iwToggleFeat(this)"><i data-lucide="bar-chart-2"></i><span>Analytics</span></div>
-            </div>
-            <div class="iw-footer">
-              <button class="btn btn-outline" onclick="iwBack(3)"><i data-lucide="arrow-left"></i> Back</button>
-              <button class="btn btn-primary" onclick="iwNext(3)">See My Price <i data-lucide="arrow-right"></i></button>
-            </div>
-          </div>
-
-          <div class="iw-panel" id="iw-panel-4">
-            <p class="iw-label">Step 4 of 4</p>
-            <h3 class="iw-title">Your Project Summary</h3>
-            <p class="iw-sub">Review your selections and see your estimated investment.</p>
-            <div class="iw-summary-grid">
-              <div class="iw-summary-left">
-                <div class="iw-sum-block">
-                  <div class="iw-sum-row"><span>Website Type</span><strong id="iws-type">-</strong></div>
-                  <div class="iw-sum-row"><span>Design</span><strong id="iws-design">-</strong></div>
-                  <div class="iw-sum-row"><span>Style</span><strong id="iws-style">-</strong></div>
-                  <div class="iw-sum-row"><span>Features</span><span id="iws-feats" style="text-align:right;font-size:0.82rem;color:var(--muted)">-</span></div>
-                </div>
-                <div class="iw-sum-block">
-                  <div class="iw-sum-row"><span>Base Price</span><strong id="iws-base">-</strong></div>
-                  <div class="iw-sum-row"><span>Design Add-on</span><strong id="iws-dp">-</strong></div>
-                  <div class="iw-sum-row"><span>Style Add-on</span><strong id="iws-sp">-</strong></div>
-                  <div class="iw-sum-row"><span>Features Total</span><strong id="iws-fp">-</strong></div>
-                  <div class="iw-sum-row iw-sum-total"><span>Estimated Total</span><strong id="iws-total">-</strong></div>
-                </div>
-              </div>
-              <div class="iw-price-box">
-                <p class="iw-price-label">Estimated Investment</p>
-                <div class="iw-currency-tabs">
-                  <button class="iw-cur active" onclick="iwSetCur('usd',this)">USD</button>
-                  <button class="iw-cur" onclick="iwSetCur('pkr',this)">PKR</button>
-                  <button class="iw-cur" onclick="iwSetCur('cad',this)">CAD</button>
-                </div>
-                <div class="iw-price-main" id="iws-price-display">$ -</div>
-                <div class="iw-price-note" id="iws-range"></div>
-                <a href="contact.html" class="btn btn-white" style="width:100%;justify-content:center;margin-top:20px;">Request This Project <i data-lucide="arrow-right"></i></a>
-              </div>
-            </div>
-            <div class="iw-footer">
-              <button class="btn btn-outline" onclick="iwBack(4)"><i data-lucide="arrow-left"></i> Back</button>
-              <button class="btn btn-primary" onclick="iwReset()">Start Over <i data-lucide="refresh-cw"></i></button>
-            </div>
-          </div>
-
         </div>
       </div>
     </section>
@@ -456,10 +282,7 @@
             <h2>From Concept to High-Growth Digital Product</h2>
             <p class="section-sub">A transparent, 6-stage agile framework engineered to eliminate guesswork, keep you in control, and launch on time.</p>
           </div>
-          <div class="process-meta-badge hide-mobile">
-            <i data-lucide="shield-check"></i>
-            <span>100% Milestone-Based Delivery</span>
-          </div>
+         
         </div>
 
         <!-- Interactive Process Roadmap / Pipeline -->
@@ -1082,7 +905,7 @@
 
  <div class="faq-cta-banner reveal">
  <div class="faq-cta-banner-left"><p class="cta-kicker">LETS BUILD TOGETHER</p><h2>Your next digital experience starts here.</h2><p>Have an idea, a business or a problem that needs a digital solution? Let us build it together.</p></div>
- <div class="faq-cta-banner-right"><a href="contact.html" class="btn btn-white">Start a Project <i data-lucide="arrow-right"></i></a><a href="catalog.html" class="btn btn-white-outline">View Services</a></div>
+ <div class="faq-cta-banner-right"><a href="contact.html" class="btn btn-white">Start a Project <i data-lucide="arrow-right"></i></a><a href="services.html" class="btn btn-white-outline">View Services</a></div>
  </div>
 
  </div>
@@ -1090,116 +913,7 @@
   </main>
 
   <!-- ===================== FOOTER ===================== -->
-  <footer class="footer" id="footer">
-    
-  
-
-    <!-- Main Footer Grid -->
-    <div class="container footer-main">
-      <div class="footer-grid">
-
-        <!-- Column 1: Brand, Availability & Verified Ratings -->
-        <div class="footer-col footer-col-brand">
-          <a href="#home" class="logo light" aria-label="AS Web Solution home">
-            <img src="./assets/img/logo-removebg.png" alt="AS Web Solution Logo" style="height:100px;width:100px;filter:brightness(0) invert(1);">
-           
-          </a>
-          <p class="footer-desc">
-            We engineer high-performance web applications, enterprise eCommerce platforms, and smart automated systems that turn visitors into loyal customers.
-          </p>
-
-        
-
-          <!-- Verified Ratings (Google & Clutch) -->
-          <div class="footer-ratings-wrap">
-           
-            <div class="footer-ratings-row">
-              <a href="#blog" class="rating-badge-card" aria-label="Google 5.0 Star Verified Reviews" title="Google Verified 5.0 Star Rating">
-                <img src="assets/img/googlerating.png" alt="Google 5.0 Star Verified Rating" class="rating-badge-img">
-              </a>
-              <a href="#blog" class="rating-badge-card" aria-label="Clutch Top Rated Web Development Agency" title="Clutch Verified Top Agency">
-                <img src="assets/img/clutchrating.png" alt="Clutch Verified Agency Rating" class="rating-badge-img">
-              </a>
-            </div>
-          </div>
-
-          
-        </div>
-
-        <!-- Column 2: Solutions & Services -->
-        <div class="footer-col">
-          <h4 class="footer-heading">Solutions &amp; Services</h4>
-          <ul class="footer-links">
-            <li><a href="#services"><i data-lucide="chevron-right"></i> Web Development</a></li>
-            <li><a href="#services"><i data-lucide="chevron-right"></i> eCommerce &amp; Shopify</a></li>
-            <li><a href="#services"><i data-lucide="chevron-right"></i> SaaS &amp; Web Applications</a></li>
-            <li><a href="#services"><i data-lucide="chevron-right"></i> UI/UX Design Systems</a></li>
-            <li><a href="#services"><i data-lucide="chevron-right"></i> Workflow Automation</a></li>
-            <li><a href="#services"><i data-lucide="chevron-right"></i> AI Tools &amp; LLM Integrations</a></li>
-          </ul>
-        </div>
-
-        <!-- Column 3: Company & Process -->
-        <div class="footer-col">
-          <h4 class="footer-heading">Company &amp; Process</h4>
-          <ul class="footer-links">
-            <li><a href="#about"><i data-lucide="chevron-right"></i> About AS Web Solution</a></li>
-            <li><a href="#process"><i data-lucide="chevron-right"></i> Our 6-Stage Process</a></li>
-            <li><a href="pricing.html"><i data-lucide="chevron-right"></i> Instant Cost Calculator</a></li>
-            <li><a href="#tech"><i data-lucide="chevron-right"></i> Technology Stack</a></li>
-            <li><a href="#blog"><i data-lucide="chevron-right"></i> Client Testimonials</a></li>
-            <li><a href="#contact"><i data-lucide="chevron-right"></i> FAQ &amp; Consultation</a></li>
-          </ul>
-        </div>
-
-         <!-- Column 2: Solutions & Services -->
-        <div class="footer-col">
-          <h4 class="footer-heading">Contact &amp; Support</h4>
-          <ul class="footer-links">
-            <li><a href="mailto:info@aswebsolution.com"><i data-lucide="chevron-right"></i>mail: info@aswebolution.com</a></li>
-            <li><a href=""><i data-lucide="chevron-right"></i>contact: +92 343 3458001</a></li>
-            <li><a href="aswebsolution.com" target="_blank"><i data-lucide="chevron-right"></i>website: aswebsolution.com</a></li>
-          
-          </ul>
-        </div>
-
-      </div>
-    </div>
-
-    <!-- Bottom Bar -->
-    <div class="footer-bottom-bar">
-      <div class="container footer-bottom-inner">
-        <div class="footer-copy">
-          <p>© 2026 AS Web Solution. All rights reserved. Crafted for excellence, security &amp; speed.</p>
-        </div>
-
-        <div class="socials" aria-label="Social media channels">
-          <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="Follow on LinkedIn">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-          </a>
-          <a href="https://github.com" target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="Explore GitHub">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5A11.5 11.5 0 0 0 .5 12.3c0 5.2 3.4 9.6 8.1 11.2.6.1.8-.3.8-.6v-2.1c-3.3.7-4-1.4-4-1.4-.5-1.3-1.3-1.6-1.3-1.6-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 .1.8 2.2 3.1 1.6.1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.6.1-3.2 0 0 1-.3 3.3 1.2a11.4 11.4 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.6 1.6.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.7 5.6-5.3 5.9.4.4.8 1.1.8 2.2v3.2c0 .3.2.7.8.6A11.5 11.5 0 0 0 23.5 12 11.5 11.5 0 0 0 12 .5z"/></svg>
-          </a>
-          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram" title="Follow on Instagram">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
-          </a>
-          <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook" title="Follow on Facebook">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
-          </a>
-        </div>
-
-        <div class="legal">
-          <a href="#contact">Privacy Policy</a>
-          <span class="legal-divider">•</span>
-          <a href="#contact">Terms of Service</a>
-          <span class="legal-divider">•</span>
-          <a href="#contact">Security &amp; SLA</a>
-        </div>
-      </div>
-    </div>
-  </footer>
-
-  <button class="to-top" id="toTop" type="button" aria-label="Back to top"><i data-lucide="chevron-up"></i></button>
+  <div id="footer"></div>
 
   <div class="modal" id="storyModal" hidden>
     <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="storyTitle">

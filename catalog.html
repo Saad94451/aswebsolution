@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Client Projects & Live Catalog | AS Web Solution</title>
-  <meta name="description" content="Explore our live interactive website showcase and client catalog. High-performance web development, digital platforms, and automation delivered worldwide by AS Web Solution.">
+  <title>Website Design Catalog | AS Web Solution</title>
+  <meta name="description" content="Explore our complete website design catalog with 59+ interactive templates. Choose any layout and our team will customize it for your brand. High-performance web development by AS Web Solution.">
   <meta name="theme-color" content="#062A5C">
   <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -60,48 +60,6 @@
     /* CATALOG MAIN SECTION */
     .catalog-section { padding: 75px 0 85px; background: #FAFCFF; }
 
-    /* FILTER TABS & SEARCH */
-    .catalog-toolbar {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 20px;
-      margin-bottom: 45px;
-    }
-    .filter-tabs {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      justify-content: center;
-    }
-    .filter-btn {
-      padding: 10px 22px;
-      border-radius: 999px;
-      border: 1px solid var(--line);
-      background: #fff;
-      color: #334155;
-      font-size: 0.88rem;
-      font-weight: 600;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-      transition: all .25s ease;
-      box-shadow: var(--shadow-sm);
-    }
-    .filter-btn:hover {
-      border-color: var(--blue);
-      color: var(--blue);
-      transform: translateY(-2px);
-      box-shadow: 0 6px 18px rgba(37, 99, 235, 0.12);
-    }
-    .filter-btn.active {
-      background: var(--blue);
-      color: #fff;
-      border-color: var(--blue);
-      box-shadow: 0 8px 22px rgba(37, 99, 235, 0.28);
-    }
-
     /* PROJECTS GRID */
     .showcase-grid {
       display: grid;
@@ -149,7 +107,7 @@
     .browser-dot.red { background: #EF4444; }
     .browser-dot.yellow { background: #F59E0B; }
     .browser-dot.green { background: #10B981; }
-    
+
     .browser-url {
       flex: 1;
       background: #fff;
@@ -192,19 +150,10 @@
       border: none;
       transform: scale(0.5);
       transform-origin: top left;
-      pointer-events: none; /* Allows page scroll smoothly over cards */
+      pointer-events: none;
       transition: transform 0.15s ease-out;
       display: block;
       background: #fff;
-    }
-
-    /* Fallback image if site has SAMEORIGIN restriction */
-    .card-preview img.fallback-img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      transition: transform 0.25s ease-out;
     }
 
     /* Interactive overlay for click / smooth handling */
@@ -287,7 +236,7 @@
       margin-bottom: 18px;
       flex: 1;
     }
-    
+
     .tech-stack-wrap {
       display: flex;
       flex-wrap: wrap;
@@ -361,70 +310,9 @@
     }
     .btn-inquire-icon i, .btn-inquire-icon svg { width: 18px; height: 18px; }
 
-    /* CORE SERVICES SECTION */
-    .services-overview {
-      padding: 85px 0;
-      background: #fff;
-      border-top: 1px solid var(--line);
-    }
-    .services-grid-mini {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-      margin-top: 48px;
-    }
-    .service-box {
-      background: #F8FAFC;
-      border: 1px solid var(--line);
-      border-radius: 20px;
-      padding: 30px 26px;
-      transition: all .3s ease;
-    }
-    .service-box:hover {
-      background: #fff;
-      border-color: #BFDBFE;
-      transform: translateY(-6px);
-      box-shadow: var(--shadow);
-    }
-    .service-box-icon {
-      width: 52px;
-      height: 52px;
-      border-radius: 14px;
-      background: var(--light);
-      color: var(--blue);
-      display: grid;
-      place-items: center;
-      margin-bottom: 20px;
-      transition: all .3s ease;
-    }
-    .service-box:hover .service-box-icon {
-      background: var(--blue);
-      color: #fff;
-      transform: scale(1.08);
-    }
-    .service-box-icon i, .service-box-icon svg { width: 24px; height: 24px; }
-    .service-box h3 { margin-bottom: 10px; color: var(--navy); font-size: 1.15rem; }
-    .service-box p { font-size: 0.9rem; color: #64748B; line-height: 1.6; margin-bottom: 16px; }
-    .service-features-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      margin-bottom: 22px;
-    }
-    .service-features-list li {
-      font-size: 0.85rem;
-      color: #334155;
-      font-weight: 500;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .service-features-list li::before {
-      content: "✓";
-      color: #16A34A;
-      font-weight: 700;
-    }
+
+
+
 
     /* PACKAGES TEASER */
     .packages-cta-strip {
@@ -439,13 +327,15 @@
     /* RESPONSIVE */
     @media (max-width: 1050px) {
       .showcase-grid { grid-template-columns: repeat(2, 1fr); }
-      .services-grid-mini { grid-template-columns: repeat(2, 1fr); }
+      .catalog-designs-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+      .catalog-design-window { height: 340px; }
     }
     @media (max-width: 767px) {
       .page-hero { padding: 60px 0 45px; }
       .page-hero h1 { font-size: clamp(1.9rem, 7.5vw, 2.6rem); }
       .showcase-grid { grid-template-columns: 1fr; }
-      .services-grid-mini { grid-template-columns: 1fr; }
+      .catalog-designs-grid { grid-template-columns: 1fr; gap: 20px; }
+      .catalog-design-window { height: 320px; }
       .hero-stats-strip { border-radius: 18px; padding: 14px 20px; }
     }
 
@@ -674,6 +564,218 @@
       z-index: 2;
     }
 
+    /* DESIGN SELECTION MODAL */
+    .design-modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(5px);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .design-modal[hidden] {
+      display: none;
+    }
+    .design-modal-content {
+      background: #fff;
+      border-radius: 20px;
+      max-width: 500px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+    }
+    .design-modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 24px 28px;
+      border-bottom: 1px solid #E2E8F0;
+    }
+    .design-modal-header h3 {
+      margin: 0;
+      font-size: 1.3rem;
+      color: var(--navy);
+    }
+    .design-modal-close {
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+      border-radius: 8px;
+      transition: background 0.2s;
+    }
+    .design-modal-close:hover {
+      background: #F1F5F9;
+    }
+    .design-modal-body {
+      padding: 28px;
+    }
+    .design-step {
+      display: none;
+    }
+    .design-step:not([hidden]) {
+      display: block;
+    }
+    .design-step h4 {
+      margin: 0 0 20px;
+      font-size: 1.1rem;
+      color: var(--navy);
+    }
+    .design-options {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .design-option-btn {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 16px 20px;
+      border: 2px solid #E2E8F0;
+      border-radius: 12px;
+      background: #fff;
+      cursor: pointer;
+      transition: all 0.2s;
+      text-align: left;
+    }
+    .design-option-btn:hover {
+      border-color: var(--blue);
+      background: #EFF6FF;
+      transform: translateY(-2px);
+    }
+    .design-option-btn i, .design-option-btn svg {
+      width: 24px;
+      height: 24px;
+      color: var(--blue);
+    }
+    .design-option-btn span {
+      font-weight: 600;
+      color: var(--navy);
+    }
+    .design-option-btn small {
+      margin-left: auto;
+      color: #64748B;
+      font-size: 0.85rem;
+    }
+    .design-back-btn {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background: #F1F5F9;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      color: #64748B;
+      transition: background 0.2s;
+    }
+    .design-back-btn:hover {
+      background: #E2E8F0;
+    }
+    .price-summary {
+      background: #F8FAFC;
+      border: 1px solid #E2E8F0;
+      border-radius: 12px;
+      padding: 16px 20px;
+      margin-bottom: 20px;
+    }
+    .price-summary p {
+      margin: 8px 0;
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.95rem;
+      color: #64748B;
+    }
+    .price-summary span {
+      font-weight: 700;
+      color: var(--navy);
+    }
+    .price-summary .total-price {
+      margin-top: 12px;
+      padding-top: 12px;
+      border-top: 1px solid #E2E8F0;
+      font-size: 1.1rem;
+      color: var(--navy);
+    }
+    .price-summary .total-price span {
+      color: var(--blue);
+      font-size: 1.3rem;
+    }
+    .design-form {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .design-form .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .design-form label {
+      font-weight: 600;
+      color: var(--navy);
+      font-size: 0.9rem;
+    }
+    .design-form input,
+    .design-form select,
+    .design-form textarea {
+      padding: 12px 16px;
+      border: 1px solid #CBD5E1;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      font-family: inherit;
+    }
+    .design-form input:focus,
+    .design-form select:focus,
+    .design-form textarea:focus {
+      outline: none;
+      border-color: var(--blue);
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+    }
+    .design-submit-btn {
+      padding: 14px 24px;
+      background: var(--blue);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .design-submit-btn:hover {
+      background: var(--blue-deep);
+    }
+    .design-success {
+      text-align: center;
+      padding: 40px 20px;
+    }
+    .design-success i, .design-success svg {
+      width: 64px;
+      height: 64px;
+      color: #22C55E;
+      margin-bottom: 16px;
+    }
+    .design-success h4 {
+      margin: 0 0 12px;
+      color: var(--navy);
+    }
+    .design-success p {
+      color: #64748B;
+      margin-bottom: 24px;
+    }
+    .design-close-btn {
+      padding: 12px 24px;
+      background: var(--blue);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
     @media (max-width: 1050px) {
       .catalog-designs-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
       .catalog-design-window { height: 340px; }
@@ -688,546 +790,52 @@
 <body>
 
   <!-- HEADER -->
-  <header class="header" id="header">
-    <div class="container header-inner">
-      <a href="index.html" class="logo" aria-label="AS Web Solution home">
-        <img src="./assets/img/logo-removebg.png" alt="AS Logo" style="height:52px;width:52px;">
-        <span class="logo-text">
-          <strong>AS Web Solution</strong>
-          <small>Digital solutions for a better tomorrow</small>
-        </span>
-      </a>
-      <nav class="nav" id="nav" aria-label="Primary">
-        <a href="index.html" class="nav-link">Home</a>
-        <a href="about.html" class="nav-link">About</a>
-        <a href="whyus.html" class="nav-link">Why Us</a>
-        <a href="catalog.html" class="nav-link active">Catalog & Services</a>
-        <div class="nav-dropdown">
-          <button class="nav-link nav-dropdown-trigger" type="button" aria-expanded="false" aria-haspopup="true">Contact <i data-lucide="chevron-down" class="dd-arrow"></i></button>
-          <div class="nav-dropdown-menu" role="menu">
-            <a href="contact-project.html" class="nav-dropdown-item" role="menuitem"><div class="ndi-icon"><i data-lucide="rocket"></i></div><div><strong>Project Inquiry</strong><span>Start a new project</span></div></a>
-            <a href="contact-client.html" class="nav-dropdown-item" role="menuitem"><div class="ndi-icon"><i data-lucide="headphones"></i></div><div><strong>Client Support</strong><span>Existing client help</span></div></a>
-            <a href="contact-career.html" class="nav-dropdown-item" role="menuitem"><div class="ndi-icon"><i data-lucide="briefcase"></i></div><div><strong>Career Support</strong><span>Jobs and opportunities</span></div></a>
-          </div>
-        </div>
-        <a href="pricing.html" class="nav-link">Pricing</a>
-      </nav>
-      <div class="header-actions">
-        <a href="contact.html" class="btn btn-primary header-cta">Start a Project <i data-lucide="arrow-right"></i></a>
-        <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav">
-          <span></span><span></span><span></span>
-        </button>
-      </div>
-    </div>
-  </header>
+  <div id="header"></div>
 
   <main id="main">
 
     <!-- HERO SECTION -->
     <section class="page-hero">
       <div class="container">
-        <p class="eyebrow">OUR PROVEN WORK & DIGITAL CATALOG</p>
-        <h1>Live Website Showcase.<br><span class="grad">Interactive Client Sites</span></h1>
-        <p class="lead">Scroll the page to watch live website previews move dynamically in sync. Click any card to launch and explore the full live site.</p>
-        
+        <p class="eyebrow">WEBSITE DESIGN CATALOG</p>
+        <h1>Interactive Website<br><span class="grad">Template Gallery</span></h1>
+        <p class="lead">Explore our complete collection of 59+ website designs. Scroll to see interactive previews and choose any template for your custom website.</p>
+
         <div style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
-          <a href="#showcase" class="btn btn-primary">Browse Live Showcase <i data-lucide="arrow-down"></i></a>
-          <a href="contact.html" class="btn btn-outline">Build Your Website </a>
+          <a href="#catalog-gallery" class="btn btn-primary">Browse Catalog <i data-lucide="arrow-down"></i></a>
+          <a href="services.html" class="btn btn-outline">View Services & Pricing</a>
         </div>
 
         <div class="hero-stats-strip">
           <div class="hero-stat-item">
-            <i data-lucide="globe"></i>
-            <span>Global Client Deployments</span>
+            <i data-lucide="layout"></i>
+            <span>59+ Design Templates</span>
           </div>
           <div class="hero-stat-item">
             <i data-lucide="shield-check"></i>
-            <span>100% Mobile & SEO Optimized</span>
+            <span>100% Customizable</span>
           </div>
           <div class="hero-stat-item">
             <i data-lucide="zap"></i>
-            <span>Auto-Scrolling Live Iframes</span>
+            <span>Interactive Previews</span>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- LIVE WEBSITES CATALOG SHOWCASE -->
-    <section class="catalog-section" id="showcase">
-      <div class="container">
+ 
 
-       
 
-        <div class="showcase-grid" id="showcaseGrid">
 
-          <!-- 1. AS Automate -->
-          <article class="showcase-card" data-category="tech">
-             <div class="browser-frame">
-              
-              <div class="browser-url">
-                <i data-lucide="lock"></i> asautomate.com
-              </div>
-            </div>
-            <div class="card-preview">
-              <a href="https://asautomate.com/" target="_blank" rel="noopener noreferrer" class="iframe-overlay-link" aria-label="Open AS Automate in new tab"></a>
-              <div class="iframe-container">
-                <iframe src="https://asautomate.com/" title="AS Automate Live Preview" class="live-iframe" loading="lazy"></iframe>
-              </div>
-             
-              <span class="category-badge">Tech & Automation</span>
-            </div>
-            <div class="card-body">
-              <h3 class="showcase-title">AS Automate</h3>
-              <p class="showcase-desc">High-performance digital engineering agency platform highlighting custom software, workflow automation, AI solutions, and full-stack web platforms.</p>
-              <div class="tech-stack-wrap">
-                <span class="tech-chip">Digital Solutions</span>
-                <span class="tech-chip">AI Integration</span>
-                <span class="tech-chip">Automation</span>
-                <span class="tech-chip">Cloud Ready</span>
-              </div>
-              <div class="card-actions-bar">
-                <a href="https://asautomate.com/" target="_blank" rel="noopener noreferrer" class="btn-live-view" aria-label="Visit AS Automate live website">
-                  Visit Live Website <i data-lucide="external-link"></i>
-                </a>
-                <a href="contact-project.html?ref=asautomate" class="btn-inquire-icon" title="Build something like this" aria-label="Inquire similar website">
-                  <i data-lucide="message-square-plus"></i>
-                </a>
-              </div>
-            </div>
-          </article>
 
-          <!-- 2. Cleaning Express -->
-          <article class="showcase-card" data-category="services">
-            <div class="browser-frame">
-             
-              <div class="browser-url">
-                <i data-lucide="lock"></i> cleaning-express.com
-              </div>
-            </div>
-            <div class="card-preview">
-              <a href="https://cleaning-express.com/" target="_blank" rel="noopener noreferrer" class="iframe-overlay-link" aria-label="Open Cleaning Express in new tab"></a>
-              <div class="iframe-container">
-                <iframe src="https://cleaning-express.com/" title="Cleaning Express Live Preview" class="live-iframe" loading="lazy"></iframe>
-              </div>
-             
-              <span class="category-badge">Commercial Cleaning</span>
-            </div>
-            <div class="card-body">
-              <h3 class="showcase-title">Cleaning Express</h3>
-              <p class="showcase-desc">Leading commercial & domestic cleaning services portal based in London, UK. Built with instant quotation flows, booking requests, and multi-service catalog.</p>
-              <div class="tech-stack-wrap">
-                <span class="tech-chip">Quote Calculator</span>
-                <span class="tech-chip">Online Booking</span>
-                <span class="tech-chip">London, UK</span>
-                <span class="tech-chip">Local SEO</span>
-              </div>
-              <div class="card-actions-bar">
-                <a href="https://cleaning-express.com/" target="_blank" rel="noopener noreferrer" class="btn-live-view" aria-label="Visit Cleaning Express live website">
-                  Visit Live Website <i data-lucide="external-link"></i>
-                </a>
-                <a href="contact-project.html?ref=cleaning-express" class="btn-inquire-icon" title="Build something like this" aria-label="Inquire similar website">
-                  <i data-lucide="message-square-plus"></i>
-                </a>
-              </div>
-            </div>
-          </article>
-
-          <!-- 3. Diamond Cleaners USA -->
-          <article class="showcase-card" data-category="services">
-            <div class="browser-frame">
-             
-              <div class="browser-url">
-                <i data-lucide="lock"></i> diamondcleanersusa.com
-              </div>
-            </div>
-            <div class="card-preview">
-              <a href="https://diamondcleanersusa.com/" target="_blank" rel="noopener noreferrer" class="iframe-overlay-link" aria-label="Open Diamond Cleaners USA in new tab"></a>
-              <div class="iframe-container">
-                <iframe src="https://diamondcleanersusa.com/" title="Diamond Cleaners USA Live Preview" class="live-iframe" loading="lazy"></iframe>
-              </div>
-             
-              <span class="category-badge">Cleaning & Facility</span>
-            </div>
-            <div class="card-body">
-              <h3 class="showcase-title">Diamond Cleaners USA</h3>
-              <p class="showcase-desc">Professional residential and commercial eco-friendly cleaning services company in the United States, optimized for customer inquiries and booking conversions.</p>
-              <div class="tech-stack-wrap">
-                <span class="tech-chip">Commercial & Home</span>
-                <span class="tech-chip">USA Market</span>
-                <span class="tech-chip">Lead Generation</span>
-                <span class="tech-chip">Fast UI</span>
-              </div>
-              <div class="card-actions-bar">
-                <a href="https://diamondcleanersusa.com/" target="_blank" rel="noopener noreferrer" class="btn-live-view" aria-label="Visit Diamond Cleaners USA live website">
-                  Visit Live Website <i data-lucide="external-link"></i>
-                </a>
-                <a href="contact-project.html?ref=diamondcleanersusa" class="btn-inquire-icon" title="Build something like this" aria-label="Inquire similar website">
-                  <i data-lucide="message-square-plus"></i>
-                </a>
-              </div>
-            </div>
-          </article>
-
-          <!-- 4. CST Tax Advisors -->
-          <article class="showcase-card" data-category="finance">
-            <div class="browser-frame">
-             
-              <div class="browser-url">
-                <i data-lucide="lock"></i> csttax.com
-              </div>
-            </div>
-            <div class="card-preview">
-              <a href="https://csttax.com/" target="_blank" rel="noopener noreferrer" class="iframe-overlay-link" aria-label="Open CST Tax Advisors in new tab"></a>
-              <div class="iframe-container">
-                <iframe src="https://csttax.com/" title="CST Tax Advisors Live Preview" class="live-iframe" loading="lazy"></iframe>
-              </div>
-             
-              <span class="category-badge">Finance & Tax</span>
-            </div>
-            <div class="card-body">
-              <h3 class="showcase-title">CST Tax Advisors</h3>
-              <p class="showcase-desc">Premier international tax advisory and private client accounting firm serving global expats and international enterprises across the US, UK, and Asia-Pacific.</p>
-              <div class="tech-stack-wrap">
-                <span class="tech-chip">International CPA</span>
-                <span class="tech-chip">Cross-Border Tax</span>
-                <span class="tech-chip">Enterprise Portal</span>
-                <span class="tech-chip">Multi-Regional</span>
-              </div>
-              <div class="card-actions-bar">
-                <a href="https://csttax.com/" target="_blank" rel="noopener noreferrer" class="btn-live-view" aria-label="Visit CST Tax live website">
-                  Visit Live Website <i data-lucide="external-link"></i>
-                </a>
-                <a href="contact-project.html?ref=csttax" class="btn-inquire-icon" title="Build something like this" aria-label="Inquire similar website">
-                  <i data-lucide="message-square-plus"></i>
-                </a>
-              </div>
-            </div>
-          </article>
-
-          <!-- 5. Harnoor Pallak Construction -->
-          <article class="showcase-card" data-category="construction">
-            <div class="browser-frame">
-             
-              <div class="browser-url">
-                <i data-lucide="lock"></i> harnoorpallakconstruction.ca
-              </div>
-            </div>
-            <div class="card-preview">
-              <a href="https://harnoorpallakconstruction.ca/" target="_blank" rel="noopener noreferrer" class="iframe-overlay-link" aria-label="Open Harnoor Pallak Construction in new tab"></a>
-              <div class="iframe-container">
-                <iframe src="https://harnoorpallakconstruction.ca/" title="Harnoor Pallak Construction Live Preview" class="live-iframe" loading="lazy"></iframe>
-              </div>
-             
-              <span class="category-badge">Construction & Infra</span>
-            </div>
-            <div class="card-body">
-              <h3 class="showcase-title">Harnoor Pallak Construction</h3>
-              <p class="showcase-desc">Canadian construction and framing specialist portal showcasing civil engineering projects, residential buildouts, heavy structural work, and project bids.</p>
-              <div class="tech-stack-wrap">
-                <span class="tech-chip">Canada (.ca)</span>
-                <span class="tech-chip">Portfolio Gallery</span>
-                <span class="tech-chip">Project Quotations</span>
-                <span class="tech-chip">Responsive Grid</span>
-              </div>
-              <div class="card-actions-bar">
-                <a href="https://harnoorpallakconstruction.ca/" target="_blank" rel="noopener noreferrer" class="btn-live-view" aria-label="Visit Harnoor Pallak Construction live website">
-                  Visit Live Website <i data-lucide="external-link"></i>
-                </a>
-                <a href="contact-project.html?ref=harnoorpallak" class="btn-inquire-icon" title="Build something like this" aria-label="Inquire similar website">
-                  <i data-lucide="message-square-plus"></i>
-                </a>
-              </div>
-            </div>
-          </article>
-
-          <!-- 6. Masjid Ul Ummah -->
-          <article class="showcase-card" data-category="community">
-            <div class="browser-frame">
-             
-              <div class="browser-url">
-                <i data-lucide="lock"></i> masjidulummah.ca
-              </div>
-            </div>
-            <div class="card-preview">
-              <a href="https://masjidulummah.ca/" target="_blank" rel="noopener noreferrer" class="iframe-overlay-link" aria-label="Open Masjid Ul Ummah in new tab"></a>
-              <div class="iframe-container">
-                <iframe src="https://masjidulummah.ca/" title="Masjid Ul Ummah Live Preview" class="live-iframe" loading="lazy"></iframe>
-              </div>
-             
-              <span class="category-badge">Community & Islamic Center</span>
-            </div>
-            <div class="card-body">
-              <h3 class="showcase-title">Masjid Ul Ummah</h3>
-              <p class="showcase-desc">Official Islamic center community hub in Canada featuring live prayer timetables, community event schedules, educational programs, and secure online donations.</p>
-              <div class="tech-stack-wrap">
-                <span class="tech-chip">Prayer Times API</span>
-                <span class="tech-chip">Donations</span>
-                <span class="tech-chip">Events Calendar</span>
-                <span class="tech-chip">Community Portal</span>
-              </div>
-              <div class="card-actions-bar">
-                <a href="https://masjidulummah.ca/" target="_blank" rel="noopener noreferrer" class="btn-live-view" aria-label="Visit Masjid Ul Ummah live website">
-                  Visit Live Website <i data-lucide="external-link"></i>
-                </a>
-                <a href="contact-project.html?ref=masjidulummah" class="btn-inquire-icon" title="Build something like this" aria-label="Inquire similar website">
-                  <i data-lucide="message-square-plus"></i>
-                </a>
-              </div>
-            </div>
-          </article>
-
-          <!-- 7. United Kanadian Foundations Club -->
-          <article class="showcase-card" data-category="community">
-            <div class="browser-frame">
-             
-              <div class="browser-url">
-                <i data-lucide="lock"></i> unitedkanadianfoundationsclub.com
-              </div>
-            </div>
-            <div class="card-preview">
-              <a href="https://unitedkanadianfoundationsclub.com/" target="_blank" rel="noopener noreferrer" class="iframe-overlay-link" aria-label="Open United Kanadian Foundations Club in new tab"></a>
-              <div class="iframe-container">
-                <iframe src="https://unitedkanadianfoundationsclub.com/" title="United Kanadian Foundations Club Live Preview" class="live-iframe" loading="lazy"></iframe>
-              </div>
-             
-              <span class="category-badge">Club & Non-Profit</span>
-            </div>
-            <div class="card-body">
-              <h3 class="showcase-title">UKFC (United Kanadian)</h3>
-              <p class="showcase-desc">Community association and foundation web platform delivering youth engagement programs, cultural events, membership management, and welfare initiatives.</p>
-              <div class="tech-stack-wrap">
-                <span class="tech-chip">Membership Hub</span>
-                <span class="tech-chip">Non-Profit</span>
-                <span class="tech-chip">Events & Welfare</span>
-                <span class="tech-chip">Mobile First</span>
-              </div>
-              <div class="card-actions-bar">
-                <a href="https://unitedkanadianfoundationsclub.com/" target="_blank" rel="noopener noreferrer" class="btn-live-view" aria-label="Visit United Kanadian Foundations Club live website">
-                  Visit Live Website <i data-lucide="external-link"></i>
-                </a>
-                <a href="contact-project.html?ref=ukfc" class="btn-inquire-icon" title="Build something like this" aria-label="Inquire similar website">
-                  <i data-lucide="message-square-plus"></i>
-                </a>
-              </div>
-            </div>
-          </article>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- =========================================================
-         WEBSITE DEVELOPMENT PACKAGES
-         ========================================================= -->
-    <section class="dev-packages-section" id="packages">
-      <div class="container">
-        <!-- Header -->
-        <div class="pkg-header-row">
-          <div>
-            
-           
-            <span class="pkg-title-eyebrow">WEBSITE DEVELOPMENT</span>
-            <h2 class="pkg-main-title">Packages</h2>
-            <p class="pkg-subtitle">Professional websites. Modern design. Built for your success.</p>
-          </div>
-         
-        </div>
-
-        <!-- Pricing Cards -->
-        <div class="pkg-cards-grid">
-
-          <!-- BASIC CARD -->
-          <div class="pkg-card">
-            <span class="pkg-tier-label">BASIC</span>
-            <h3 class="pkg-plan-name">Website Development</h3>
-            <p class="pkg-plan-desc">Perfect for small businesses &amp; startups needing a professional online presence.</p>
-
-            <div class="pkg-price-row">
-              <div class="pkg-price-col">
-                <span class="pkg-price-curr">USD</span>
-                <span class="pkg-price-val">$499</span>
-              </div>
-              <div class="pkg-price-divider"></div>
-              <div class="pkg-price-col">
-                <span class="pkg-price-curr">CAD</span>
-                <span class="pkg-price-val">$699</span>
-              </div>
-            </div>
-
-            <ul class="pkg-features-list">
-              <li class="pkg-feature-item">
-                <span class="pkg-check-icon"><i data-lucide="check"></i></span>
-                <span>5 Custom Pages (Home, About, Services, etc.)</span>
-              </li>
-              <li class="pkg-feature-item">
-                <span class="pkg-check-icon"><i data-lucide="check"></i></span>
-                <span>100% Mobile &amp; Tablet Responsive</span>
-              </li>
-              <li class="pkg-feature-item">
-                <span class="pkg-check-icon"><i data-lucide="check"></i></span>
-                <span>Contact &amp; Inquiry Form Integration</span>
-              </li>
-              <li class="pkg-feature-item">
-                <span class="pkg-check-icon"><i data-lucide="check"></i></span>
-                <span>Basic On-Page SEO Optimization</span>
-              </li>
-              <li class="pkg-feature-item">
-                <span class="pkg-check-icon"><i data-lucide="check"></i></span>
-                <span>Social Media Links Integration</span>
-              </li>
-              <li class="pkg-feature-item">
-                <span class="pkg-check-icon"><i data-lucide="check"></i></span>
-                <span>High-Speed Performance Optimization</span>
-              </li>
-            </ul>
-
-          
-          </div>
-
-          <!-- PREMIUM CARD (MOST POPULAR) -->
-          <div class="pkg-card featured">
-            <span class="pkg-popular-badge">MOST POPULAR</span>
-            <span class="pkg-tier-label">PREMIUM</span>
-            <h3 class="pkg-plan-name">Website Development</h3>
-            <p class="pkg-plan-desc">Ideal for growing businesses looking for advanced features and better performance.</p>
-
-            <div class="pkg-price-row">
-              <div class="pkg-price-col">
-                <span class="pkg-price-curr">USD</span>
-                <span class="pkg-price-val">$999</span>
-              </div>
-              <div class="pkg-price-divider"></div>
-              <div class="pkg-price-col">
-                <span class="pkg-price-curr">CAD</span>
-                <span class="pkg-price-val">$1,399</span>
-              </div>
-            </div>
-
-            <ul class="pkg-features-list">
-              <li class="pkg-feature-item">
-                <span class="pkg-check-icon"><i data-lucide="check"></i></span>
-                <span>Up to 12 Custom Designed Pages</span>
-              </li>
-              <li class="pkg-feature-item">
-                <span class="pkg-check-icon"><i data-lucide="check"></i></span>
-                <span>Modern Glassmorphism &amp; Animations</span>
-              </li>
-              <li class="pkg-feature-item">
-                <span class="pkg-check-icon"><i data-lucide="check"></i></span>
-                <span>Dynamic Blog / CMS Integration</span>
-              </li>
-              <li class="pkg-feature-item">
-                <span class="pkg-check-icon"><i data-lucide="check"></i></span>
-                <span>Advanced Technical &amp; On-Page SEO</span>
-              </li>
-              <li class="pkg-feature-item">
-                <span class="pkg-check-icon"><i data-lucide="check"></i></span>
-                <span>Custom Lead Generation Forms</span>
-              </li>
-              <li class="pkg-feature-item">
-                <span class="pkg-check-icon"><i data-lucide="check"></i></span>
-                <span>Speed &amp; Security Hardening (SSL/CDN)</span>
-              </li>
-              <li class="pkg-feature-item">
-                <span class="pkg-check-icon"><i data-lucide="check"></i></span>
-                <span>WhatsApp Chat &amp; Live Support</span>
-              </li>
-              <li class="pkg-feature-item">
-                <span class="pkg-check-icon"><i data-lucide="check"></i></span>
-                <span>1 Month Free Post-Launch Support</span>
-              </li>
-            </ul>
-
-           
-          </div>
-
-          <!-- ADVANCE CARD -->
-          <div class="pkg-card">
-            <span class="pkg-tier-label">ADVANCE</span>
-            <h3 class="pkg-plan-name">Website Development</h3>
-            <p class="pkg-plan-desc">Full-scale custom web applications, e-commerce stores, and custom software systems.</p>
-
-            <div class="pkg-price-row">
-              <div class="pkg-price-col">
-                <span class="pkg-price-curr">USD</span>
-                <span class="pkg-price-val">$1,499</span>
-              </div>
-              <div class="pkg-price-divider"></div>
-              <div class="pkg-price-col">
-                <span class="pkg-price-curr">CAD</span>
-                <span class="pkg-price-val">$1,999</span>
-              </div>
-            </div>
-
-            <ul class="pkg-features-list">
-              <li class="pkg-feature-item">
-                <span class="pkg-check-icon"><i data-lucide="check"></i></span>
-                <span>Unlimited Custom Pages &amp; Workflows</span>
-              </li>
-              <li class="pkg-feature-item">
-                <span class="pkg-check-icon"><i data-lucide="check"></i></span>
-                <span>Full E-Commerce / Custom Portal</span>
-              </li>
-              <li class="pkg-feature-item">
-                <span class="pkg-check-icon"><i data-lucide="check"></i></span>
-                <span>Payment Gateways (Stripe/PayPal)</span>
-              </li>
-              <li class="pkg-feature-item">
-                <span class="pkg-check-icon"><i data-lucide="check"></i></span>
-                <span>Admin Dashboard &amp; Database Backend</span>
-              </li>
-              <li class="pkg-feature-item">
-                <span class="pkg-check-icon"><i data-lucide="check"></i></span>
-                <span>API Integration &amp; Cloud Deployment</span>
-              </li>
-              <li class="pkg-feature-item">
-                <span class="pkg-check-icon"><i data-lucide="check"></i></span>
-                <span>Enterprise Grade Security &amp; Firewall</span>
-              </li>
-              <li class="pkg-feature-item">
-                <span class="pkg-check-icon"><i data-lucide="check"></i></span>
-                <span>GEO / AI Search Optimization</span>
-              </li>
-              <li class="pkg-feature-item">
-                <span class="pkg-check-icon"><i data-lucide="check"></i></span>
-                <span>3 Months Priority VIP Support &amp; SLA</span>
-              </li>
-            </ul>
-
-           
-          </div>
-
-        </div>
-
-        <!-- Bottom Disclaimer Banner -->
-        <div class="pkg-disclaimer-card">
-          <div class="pkg-disclaimer-left">
-            <div class="pkg-disclaimer-icon">
-              <i data-lucide="server"></i>
-            </div>
-            <div>
-              <div class="pkg-disclaimer-title">HOSTING &amp; DOMAIN ARE EXCLUDED</div>
-              <p class="pkg-disclaimer-text">In all packages. You can choose your own hosting and domain provider or we can help you with the setup if needed.</p>
-            </div>
-          </div>
-          <div class="pkg-disclaimer-script">
-            Let's Build Something Great
-          </div>
-        </div>
-
-    
-
-      </div>
-    </section>
     <section class="catalog-gallery-section" id="catalog-gallery">
       <div class="container">
         <div class="gallery-head">
-        
-          <h2>Explore Our Complete Catalog</h2>
+          <p class="eyebrow">EXPLORE OUR WORK</p>
+          <h2>Website Design Catalog</h2>
           <p>Scroll down or up to explore how each website template moves interactively. Choose any layout you love and our team will customize it for your brand.</p>
           <div class="gallery-scroll-indicator">
             <i data-lucide="arrow-down"></i>
-          
           </div>
         </div>
 
@@ -1237,9 +845,9 @@
             <div class="catalog-design-window">
               <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.39.55%20PM.jpeg" alt="Website Template Design 01" class="design-scroll-img" loading="lazy">
               <div class="window-overlay">
-                <a href="contact-project.html?design=PRO-01" class="window-overlay-btn">
+                <button class="window-overlay-btn catalog-choose-btn" data-design-id="1" data-design-name="PRO-01">
                   Choose This Design <i data-lucide="arrow-right"></i>
-                </a>
+                </button>
               </div>
             </div>
           </div>
@@ -1248,9 +856,9 @@
             <div class="catalog-design-window">
               <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.39.57%20PM.jpeg" alt="Website Template Design 02" class="design-scroll-img" loading="lazy">
               <div class="window-overlay">
-                <a href="contact-project.html?design=PRO-02" class="window-overlay-btn">
+                <button class="window-overlay-btn catalog-choose-btn" data-design-id="2" data-design-name="PRO-02">
                   Choose This Design <i data-lucide="arrow-right"></i>
-                </a>
+                </button>
               </div>
             </div>
           </div>
@@ -1259,9 +867,9 @@
             <div class="catalog-design-window">
               <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.39.58%20PM.jpeg" alt="Website Template Design 03" class="design-scroll-img" loading="lazy">
               <div class="window-overlay">
-                <a href="contact-project.html?design=PRO-03" class="window-overlay-btn">
+                <button class="window-overlay-btn catalog-choose-btn" data-design-id="3" data-design-name="PRO-03">
                   Choose This Design <i data-lucide="arrow-right"></i>
-                </a>
+                </button>
               </div>
             </div>
           </div>
@@ -1270,9 +878,9 @@
             <div class="catalog-design-window">
               <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.39.59%20PM.jpeg" alt="Website Template Design 04" class="design-scroll-img" loading="lazy">
               <div class="window-overlay">
-                <a href="contact-project.html?design=PRO-04" class="window-overlay-btn">
+                <button class="window-overlay-btn catalog-choose-btn" data-design-id="4" data-design-name="PRO-04">
                   Choose This Design <i data-lucide="arrow-right"></i>
-                </a>
+                </button>
               </div>
             </div>
           </div>
@@ -1281,9 +889,9 @@
             <div class="catalog-design-window">
               <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.00%20PM.jpeg" alt="Website Template Design 05" class="design-scroll-img" loading="lazy">
               <div class="window-overlay">
-                <a href="contact-project.html?design=PRO-05" class="window-overlay-btn">
+                <button class="window-overlay-btn catalog-choose-btn" data-design-id="5" data-design-name="PRO-05">
                   Choose This Design <i data-lucide="arrow-right"></i>
-                </a>
+                </button>
               </div>
             </div>
           </div>
@@ -1292,9 +900,9 @@
             <div class="catalog-design-window">
               <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.01%20PM.jpeg" alt="Website Template Design 06" class="design-scroll-img" loading="lazy">
               <div class="window-overlay">
-                <a href="contact-project.html?design=PRO-06" class="window-overlay-btn">
+                <button class="window-overlay-btn catalog-choose-btn" data-design-id="6" data-design-name="PRO-06">
                   Choose This Design <i data-lucide="arrow-right"></i>
-                </a>
+                </button>
               </div>
             </div>
           </div>
@@ -1303,9 +911,9 @@
             <div class="catalog-design-window">
               <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.02%20PM.jpeg" alt="Website Template Design 07" class="design-scroll-img" loading="lazy">
               <div class="window-overlay">
-                <a href="contact-project.html?design=PRO-07" class="window-overlay-btn">
+                <button class="window-overlay-btn catalog-choose-btn" data-design-id="7" data-design-name="PRO-07">
                   Choose This Design <i data-lucide="arrow-right"></i>
-                </a>
+                </button>
               </div>
             </div>
           </div>
@@ -1314,9 +922,9 @@
             <div class="catalog-design-window">
               <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.04%20PM.jpeg" alt="Website Template Design 08" class="design-scroll-img" loading="lazy">
               <div class="window-overlay">
-                <a href="contact-project.html?design=PRO-08" class="window-overlay-btn">
+                <button class="window-overlay-btn catalog-choose-btn" data-design-id="8" data-design-name="PRO-08">
                   Choose This Design <i data-lucide="arrow-right"></i>
-                </a>
+                </button>
               </div>
             </div>
           </div>
@@ -1325,9 +933,9 @@
             <div class="catalog-design-window">
               <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.05%20PM.jpeg" alt="Website Template Design 09" class="design-scroll-img" loading="lazy">
               <div class="window-overlay">
-                <a href="contact-project.html?design=PRO-09" class="window-overlay-btn">
+                <button class="window-overlay-btn catalog-choose-btn" data-design-id="9" data-design-name="PRO-09">
                   Choose This Design <i data-lucide="arrow-right"></i>
-                </a>
+                </button>
               </div>
             </div>
           </div>
@@ -1336,9 +944,9 @@
             <div class="catalog-design-window">
               <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.07%20PM.jpeg" alt="Website Template Design 10" class="design-scroll-img" loading="lazy">
               <div class="window-overlay">
-                <a href="contact-project.html?design=PRO-10" class="window-overlay-btn">
+                <button class="window-overlay-btn catalog-choose-btn" data-design-id="10" data-design-name="PRO-10">
                   Choose This Design <i data-lucide="arrow-right"></i>
-                </a>
+                </button>
               </div>
             </div>
           </div>
@@ -1347,9 +955,9 @@
             <div class="catalog-design-window">
               <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.08%20PM.jpeg" alt="Website Template Design 11" class="design-scroll-img" loading="lazy">
               <div class="window-overlay">
-                <a href="contact-project.html?design=PRO-11" class="window-overlay-btn">
+                <button class="window-overlay-btn catalog-choose-btn" data-design-id="11" data-design-name="PRO-11">
                   Choose This Design <i data-lucide="arrow-right"></i>
-                </a>
+                </button>
               </div>
             </div>
           </div>
@@ -1358,9 +966,9 @@
             <div class="catalog-design-window">
               <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.10%20PM.jpeg" alt="Website Template Design 12" class="design-scroll-img" loading="lazy">
               <div class="window-overlay">
-                <a href="contact-project.html?design=PRO-12" class="window-overlay-btn">
+                <button class="window-overlay-btn catalog-choose-btn" data-design-id="12" data-design-name="PRO-12">
                   Choose This Design <i data-lucide="arrow-right"></i>
-                </a>
+                </button>
               </div>
             </div>
           </div>
@@ -1369,9 +977,9 @@
             <div class="catalog-design-window">
               <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.15%20PM.jpeg" alt="Website Template Design 13" class="design-scroll-img" loading="lazy">
               <div class="window-overlay">
-                <a href="contact-project.html?design=PRO-13" class="window-overlay-btn">
+                <button class="window-overlay-btn catalog-choose-btn" data-design-id="13" data-design-name="PRO-13">
                   Choose This Design <i data-lucide="arrow-right"></i>
-                </a>
+                </button>
               </div>
             </div>
           </div>
@@ -1380,9 +988,9 @@
             <div class="catalog-design-window">
               <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.16%20PM.jpeg" alt="Website Template Design 14" class="design-scroll-img" loading="lazy">
               <div class="window-overlay">
-                <a href="contact-project.html?design=PRO-14" class="window-overlay-btn">
+                <button class="window-overlay-btn catalog-choose-btn" data-design-id="14" data-design-name="PRO-14">
                   Choose This Design <i data-lucide="arrow-right"></i>
-                </a>
+                </button>
               </div>
             </div>
           </div>
@@ -1391,9 +999,9 @@
             <div class="catalog-design-window">
               <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.18%20PM.jpeg" alt="Website Template Design 15" class="design-scroll-img" loading="lazy">
               <div class="window-overlay">
-                <a href="contact-project.html?design=PRO-15" class="window-overlay-btn">
+                <button class="window-overlay-btn catalog-choose-btn" data-design-id="15" data-design-name="PRO-15">
                   Choose This Design <i data-lucide="arrow-right"></i>
-                </a>
+                </button>
               </div>
             </div>
           </div>
@@ -1402,9 +1010,9 @@
             <div class="catalog-design-window">
               <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.19%20PM%20(1).jpeg" alt="Website Template Design 16" class="design-scroll-img" loading="lazy">
               <div class="window-overlay">
-                <a href="contact-project.html?design=PRO-16" class="window-overlay-btn">
+                <button class="window-overlay-btn catalog-choose-btn" data-design-id="16" data-design-name="PRO-16">
                   Choose This Design <i data-lucide="arrow-right"></i>
-                </a>
+                </button>
               </div>
             </div>
           </div>
@@ -1413,9 +1021,9 @@
             <div class="catalog-design-window">
               <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.19%20PM.jpeg" alt="Website Template Design 17" class="design-scroll-img" loading="lazy">
               <div class="window-overlay">
-                <a href="contact-project.html?design=PRO-17" class="window-overlay-btn">
+                <button class="window-overlay-btn catalog-choose-btn" data-design-id="17" data-design-name="PRO-17">
                   Choose This Design <i data-lucide="arrow-right"></i>
-                </a>
+                </button>
               </div>
             </div>
           </div>
@@ -1424,9 +1032,9 @@
             <div class="catalog-design-window">
               <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.21%20PM.jpeg" alt="Website Template Design 18" class="design-scroll-img" loading="lazy">
               <div class="window-overlay">
-                <a href="contact-project.html?design=PRO-18" class="window-overlay-btn">
+                <button class="window-overlay-btn catalog-choose-btn" data-design-id="18" data-design-name="PRO-18">
                   Choose This Design <i data-lucide="arrow-right"></i>
-                </a>
+                </button>
               </div>
             </div>
           </div>
@@ -1435,9 +1043,9 @@
             <div class="catalog-design-window">
               <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.22%20PM%20(1).jpeg" alt="Website Template Design 19" class="design-scroll-img" loading="lazy">
               <div class="window-overlay">
-                <a href="contact-project.html?design=PRO-19" class="window-overlay-btn">
+                <button class="window-overlay-btn catalog-choose-btn" data-design-id="19" data-design-name="PRO-19">
                   Choose This Design <i data-lucide="arrow-right"></i>
-                </a>
+                </button>
               </div>
             </div>
           </div>
@@ -1446,9 +1054,9 @@
             <div class="catalog-design-window">
               <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.22%20PM.jpeg" alt="Website Template Design 20" class="design-scroll-img" loading="lazy">
               <div class="window-overlay">
-                <a href="contact-project.html?design=PRO-20" class="window-overlay-btn">
+                <button class="window-overlay-btn catalog-choose-btn" data-design-id="20" data-design-name="PRO-20">
                   Choose This Design <i data-lucide="arrow-right"></i>
-                </a>
+                </button>
               </div>
             </div>
           </div>
@@ -1457,9 +1065,9 @@
             <div class="catalog-design-window">
               <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.23%20PM.jpeg" alt="Website Template Design 21" class="design-scroll-img" loading="lazy">
               <div class="window-overlay">
-                <a href="contact-project.html?design=PRO-21" class="window-overlay-btn">
+                <button class="window-overlay-btn catalog-choose-btn" data-design-id="21" data-design-name="PRO-21">
                   Choose This Design <i data-lucide="arrow-right"></i>
-                </a>
+                </button>
               </div>
             </div>
           </div>
@@ -1468,9 +1076,9 @@
             <div class="catalog-design-window">
               <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.25%20PM.jpeg" alt="Website Template Design 22" class="design-scroll-img" loading="lazy">
               <div class="window-overlay">
-                <a href="contact-project.html?design=PRO-22" class="window-overlay-btn">
+                <button class="window-overlay-btn catalog-choose-btn" data-design-id="22" data-design-name="PRO-22">
                   Choose This Design <i data-lucide="arrow-right"></i>
-                </a>
+                </button>
               </div>
             </div>
           </div>
@@ -1479,9 +1087,9 @@
             <div class="catalog-design-window">
               <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.26%20PM.jpeg" alt="Website Template Design 23" class="design-scroll-img" loading="lazy">
               <div class="window-overlay">
-                <a href="contact-project.html?design=PRO-23" class="window-overlay-btn">
+                <button class="window-overlay-btn catalog-choose-btn" data-design-id="23" data-design-name="PRO-23">
                   Choose This Design <i data-lucide="arrow-right"></i>
-                </a>
+                </button>
               </div>
             </div>
           </div>
@@ -1490,9 +1098,9 @@
             <div class="catalog-design-window">
               <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.27%20PM.jpeg" alt="Website Template Design 24" class="design-scroll-img" loading="lazy">
               <div class="window-overlay">
-                <a href="contact-project.html?design=PRO-24" class="window-overlay-btn">
+                <button class="window-overlay-btn catalog-choose-btn" data-design-id="24" data-design-name="PRO-24">
                   Choose This Design <i data-lucide="arrow-right"></i>
-                </a>
+                </button>
               </div>
             </div>
           </div>
@@ -1501,9 +1109,9 @@
             <div class="catalog-design-window">
               <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.28%20PM.jpeg" alt="Website Template Design 25" class="design-scroll-img" loading="lazy">
               <div class="window-overlay">
-                <a href="contact-project.html?design=PRO-25" class="window-overlay-btn">
+                <button class="window-overlay-btn catalog-choose-btn" data-design-id="25" data-design-name="PRO-25">
                   Choose This Design <i data-lucide="arrow-right"></i>
-                </a>
+                </button>
               </div>
             </div>
           </div>
@@ -1512,9 +1120,9 @@
             <div class="catalog-design-window">
               <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.29%20PM%20(1).jpeg" alt="Website Template Design 26" class="design-scroll-img" loading="lazy">
               <div class="window-overlay">
-                <a href="contact-project.html?design=PRO-26" class="window-overlay-btn">
+                <button class="window-overlay-btn catalog-choose-btn" data-design-id="26" data-design-name="PRO-26">
                   Choose This Design <i data-lucide="arrow-right"></i>
-                </a>
+                </button>
               </div>
             </div>
           </div>
@@ -1523,9 +1131,9 @@
             <div class="catalog-design-window">
               <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.29%20PM.jpeg" alt="Website Template Design 27" class="design-scroll-img" loading="lazy">
               <div class="window-overlay">
-                <a href="contact-project.html?design=PRO-27" class="window-overlay-btn">
+                <button class="window-overlay-btn catalog-choose-btn" data-design-id="27" data-design-name="PRO-27">
                   Choose This Design <i data-lucide="arrow-right"></i>
-                </a>
+                </button>
               </div>
             </div>
           </div>
@@ -1534,9 +1142,9 @@
             <div class="catalog-design-window">
               <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.30%20PM.jpeg" alt="Website Template Design 28" class="design-scroll-img" loading="lazy">
               <div class="window-overlay">
-                <a href="contact-project.html?design=PRO-28" class="window-overlay-btn">
+                <button class="window-overlay-btn catalog-choose-btn" data-design-id="28" data-design-name="PRO-28">
                   Choose This Design <i data-lucide="arrow-right"></i>
-                </a>
+                </button>
               </div>
             </div>
           </div>
@@ -1545,9 +1153,9 @@
             <div class="catalog-design-window">
               <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.31%20PM%20(1).jpeg" alt="Website Template Design 29" class="design-scroll-img" loading="lazy">
               <div class="window-overlay">
-                <a href="contact-project.html?design=PRO-29" class="window-overlay-btn">
+                <button class="window-overlay-btn catalog-choose-btn" data-design-id="29" data-design-name="PRO-29">
                   Choose This Design <i data-lucide="arrow-right"></i>
-                </a>
+                </button>
               </div>
             </div>
           </div>
@@ -1556,9 +1164,9 @@
             <div class="catalog-design-window">
               <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.31%20PM.jpeg" alt="Website Template Design 30" class="design-scroll-img" loading="lazy">
               <div class="window-overlay">
-                <a href="contact-project.html?design=PRO-30" class="window-overlay-btn">
+                <button class="window-overlay-btn catalog-choose-btn" data-design-id="30" data-design-name="PRO-30">
                   Choose This Design <i data-lucide="arrow-right"></i>
-                </a>
+                </button>
               </div>
             </div>
           </div>
@@ -1567,9 +1175,9 @@
             <div class="catalog-design-window">
               <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.33%20PM%20(1).jpeg" alt="Website Template Design 31" class="design-scroll-img" loading="lazy">
               <div class="window-overlay">
-                <a href="contact-project.html?design=PRO-31" class="window-overlay-btn">
+                <button class="window-overlay-btn catalog-choose-btn" data-design-id="31" data-design-name="PRO-31">
                   Choose This Design <i data-lucide="arrow-right"></i>
-                </a>
+                </button>
               </div>
             </div>
           </div>
@@ -1578,9 +1186,9 @@
             <div class="catalog-design-window">
               <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.33%20PM.jpeg" alt="Website Template Design 32" class="design-scroll-img" loading="lazy">
               <div class="window-overlay">
-                <a href="contact-project.html?design=PRO-32" class="window-overlay-btn">
+                <button class="window-overlay-btn catalog-choose-btn" data-design-id="32" data-design-name="PRO-32">
                   Choose This Design <i data-lucide="arrow-right"></i>
-                </a>
+                </button>
               </div>
             </div>
           </div>
@@ -1589,9 +1197,9 @@
             <div class="catalog-design-window">
               <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.37%20PM.jpeg" alt="Website Template Design 33" class="design-scroll-img" loading="lazy">
               <div class="window-overlay">
-                <a href="contact-project.html?design=PRO-33" class="window-overlay-btn">
+                <button class="window-overlay-btn catalog-choose-btn" data-design-id="33" data-design-name="PRO-33">
                   Choose This Design <i data-lucide="arrow-right"></i>
-                </a>
+                </button>
               </div>
             </div>
           </div>
@@ -1600,9 +1208,9 @@
             <div class="catalog-design-window">
               <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.38%20PM.jpeg" alt="Website Template Design 34" class="design-scroll-img" loading="lazy">
               <div class="window-overlay">
-                <a href="contact-project.html?design=PRO-34" class="window-overlay-btn">
+                <button class="window-overlay-btn catalog-choose-btn" data-design-id="34" data-design-name="PRO-34">
                   Choose This Design <i data-lucide="arrow-right"></i>
-                </a>
+                </button>
               </div>
             </div>
           </div>
@@ -1611,9 +1219,9 @@
             <div class="catalog-design-window">
               <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.39%20PM%20(1).jpeg" alt="Website Template Design 35" class="design-scroll-img" loading="lazy">
               <div class="window-overlay">
-                <a href="contact-project.html?design=PRO-35" class="window-overlay-btn">
+                <button class="window-overlay-btn catalog-choose-btn" data-design-id="35" data-design-name="PRO-35">
                   Choose This Design <i data-lucide="arrow-right"></i>
-                </a>
+                </button>
               </div>
             </div>
           </div>
@@ -1622,9 +1230,9 @@
             <div class="catalog-design-window">
               <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.39%20PM.jpeg" alt="Website Template Design 36" class="design-scroll-img" loading="lazy">
               <div class="window-overlay">
-                <a href="contact-project.html?design=PRO-36" class="window-overlay-btn">
+                <button class="window-overlay-btn catalog-choose-btn" data-design-id="36" data-design-name="PRO-36">
                   Choose This Design <i data-lucide="arrow-right"></i>
-                </a>
+                </button>
               </div>
             </div>
           </div>
@@ -1633,9 +1241,9 @@
             <div class="catalog-design-window">
               <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.40%20PM%20(1).jpeg" alt="Website Template Design 37" class="design-scroll-img" loading="lazy">
               <div class="window-overlay">
-                <a href="contact-project.html?design=PRO-37" class="window-overlay-btn">
+                <button class="window-overlay-btn catalog-choose-btn" data-design-id="37" data-design-name="PRO-37">
                   Choose This Design <i data-lucide="arrow-right"></i>
-                </a>
+                </button>
               </div>
             </div>
           </div>
@@ -1644,9 +1252,9 @@
             <div class="catalog-design-window">
               <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.40%20PM.jpeg" alt="Website Template Design 38" class="design-scroll-img" loading="lazy">
               <div class="window-overlay">
-                <a href="contact-project.html?design=PRO-38" class="window-overlay-btn">
+                <button class="window-overlay-btn catalog-choose-btn" data-design-id="38" data-design-name="PRO-38">
                   Choose This Design <i data-lucide="arrow-right"></i>
-                </a>
+                </button>
               </div>
             </div>
           </div>
@@ -1655,9 +1263,9 @@
             <div class="catalog-design-window">
               <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.41%20PM%20(1).jpeg" alt="Website Template Design 39" class="design-scroll-img" loading="lazy">
               <div class="window-overlay">
-                <a href="contact-project.html?design=PRO-39" class="window-overlay-btn">
+                <button class="window-overlay-btn catalog-choose-btn" data-design-id="39" data-design-name="PRO-39">
                   Choose This Design <i data-lucide="arrow-right"></i>
-                </a>
+                </button>
               </div>
             </div>
           </div>
@@ -1666,9 +1274,9 @@
             <div class="catalog-design-window">
               <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.41%20PM%20(2).jpeg" alt="Website Template Design 40" class="design-scroll-img" loading="lazy">
               <div class="window-overlay">
-                <a href="contact-project.html?design=PRO-40" class="window-overlay-btn">
+                <button class="window-overlay-btn catalog-choose-btn" data-design-id="40" data-design-name="PRO-40">
                   Choose This Design <i data-lucide="arrow-right"></i>
-                </a>
+                </button>
               </div>
             </div>
           </div>
@@ -1677,9 +1285,9 @@
             <div class="catalog-design-window">
               <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.41%20PM.jpeg" alt="Website Template Design 41" class="design-scroll-img" loading="lazy">
               <div class="window-overlay">
-                <a href="contact-project.html?design=PRO-41" class="window-overlay-btn">
+                <button class="window-overlay-btn catalog-choose-btn" data-design-id="41" data-design-name="PRO-41">
                   Choose This Design <i data-lucide="arrow-right"></i>
-                </a>
+                </button>
               </div>
             </div>
           </div>
@@ -1688,9 +1296,9 @@
             <div class="catalog-design-window">
               <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.42%20PM.jpeg" alt="Website Template Design 42" class="design-scroll-img" loading="lazy">
               <div class="window-overlay">
-                <a href="contact-project.html?design=PRO-42" class="window-overlay-btn">
+                <button class="window-overlay-btn catalog-choose-btn" data-design-id="42" data-design-name="PRO-42">
                   Choose This Design <i data-lucide="arrow-right"></i>
-                </a>
+                </button>
               </div>
             </div>
           </div>
@@ -1699,9 +1307,9 @@
             <div class="catalog-design-window">
               <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.43%20PM.jpeg" alt="Website Template Design 43" class="design-scroll-img" loading="lazy">
               <div class="window-overlay">
-                <a href="contact-project.html?design=PRO-43" class="window-overlay-btn">
+                <button class="window-overlay-btn catalog-choose-btn" data-design-id="43" data-design-name="PRO-43">
                   Choose This Design <i data-lucide="arrow-right"></i>
-                </a>
+                </button>
               </div>
             </div>
           </div>
@@ -1710,9 +1318,9 @@
             <div class="catalog-design-window">
               <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.44%20PM%20(1).jpeg" alt="Website Template Design 44" class="design-scroll-img" loading="lazy">
               <div class="window-overlay">
-                <a href="contact-project.html?design=PRO-44" class="window-overlay-btn">
+                <button class="window-overlay-btn catalog-choose-btn" data-design-id="44" data-design-name="PRO-44">
                   Choose This Design <i data-lucide="arrow-right"></i>
-                </a>
+                </button>
               </div>
             </div>
           </div>
@@ -1721,9 +1329,9 @@
             <div class="catalog-design-window">
               <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.44%20PM.jpeg" alt="Website Template Design 45" class="design-scroll-img" loading="lazy">
               <div class="window-overlay">
-                <a href="contact-project.html?design=PRO-45" class="window-overlay-btn">
+                <button class="window-overlay-btn catalog-choose-btn" data-design-id="45" data-design-name="PRO-45">
                   Choose This Design <i data-lucide="arrow-right"></i>
-                </a>
+                </button>
               </div>
             </div>
           </div>
@@ -1732,9 +1340,9 @@
             <div class="catalog-design-window">
               <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.45%20PM.jpeg" alt="Website Template Design 46" class="design-scroll-img" loading="lazy">
               <div class="window-overlay">
-                <a href="contact-project.html?design=PRO-46" class="window-overlay-btn">
+                <button class="window-overlay-btn catalog-choose-btn" data-design-id="46" data-design-name="PRO-46">
                   Choose This Design <i data-lucide="arrow-right"></i>
-                </a>
+                </button>
               </div>
             </div>
           </div>
@@ -1743,9 +1351,9 @@
             <div class="catalog-design-window">
               <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.46%20PM%20(1).jpeg" alt="Website Template Design 47" class="design-scroll-img" loading="lazy">
               <div class="window-overlay">
-                <a href="contact-project.html?design=PRO-47" class="window-overlay-btn">
+                <button class="window-overlay-btn catalog-choose-btn" data-design-id="47" data-design-name="PRO-47">
                   Choose This Design <i data-lucide="arrow-right"></i>
-                </a>
+                </button>
               </div>
             </div>
           </div>
@@ -1754,9 +1362,9 @@
             <div class="catalog-design-window">
               <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.46%20PM.jpeg" alt="Website Template Design 48" class="design-scroll-img" loading="lazy">
               <div class="window-overlay">
-                <a href="contact-project.html?design=PRO-48" class="window-overlay-btn">
+                <button class="window-overlay-btn catalog-choose-btn" data-design-id="48" data-design-name="PRO-48">
                   Choose This Design <i data-lucide="arrow-right"></i>
-                </a>
+                </button>
               </div>
             </div>
           </div>
@@ -1765,9 +1373,9 @@
             <div class="catalog-design-window">
               <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.50%20PM%20(1).jpeg" alt="Website Template Design 49" class="design-scroll-img" loading="lazy">
               <div class="window-overlay">
-                <a href="contact-project.html?design=PRO-49" class="window-overlay-btn">
+                <button class="window-overlay-btn catalog-choose-btn" data-design-id="49" data-design-name="PRO-49">
                   Choose This Design <i data-lucide="arrow-right"></i>
-                </a>
+                </button>
               </div>
             </div>
           </div>
@@ -1776,9 +1384,9 @@
             <div class="catalog-design-window">
               <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.50%20PM%20(2).jpeg" alt="Website Template Design 50" class="design-scroll-img" loading="lazy">
               <div class="window-overlay">
-                <a href="contact-project.html?design=PRO-50" class="window-overlay-btn">
+                <button class="window-overlay-btn catalog-choose-btn" data-design-id="50" data-design-name="PRO-50">
                   Choose This Design <i data-lucide="arrow-right"></i>
-                </a>
+                </button>
               </div>
             </div>
           </div>
@@ -1787,9 +1395,9 @@
             <div class="catalog-design-window">
               <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.50%20PM.jpeg" alt="Website Template Design 51" class="design-scroll-img" loading="lazy">
               <div class="window-overlay">
-                <a href="contact-project.html?design=PRO-51" class="window-overlay-btn">
+                <button class="window-overlay-btn catalog-choose-btn" data-design-id="51" data-design-name="PRO-51">
                   Choose This Design <i data-lucide="arrow-right"></i>
-                </a>
+                </button>
               </div>
             </div>
           </div>
@@ -1798,9 +1406,9 @@
             <div class="catalog-design-window">
               <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.51%20PM.jpeg" alt="Website Template Design 52" class="design-scroll-img" loading="lazy">
               <div class="window-overlay">
-                <a href="contact-project.html?design=PRO-52" class="window-overlay-btn">
+                <button class="window-overlay-btn catalog-choose-btn" data-design-id="52" data-design-name="PRO-52">
                   Choose This Design <i data-lucide="arrow-right"></i>
-                </a>
+                </button>
               </div>
             </div>
           </div>
@@ -1809,9 +1417,9 @@
             <div class="catalog-design-window">
               <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.54%20PM.jpeg" alt="Website Template Design 53" class="design-scroll-img" loading="lazy">
               <div class="window-overlay">
-                <a href="contact-project.html?design=PRO-53" class="window-overlay-btn">
+                <button class="window-overlay-btn catalog-choose-btn" data-design-id="53" data-design-name="PRO-53">
                   Choose This Design <i data-lucide="arrow-right"></i>
-                </a>
+                </button>
               </div>
             </div>
           </div>
@@ -1820,9 +1428,9 @@
             <div class="catalog-design-window">
               <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.55%20PM%20(1).jpeg" alt="Website Template Design 54" class="design-scroll-img" loading="lazy">
               <div class="window-overlay">
-                <a href="contact-project.html?design=PRO-54" class="window-overlay-btn">
+                <button class="window-overlay-btn catalog-choose-btn" data-design-id="54" data-design-name="PRO-54">
                   Choose This Design <i data-lucide="arrow-right"></i>
-                </a>
+                </button>
               </div>
             </div>
           </div>
@@ -1831,9 +1439,9 @@
             <div class="catalog-design-window">
               <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.55%20PM%20(2).jpeg" alt="Website Template Design 55" class="design-scroll-img" loading="lazy">
               <div class="window-overlay">
-                <a href="contact-project.html?design=PRO-55" class="window-overlay-btn">
+                <button class="window-overlay-btn catalog-choose-btn" data-design-id="55" data-design-name="PRO-55">
                   Choose This Design <i data-lucide="arrow-right"></i>
-                </a>
+                </button>
               </div>
             </div>
           </div>
@@ -1842,9 +1450,9 @@
             <div class="catalog-design-window">
               <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.55%20PM.jpeg" alt="Website Template Design 56" class="design-scroll-img" loading="lazy">
               <div class="window-overlay">
-                <a href="contact-project.html?design=PRO-56" class="window-overlay-btn">
+                <button class="window-overlay-btn catalog-choose-btn" data-design-id="56" data-design-name="PRO-56">
                   Choose This Design <i data-lucide="arrow-right"></i>
-                </a>
+                </button>
               </div>
             </div>
           </div>
@@ -1853,9 +1461,9 @@
             <div class="catalog-design-window">
               <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.57%20PM%20(1).jpeg" alt="Website Template Design 57" class="design-scroll-img" loading="lazy">
               <div class="window-overlay">
-                <a href="contact-project.html?design=PRO-57" class="window-overlay-btn">
+                <button class="window-overlay-btn catalog-choose-btn" data-design-id="57" data-design-name="PRO-57">
                   Choose This Design <i data-lucide="arrow-right"></i>
-                </a>
+                </button>
               </div>
             </div>
           </div>
@@ -1864,9 +1472,9 @@
             <div class="catalog-design-window">
               <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.57%20PM%20(2).jpeg" alt="Website Template Design 58" class="design-scroll-img" loading="lazy">
               <div class="window-overlay">
-                <a href="contact-project.html?design=PRO-58" class="window-overlay-btn">
+                <button class="window-overlay-btn catalog-choose-btn" data-design-id="58" data-design-name="PRO-58">
                   Choose This Design <i data-lucide="arrow-right"></i>
-                </a>
+                </button>
               </div>
             </div>
           </div>
@@ -1875,9 +1483,9 @@
             <div class="catalog-design-window">
               <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.57%20PM.jpeg" alt="Website Template Design 59" class="design-scroll-img" loading="lazy">
               <div class="window-overlay">
-                <a href="contact-project.html?design=PRO-59" class="window-overlay-btn">
+                <button class="window-overlay-btn catalog-choose-btn" data-design-id="59" data-design-name="PRO-59">
                   Choose This Design <i data-lucide="arrow-right"></i>
-                </a>
+                </button>
               </div>
             </div>
           </div>
@@ -1892,69 +1500,17 @@
     </section>
 
 
-    <!-- CORE CAPABILITIES & SERVICES -->
-    <section class="services-overview">
-      <div class="container">
-        <div class="section-head" style="text-align:center; display:block;">
-          <p class="section-kicker">WHAT WE BUILD FOR YOU</p>
-          <h2>Our Core Technical Capabilities</h2>
-          <p class="section-sub" style="margin: 10px auto 0;">From single-page web portfolios to full enterprise digital infrastructures — tailored to your exact industry.</p>
-        </div>
 
-        <div class="services-grid-mini">
-
-          <!-- Web Development -->
-          <div class="service-box">
-            <div class="service-box-icon"><i data-lucide="code"></i></div>
-            <h3>Custom Web Development</h3>
-            <p>Modern, responsive, ultra-fast websites engineered to turn visitors into paying clients.</p>
-            <ul class="service-features-list">
-              <li>Responsive mobile-first architecture</li>
-              <li>95+ Google PageSpeed performance</li>
-              <li>SEO-ready structure & schema</li>
-            </ul>
-            <a href="contact-project.html" class="link-arrow">Start Development <i data-lucide="arrow-right"></i></a>
-          </div>
-
-          <!-- eCommerce -->
-          <div class="service-box">
-            <div class="service-box-icon"><i data-lucide="shopping-bag"></i></div>
-            <h3>eCommerce Stores</h3>
-            <p>High-converting stores with smooth checkout experiences and automated order management.</p>
-            <ul class="service-features-list">
-              <li>Shopify & custom cart systems</li>
-              <li>Payment gateways & multi-currency</li>
-              <li>Automated stock & inventory sync</li>
-            </ul>
-            <a href="contact-project.html" class="link-arrow">Build an eCommerce Store <i data-lucide="arrow-right"></i></a>
-          </div>
-
-          <!-- Business Automation -->
-          <div class="service-box">
-            <div class="service-box-icon"><i data-lucide="cpu"></i></div>
-            <h3>Automation & AI Integration</h3>
-            <p>Connect your internal tools, eliminate manual data entry, and integrate smart AI assistants.</p>
-            <ul class="service-features-list">
-              <li>CRM & WhatsApp / Email bots</li>
-              <li>Custom API & webhook pipelines</li>
-              <li>OpenAI / LLM smart workflows</li>
-            </ul>
-            <a href="contact-project.html" class="link-arrow">Automate Your Business <i data-lucide="arrow-right"></i></a>
-          </div>
-
-        </div>
-      </div>
-    </section>
 
     <!-- BOTTOM STRIP / CTA -->
     <section class="packages-cta-strip">
       <div class="container">
         <p class="section-kicker light">READY TO LAUNCH YOUR OWN PLATFORM?</p>
         <h2>Get Your Custom Website Built by AS Web Solution</h2>
-        <p>Whether you need a commercial services website, corporate advisory portal, or custom web platform, our team is ready to deliver.</p>
+        <p>Found a design you love? Contact us to customize it for your brand and business needs.</p>
         <div style="display:flex; gap:14px; justify-content:center; flex-wrap:wrap;">
           <a href="contact-project.html" class="btn btn-primary" style="background:#fff; color:var(--navy); box-shadow:none;">Get a Free Proposal <i data-lucide="arrow-right"></i></a>
-          <a href="pricing.html" class="btn btn-outline" style="background:transparent; color:#fff; border-color:rgba(255,255,255,.5);">Check Pricing Packages</a>
+          <a href="services.html" class="btn btn-outline" style="background:transparent; color:#fff; border-color:rgba(255,255,255,.5);">View Services & Pricing</a>
         </div>
       </div>
     </section>
@@ -1962,109 +1518,125 @@
   </main>
 
   <!-- FOOTER -->
-  <footer class="footer">
-    <div class="container footer-main">
-      <div class="footer-grid">
-        <div class="footer-col footer-col-brand">
-          <a href="index.html" class="logo light">
-            <img src="./assets/img/logo-removebg.png" alt="AS Logo" style="height:52px;width:52px;">
-            <span class="logo-text"><strong>AS Web Solution</strong><small>Digital solutions for a better tomorrow</small></span>
-          </a>
-          <p class="footer-desc">We engineer high-performance web applications, enterprise eCommerce platforms, and smart automated systems for worldwide brands.</p>
-          <div class="footer-ratings-wrap">
-            <div class="footer-ratings-row">
-              <a href="#" class="rating-badge-card"><img src="assets/img/googlerating.png" alt="Google Rating" class="rating-badge-img"></a>
-              <a href="#" class="rating-badge-card"><img src="assets/img/clutchrating.png" alt="Clutch Rating" class="rating-badge-img"></a>
-            </div>
+  <div id="footer"></div>
+
+  <!-- Design Selection Modal -->
+  <div class="design-modal" id="designModal" hidden>
+    <div class="design-modal-content">
+      <div class="design-modal-header">
+        <h3>Customize This Template</h3>
+        <button class="design-modal-close" id="closeDesignModal" type="button" aria-label="Close modal">
+          <i data-lucide="x"></i>
+        </button>
+      </div>
+      <div class="design-modal-body">
+        <div class="design-step" id="step1">
+          <h4>What would you like to do?</h4>
+          <div class="design-options">
+            <button class="design-option-btn" data-option="buy" data-price="499">
+              <i data-lucide="shopping-cart"></i>
+              <span>Buy This Template (Exact)</span>
+              <small>$499 USD - As-is template</small>
+            </button>
+            <button class="design-option-btn" data-option="edit" data-price="699">
+              <i data-lucide="edit-3"></i>
+              <span>Buy with Changes</span>
+              <small>$699 USD - With customizations</small>
+            </button>
           </div>
         </div>
-        <div class="footer-col">
-          <h4 class="footer-heading">Quick Links</h4>
-          <ul class="footer-links">
-            <li><a href="index.html"><i data-lucide="chevron-right"></i> Home</a></li>
-            <li><a href="about.html"><i data-lucide="chevron-right"></i> About Us</a></li>
-            <li><a href="whyus.html"><i data-lucide="chevron-right"></i> Why Choose Us</a></li>
-            <li><a href="catalog.html"><i data-lucide="chevron-right"></i> Live Catalog</a></li>
-            <li><a href="pricing.html"><i data-lucide="chevron-right"></i> Pricing</a></li>
-            <li><a href="contact.html"><i data-lucide="chevron-right"></i> Contact</a></li>
-          </ul>
+        <div class="design-step" id="step2" hidden>
+          <h4>Need Custom Editing?</h4>
+          <div class="design-options">
+            <button class="design-option-btn" data-editing="yes">
+              <i data-lucide="check-circle"></i>
+              <span>Yes, I need custom editing</span>
+             
+            </button>
+            <button class="design-option-btn" data-editing="no">
+              <i data-lucide="x-circle"></i>
+              <span>No, just the template as-is</span>
+              
+            </button>
+          </div>
+          <button class="design-back-btn" id="backToStep1">Back</button>
         </div>
-        <div class="footer-col">
-          <h4 class="footer-heading">Featured Projects</h4>
-          <ul class="footer-links">
-            <li><a href="https://asautomate.com/" target="_blank" rel="noopener"><i data-lucide="external-link"></i> AS Automate</a></li>
-            <li><a href="https://cleaning-express.com/" target="_blank" rel="noopener"><i data-lucide="external-link"></i> Cleaning Express</a></li>
-            <li><a href="https://diamondcleanersusa.com/" target="_blank" rel="noopener"><i data-lucide="external-link"></i> Diamond Cleaners USA</a></li>
-            <li><a href="https://csttax.com/" target="_blank" rel="noopener"><i data-lucide="external-link"></i> CST Tax Advisors</a></li>
-            <li><a href="https://masjidulummah.ca/" target="_blank" rel="noopener"><i data-lucide="external-link"></i> Masjid Ul Ummah</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4 class="footer-heading">Contact</h4>
-          <ul class="footer-links">
-            <li><a href="mailto:info@aswebsolution.com"><i data-lucide="chevron-right"></i> info@aswebsolution.com</a></li>
-            <li><a href="tel:+923433458001"><i data-lucide="chevron-right"></i> +92 343 3458001</a></li>
-            <li><a href="contact-project.html"><i data-lucide="chevron-right"></i> Get a Quote</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <div class="footer-bottom-bar">
-      <div class="container footer-bottom-inner">
-        <div class="footer-copy"><p>© 2026 AS Web Solution. All rights reserved.</p></div>
-        <div class="socials">
-          <a href="https://linkedin.com" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
-          <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
-          <a href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
-        </div>
-        <div class="legal">
-          <a href="#">Privacy Policy</a><span class="legal-divider">•</span>
-          <a href="#">Terms of Service</a>
-        </div>
-      </div>
-    </div>
-  </footer>
+        <div class="design-step" id="step3" hidden>
+          <h4>Provide Your Details</h4>
+          <div class="price-summary" id="priceSummary">
+            <p> Price: <span id="basePrice">$499 USD</span></p>
+            <p>Customization Fee: <span id="customFee">$0</span></p>
+            <p class="total-price">Total: <span id="totalPrice">$499 USD</span></p>
+          </div>
+      <form id="designForm" class="design-form" action="https://formsubmit.co/saadahmedfurrukh9@gmail.com" method="POST" enctype="multipart/form-data">
 
-  <button class="to-top" id="toTop" type="button" aria-label="Back to top"><i data-lucide="chevron-up"></i></button>
+            <div class="form-group">
+              <label for="userName">Your Name *</label>
+              <input type="text" id="userName" name="name" required>
+            </div>
+            <div class="form-group">
+              <label for="userEmail">Your Email *</label>
+              <input type="email" id="userEmail" name="email" required>
+            </div>
+            <div class="form-group">
+              <label for="userPhone">Your Phone</label>
+              <input type="tel" id="userPhone" name="phone">
+            </div>
+            <div class="form-group">
+              <label for="userContactMethod">Preferred Contact Method *</label>
+              <select id="userContactMethod" name="contact_method" required>
+                <option value="">Select...</option>
+                <option value="email">Email</option>
+                <option value="phone">Phone</option>
+                <option value="whatsapp">WhatsApp</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="userMessage">Additional Requirements</label>
+              <textarea id="userMessage" name="message" rows="3"></textarea>
+            </div>
+            <div class="form-group" style="display:none;">
+              <label for="designImageFile">Design Image</label>
+              <input type="file" id="designImageFile" name="attachment" accept="image/*">
+            </div>
+            <input type="hidden" id="selectedOption" name="purchase_option">
+            <input type="hidden" id="selectedEditing" name="custom_editing">
+            <input type="hidden" id="calculatedPrice" name="total_price">
+            <input type="hidden" name="_subject" value="New Catalog Design Inquiry">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_ajax" value="true">
+            <input type="hidden" name="_template" value="table">
+            <button type="submit" class="design-submit-btn">Send Inquiry</button>
+            <button type="button" class="design-back-btn" id="backToStep2">Back</button>
+          </form>
+        </div>
+        <div class="design-step" id="step4" hidden>
+          <div class="design-success">
+            <i data-lucide="check-circle"></i>
+            <h4>Inquiry Sent Successfully!</h4>
+            <p>Thank you for your interest. We'll get back to you within 24 hours.</p>
+            <button class="design-close-btn" id="closeSuccessBtn">Close</button>
+            <button class="design-close-btn" id="submitAnotherBtn">Submit Another Inquiry</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <script src="script.js"></script>
   <script>
-    // Filtering logic & Auto-scroll synchronization
     document.addEventListener('DOMContentLoaded', function () {
       if (window.lucide) lucide.createIcons();
 
-      // Filter tabs handling
-      const filterBtns = document.querySelectorAll('.filter-btn');
-      const cards = document.querySelectorAll('.showcase-card');
-
-      filterBtns.forEach(btn => {
-        btn.addEventListener('click', function () {
-          filterBtns.forEach(b => b.classList.remove('active'));
-          this.classList.add('active');
-
-          const filter = this.getAttribute('data-filter');
-
-          cards.forEach(card => {
-            const cat = card.getAttribute('data-category');
-            if (filter === 'all' || cat === filter) {
-              card.style.display = 'flex';
-            } else {
-              card.style.display = 'none';
-            }
-          });
-        });
-      });
-
-      // Synchronized scroll effect:
-      // Jab user page ko upar ya neeche scroll karta hai, to iframes aur previews
-      // ke content automatically upar aur neeche scroll/translate hotay hain!
+      // =========================================================
+      // LIVE IFRAMES AUTO-SCROLL SYNCHRONIZATION
+      // =========================================================
       const iframes = document.querySelectorAll('.live-iframe');
-      const scrollImgs = document.querySelectorAll('.live-scroll-img');
+      const showcaseSection = document.getElementById('showcase');
 
       let ticking = false;
 
       function onScrollSync() {
-        const showcaseSection = document.getElementById('showcase');
         if (!showcaseSection) return;
 
         const rect = showcaseSection.getBoundingClientRect();
@@ -2083,10 +1655,6 @@
           iframes.forEach(iframe => {
             iframe.style.transform = `scale(0.5) translateY(-${offsetY}px)`;
           });
-
-          scrollImgs.forEach(img => {
-            img.style.transform = `translateY(-${Math.round(clamped * 45)}px)`;
-          });
         }
         ticking = false;
       }
@@ -2102,7 +1670,7 @@
       onScrollSync();
 
       // =========================================================
-      // DYNAMIC CATALOG IMAGES AUTO-SCROLL (UPAR TO UPAR, NEECHE TO NEECHE)
+      // DYNAMIC CATALOG IMAGES AUTO-SCROLL
       // =========================================================
       const catalogImgs = document.querySelectorAll('.design-scroll-img');
       const gallerySection = document.getElementById('catalog-gallery');
@@ -2145,6 +1713,197 @@
           if (window.lucide) lucide.createIcons();
           syncCatalogImagesScroll();
         });
+      }
+
+      // =========================================================
+      // DESIGN SELECTION MODAL LOGIC
+      // =========================================================
+      const modal = document.getElementById('designModal');
+      const closeBtn = document.getElementById('closeDesignModal');
+      const closeSuccessBtn = document.getElementById('closeSuccessBtn');
+      const chooseBtns = document.querySelectorAll('.catalog-choose-btn');
+      const designForm = document.getElementById('designForm');
+
+      // Modal state
+      let selectedDesign = { id: null, name: null };
+      let selectedOption = null;
+      let selectedPrice = 499; // Default price
+      let basePrice = 499; // USD
+      let customFee = 0;
+
+      // Show modal on button click
+      chooseBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+          const card = this.closest('.catalog-design-card');
+          const img = card.querySelector('.design-scroll-img');
+          selectedDesign.id = this.getAttribute('data-design-id');
+          selectedDesign.name = this.getAttribute('data-design-name');
+
+          console.log('Selected design:', selectedDesign);
+
+          // Fetch the image and convert to file for upload
+          if (img && img.src) {
+            const imageUrl = img.src.startsWith('http') ? img.src : window.location.origin + '/' + img.src;
+            console.log('Fetching image from:', imageUrl);
+            fetch(imageUrl)
+              .then(response => response.blob())
+              .then(blob => {
+                const file = new File([blob], 'design.jpg', { type: 'image/jpeg' });
+                const dataTransfer = new DataTransfer();
+                dataTransfer.items.add(file);
+                document.getElementById('designImageFile').files = dataTransfer.files;
+                console.log('Image file attached:', file.name);
+              })
+              .catch(error => console.error('Error fetching image:', error));
+          }
+
+          modal.removeAttribute('hidden');
+          showStep(1);
+        });
+      });
+
+      // Close modal
+      closeBtn.addEventListener('click', function() {
+        modal.setAttribute('hidden', '');
+        resetModal();
+      });
+      closeSuccessBtn.addEventListener('click', function() {
+        modal.setAttribute('hidden', '');
+        resetModal();
+      });
+
+      // Submit another inquiry button
+      document.getElementById('submitAnotherBtn').addEventListener('click', function() {
+        resetModal();
+        showStep(1);
+      });
+
+      // Step 1: Option selection (Buy with different prices)
+      document.querySelectorAll('[data-option]').forEach(btn => {
+        btn.addEventListener('click', function() {
+          selectedOption = this.getAttribute('data-option');
+          selectedPrice = this.getAttribute('data-price');
+          basePrice = parseInt(selectedPrice);
+          updatePrice();
+          // Skip step 2, go directly to step 3
+          showStep(3);
+        });
+      });
+
+      // Step 2: Editing preference (removed from flow)
+      document.querySelectorAll('[data-editing]').forEach(btn => {
+        btn.addEventListener('click', function() {
+          selectedEditing = this.getAttribute('data-editing');
+          updatePrice();
+          showStep(3);
+        });
+      });
+
+      // Back buttons
+      document.getElementById('backToStep1').addEventListener('click', () => showStep(1));
+      const backToStep2 = document.getElementById('backToStep2');
+      if (backToStep2) {
+        backToStep2.addEventListener('click', () => showStep(1));
+      }
+
+      // Form submission
+      designForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        // Set hidden fields before submission
+        const optionField = document.getElementById('selectedOption');
+        const editingField = document.getElementById('selectedEditing');
+        const priceField = document.getElementById('calculatedPrice');
+
+        if (optionField) optionField.value = selectedOption;
+        if (editingField) editingField.value = selectedOption === 'edit' ? 'yes' : 'no';
+        if (priceField) priceField.value = selectedPrice;
+
+        console.log('Form submitting with:', {
+          option: selectedOption,
+          editing: selectedOption === 'edit' ? 'yes' : 'no',
+          price: selectedPrice,
+          imageFile: document.getElementById('designImageFile').files.length
+        });
+
+        // Submit using AJAX to show success message in modal
+        const formData = new FormData(designForm);
+        const formAction = designForm.getAttribute('action');
+
+        fetch(formAction, {
+          method: 'POST',
+          body: formData,
+          headers: {
+            'Accept': 'application/json'
+          }
+        })
+        .then(response => {
+          if (response.ok) {
+            // Show success message in modal
+            designForm.reset();
+            setTimeout(() => {
+              showStep(4);
+            }, 500);
+          } else {
+            alert('There was a problem submitting the form. Please try again.');
+          }
+        })
+        .catch(error => {
+          console.error('Error:', error);
+          alert('There was a problem submitting the form. Please try again.');
+        });
+      });
+
+
+
+      function showStep(stepNum) {
+        // Hide all steps
+        document.querySelectorAll('.design-step').forEach(step => step.setAttribute('hidden', ''));
+        // Show target step
+        document.getElementById('step' + stepNum).removeAttribute('hidden');
+
+        // Handle back button visibility
+        if (stepNum === 1) {
+          document.getElementById('backToStep1').style.display = 'none';
+        } else if (stepNum === 3) {
+          const backToStep2 = document.getElementById('backToStep2');
+          if (backToStep2) {
+            backToStep2.style.display = 'block';
+          }
+        } else if (stepNum === 4) {
+          // Success step - hide all back buttons
+          const backToStep1 = document.getElementById('backToStep1');
+          const backToStep2 = document.getElementById('backToStep2');
+          if (backToStep1) backToStep1.style.display = 'none';
+          if (backToStep2) backToStep2.style.display = 'none';
+        }
+      }
+
+      function updatePrice() {
+        if (selectedEditing === 'yes') {
+          customFee = 200; // Custom editing fee
+        } else {
+          customFee = 0;
+        }
+
+        const total = basePrice + customFee;
+
+        // Update price summary
+        document.getElementById('basePrice').textContent = '$' + basePrice + ' USD';
+        document.getElementById('customFee').textContent = '$' + customFee + ' USD';
+        document.getElementById('totalPrice').textContent = '$' + total + ' USD';
+        document.getElementById('calculatedPrice').value = total;
+      }
+
+      function resetModal() {
+        selectedDesign = { id: null, name: null };
+        selectedOption = null;
+        selectedPrice = 499;
+        basePrice = 499;
+        customFee = 0;
+        designForm.reset();
+        updatePrice();
+        showStep(1);
       }
 
     });

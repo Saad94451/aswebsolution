@@ -8,6 +8,7 @@
 
   function init() {
     if (window.lucide) lucide.createIcons();
+    setupLoadComponents();
     setupMenu();
     setupNavDropdown();
     setupStickyHeader();
@@ -20,6 +21,58 @@
     setupBackToTop();
     setupStoryModal();
     setupContactForm();
+  }
+
+  /* ---------- Load Navbar & Footer Components ---------- */
+  function setupLoadComponents() {
+    const headerContainer = document.getElementById('header');
+    const footerContainer = document.getElementById('footer');
+
+    // Get current page path
+    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+
+    // Load navbar
+    if (headerContainer) {
+      fetch('components/navbar.html')
+        .then(response => response.text())
+        .then(html => {
+          headerContainer.outerHTML = html;
+          if (window.lucide) lucide.createIcons();
+          // Set active link based on current page
+          setActiveNavLink(currentPage);
+          // Re-attach event listeners after loading
+          setupMenu();
+          setupNavDropdown();
+          setupStickyHeader();
+        })
+        .catch(err => console.error('Error loading navbar:', err));
+    }
+
+    // Load footer
+    if (footerContainer) {
+      fetch('components/footer.html')
+        .then(response => response.text())
+        .then(html => {
+          footerContainer.outerHTML = html;
+          if (window.lucide) lucide.createIcons();
+          // Re-attach back to top button
+          setupBackToTop();
+        })
+        .catch(err => console.error('Error loading footer:', err));
+    }
+  }
+
+  /* ---------- Set Active Navigation Link ---------- */
+  function setActiveNavLink(currentPage) {
+    const navLinks = document.querySelectorAll('.nav-link');
+    navLinks.forEach(link => {
+      const href = link.getAttribute('href');
+      if (href === currentPage) {
+        link.classList.add('active');
+      } else {
+        link.classList.remove('active');
+      }
+    });
   }
 
   /* ---------- Nav Dropdown (Contact) ---------- */

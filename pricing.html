@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pricing &amp; Project Cost Calculator | AS Web Solution</title>
+  <meta name="description" content="Calculate your custom web development price estimate with our interactive signature process, or choose from our transparent website packages.">
+  <meta name="theme-color" content="#062A5C">
+  <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="mobile.css">
+  <style>
+    /* ── PAGE HERO ── */
+    .page-hero {
+      position: relative;
+      padding: 75px 0 55px;
+      background: url("https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=1600&h=800&fit=crop") center/cover no-repeat;
+      text-align: center;
+      overflow: hidden;
+    }
+    .page-hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(6,42,92,.82) 0%, rgba(3,27,61,.72) 100%);
+      z-index: 0;
+    }
+    .page-hero .container { position: relative; z-index: 1; }
+    .page-hero h1 { color: #fff; margin-bottom: 14px; }
+    .page-hero .lead { color: rgba(255,255,255,.88); max-width: 620px; margin: 0 auto 24px; font-size: 1.05rem; }
+    .page-hero .eyebrow { color: #93C5FD; margin-bottom: 10px; }
+
+    /* Builder spacing adjustments on pricing page */
+    .builder {
+      padding: 90px 0;
+      background: radial-gradient(circle at 50% 0%, rgba(37, 99, 235, 0.04) 0%, transparent 70%), #FFFFFF;
+    }
+
+    @media (max-width: 767px) {
+      .page-hero { padding: 50px 0 35px; }
+      .page-hero h1 { font-size: clamp(1.8rem, 7vw, 2.8rem); }
+      .page-hero .lead { font-size: 0.95rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <div id="header"></div>
+
+  <main id="main">
+
+    <!-- ===================== PAGE HERO ===================== -->
+    <section class="page-hero">
+      <div class="container">
+        <p class="eyebrow reveal">TRANSPARENT &amp; VALUE-DRIVEN</p>
+        <h1 class="reveal">Smart Pricing. <span class="grad">Guaranteed ROI.</span></h1>
+        <p class="lead reveal delay-1">Use our interactive signature calculator to get a fast, tailored quote in seconds or browse our standard development packages.</p>
+        <div class="reveal delay-2" style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
+          <a href="#solutions" class="btn btn-primary">Custom Calculator <i data-lucide="calculator"></i></a>
+          <a href="#packages" class="btn btn-outline" style="background:rgba(255,255,255,0.15);color:#fff;border-color:rgba(255,255,255,0.4);">Fixed Packages <i data-lucide="arrow-down"></i></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== PROJECT BUILDER (SIGNATURE PROCESS) ===================== -->
+    <section class="builder" id="solutions">
+      <div class="container">
+        <div class="builder-header reveal">
+          <p class="section-kicker">OUR SIGNATURE PROCESS</p>
+          <h2>Build Your Perfect Digital Solution</h2>
+          <p class="builder-subtitle">Answer a few questions and get an instant price estimate right here.</p>
+        </div>
+
+        <div class="inline-wizard reveal delay-1">
+
+          <div class="iw-stepper">
+            <div class="iw-step active" id="iw-si-1"><div class="iw-circle" id="iw-sc-1">1</div><span>Website Type</span></div>
+            <div class="iw-line" id="iw-sl-1"></div>
+            <div class="iw-step" id="iw-si-2"><div class="iw-circle" id="iw-sc-2">2</div><span>Design</span></div>
+            <div class="iw-line" id="iw-sl-2"></div>
+            <div class="iw-step" id="iw-si-3"><div class="iw-circle" id="iw-sc-3">3</div><span>Style &amp; Features</span></div>
+            <div class="iw-line" id="iw-sl-3"></div>
+            <div class="iw-step" id="iw-si-4"><div class="iw-circle" id="iw-sc-4">4</div><span>Summary</span></div>
+          </div>
+
+          <!-- Step 1 -->
+          <div class="iw-panel active" id="iw-panel-1">
+            <p class="iw-label">Step 1 of 4</p>
+            <h3 class="iw-title">What Type of Website Do You Need?</h3>
+            <p class="iw-sub">Select the type that best fits your business goals.</p>
+            <div class="iw-type-grid">
+              <div class="iw-type-card" data-type="Business Website" data-base="299" onclick="iwSelectType(this)"><i data-lucide="building-2"></i><h6>Business</h6><p> Corporate</p></div>
+              <div class="iw-type-card" data-type="E-Commerce" data-base="499" onclick="iwSelectType(this)"><i data-lucide="shopping-cart"></i><h6>E-Commerce</h6><p>Online Store</p></div>
+              <div class="iw-type-card" data-type="Portfolio" data-base="199" onclick="iwSelectType(this)"><i data-lucide="layout-grid"></i><h6>Portfolio</h6><p>Showcase Work</p></div>
+              <div class="iw-type-card" data-type="Restaurant" data-base="349" onclick="iwSelectType(this)"><i data-lucide="utensils"></i><h6>Restaurant</h6><p>Food &amp; Beverages</p></div>
+              <div class="iw-type-card" data-type="Real Estate" data-base="449" onclick="iwSelectType(this)"><i data-lucide="home"></i><h6>Real Estate</h6><p>Property Listings</p></div>
+              <div class="iw-type-card" data-type="Healthcare" data-base="399" onclick="iwSelectType(this)"><i data-lucide="heart-pulse"></i><h6>Healthcare</h6><p>Clinic / Hospital</p></div>
+              <div class="iw-type-card" data-type="Education" data-base="349" onclick="iwSelectType(this)"><i data-lucide="graduation-cap"></i><h6>Education</h6><p>School / University</p></div>
+              <div class="iw-type-card" data-type="Travel" data-base="399" onclick="iwSelectType(this)"><i data-lucide="plane"></i><h6>Travel</h6><p>Tours &amp; Booking</p></div>
+              <div class="iw-type-card" data-type="Construction" data-base="349" onclick="iwSelectType(this)"><i data-lucide="hammer"></i><h6>Construction</h6><p>Building &amp; Roofing</p></div>
+              <div class="iw-type-card" data-type="Agency" data-base="449" onclick="iwSelectType(this)"><i data-lucide="megaphone"></i><h6>Agency</h6><p>Marketing / Digital</p></div>
+              <div class="iw-type-card" data-type="NGO/Charity" data-base="249" onclick="iwSelectType(this)"><i data-lucide="heart-handshake"></i><h6>NGO / Charity</h6><p>Non-Profit</p></div>
+              <div class="iw-type-card" data-type="Custom" data-base="599" onclick="iwSelectType(this)"><i data-lucide="sliders"></i><h6>Custom</h6><p>Other / Specific</p></div>
+            </div>
+            <div class="iw-footer"><button class="btn btn-primary" onclick="iwNext(1)">Next Step <i data-lucide="arrow-right"></i></button></div>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="iw-panel" id="iw-panel-2">
+            <p class="iw-label">Step 2 of 4</p>
+            <h3 class="iw-title">Choose a Design Style</h3>
+            <p class="iw-sub">Pick the style that best fits your brand.</p>
+            <div class="iw-style-grid">
+              <div class="iw-style-card" data-style="Modern" data-price="0" onclick="iwSelectStyle(this)">Modern</div>
+              <div class="iw-style-card" data-style="Luxury" data-price="100" onclick="iwSelectStyle(this)">Luxury</div>
+              <div class="iw-style-card" data-style="Minimal" data-price="0" onclick="iwSelectStyle(this)">Minimal</div>
+              <div class="iw-style-card" data-style="Corporate" data-price="50" onclick="iwSelectStyle(this)">Corporate</div>
+              <div class="iw-style-card" data-style="Creative" data-price="80" onclick="iwSelectStyle(this)">Creative</div>
+              <div class="iw-style-card" data-style="Dark Mode" data-price="60" onclick="iwSelectStyle(this)">Dark Mode</div>
+              <div class="iw-style-card" data-style="Cozy" data-price="30" onclick="iwSelectStyle(this)">Cozy</div>
+              <div class="iw-style-card" data-style="Techy" data-price="70" onclick="iwSelectStyle(this)">Techy</div>
+            </div>
+            <div class="iw-custom-opt" id="iw-customOpt" onclick="iwSelectCustom()">
+              <i data-lucide="pencil"></i>
+              <div><strong>Custom Design</strong><span>We build from scratch — fully unique (+$200)</span></div>
+            </div>
+            <div class="iw-footer">
+              <button class="btn btn-outline" onclick="iwBack(2)"><i data-lucide="arrow-left"></i> Back</button>
+              <button class="btn btn-primary" onclick="iwNext(2)">Next Step <i data-lucide="arrow-right"></i></button>
+            </div>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="iw-panel" id="iw-panel-3">
+            <p class="iw-label">Step 3 of 4</p>
+            <h3 class="iw-title">Choose Your Features</h3>
+            <p class="iw-sub">Select the features you need for your website.</p>
+            <div class="iw-feat-grid">
+              <div class="iw-feat" data-feature="Contact Form" data-price="0" onclick="iwToggleFeat(this)"><i data-lucide="mail"></i><span>Contact Form</span></div>
+              <div class="iw-feat" data-feature="WhatsApp Chat" data-price="30" onclick="iwToggleFeat(this)"><i data-lucide="message-circle"></i><span>WhatsApp Chat</span></div>
+              <div class="iw-feat" data-feature="Online Booking" data-price="80" onclick="iwToggleFeat(this)"><i data-lucide="calendar-check"></i><span>Online Booking</span></div>
+              <div class="iw-feat" data-feature="Blog / News" data-price="60" onclick="iwToggleFeat(this)"><i data-lucide="newspaper"></i><span>Blog / News</span></div>
+              <div class="iw-feat" data-feature="E-Commerce" data-price="150" onclick="iwToggleFeat(this)"><i data-lucide="shopping-bag"></i><span>E-Commerce</span></div>
+              <div class="iw-feat" data-feature="SEO Optimization" data-price="100" onclick="iwToggleFeat(this)"><i data-lucide="trending-up"></i><span>SEO Setup</span></div>
+              <div class="iw-feat" data-feature="Multi-Language" data-price="120" onclick="iwToggleFeat(this)"><i data-lucide="languages"></i><span>Multi-Language</span></div>
+              <div class="iw-feat" data-feature="Payment Gateway" data-price="100" onclick="iwToggleFeat(this)"><i data-lucide="credit-card"></i><span>Payment Gateway</span></div>
+              <div class="iw-feat" data-feature="Admin Dashboard" data-price="200" onclick="iwToggleFeat(this)"><i data-lucide="layout-dashboard"></i><span>Admin Dashboard</span></div>
+              <div class="iw-feat" data-feature="Live Chat" data-price="50" onclick="iwToggleFeat(this)"><i data-lucide="message-square"></i><span>Live Chat</span></div>
+              <div class="iw-feat" data-feature="Social Media" data-price="30" onclick="iwToggleFeat(this)"><i data-lucide="share-2"></i><span>Social Media</span></div>
+              <div class="iw-feat" data-feature="Google Analytics" data-price="40" onclick="iwToggleFeat(this)"><i data-lucide="bar-chart-2"></i><span>Analytics</span></div>
+            </div>
+            <div class="iw-footer">
+              <button class="btn btn-outline" onclick="iwBack(3)"><i data-lucide="arrow-left"></i> Back</button>
+              <button class="btn btn-primary" onclick="iwNext(3)">See My Price <i data-lucide="arrow-right"></i></button>
+            </div>
+          </div>
+
+          <!-- Step 4 -->
+          <div class="iw-panel" id="iw-panel-4">
+            <p class="iw-label">Step 4 of 4</p>
+            <h3 class="iw-title">Your Project Summary</h3>
+            <p class="iw-sub">Review your selections and see your estimated investment.</p>
+            <div class="iw-summary-grid">
+              <div class="iw-summary-left">
+                <div class="iw-sum-block">
+                  <div class="iw-sum-row"><span>Website Type</span><strong id="iws-type">-</strong></div>
+                  <div class="iw-sum-row"><span>Design</span><strong id="iws-design">-</strong></div>
+                  <div class="iw-sum-row"><span>Style</span><strong id="iws-style">-</strong></div>
+                  <div class="iw-sum-row"><span>Features</span><span id="iws-feats" style="text-align:right;font-size:0.82rem;color:var(--muted)">-</span></div>
+                </div>
+                <div class="iw-sum-block">
+                  <div class="iw-sum-row"><span>Base Price</span><strong id="iws-base">-</strong></div>
+                  <div class="iw-sum-row"><span>Design Add-on</span><strong id="iws-dp">-</strong></div>
+                  <div class="iw-sum-row"><span>Style Add-on</span><strong id="iws-sp">-</strong></div>
+                  <div class="iw-sum-row"><span>Features Total</span><strong id="iws-fp">-</strong></div>
+                  <div class="iw-sum-row iw-sum-total"><span>Estimated Total</span><strong id="iws-total">-</strong></div>
+                </div>
+              </div>
+              <div class="iw-price-box">
+                <p class="iw-price-label">Estimated Investment</p>
+                <div class="iw-currency-tabs">
+                  <button class="iw-cur active" onclick="iwSetCur('usd',this)">USD</button>
+                  <button class="iw-cur" onclick="iwSetCur('pkr',this)">PKR</button>
+                  <button class="iw-cur" onclick="iwSetCur('cad',this)">CAD</button>
+                </div>
+                <div class="iw-price-main" id="iws-price-display">$ -</div>
+                <div class="iw-price-note" id="iws-range"></div>
+                <a href="contact.html" class="btn btn-white" style="width:100%;justify-content:center;margin-top:20px;">Request This Project <i data-lucide="arrow-right"></i></a>
+              </div>
+            </div>
+            <div class="iw-footer">
+              <button class="btn btn-outline" onclick="iwBack(4)"><i data-lucide="arrow-left"></i> Back</button>
+              <button class="btn btn-primary" onclick="iwReset()">Start Over <i data-lucide="refresh-cw"></i></button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== WEBSITE DEVELOPMENT PACKAGES ===================== -->
+    <section class="dev-packages-section" id="packages">
+      <div class="container">
+        <!-- Header -->
+        <div class="pkg-header-row">
+          <div>
+            <span class="pkg-title-eyebrow">TRANSPARENT TIERS</span>
+            <h2 class="pkg-main-title">Website Packages</h2>
+            <p class="pkg-subtitle">Professional websites. Modern design. Built for your success.</p>
+          </div>
+        </div>
+
+        <!-- Pricing Cards -->
+        <div class="pkg-cards-grid">
+
+          <!-- BASIC CARD -->
+          <div class="pkg-card">
+            <span class="pkg-tier-label">BASIC</span>
+            <h3 class="pkg-plan-name">Website Development</h3>
+            <p class="pkg-plan-desc">Perfect for small businesses &amp; startups needing a professional online presence.</p>
+
+            <div class="pkg-price-row">
+              <div class="pkg-price-col">
+                <span class="pkg-price-curr">USD</span>
+                <span class="pkg-price-val">$499</span>
+              </div>
+              <div class="pkg-price-divider"></div>
+              <div class="pkg-price-col">
+                <span class="pkg-price-curr">CAD</span>
+                <span class="pkg-price-val">$699</span>
+              </div>
+            </div>
+
+            <ul class="pkg-features-list">
+              <li class="pkg-feature-item">
+                <span class="pkg-check-icon"><i data-lucide="check"></i></span>
+                <span>5 Custom Pages (Home, About, Services, etc.)</span>
+              </li>
+              <li class="pkg-feature-item">
+                <span class="pkg-check-icon"><i data-lucide="check"></i></span>
+                <span>100% Mobile &amp; Tablet Responsive</span>
+              </li>
+              <li class="pkg-feature-item">
+                <span class="pkg-check-icon"><i data-lucide="check"></i></span>
+                <span>Contact &amp; Inquiry Form Integration</span>
+              </li>
+              <li class="pkg-feature-item">
+                <span class="pkg-check-icon"><i data-lucide="check"></i></span>
+                <span>Basic On-Page SEO Optimization</span>
+              </li>
+              <li class="pkg-feature-item">
+                <span class="pkg-check-icon"><i data-lucide="check"></i></span>
+                <span>Social Media Links Integration</span>
+              </li>
+              <li class="pkg-feature-item">
+                <span class="pkg-check-icon"><i data-lucide="check"></i></span>
+                <span>High-Speed Performance Optimization</span>
+              </li>
+            </ul>
+
+            <div style="margin-top:28px;">
+              <a href="contact.html" class="btn btn-primary" style="width:100%;justify-content:center;">Choose Basic Plan <i data-lucide="arrow-right"></i></a>
+            </div>
+          </div>
+
+          <!-- PREMIUM CARD (MOST POPULAR) -->
+          <div class="pkg-card featured">
+            <span class="pkg-popular-badge">MOST POPULAR</span>
+            <span class="pkg-tier-label">PREMIUM</span>
+            <h3 class="pkg-plan-name">Website Development</h3>
+            <p class="pkg-plan-desc">Ideal for growing businesses looking for advanced features and better performance.</p>
+
+            <div class="pkg-price-row">
+              <div class="pkg-price-col">
+                <span class="pkg-price-curr">USD</span>
+                <span class="pkg-price-val">$999</span>
+              </div>
+              <div class="pkg-price-divider"></div>
+              <div class="pkg-price-col">
+                <span class="pkg-price-curr">CAD</span>
+                <span class="pkg-price-val">$1,399</span>
+              </div>
+            </div>
+
+            <ul class="pkg-features-list">
+              <li class="pkg-feature-item">
+                <span class="pkg-check-icon"><i data-lucide="check"></i></span>
+                <span>Up to 12 Custom Designed Pages</span>
+              </li>
+              <li class="pkg-feature-item">
+                <span class="pkg-check-icon"><i data-lucide="check"></i></span>
+                <span>Modern Glassmorphism &amp; Animations</span>
+              </li>
+              <li class="pkg-feature-item">
+                <span class="pkg-check-icon"><i data-lucide="check"></i></span>
+                <span>Dynamic Blog / CMS Integration</span>
+              </li>
+              <li class="pkg-feature-item">
+                <span class="pkg-check-icon"><i data-lucide="check"></i></span>
+                <span>Advanced Technical &amp; On-Page SEO</span>
+              </li>
+              <li class="pkg-feature-item">
+                <span class="pkg-check-icon"><i data-lucide="check"></i></span>
+                <span>Custom Lead Generation Forms</span>
+              </li>
+              <li class="pkg-feature-item">
+                <span class="pkg-check-icon"><i data-lucide="check"></i></span>
+                <span>Speed &amp; Security Hardening (SSL/CDN)</span>
+              </li>
+              <li class="pkg-feature-item">
+                <span class="pkg-check-icon"><i data-lucide="check"></i></span>
+                <span>WhatsApp Chat &amp; Live Support</span>
+              </li>
+              <li class="pkg-feature-item">
+                <span class="pkg-check-icon"><i data-lucide="check"></i></span>
+                <span>1 Month Free Post-Launch Support</span>
+              </li>
+            </ul>
+
+            <div style="margin-top:28px;">
+              <a href="contact.html" class="btn btn-primary" style="width:100%;justify-content:center;">Choose Premium Plan <i data-lucide="arrow-right"></i></a>
+            </div>
+          </div>
+
+          <!-- ADVANCE CARD -->
+          <div class="pkg-card">
+            <span class="pkg-tier-label">ADVANCE</span>
+            <h3 class="pkg-plan-name">Website Development</h3>
+            <p class="pkg-plan-desc">Full-scale custom web applications, e-commerce stores, and custom software systems.</p>
+
+            <div class="pkg-price-row">
+              <div class="pkg-price-col">
+                <span class="pkg-price-curr">USD</span>
+                <span class="pkg-price-val">$1,499</span>
+              </div>
+              <div class="pkg-price-divider"></div>
+              <div class="pkg-price-col">
+                <span class="pkg-price-curr">CAD</span>
+                <span class="pkg-price-val">$1,999</span>
+              </div>
+            </div>
+
+            <ul class="pkg-features-list">
+              <li class="pkg-feature-item">
+                <span class="pkg-check-icon"><i data-lucide="check"></i></span>
+                <span>Unlimited Custom Pages &amp; Workflows</span>
+              </li>
+              <li class="pkg-feature-item">
+                <span class="pkg-check-icon"><i data-lucide="check"></i></span>
+                <span>Full E-Commerce / Custom Portal</span>
+              </li>
+              <li class="pkg-feature-item">
+                <span class="pkg-check-icon"><i data-lucide="check"></i></span>
+                <span>Payment Gateways (Stripe/PayPal)</span>
+              </li>
+              <li class="pkg-feature-item">
+                <span class="pkg-check-icon"><i data-lucide="check"></i></span>
+                <span>Admin Dashboard &amp; Database Backend</span>
+              </li>
+              <li class="pkg-feature-item">
+                <span class="pkg-check-icon"><i data-lucide="check"></i></span>
+                <span>API Integration &amp; Cloud Deployment</span>
+              </li>
+              <li class="pkg-feature-item">
+                <span class="pkg-check-icon"><i data-lucide="check"></i></span>
+                <span>Enterprise Grade Security &amp; Firewall</span>
+              </li>
+              <li class="pkg-feature-item">
+                <span class="pkg-check-icon"><i data-lucide="check"></i></span>
+                <span>GEO / AI Search Optimization</span>
+              </li>
+              <li class="pkg-feature-item">
+                <span class="pkg-check-icon"><i data-lucide="check"></i></span>
+                <span>3 Months Priority VIP Support &amp; SLA</span>
+              </li>
+            </ul>
+
+            <div style="margin-top:28px;">
+              <a href="contact.html" class="btn btn-primary" style="width:100%;justify-content:center;">Choose Advance Plan <i data-lucide="arrow-right"></i></a>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Bottom Disclaimer Banner -->
+        <div class="pkg-disclaimer-card">
+          <div class="pkg-disclaimer-left">
+            <div class="pkg-disclaimer-icon">
+              <i data-lucide="server"></i>
+            </div>
+            <div>
+              <div class="pkg-disclaimer-title">HOSTING &amp; DOMAIN ARE EXCLUDED</div>
+              <p class="pkg-disclaimer-text">In all packages. You can choose your own hosting and domain provider or we can help you with the setup if needed.</p>
+            </div>
+          </div>
+          <div class="pkg-disclaimer-script">
+            Let's Build Something Great
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ===================== FAQ SECTION ===================== -->
+    <section class="faq-cta" id="faq">
+      <div class="container">
+        <div class="section-head reveal" style="margin-bottom:52px;">
+          <div>
+            <p class="section-kicker">PRICING FAQ</p>
+            <h2>Frequently Asked Questions</h2>
+            <p class="section-sub">Clear answers to common questions about our pricing and payment models.</p>
+          </div>
+          <a href="contact.html" class="btn btn-outline hide-mobile">Ask a Question <i data-lucide="arrow-right"></i></a>
+        </div>
+
+        <div class="faq-index-wrap">
+          <div class="faq-index-col reveal">
+            <div class="faq-index-item">
+              <button class="faq-index-q open" type="button">Are there any hidden costs?<span class="faq-index-icon"><i data-lucide="plus"></i></span></button>
+              <div class="faq-index-a open">
+                <p>Never. We provide 100% transparent quotes before project kickoff. You will never receive surprise invoices.</p>
+              </div>
+            </div>
+            <div class="faq-index-item">
+              <button class="faq-index-q" type="button">What payment schedule do you follow?<span class="faq-index-icon"><i data-lucide="plus"></i></span></button>
+              <div class="faq-index-a">
+                <p>Typically 50% upfront to initiate discovery and architecture, and 50% upon completed testing and final launch sign-off.</p>
+              </div>
+            </div>
+            <div class="faq-index-item">
+              <button class="faq-index-q" type="button">Can I request additional features later?<span class="faq-index-icon"><i data-lucide="plus"></i></span></button>
+              <div class="faq-index-a">
+                <p>Yes. Scope additions are transparently quoted and integrated into upcoming sprint milestones with zero friction.</p>
+              </div>
+            </div>
+          </div>
+          <div class="faq-index-col reveal delay-1">
+            <div class="faq-index-item">
+              <button class="faq-index-q" type="button">Do you accept international currencies?<span class="faq-index-icon"><i data-lucide="plus"></i></span></button>
+              <div class="faq-index-a">
+                <p>Yes. We regularly bill clients in USD, CAD, GBP, EUR, and PKR through secure international wire and Stripe payments.</p>
+              </div>
+            </div>
+            <div class="faq-index-item">
+              <button class="faq-index-q" type="button">What if I need ongoing monthly support?<span class="faq-index-icon"><i data-lucide="plus"></i></span></button>
+              <div class="faq-index-a">
+                <p>We provide flexible retainer maintenance packages covering updates, backups, security monitoring, and feature iteration.</p>
+              </div>
+            </div>
+            <div class="faq-index-item">
+              <button class="faq-index-q" type="button">Is the price builder quote guaranteed?<span class="faq-index-icon"><i data-lucide="plus"></i></span></button>
+              <div class="faq-index-a">
+                <p>The interactive builder provides an accurate realistic range. Once we review your exact assets during discovery, we lock in your fixed price.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-cta-banner reveal">
+          <div class="faq-cta-banner-left">
+            <p class="cta-kicker">GET STARTED</p>
+            <h2>Need a tailored corporate proposal?</h2>
+            <p>Speak directly with our engineering lead to discuss specific integrations and timelines.</p>
+          </div>
+          <div class="faq-cta-banner-right">
+            <a href="contact.html" class="btn btn-white">Start a Project <i data-lucide="arrow-right"></i></a>
+            <a href="catalog.html" class="btn btn-white-outline">Explore Catalog</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <div id="footer"></div>
+  <script src="script.js"></script>
+</body>
+</html>
