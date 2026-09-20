@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Website Design Catalog | AS Web Solution</title>
-  <meta name="description" content="Explore our complete website design catalog with 59+ interactive templates. Choose any layout and our team will customize it for your brand. High-performance web development by AS Web Solution.">
+  <title>Template Store | AS Web Solution</title>
+  <meta name="description" content="Book premium website templates or customize them with our team, then book. 59+ production-ready, fully responsive HTML/CSS/JS templates with clean, commented code. Built by AS Web Solution.">
   <meta name="theme-color" content="#062A5C">
   <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -237,22 +237,6 @@
       flex: 1;
     }
 
-    .tech-stack-wrap {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin-bottom: 20px;
-    }
-    .tech-chip {
-      background: #EFF6FF;
-      color: var(--blue);
-      font-size: 0.74rem;
-      font-weight: 600;
-      padding: 4px 10px;
-      border-radius: 6px;
-      border: 1px solid #DBEAFE;
-    }
-
     .card-actions-bar {
       display: flex;
       align-items: center;
@@ -468,6 +452,7 @@
       height: 380px;
       overflow: hidden;
       background: #020C1B;
+      cursor: pointer;
     }
     .catalog-design-window img.design-scroll-img {
       width: 100%;
@@ -477,83 +462,116 @@
       will-change: transform;
     }
 
-    /* HOVER OVERLAY */
+    /* HOVER OVERLAY — black shade only (Book Now button sits on the image) */
     .catalog-design-window .window-overlay {
       position: absolute;
       inset: 0;
-      background: linear-gradient(to top, rgba(3,15,38,0.85) 0%, rgba(3,15,38,0.1) 60%, transparent 100%);
+      background: rgba(2, 6, 23, 0.62);
       opacity: 0;
       transition: opacity .3s ease;
-      display: flex;
-      align-items: flex-end;
-      padding: 20px;
       z-index: 3;
+      pointer-events: none;
     }
     .catalog-design-card:hover .window-overlay {
       opacity: 1;
     }
-    .window-overlay-btn {
-      width: 100%;
-      background: var(--blue);
-      color: #fff;
-      padding: 10px 16px;
-      border-radius: 999px;
-      font-size: 0.86rem;
-      font-weight: 600;
+
+    /* BOOK NOW BUTTON — sits on the card image, always visible */
+    .catalog-design-window .book-now-btn {
+      position: absolute;
+      left: 50%;
+      bottom: 16px;
+      transform: translateX(-50%);
+      z-index: 4;
       display: inline-flex;
       align-items: center;
-      justify-content: center;
-      gap: 8px;
-      box-shadow: 0 8px 20px rgba(37,99,235,0.4);
-      transition: background .2s, transform .2s;
-    }
-    .window-overlay-btn:hover {
-      background: #1D4ED8;
-      transform: translateY(-2px);
+      gap: 6px;
+      padding: 9px 22px;
+      border-radius: 999px;
+      background: var(--blue);
+      border: 1px solid var(--blue);
       color: #fff;
+      font-size: 0.82rem;
+      font-weight: 600;
+      white-space: nowrap;
+      cursor: pointer;
+      box-shadow: 0 6px 16px rgba(2,6,23,0.4);
+      transition: all .25s ease;
+    }
+    .catalog-design-window .book-now-btn:hover {
+      background: var(--blue-deep);
+      border-color: var(--blue-deep);
+      transform: translateX(-50%) translateY(-2px);
+      box-shadow: 0 10px 22px rgba(37,99,235,0.45);
     }
 
-    /* CARD BOTTOM INFO */
-    .catalog-design-footer {
-      padding: 18px 20px;
-      background: #0B2447;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 10px;
-      border-top: 1px solid rgba(255,255,255,0.08);
+    /* STORE OPTIONS SECTION (before gallery) */
+    .store-options-section { padding: 80px 0 72px; background: #F4F8FF; }
+    .store-options-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; margin-top: 46px; }
+    .store-option-card {
+      position: relative;
+      background: #fff;
+      border: 1px solid #E3ECFA;
+      border-radius: 20px;
+      padding: 32px 28px;
+      box-shadow: 0 10px 30px rgba(6,42,92,0.06);
+      transition: transform .3s cubic-bezier(.16,1,.3,1), box-shadow .3s ease;
     }
-    .catalog-design-footer h4 {
-      font-size: 0.95rem;
-      font-weight: 700;
-      color: #fff;
-      margin-bottom: 3px;
-    }
-    .catalog-design-footer p {
-      font-size: 0.78rem;
-      color: #94A3B8;
-      margin: 0;
-    }
-    .catalog-design-footer .select-btn {
-      padding: 7px 15px;
-      border-radius: 999px;
-      background: rgba(37,99,235,0.15);
-      border: 1px solid rgba(59,130,246,0.3);
-      color: #93C5FD;
-      font-size: 0.78rem;
-      font-weight: 600;
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-      transition: all .25s ease;
-      white-space: nowrap;
-      flex-shrink: 0;
-    }
-    .catalog-design-footer .select-btn:hover {
+    .store-option-card:hover { transform: translateY(-6px); box-shadow: 0 20px 45px rgba(6,42,92,0.12); }
+    .store-option-card.featured { border-color: var(--blue); box-shadow: 0 14px 38px rgba(37,99,235,0.14); }
+    .store-option-tag {
+      position: absolute;
+      top: -13px;
+      right: 22px;
       background: var(--blue);
       color: #fff;
-      border-color: var(--blue);
-      transform: translateY(-2px);
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 5px 13px;
+      border-radius: 999px;
+    }
+    .store-option-icon {
+      width: 54px;
+      height: 54px;
+      border-radius: 14px;
+      background: #EFF6FF;
+      color: var(--blue);
+      display: grid;
+      place-items: center;
+      margin-bottom: 18px;
+    }
+    .store-option-icon svg, .store-option-icon i { width: 26px; height: 26px; }
+    .store-option-card h3 { font-size: 1.15rem; font-weight: 700; color: var(--navy); margin: 0 0 10px; }
+    .store-option-price {
+      display: inline-block;
+      font-family: monospace;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--blue);
+      background: #EFF6FF;
+      border: 1px solid #DBEAFE;
+      padding: 4px 12px;
+      border-radius: 999px;
+      margin-bottom: 14px;
+    }
+    .store-option-card p { font-size: 0.9rem; color: #475569; line-height: 1.65; margin: 0; }
+    .store-option-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 16px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--blue);
+      transition: color .2s, gap .2s;
+    }
+    .store-option-link:hover { color: var(--blue-deep); gap: 9px; }
+    .store-option-link svg, .store-option-link i { width: 15px; height: 15px; }
+    @media (max-width: 860px) {
+      .store-options-grid { grid-template-columns: 1fr; }
+      .store-options-section { padding: 60px 0 55px; }
     }
 
     /* LOAD MORE BUTTON */
@@ -613,6 +631,150 @@
     }
     .design-modal-body {
       padding: 28px;
+    }
+
+    /* TEMPLATE DETAILS MODAL (developer view) */
+    .details-modal-content {
+      max-width: 980px;
+      width: 100%;
+      max-height: 90vh;
+      overflow: hidden;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+    }
+    .details-modal-close {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      z-index: 10;
+      background: rgba(255,255,255,0.92);
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+      border-radius: 10px;
+      transition: background 0.2s;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+    .details-modal-close:hover { background: #F1F5F9; }
+    .details-modal-body {
+      display: grid;
+      grid-template-columns: 1.05fr 1fr;
+      overflow: hidden;
+    }
+    .details-image-pane {
+      background: #020C1B;
+      overflow-y: auto;
+      max-height: 90vh;
+    }
+    .details-image-pane img {
+      width: 100%;
+      display: block;
+    }
+    .details-info-pane {
+      padding: 32px 30px;
+      overflow-y: auto;
+      max-height: 90vh;
+    }
+    .details-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #EFF6FF;
+      color: var(--blue);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      padding: 5px 12px;
+      border-radius: 999px;
+      border: 1px solid #DBEAFE;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+    }
+    .details-info-pane h3 {
+      margin: 0 0 10px;
+      font-size: 1.6rem;
+      color: var(--navy);
+      font-weight: 800;
+    }
+    .details-desc {
+      font-size: 0.94rem;
+      color: #475569;
+      line-height: 1.7;
+      margin: 0 0 20px;
+    }
+    .details-block { margin-bottom: 20px; }
+    .details-block h5 {
+      margin: 0 0 10px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--navy);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+    .details-block h5 svg, .details-block h5 i { width: 15px; height: 15px; color: var(--blue); }
+    .details-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .details-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 9px;
+      font-size: 0.88rem;
+      color: #475569;
+      line-height: 1.5;
+    }
+    .details-list li svg, .details-list li i { width: 15px; height: 15px; color: #10B981; flex-shrink: 0; margin-top: 2px; }
+    .details-price-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    .details-price-box {
+      border: 1px solid #E2E8F0;
+      border-radius: 12px;
+      padding: 12px 14px;
+      background: #F8FAFC;
+    }
+    .details-price-box.active {
+      border-color: var(--blue);
+      background: #EFF6FF;
+      box-shadow: 0 4px 14px rgba(37,99,235,0.12);
+    }
+    .details-price-box span {
+      display: block;
+      font-size: 0.72rem;
+      color: #64748B;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+    .details-price-box strong {
+      font-size: 1.25rem;
+      color: var(--navy);
+      font-weight: 800;
+    }
+    .details-price-box.active strong { color: var(--blue); }
+    .details-book-btn { width: 100%; }
+    .details-note {
+      margin: 12px 0 0;
+      font-size: 0.8rem;
+      color: #64748B;
+      text-align: center;
+      line-height: 1.55;
+    }
+    @media (max-width: 860px) {
+      .details-modal-body { grid-template-columns: 1fr; overflow-y: auto; }
+      .details-image-pane { max-height: 40vh; }
+      .details-info-pane { max-height: none; overflow: visible; }
     }
     .design-step {
       display: none;
@@ -797,27 +959,27 @@
     <!-- HERO SECTION -->
     <section class="page-hero">
       <div class="container">
-        <p class="eyebrow">WEBSITE DESIGN CATALOG</p>
-        <h1>Interactive Website<br><span class="grad">Template Gallery</span></h1>
-        <p class="lead">Explore our complete collection of 59+ website designs. Scroll to see interactive previews and choose any template for your custom website.</p>
+        <p class="eyebrow">PREMIUM TEMPLATE STORE</p>
+        <h1>Website Templates Built<br><span class="grad">for Developers</span></h1>
+        <p class="lead">Book our premium website templates as-is, or customize the design with our team first — then book. No payment now, we confirm everything by email. Clean, commented code. Fully responsive. Ready to deploy anywhere.</p>
 
         <div style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
-          <a href="#catalog-gallery" class="btn btn-primary">Browse Catalog <i data-lucide="arrow-down"></i></a>
-          <a href="services.html" class="btn btn-outline">View Services & Pricing</a>
+          <a href="#catalog-gallery" class="btn btn-primary">Browse Templates <i data-lucide="arrow-down"></i></a>
+          <a href="services.html" class="btn btn-outline">Custom Development</a>
         </div>
 
         <div class="hero-stats-strip">
           <div class="hero-stat-item">
             <i data-lucide="layout"></i>
-            <span>59+ Design Templates</span>
+            <span>59+ Ready Templates</span>
           </div>
           <div class="hero-stat-item">
-            <i data-lucide="shield-check"></i>
-            <span>100% Customizable</span>
+            <i data-lucide="code-2"></i>
+            <span>Clean, Commented Code</span>
           </div>
           <div class="hero-stat-item">
             <i data-lucide="zap"></i>
-            <span>Interactive Previews</span>
+            <span>Book As-Is or Customized</span>
           </div>
         </div>
       </div>
@@ -828,14 +990,48 @@
 
 
 
+    <!-- STORE OPTIONS -->
+    <section class="store-options-section">
+      <div class="container">
+        <div class="section-head" style="text-align:center; display:block;">
+          <p class="section-kicker">HOW IT WORKS</p>
+          <h2>Book It As-Is, or Customize It First</h2>
+          <p class="section-sub" style="margin: 10px auto 0;">You can book our premium website templates exactly as they are — or customize a template with our team first, then book it. Two simple ways, one library.</p>
+        </div>
+        <div class="store-options-grid">
+          <div class="store-option-card">
+            <div class="store-option-icon"><i data-lucide="shopping-bag"></i></div>
+            <h3>Book As-Is</h3>
+            <span class="store-option-price">$499 USD</span>
+            <p>Pick any template from the library and get the exact design — clean, commented HTML/CSS/JS, ready to deploy on any hosting.</p>
+          </div>
+          <div class="store-option-card featured">
+            <span class="store-option-tag">Most Flexible</span>
+            <div class="store-option-icon"><i data-lucide="palette"></i></div>
+            <h3>Customize, Then Book</h3>
+            <span class="store-option-price">$699 USD</span>
+            <p>Want changes? We adjust colors, content, sections and branding first — then you get the final customized template.</p>
+          </div>
+          <div class="store-option-card">
+            <div class="store-option-icon"><i data-lucide="code-2"></i></div>
+            <h3>Built From Scratch?</h3>
+            <span class="store-option-price">Custom Quote</span>
+            <p>Can't find the right fit? Our team designs and builds a fully custom website around your exact requirements.</p>
+            <a href="contact-project.html" class="store-option-link">Start a Project <i data-lucide="arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="catalog-gallery-section" id="catalog-gallery">
       <div class="container">
         <div class="gallery-head">
-          <p class="eyebrow">EXPLORE OUR WORK</p>
-          <h2>Website Design Catalog</h2>
-          <p>Scroll down or up to explore how each website template moves interactively. Choose any layout you love and our team will customize it for your brand.</p>
+          <p class="eyebrow">BROWSE THE LIBRARY</p>
+          <h2>Premium Template Library</h2>
+          <p>Click any template to open the full developer view — complete preview, included files and pricing. Book it as-is, or customize it with us first and then book.</p>
           <div class="gallery-scroll-indicator">
-            <i data-lucide="arrow-down"></i>
+            <i data-lucide="mouse-pointer-click"></i>
+            <span>Click a template for full details</span>
           </div>
         </div>
 
@@ -844,649 +1040,472 @@
           <div class="catalog-design-card" data-design-id="1">
             <div class="catalog-design-window">
               <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.39.55%20PM.jpeg" alt="Website Template Design 01" class="design-scroll-img" loading="lazy">
-              <div class="window-overlay">
-                <button class="window-overlay-btn catalog-choose-btn" data-design-id="1" data-design-name="PRO-01">
-                  Choose This Design <i data-lucide="arrow-right"></i>
-                </button>
-              </div>
+              <div class="window-overlay"></div>
+              <button class="select-btn catalog-book-btn book-now-btn" data-design-id="1" data-design-name="PRO-01">Book Now <i data-lucide="calendar-check"></i></button>
             </div>
           </div>
 
           <div class="catalog-design-card" data-design-id="2">
             <div class="catalog-design-window">
               <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.39.57%20PM.jpeg" alt="Website Template Design 02" class="design-scroll-img" loading="lazy">
-              <div class="window-overlay">
-                <button class="window-overlay-btn catalog-choose-btn" data-design-id="2" data-design-name="PRO-02">
-                  Choose This Design <i data-lucide="arrow-right"></i>
-                </button>
-              </div>
+              <div class="window-overlay"></div>
+              <button class="select-btn catalog-book-btn book-now-btn" data-design-id="2" data-design-name="PRO-02">Book Now <i data-lucide="calendar-check"></i></button>
             </div>
           </div>
 
           <div class="catalog-design-card" data-design-id="3">
             <div class="catalog-design-window">
               <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.39.58%20PM.jpeg" alt="Website Template Design 03" class="design-scroll-img" loading="lazy">
-              <div class="window-overlay">
-                <button class="window-overlay-btn catalog-choose-btn" data-design-id="3" data-design-name="PRO-03">
-                  Choose This Design <i data-lucide="arrow-right"></i>
-                </button>
-              </div>
+              <div class="window-overlay"></div>
+              <button class="select-btn catalog-book-btn book-now-btn" data-design-id="3" data-design-name="PRO-03">Book Now <i data-lucide="calendar-check"></i></button>
             </div>
           </div>
 
           <div class="catalog-design-card" data-design-id="4">
             <div class="catalog-design-window">
               <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.39.59%20PM.jpeg" alt="Website Template Design 04" class="design-scroll-img" loading="lazy">
-              <div class="window-overlay">
-                <button class="window-overlay-btn catalog-choose-btn" data-design-id="4" data-design-name="PRO-04">
-                  Choose This Design <i data-lucide="arrow-right"></i>
-                </button>
-              </div>
+              <div class="window-overlay"></div>
+              <button class="select-btn catalog-book-btn book-now-btn" data-design-id="4" data-design-name="PRO-04">Book Now <i data-lucide="calendar-check"></i></button>
             </div>
           </div>
 
           <div class="catalog-design-card" data-design-id="5">
             <div class="catalog-design-window">
               <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.00%20PM.jpeg" alt="Website Template Design 05" class="design-scroll-img" loading="lazy">
-              <div class="window-overlay">
-                <button class="window-overlay-btn catalog-choose-btn" data-design-id="5" data-design-name="PRO-05">
-                  Choose This Design <i data-lucide="arrow-right"></i>
-                </button>
-              </div>
+              <div class="window-overlay"></div>
+              <button class="select-btn catalog-book-btn book-now-btn" data-design-id="5" data-design-name="PRO-05">Book Now <i data-lucide="calendar-check"></i></button>
             </div>
           </div>
 
           <div class="catalog-design-card" data-design-id="6">
             <div class="catalog-design-window">
               <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.01%20PM.jpeg" alt="Website Template Design 06" class="design-scroll-img" loading="lazy">
-              <div class="window-overlay">
-                <button class="window-overlay-btn catalog-choose-btn" data-design-id="6" data-design-name="PRO-06">
-                  Choose This Design <i data-lucide="arrow-right"></i>
-                </button>
-              </div>
+              <div class="window-overlay"></div>
+              <button class="select-btn catalog-book-btn book-now-btn" data-design-id="6" data-design-name="PRO-06">Book Now <i data-lucide="calendar-check"></i></button>
             </div>
           </div>
 
           <div class="catalog-design-card" data-design-id="7">
             <div class="catalog-design-window">
               <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.02%20PM.jpeg" alt="Website Template Design 07" class="design-scroll-img" loading="lazy">
-              <div class="window-overlay">
-                <button class="window-overlay-btn catalog-choose-btn" data-design-id="7" data-design-name="PRO-07">
-                  Choose This Design <i data-lucide="arrow-right"></i>
-                </button>
-              </div>
+              <div class="window-overlay"></div>
+              <button class="select-btn catalog-book-btn book-now-btn" data-design-id="7" data-design-name="PRO-07">Book Now <i data-lucide="calendar-check"></i></button>
             </div>
           </div>
 
           <div class="catalog-design-card" data-design-id="8">
             <div class="catalog-design-window">
               <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.04%20PM.jpeg" alt="Website Template Design 08" class="design-scroll-img" loading="lazy">
-              <div class="window-overlay">
-                <button class="window-overlay-btn catalog-choose-btn" data-design-id="8" data-design-name="PRO-08">
-                  Choose This Design <i data-lucide="arrow-right"></i>
-                </button>
-              </div>
+              <div class="window-overlay"></div>
+              <button class="select-btn catalog-book-btn book-now-btn" data-design-id="8" data-design-name="PRO-08">Book Now <i data-lucide="calendar-check"></i></button>
             </div>
           </div>
 
           <div class="catalog-design-card" data-design-id="9">
             <div class="catalog-design-window">
               <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.05%20PM.jpeg" alt="Website Template Design 09" class="design-scroll-img" loading="lazy">
-              <div class="window-overlay">
-                <button class="window-overlay-btn catalog-choose-btn" data-design-id="9" data-design-name="PRO-09">
-                  Choose This Design <i data-lucide="arrow-right"></i>
-                </button>
-              </div>
+              <div class="window-overlay"></div>
+              <button class="select-btn catalog-book-btn book-now-btn" data-design-id="9" data-design-name="PRO-09">Book Now <i data-lucide="calendar-check"></i></button>
             </div>
           </div>
 
           <div class="catalog-design-card" data-design-id="10">
             <div class="catalog-design-window">
               <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.07%20PM.jpeg" alt="Website Template Design 10" class="design-scroll-img" loading="lazy">
-              <div class="window-overlay">
-                <button class="window-overlay-btn catalog-choose-btn" data-design-id="10" data-design-name="PRO-10">
-                  Choose This Design <i data-lucide="arrow-right"></i>
-                </button>
-              </div>
+              <div class="window-overlay"></div>
+              <button class="select-btn catalog-book-btn book-now-btn" data-design-id="10" data-design-name="PRO-10">Book Now <i data-lucide="calendar-check"></i></button>
             </div>
           </div>
 
           <div class="catalog-design-card" data-design-id="11">
             <div class="catalog-design-window">
               <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.08%20PM.jpeg" alt="Website Template Design 11" class="design-scroll-img" loading="lazy">
-              <div class="window-overlay">
-                <button class="window-overlay-btn catalog-choose-btn" data-design-id="11" data-design-name="PRO-11">
-                  Choose This Design <i data-lucide="arrow-right"></i>
-                </button>
-              </div>
+              <div class="window-overlay"></div>
+              <button class="select-btn catalog-book-btn book-now-btn" data-design-id="11" data-design-name="PRO-11">Book Now <i data-lucide="calendar-check"></i></button>
             </div>
           </div>
 
           <div class="catalog-design-card" data-design-id="12">
             <div class="catalog-design-window">
               <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.10%20PM.jpeg" alt="Website Template Design 12" class="design-scroll-img" loading="lazy">
-              <div class="window-overlay">
-                <button class="window-overlay-btn catalog-choose-btn" data-design-id="12" data-design-name="PRO-12">
-                  Choose This Design <i data-lucide="arrow-right"></i>
-                </button>
-              </div>
+              <div class="window-overlay"></div>
+              <button class="select-btn catalog-book-btn book-now-btn" data-design-id="12" data-design-name="PRO-12">Book Now <i data-lucide="calendar-check"></i></button>
             </div>
           </div>
 
           <div class="catalog-design-card extra-catalog-card" data-design-id="13" style="display:none;">
             <div class="catalog-design-window">
               <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.15%20PM.jpeg" alt="Website Template Design 13" class="design-scroll-img" loading="lazy">
-              <div class="window-overlay">
-                <button class="window-overlay-btn catalog-choose-btn" data-design-id="13" data-design-name="PRO-13">
-                  Choose This Design <i data-lucide="arrow-right"></i>
-                </button>
-              </div>
+              <div class="window-overlay"></div>
+              <button class="select-btn catalog-book-btn book-now-btn" data-design-id="13" data-design-name="PRO-13">Book Now <i data-lucide="calendar-check"></i></button>
             </div>
           </div>
 
           <div class="catalog-design-card extra-catalog-card" data-design-id="14" style="display:none;">
             <div class="catalog-design-window">
               <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.16%20PM.jpeg" alt="Website Template Design 14" class="design-scroll-img" loading="lazy">
-              <div class="window-overlay">
-                <button class="window-overlay-btn catalog-choose-btn" data-design-id="14" data-design-name="PRO-14">
-                  Choose This Design <i data-lucide="arrow-right"></i>
-                </button>
-              </div>
+              <div class="window-overlay"></div>
+              <button class="select-btn catalog-book-btn book-now-btn" data-design-id="14" data-design-name="PRO-14">Book Now <i data-lucide="calendar-check"></i></button>
             </div>
           </div>
 
           <div class="catalog-design-card extra-catalog-card" data-design-id="15" style="display:none;">
             <div class="catalog-design-window">
               <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.18%20PM.jpeg" alt="Website Template Design 15" class="design-scroll-img" loading="lazy">
-              <div class="window-overlay">
-                <button class="window-overlay-btn catalog-choose-btn" data-design-id="15" data-design-name="PRO-15">
-                  Choose This Design <i data-lucide="arrow-right"></i>
-                </button>
-              </div>
+              <div class="window-overlay"></div>
+              <button class="select-btn catalog-book-btn book-now-btn" data-design-id="15" data-design-name="PRO-15">Book Now <i data-lucide="calendar-check"></i></button>
             </div>
           </div>
 
           <div class="catalog-design-card extra-catalog-card" data-design-id="16" style="display:none;">
             <div class="catalog-design-window">
               <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.19%20PM%20(1).jpeg" alt="Website Template Design 16" class="design-scroll-img" loading="lazy">
-              <div class="window-overlay">
-                <button class="window-overlay-btn catalog-choose-btn" data-design-id="16" data-design-name="PRO-16">
-                  Choose This Design <i data-lucide="arrow-right"></i>
-                </button>
-              </div>
+              <div class="window-overlay"></div>
+              <button class="select-btn catalog-book-btn book-now-btn" data-design-id="16" data-design-name="PRO-16">Book Now <i data-lucide="calendar-check"></i></button>
             </div>
           </div>
 
           <div class="catalog-design-card extra-catalog-card" data-design-id="17" style="display:none;">
             <div class="catalog-design-window">
               <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.19%20PM.jpeg" alt="Website Template Design 17" class="design-scroll-img" loading="lazy">
-              <div class="window-overlay">
-                <button class="window-overlay-btn catalog-choose-btn" data-design-id="17" data-design-name="PRO-17">
-                  Choose This Design <i data-lucide="arrow-right"></i>
-                </button>
-              </div>
+              <div class="window-overlay"></div>
+              <button class="select-btn catalog-book-btn book-now-btn" data-design-id="17" data-design-name="PRO-17">Book Now <i data-lucide="calendar-check"></i></button>
             </div>
           </div>
 
           <div class="catalog-design-card extra-catalog-card" data-design-id="18" style="display:none;">
             <div class="catalog-design-window">
               <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.21%20PM.jpeg" alt="Website Template Design 18" class="design-scroll-img" loading="lazy">
-              <div class="window-overlay">
-                <button class="window-overlay-btn catalog-choose-btn" data-design-id="18" data-design-name="PRO-18">
-                  Choose This Design <i data-lucide="arrow-right"></i>
-                </button>
-              </div>
+              <div class="window-overlay"></div>
+              <button class="select-btn catalog-book-btn book-now-btn" data-design-id="18" data-design-name="PRO-18">Book Now <i data-lucide="calendar-check"></i></button>
             </div>
           </div>
 
           <div class="catalog-design-card extra-catalog-card" data-design-id="19" style="display:none;">
             <div class="catalog-design-window">
               <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.22%20PM%20(1).jpeg" alt="Website Template Design 19" class="design-scroll-img" loading="lazy">
-              <div class="window-overlay">
-                <button class="window-overlay-btn catalog-choose-btn" data-design-id="19" data-design-name="PRO-19">
-                  Choose This Design <i data-lucide="arrow-right"></i>
-                </button>
-              </div>
+              <div class="window-overlay"></div>
+              <button class="select-btn catalog-book-btn book-now-btn" data-design-id="19" data-design-name="PRO-19">Book Now <i data-lucide="calendar-check"></i></button>
             </div>
           </div>
 
           <div class="catalog-design-card extra-catalog-card" data-design-id="20" style="display:none;">
             <div class="catalog-design-window">
               <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.22%20PM.jpeg" alt="Website Template Design 20" class="design-scroll-img" loading="lazy">
-              <div class="window-overlay">
-                <button class="window-overlay-btn catalog-choose-btn" data-design-id="20" data-design-name="PRO-20">
-                  Choose This Design <i data-lucide="arrow-right"></i>
-                </button>
-              </div>
+              <div class="window-overlay"></div>
+              <button class="select-btn catalog-book-btn book-now-btn" data-design-id="20" data-design-name="PRO-20">Book Now <i data-lucide="calendar-check"></i></button>
             </div>
           </div>
 
           <div class="catalog-design-card extra-catalog-card" data-design-id="21" style="display:none;">
             <div class="catalog-design-window">
               <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.23%20PM.jpeg" alt="Website Template Design 21" class="design-scroll-img" loading="lazy">
-              <div class="window-overlay">
-                <button class="window-overlay-btn catalog-choose-btn" data-design-id="21" data-design-name="PRO-21">
-                  Choose This Design <i data-lucide="arrow-right"></i>
-                </button>
-              </div>
+              <div class="window-overlay"></div>
+              <button class="select-btn catalog-book-btn book-now-btn" data-design-id="21" data-design-name="PRO-21">Book Now <i data-lucide="calendar-check"></i></button>
             </div>
           </div>
 
           <div class="catalog-design-card extra-catalog-card" data-design-id="22" style="display:none;">
             <div class="catalog-design-window">
               <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.25%20PM.jpeg" alt="Website Template Design 22" class="design-scroll-img" loading="lazy">
-              <div class="window-overlay">
-                <button class="window-overlay-btn catalog-choose-btn" data-design-id="22" data-design-name="PRO-22">
-                  Choose This Design <i data-lucide="arrow-right"></i>
-                </button>
-              </div>
+              <div class="window-overlay"></div>
+              <button class="select-btn catalog-book-btn book-now-btn" data-design-id="22" data-design-name="PRO-22">Book Now <i data-lucide="calendar-check"></i></button>
             </div>
           </div>
 
           <div class="catalog-design-card extra-catalog-card" data-design-id="23" style="display:none;">
             <div class="catalog-design-window">
               <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.26%20PM.jpeg" alt="Website Template Design 23" class="design-scroll-img" loading="lazy">
-              <div class="window-overlay">
-                <button class="window-overlay-btn catalog-choose-btn" data-design-id="23" data-design-name="PRO-23">
-                  Choose This Design <i data-lucide="arrow-right"></i>
-                </button>
-              </div>
+              <div class="window-overlay"></div>
+              <button class="select-btn catalog-book-btn book-now-btn" data-design-id="23" data-design-name="PRO-23">Book Now <i data-lucide="calendar-check"></i></button>
             </div>
           </div>
 
           <div class="catalog-design-card extra-catalog-card" data-design-id="24" style="display:none;">
             <div class="catalog-design-window">
               <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.27%20PM.jpeg" alt="Website Template Design 24" class="design-scroll-img" loading="lazy">
-              <div class="window-overlay">
-                <button class="window-overlay-btn catalog-choose-btn" data-design-id="24" data-design-name="PRO-24">
-                  Choose This Design <i data-lucide="arrow-right"></i>
-                </button>
-              </div>
+              <div class="window-overlay"></div>
+              <button class="select-btn catalog-book-btn book-now-btn" data-design-id="24" data-design-name="PRO-24">Book Now <i data-lucide="calendar-check"></i></button>
             </div>
           </div>
 
           <div class="catalog-design-card extra-catalog-card" data-design-id="25" style="display:none;">
             <div class="catalog-design-window">
               <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.28%20PM.jpeg" alt="Website Template Design 25" class="design-scroll-img" loading="lazy">
-              <div class="window-overlay">
-                <button class="window-overlay-btn catalog-choose-btn" data-design-id="25" data-design-name="PRO-25">
-                  Choose This Design <i data-lucide="arrow-right"></i>
-                </button>
-              </div>
+              <div class="window-overlay"></div>
+              <button class="select-btn catalog-book-btn book-now-btn" data-design-id="25" data-design-name="PRO-25">Book Now <i data-lucide="calendar-check"></i></button>
             </div>
           </div>
 
           <div class="catalog-design-card extra-catalog-card" data-design-id="26" style="display:none;">
             <div class="catalog-design-window">
               <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.29%20PM%20(1).jpeg" alt="Website Template Design 26" class="design-scroll-img" loading="lazy">
-              <div class="window-overlay">
-                <button class="window-overlay-btn catalog-choose-btn" data-design-id="26" data-design-name="PRO-26">
-                  Choose This Design <i data-lucide="arrow-right"></i>
-                </button>
-              </div>
+              <div class="window-overlay"></div>
+              <button class="select-btn catalog-book-btn book-now-btn" data-design-id="26" data-design-name="PRO-26">Book Now <i data-lucide="calendar-check"></i></button>
             </div>
           </div>
 
           <div class="catalog-design-card extra-catalog-card" data-design-id="27" style="display:none;">
             <div class="catalog-design-window">
               <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.29%20PM.jpeg" alt="Website Template Design 27" class="design-scroll-img" loading="lazy">
-              <div class="window-overlay">
-                <button class="window-overlay-btn catalog-choose-btn" data-design-id="27" data-design-name="PRO-27">
-                  Choose This Design <i data-lucide="arrow-right"></i>
-                </button>
-              </div>
+              <div class="window-overlay"></div>
+              <button class="select-btn catalog-book-btn book-now-btn" data-design-id="27" data-design-name="PRO-27">Book Now <i data-lucide="calendar-check"></i></button>
             </div>
           </div>
 
           <div class="catalog-design-card extra-catalog-card" data-design-id="28" style="display:none;">
             <div class="catalog-design-window">
               <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.30%20PM.jpeg" alt="Website Template Design 28" class="design-scroll-img" loading="lazy">
-              <div class="window-overlay">
-                <button class="window-overlay-btn catalog-choose-btn" data-design-id="28" data-design-name="PRO-28">
-                  Choose This Design <i data-lucide="arrow-right"></i>
-                </button>
-              </div>
+              <div class="window-overlay"></div>
+              <button class="select-btn catalog-book-btn book-now-btn" data-design-id="28" data-design-name="PRO-28">Book Now <i data-lucide="calendar-check"></i></button>
             </div>
           </div>
 
           <div class="catalog-design-card extra-catalog-card" data-design-id="29" style="display:none;">
             <div class="catalog-design-window">
               <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.31%20PM%20(1).jpeg" alt="Website Template Design 29" class="design-scroll-img" loading="lazy">
-              <div class="window-overlay">
-                <button class="window-overlay-btn catalog-choose-btn" data-design-id="29" data-design-name="PRO-29">
-                  Choose This Design <i data-lucide="arrow-right"></i>
-                </button>
-              </div>
+              <div class="window-overlay"></div>
+              <button class="select-btn catalog-book-btn book-now-btn" data-design-id="29" data-design-name="PRO-29">Book Now <i data-lucide="calendar-check"></i></button>
             </div>
           </div>
 
           <div class="catalog-design-card extra-catalog-card" data-design-id="30" style="display:none;">
             <div class="catalog-design-window">
               <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.31%20PM.jpeg" alt="Website Template Design 30" class="design-scroll-img" loading="lazy">
-              <div class="window-overlay">
-                <button class="window-overlay-btn catalog-choose-btn" data-design-id="30" data-design-name="PRO-30">
-                  Choose This Design <i data-lucide="arrow-right"></i>
-                </button>
-              </div>
+              <div class="window-overlay"></div>
+              <button class="select-btn catalog-book-btn book-now-btn" data-design-id="30" data-design-name="PRO-30">Book Now <i data-lucide="calendar-check"></i></button>
             </div>
           </div>
 
           <div class="catalog-design-card extra-catalog-card" data-design-id="31" style="display:none;">
             <div class="catalog-design-window">
               <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.33%20PM%20(1).jpeg" alt="Website Template Design 31" class="design-scroll-img" loading="lazy">
-              <div class="window-overlay">
-                <button class="window-overlay-btn catalog-choose-btn" data-design-id="31" data-design-name="PRO-31">
-                  Choose This Design <i data-lucide="arrow-right"></i>
-                </button>
-              </div>
+              <div class="window-overlay"></div>
+              <button class="select-btn catalog-book-btn book-now-btn" data-design-id="31" data-design-name="PRO-31">Book Now <i data-lucide="calendar-check"></i></button>
             </div>
           </div>
 
           <div class="catalog-design-card extra-catalog-card" data-design-id="32" style="display:none;">
             <div class="catalog-design-window">
               <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.33%20PM.jpeg" alt="Website Template Design 32" class="design-scroll-img" loading="lazy">
-              <div class="window-overlay">
-                <button class="window-overlay-btn catalog-choose-btn" data-design-id="32" data-design-name="PRO-32">
-                  Choose This Design <i data-lucide="arrow-right"></i>
-                </button>
-              </div>
+              <div class="window-overlay"></div>
+              <button class="select-btn catalog-book-btn book-now-btn" data-design-id="32" data-design-name="PRO-32">Book Now <i data-lucide="calendar-check"></i></button>
             </div>
           </div>
 
           <div class="catalog-design-card extra-catalog-card" data-design-id="33" style="display:none;">
             <div class="catalog-design-window">
               <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.37%20PM.jpeg" alt="Website Template Design 33" class="design-scroll-img" loading="lazy">
-              <div class="window-overlay">
-                <button class="window-overlay-btn catalog-choose-btn" data-design-id="33" data-design-name="PRO-33">
-                  Choose This Design <i data-lucide="arrow-right"></i>
-                </button>
-              </div>
+              <div class="window-overlay"></div>
+              <button class="select-btn catalog-book-btn book-now-btn" data-design-id="33" data-design-name="PRO-33">Book Now <i data-lucide="calendar-check"></i></button>
             </div>
           </div>
 
           <div class="catalog-design-card extra-catalog-card" data-design-id="34" style="display:none;">
             <div class="catalog-design-window">
               <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.38%20PM.jpeg" alt="Website Template Design 34" class="design-scroll-img" loading="lazy">
-              <div class="window-overlay">
-                <button class="window-overlay-btn catalog-choose-btn" data-design-id="34" data-design-name="PRO-34">
-                  Choose This Design <i data-lucide="arrow-right"></i>
-                </button>
-              </div>
+              <div class="window-overlay"></div>
+              <button class="select-btn catalog-book-btn book-now-btn" data-design-id="34" data-design-name="PRO-34">Book Now <i data-lucide="calendar-check"></i></button>
             </div>
           </div>
 
           <div class="catalog-design-card extra-catalog-card" data-design-id="35" style="display:none;">
             <div class="catalog-design-window">
               <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.39%20PM%20(1).jpeg" alt="Website Template Design 35" class="design-scroll-img" loading="lazy">
-              <div class="window-overlay">
-                <button class="window-overlay-btn catalog-choose-btn" data-design-id="35" data-design-name="PRO-35">
-                  Choose This Design <i data-lucide="arrow-right"></i>
-                </button>
-              </div>
+              <div class="window-overlay"></div>
+              <button class="select-btn catalog-book-btn book-now-btn" data-design-id="35" data-design-name="PRO-35">Book Now <i data-lucide="calendar-check"></i></button>
             </div>
           </div>
 
           <div class="catalog-design-card extra-catalog-card" data-design-id="36" style="display:none;">
             <div class="catalog-design-window">
               <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.39%20PM.jpeg" alt="Website Template Design 36" class="design-scroll-img" loading="lazy">
-              <div class="window-overlay">
-                <button class="window-overlay-btn catalog-choose-btn" data-design-id="36" data-design-name="PRO-36">
-                  Choose This Design <i data-lucide="arrow-right"></i>
-                </button>
-              </div>
+              <div class="window-overlay"></div>
+              <button class="select-btn catalog-book-btn book-now-btn" data-design-id="36" data-design-name="PRO-36">Book Now <i data-lucide="calendar-check"></i></button>
             </div>
           </div>
 
           <div class="catalog-design-card extra-catalog-card" data-design-id="37" style="display:none;">
             <div class="catalog-design-window">
               <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.40%20PM%20(1).jpeg" alt="Website Template Design 37" class="design-scroll-img" loading="lazy">
-              <div class="window-overlay">
-                <button class="window-overlay-btn catalog-choose-btn" data-design-id="37" data-design-name="PRO-37">
-                  Choose This Design <i data-lucide="arrow-right"></i>
-                </button>
-              </div>
+              <div class="window-overlay"></div>
+              <button class="select-btn catalog-book-btn book-now-btn" data-design-id="37" data-design-name="PRO-37">Book Now <i data-lucide="calendar-check"></i></button>
             </div>
           </div>
 
           <div class="catalog-design-card extra-catalog-card" data-design-id="38" style="display:none;">
             <div class="catalog-design-window">
               <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.40%20PM.jpeg" alt="Website Template Design 38" class="design-scroll-img" loading="lazy">
-              <div class="window-overlay">
-                <button class="window-overlay-btn catalog-choose-btn" data-design-id="38" data-design-name="PRO-38">
-                  Choose This Design <i data-lucide="arrow-right"></i>
-                </button>
-              </div>
+              <div class="window-overlay"></div>
+              <button class="select-btn catalog-book-btn book-now-btn" data-design-id="38" data-design-name="PRO-38">Book Now <i data-lucide="calendar-check"></i></button>
             </div>
           </div>
 
           <div class="catalog-design-card extra-catalog-card" data-design-id="39" style="display:none;">
             <div class="catalog-design-window">
               <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.41%20PM%20(1).jpeg" alt="Website Template Design 39" class="design-scroll-img" loading="lazy">
-              <div class="window-overlay">
-                <button class="window-overlay-btn catalog-choose-btn" data-design-id="39" data-design-name="PRO-39">
-                  Choose This Design <i data-lucide="arrow-right"></i>
-                </button>
-              </div>
+              <div class="window-overlay"></div>
+              <button class="select-btn catalog-book-btn book-now-btn" data-design-id="39" data-design-name="PRO-39">Book Now <i data-lucide="calendar-check"></i></button>
             </div>
           </div>
 
           <div class="catalog-design-card extra-catalog-card" data-design-id="40" style="display:none;">
             <div class="catalog-design-window">
               <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.41%20PM%20(2).jpeg" alt="Website Template Design 40" class="design-scroll-img" loading="lazy">
-              <div class="window-overlay">
-                <button class="window-overlay-btn catalog-choose-btn" data-design-id="40" data-design-name="PRO-40">
-                  Choose This Design <i data-lucide="arrow-right"></i>
-                </button>
-              </div>
+              <div class="window-overlay"></div>
+              <button class="select-btn catalog-book-btn book-now-btn" data-design-id="40" data-design-name="PRO-40">Book Now <i data-lucide="calendar-check"></i></button>
             </div>
           </div>
 
           <div class="catalog-design-card extra-catalog-card" data-design-id="41" style="display:none;">
             <div class="catalog-design-window">
               <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.41%20PM.jpeg" alt="Website Template Design 41" class="design-scroll-img" loading="lazy">
-              <div class="window-overlay">
-                <button class="window-overlay-btn catalog-choose-btn" data-design-id="41" data-design-name="PRO-41">
-                  Choose This Design <i data-lucide="arrow-right"></i>
-                </button>
-              </div>
+              <div class="window-overlay"></div>
+              <button class="select-btn catalog-book-btn book-now-btn" data-design-id="41" data-design-name="PRO-41">Book Now <i data-lucide="calendar-check"></i></button>
             </div>
           </div>
 
           <div class="catalog-design-card extra-catalog-card" data-design-id="42" style="display:none;">
             <div class="catalog-design-window">
               <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.42%20PM.jpeg" alt="Website Template Design 42" class="design-scroll-img" loading="lazy">
-              <div class="window-overlay">
-                <button class="window-overlay-btn catalog-choose-btn" data-design-id="42" data-design-name="PRO-42">
-                  Choose This Design <i data-lucide="arrow-right"></i>
-                </button>
-              </div>
+              <div class="window-overlay"></div>
+              <button class="select-btn catalog-book-btn book-now-btn" data-design-id="42" data-design-name="PRO-42">Book Now <i data-lucide="calendar-check"></i></button>
             </div>
           </div>
 
           <div class="catalog-design-card extra-catalog-card" data-design-id="43" style="display:none;">
             <div class="catalog-design-window">
               <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.43%20PM.jpeg" alt="Website Template Design 43" class="design-scroll-img" loading="lazy">
-              <div class="window-overlay">
-                <button class="window-overlay-btn catalog-choose-btn" data-design-id="43" data-design-name="PRO-43">
-                  Choose This Design <i data-lucide="arrow-right"></i>
-                </button>
-              </div>
+              <div class="window-overlay"></div>
+              <button class="select-btn catalog-book-btn book-now-btn" data-design-id="43" data-design-name="PRO-43">Book Now <i data-lucide="calendar-check"></i></button>
             </div>
           </div>
 
           <div class="catalog-design-card extra-catalog-card" data-design-id="44" style="display:none;">
             <div class="catalog-design-window">
               <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.44%20PM%20(1).jpeg" alt="Website Template Design 44" class="design-scroll-img" loading="lazy">
-              <div class="window-overlay">
-                <button class="window-overlay-btn catalog-choose-btn" data-design-id="44" data-design-name="PRO-44">
-                  Choose This Design <i data-lucide="arrow-right"></i>
-                </button>
-              </div>
+              <div class="window-overlay"></div>
+              <button class="select-btn catalog-book-btn book-now-btn" data-design-id="44" data-design-name="PRO-44">Book Now <i data-lucide="calendar-check"></i></button>
             </div>
           </div>
 
           <div class="catalog-design-card extra-catalog-card" data-design-id="45" style="display:none;">
             <div class="catalog-design-window">
               <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.44%20PM.jpeg" alt="Website Template Design 45" class="design-scroll-img" loading="lazy">
-              <div class="window-overlay">
-                <button class="window-overlay-btn catalog-choose-btn" data-design-id="45" data-design-name="PRO-45">
-                  Choose This Design <i data-lucide="arrow-right"></i>
-                </button>
-              </div>
+              <div class="window-overlay"></div>
+              <button class="select-btn catalog-book-btn book-now-btn" data-design-id="45" data-design-name="PRO-45">Book Now <i data-lucide="calendar-check"></i></button>
             </div>
           </div>
 
           <div class="catalog-design-card extra-catalog-card" data-design-id="46" style="display:none;">
             <div class="catalog-design-window">
               <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.45%20PM.jpeg" alt="Website Template Design 46" class="design-scroll-img" loading="lazy">
-              <div class="window-overlay">
-                <button class="window-overlay-btn catalog-choose-btn" data-design-id="46" data-design-name="PRO-46">
-                  Choose This Design <i data-lucide="arrow-right"></i>
-                </button>
-              </div>
+              <div class="window-overlay"></div>
+              <button class="select-btn catalog-book-btn book-now-btn" data-design-id="46" data-design-name="PRO-46">Book Now <i data-lucide="calendar-check"></i></button>
             </div>
           </div>
 
           <div class="catalog-design-card extra-catalog-card" data-design-id="47" style="display:none;">
             <div class="catalog-design-window">
               <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.46%20PM%20(1).jpeg" alt="Website Template Design 47" class="design-scroll-img" loading="lazy">
-              <div class="window-overlay">
-                <button class="window-overlay-btn catalog-choose-btn" data-design-id="47" data-design-name="PRO-47">
-                  Choose This Design <i data-lucide="arrow-right"></i>
-                </button>
-              </div>
+              <div class="window-overlay"></div>
+              <button class="select-btn catalog-book-btn book-now-btn" data-design-id="47" data-design-name="PRO-47">Book Now <i data-lucide="calendar-check"></i></button>
             </div>
           </div>
 
           <div class="catalog-design-card extra-catalog-card" data-design-id="48" style="display:none;">
             <div class="catalog-design-window">
               <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.46%20PM.jpeg" alt="Website Template Design 48" class="design-scroll-img" loading="lazy">
-              <div class="window-overlay">
-                <button class="window-overlay-btn catalog-choose-btn" data-design-id="48" data-design-name="PRO-48">
-                  Choose This Design <i data-lucide="arrow-right"></i>
-                </button>
-              </div>
+              <div class="window-overlay"></div>
+              <button class="select-btn catalog-book-btn book-now-btn" data-design-id="48" data-design-name="PRO-48">Book Now <i data-lucide="calendar-check"></i></button>
             </div>
           </div>
 
           <div class="catalog-design-card extra-catalog-card" data-design-id="49" style="display:none;">
             <div class="catalog-design-window">
               <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.50%20PM%20(1).jpeg" alt="Website Template Design 49" class="design-scroll-img" loading="lazy">
-              <div class="window-overlay">
-                <button class="window-overlay-btn catalog-choose-btn" data-design-id="49" data-design-name="PRO-49">
-                  Choose This Design <i data-lucide="arrow-right"></i>
-                </button>
-              </div>
+              <div class="window-overlay"></div>
+              <button class="select-btn catalog-book-btn book-now-btn" data-design-id="49" data-design-name="PRO-49">Book Now <i data-lucide="calendar-check"></i></button>
             </div>
           </div>
 
           <div class="catalog-design-card extra-catalog-card" data-design-id="50" style="display:none;">
             <div class="catalog-design-window">
               <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.50%20PM%20(2).jpeg" alt="Website Template Design 50" class="design-scroll-img" loading="lazy">
-              <div class="window-overlay">
-                <button class="window-overlay-btn catalog-choose-btn" data-design-id="50" data-design-name="PRO-50">
-                  Choose This Design <i data-lucide="arrow-right"></i>
-                </button>
-              </div>
+              <div class="window-overlay"></div>
+              <button class="select-btn catalog-book-btn book-now-btn" data-design-id="50" data-design-name="PRO-50">Book Now <i data-lucide="calendar-check"></i></button>
             </div>
           </div>
 
           <div class="catalog-design-card extra-catalog-card" data-design-id="51" style="display:none;">
             <div class="catalog-design-window">
               <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.50%20PM.jpeg" alt="Website Template Design 51" class="design-scroll-img" loading="lazy">
-              <div class="window-overlay">
-                <button class="window-overlay-btn catalog-choose-btn" data-design-id="51" data-design-name="PRO-51">
-                  Choose This Design <i data-lucide="arrow-right"></i>
-                </button>
-              </div>
+              <div class="window-overlay"></div>
+              <button class="select-btn catalog-book-btn book-now-btn" data-design-id="51" data-design-name="PRO-51">Book Now <i data-lucide="calendar-check"></i></button>
             </div>
           </div>
 
           <div class="catalog-design-card extra-catalog-card" data-design-id="52" style="display:none;">
             <div class="catalog-design-window">
               <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.51%20PM.jpeg" alt="Website Template Design 52" class="design-scroll-img" loading="lazy">
-              <div class="window-overlay">
-                <button class="window-overlay-btn catalog-choose-btn" data-design-id="52" data-design-name="PRO-52">
-                  Choose This Design <i data-lucide="arrow-right"></i>
-                </button>
-              </div>
+              <div class="window-overlay"></div>
+              <button class="select-btn catalog-book-btn book-now-btn" data-design-id="52" data-design-name="PRO-52">Book Now <i data-lucide="calendar-check"></i></button>
             </div>
           </div>
 
           <div class="catalog-design-card extra-catalog-card" data-design-id="53" style="display:none;">
             <div class="catalog-design-window">
               <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.54%20PM.jpeg" alt="Website Template Design 53" class="design-scroll-img" loading="lazy">
-              <div class="window-overlay">
-                <button class="window-overlay-btn catalog-choose-btn" data-design-id="53" data-design-name="PRO-53">
-                  Choose This Design <i data-lucide="arrow-right"></i>
-                </button>
-              </div>
+              <div class="window-overlay"></div>
+              <button class="select-btn catalog-book-btn book-now-btn" data-design-id="53" data-design-name="PRO-53">Book Now <i data-lucide="calendar-check"></i></button>
             </div>
           </div>
 
           <div class="catalog-design-card extra-catalog-card" data-design-id="54" style="display:none;">
             <div class="catalog-design-window">
               <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.55%20PM%20(1).jpeg" alt="Website Template Design 54" class="design-scroll-img" loading="lazy">
-              <div class="window-overlay">
-                <button class="window-overlay-btn catalog-choose-btn" data-design-id="54" data-design-name="PRO-54">
-                  Choose This Design <i data-lucide="arrow-right"></i>
-                </button>
-              </div>
+              <div class="window-overlay"></div>
+              <button class="select-btn catalog-book-btn book-now-btn" data-design-id="54" data-design-name="PRO-54">Book Now <i data-lucide="calendar-check"></i></button>
             </div>
           </div>
 
           <div class="catalog-design-card extra-catalog-card" data-design-id="55" style="display:none;">
             <div class="catalog-design-window">
               <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.55%20PM%20(2).jpeg" alt="Website Template Design 55" class="design-scroll-img" loading="lazy">
-              <div class="window-overlay">
-                <button class="window-overlay-btn catalog-choose-btn" data-design-id="55" data-design-name="PRO-55">
-                  Choose This Design <i data-lucide="arrow-right"></i>
-                </button>
-              </div>
+              <div class="window-overlay"></div>
+              <button class="select-btn catalog-book-btn book-now-btn" data-design-id="55" data-design-name="PRO-55">Book Now <i data-lucide="calendar-check"></i></button>
             </div>
           </div>
 
           <div class="catalog-design-card extra-catalog-card" data-design-id="56" style="display:none;">
             <div class="catalog-design-window">
               <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.55%20PM.jpeg" alt="Website Template Design 56" class="design-scroll-img" loading="lazy">
-              <div class="window-overlay">
-                <button class="window-overlay-btn catalog-choose-btn" data-design-id="56" data-design-name="PRO-56">
-                  Choose This Design <i data-lucide="arrow-right"></i>
-                </button>
-              </div>
+              <div class="window-overlay"></div>
+              <button class="select-btn catalog-book-btn book-now-btn" data-design-id="56" data-design-name="PRO-56">Book Now <i data-lucide="calendar-check"></i></button>
             </div>
           </div>
 
           <div class="catalog-design-card extra-catalog-card" data-design-id="57" style="display:none;">
             <div class="catalog-design-window">
               <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.57%20PM%20(1).jpeg" alt="Website Template Design 57" class="design-scroll-img" loading="lazy">
-              <div class="window-overlay">
-                <button class="window-overlay-btn catalog-choose-btn" data-design-id="57" data-design-name="PRO-57">
-                  Choose This Design <i data-lucide="arrow-right"></i>
-                </button>
-              </div>
+              <div class="window-overlay"></div>
+              <button class="select-btn catalog-book-btn book-now-btn" data-design-id="57" data-design-name="PRO-57">Book Now <i data-lucide="calendar-check"></i></button>
             </div>
           </div>
 
           <div class="catalog-design-card extra-catalog-card" data-design-id="58" style="display:none;">
             <div class="catalog-design-window">
               <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.57%20PM%20(2).jpeg" alt="Website Template Design 58" class="design-scroll-img" loading="lazy">
-              <div class="window-overlay">
-                <button class="window-overlay-btn catalog-choose-btn" data-design-id="58" data-design-name="PRO-58">
-                  Choose This Design <i data-lucide="arrow-right"></i>
-                </button>
-              </div>
+              <div class="window-overlay"></div>
+              <button class="select-btn catalog-book-btn book-now-btn" data-design-id="58" data-design-name="PRO-58">Book Now <i data-lucide="calendar-check"></i></button>
             </div>
           </div>
 
           <div class="catalog-design-card extra-catalog-card" data-design-id="59" style="display:none;">
             <div class="catalog-design-window">
               <img src="assets/img/catalogs/WhatsApp%20Image%202026-09-08%20at%2011.40.57%20PM.jpeg" alt="Website Template Design 59" class="design-scroll-img" loading="lazy">
-              <div class="window-overlay">
-                <button class="window-overlay-btn catalog-choose-btn" data-design-id="59" data-design-name="PRO-59">
-                  Choose This Design <i data-lucide="arrow-right"></i>
-                </button>
-              </div>
+              <div class="window-overlay"></div>
+              <button class="select-btn catalog-book-btn book-now-btn" data-design-id="59" data-design-name="PRO-59">Book Now <i data-lucide="calendar-check"></i></button>
             </div>
           </div>
         </div>
@@ -1505,12 +1524,12 @@
     <!-- BOTTOM STRIP / CTA -->
     <section class="packages-cta-strip">
       <div class="container">
-        <p class="section-kicker light">READY TO LAUNCH YOUR OWN PLATFORM?</p>
-        <h2>Get Your Custom Website Built by AS Web Solution</h2>
-        <p>Found a design you love? Contact us to customize it for your brand and business needs.</p>
+        <p class="section-kicker light">FOUND A TEMPLATE YOU LOVE?</p>
+        <h2>Book It Today — We'll Handle the Rest</h2>
+        <p>No payment needed now. Book any template as-is or customized, and our team will confirm everything by email within 24 hours.</p>
         <div style="display:flex; gap:14px; justify-content:center; flex-wrap:wrap;">
-          <a href="contact-project.html" class="btn btn-primary" style="background:#fff; color:var(--navy); box-shadow:none;">Get a Free Proposal <i data-lucide="arrow-right"></i></a>
-          <a href="services.html" class="btn btn-outline" style="background:transparent; color:#fff; border-color:rgba(255,255,255,.5);">View Services & Pricing</a>
+          <a href="#catalog-gallery" class="btn btn-primary" style="background:#fff; color:var(--navy); box-shadow:none;">Browse Templates <i data-lucide="arrow-right"></i></a>
+          <a href="contact-project.html" class="btn btn-outline" style="background:transparent; color:#fff; border-color:rgba(255,255,255,.5);">Need Something Custom?</a>
         </div>
       </div>
     </section>
@@ -1524,7 +1543,7 @@
   <div class="design-modal" id="designModal" hidden>
     <div class="design-modal-content">
       <div class="design-modal-header">
-        <h3>Customize This Template</h3>
+        <h3>Book This Template</h3>
         <button class="design-modal-close" id="closeDesignModal" type="button" aria-label="Close modal">
           <i data-lucide="x"></i>
         </button>
@@ -1534,14 +1553,14 @@
           <h4>What would you like to do?</h4>
           <div class="design-options">
             <button class="design-option-btn" data-option="buy" data-price="499">
-              <i data-lucide="shopping-cart"></i>
-              <span>Buy This Template (Exact)</span>
-              <small>$499 USD - As-is template</small>
+              <i data-lucide="shopping-bag"></i>
+              <span>Book As-Is Template</span>
+              <small>$499 USD — exact design</small>
             </button>
             <button class="design-option-btn" data-option="edit" data-price="699">
               <i data-lucide="edit-3"></i>
-              <span>Buy with Changes</span>
-              <small>$699 USD - With customizations</small>
+              <span>Book with Customization</span>
+              <small>$699 USD — customized for you</small>
             </button>
           </div>
         </div>
@@ -1602,7 +1621,7 @@
             <input type="hidden" id="selectedOption" name="purchase_option">
             <input type="hidden" id="selectedEditing" name="custom_editing">
             <input type="hidden" id="calculatedPrice" name="total_price">
-            <input type="hidden" name="_subject" value="New Catalog Design Inquiry">
+            <input type="hidden" name="_subject" value="New Template Booking">
             <input type="hidden" name="_captcha" value="false">
             <input type="hidden" name="_ajax" value="true">
             <input type="hidden" name="_template" value="table">
@@ -1618,6 +1637,56 @@
             <button class="design-close-btn" id="closeSuccessBtn">Close</button>
             <button class="design-close-btn" id="submitAnotherBtn">Submit Another Inquiry</button>
           </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Template Details Modal (developer view) -->
+  <div class="design-modal" id="detailsModal" hidden>
+    <div class="design-modal-content details-modal-content">
+      <button class="details-modal-close" id="closeDetailsModal" type="button" aria-label="Close details">
+        <i data-lucide="x"></i>
+      </button>
+      <div class="details-modal-body">
+        <div class="details-image-pane">
+          <img id="detailsImage" src="" alt="Template full preview">
+        </div>
+        <div class="details-info-pane">
+          <span class="details-badge" id="detailsBadge">Premium Template</span>
+          <h3 id="detailsName">PRO-01</h3>
+          <p class="details-desc" id="detailsDesc"></p>
+
+          <div class="details-block">
+            <h5><i data-lucide="package-check"></i> What's Included</h5>
+            <ul class="details-list">
+              <li><i data-lucide="check"></i> Complete source code (HTML, CSS, JS)</li>
+              <li><i data-lucide="check"></i> Fully responsive — mobile, tablet &amp; desktop</li>
+              <li><i data-lucide="check"></i> Every section &amp; page shown in the preview</li>
+              <li><i data-lucide="check"></i> SEO-friendly structure &amp; clean meta tags</li>
+              <li><i data-lucide="check"></i> Lightweight build — no frameworks, no bloat</li>
+              <li><i data-lucide="check"></i> Free deployment help on your hosting</li>
+            </ul>
+          </div>
+
+          <div class="details-block">
+            <h5><i data-lucide="tag"></i> Pricing</h5>
+            <div class="details-price-row">
+              <div class="details-price-box active">
+                <span>Template as-is</span>
+                <strong>$499</strong>
+              </div>
+              <div class="details-price-box">
+                <span>With customization</span>
+                <strong>$699</strong>
+              </div>
+            </div>
+          </div>
+
+          <button class="btn btn-primary details-book-btn" id="detailsBuyBtn" type="button">
+            Book Now <i data-lucide="calendar-check"></i>
+          </button>
+          <p class="details-note">No payment now — book the template and we'll confirm everything by email within 24 hours. Want changes first? Choose "Book with Customization".</p>
         </div>
       </div>
     </div>
@@ -1721,7 +1790,7 @@
       const modal = document.getElementById('designModal');
       const closeBtn = document.getElementById('closeDesignModal');
       const closeSuccessBtn = document.getElementById('closeSuccessBtn');
-      const chooseBtns = document.querySelectorAll('.catalog-choose-btn');
+      const chooseBtns = document.querySelectorAll('.catalog-book-btn');
       const designForm = document.getElementById('designForm');
 
       // Modal state
@@ -1762,6 +1831,77 @@
         });
       });
 
+      // =========================================================
+      // TEMPLATE DETAILS MODAL (developer view)
+      // =========================================================
+      const detailsModal = document.getElementById('detailsModal');
+      const detailsName = document.getElementById('detailsName');
+      const detailsDesc = document.getElementById('detailsDesc');
+      const detailsBadge = document.getElementById('detailsBadge');
+      const detailsImage = document.getElementById('detailsImage');
+      const detailsBuyBtn = document.getElementById('detailsBuyBtn');
+      const closeDetailsBtn = document.getElementById('closeDetailsModal');
+      let detailsDesignId = null;
+
+      const TEMPLATE_CATEGORIES = [
+        { label: 'Business & Corporate', desc: 'A polished corporate layout with service showcases, team blocks and lead-capture sections — built to turn visitors into clients.' },
+        { label: 'SaaS & Startup', desc: 'A modern product-driven layout with feature grids, pricing tables and signup CTAs tailored for software startups.' },
+        { label: 'E-Commerce', desc: 'A storefront-ready layout with product showcases, category blocks and trust badges designed for selling online.' },
+        { label: 'Portfolio & Agency', desc: 'A creative portfolio layout with project galleries, testimonials and a strong hero for personal branding.' },
+        { label: 'Restaurant & Food', desc: 'An appetizing food-business layout with menu sections, galleries and reservation calls-to-action.' },
+        { label: 'Real Estate', desc: 'A property-focused layout with listing grids, search filters and agent contact sections.' },
+        { label: 'Medical & Healthcare', desc: 'A clean healthcare layout with services, appointment booking and doctor profiles.' },
+        { label: 'Education & Courses', desc: 'A learning-platform layout with course cards, instructor sections and enrollment CTAs.' },
+        { label: 'Construction & Trades', desc: 'A rugged trades layout with project galleries, quote forms and service coverage areas.' },
+        { label: 'Blog & Magazine', desc: 'A content-first layout with article grids, category navigation and newsletter signup.' },
+        { label: 'Fitness & Gym', desc: 'A high-energy layout with class schedules, trainer profiles and membership CTAs.' },
+        { label: 'Technology & IT Services', desc: 'An IT-services layout with solution cards, process timelines and support CTAs.' }
+      ];
+
+      function openDetailsModal(card) {
+        const id = parseInt(card.dataset.designId, 10);
+        const buyBtn = card.querySelector('.catalog-book-btn');
+        const img = card.querySelector('.design-scroll-img');
+        const name = buyBtn ? buyBtn.getAttribute('data-design-name') : 'PRO-' + String(id).padStart(2, '0');
+        const meta = TEMPLATE_CATEGORIES[(id - 1) % TEMPLATE_CATEGORIES.length];
+
+        detailsDesignId = id;
+        detailsName.textContent = name + ' — ' + meta.label;
+        detailsBadge.textContent = 'Premium Template · ' + name;
+        detailsDesc.textContent = meta.desc + ' Ships as a static HTML/CSS/JS build with clean, commented source code that you can deploy on any hosting.';
+        detailsImage.src = img ? img.src : '';
+        detailsImage.alt = name + ' full preview';
+
+        detailsModal.removeAttribute('hidden');
+      }
+
+      function closeDetailsModal() {
+        detailsModal.setAttribute('hidden', '');
+      }
+
+      // Card click opens details — Book Now button handles itself
+      document.querySelectorAll('.catalog-design-card').forEach(card => {
+        card.addEventListener('click', function (e) {
+          if (e.target.closest('.catalog-book-btn')) return;
+          openDetailsModal(card);
+        });
+      });
+
+      closeDetailsBtn.addEventListener('click', closeDetailsModal);
+      detailsModal.addEventListener('click', function (e) {
+        if (e.target === detailsModal) closeDetailsModal();
+      });
+
+      // Book from details modal → hand off to booking flow with the same template
+      detailsBuyBtn.addEventListener('click', function () {
+        const card = document.querySelector('.catalog-design-card[data-design-id="' + detailsDesignId + '"]');
+        closeDetailsModal();
+        if (card) {
+          const buyBtn = card.querySelector('.catalog-book-btn');
+          if (buyBtn) buyBtn.click();
+        }
+      });
+
       // Close modal
       closeBtn.addEventListener('click', function() {
         modal.setAttribute('hidden', '');
@@ -1778,7 +1918,7 @@
         showStep(1);
       });
 
-      // Step 1: Option selection (Buy with different prices)
+      // Step 1: Option selection (Book with different prices)
       document.querySelectorAll('[data-option]').forEach(btn => {
         btn.addEventListener('click', function() {
           selectedOption = this.getAttribute('data-option');

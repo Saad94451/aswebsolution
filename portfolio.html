@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio | AS Web Solution</title>
+  <meta name="description" content="Explore our portfolio of live client websites — cleaning companies, tax advisors, construction firms, community platforms and more. Click any project to visit the live site.">
+  <meta name="theme-color" content="#062A5C">
+  <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="mobile.css">
+  <style>
+    /* PAGE HERO */
+    .page-hero {
+      position: relative;
+      padding: 85px 0 65px;
+      background: url("https://images.unsplash.com/photo-1547658719-da2b51169166?w=1600&h=800&fit=crop") center/cover no-repeat;
+      text-align: center;
+      overflow: hidden;
+    }
+    .page-hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(6,42,92,.88) 0%, rgba(3,27,61,.78) 100%);
+      z-index: 0;
+    }
+    .page-hero .container { position: relative; z-index: 1; }
+    .page-hero h1 { color: #fff; margin-bottom: 14px; font-weight: 800; }
+    .page-hero .lead { color: rgba(255,255,255,.88); max-width: 660px; margin: 0 auto 26px; font-size: 1.05rem; }
+    .page-hero .eyebrow { color: #93C5FD; margin-bottom: 12px; }
+
+    .hero-stats-strip {
+      display: inline-flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 20px 32px;
+      margin-top: 26px;
+      padding: 12px 28px;
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.16);
+      border-radius: 999px;
+      backdrop-filter: blur(10px);
+    }
+    .hero-stat-item {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      color: #fff;
+      font-size: 0.86rem;
+      font-weight: 500;
+    }
+    .hero-stat-item i, .hero-stat-item svg { width: 17px; height: 17px; color: #60A5FA; }
+
+    @media (max-width: 767px) {
+      .page-hero { padding: 60px 0 45px; }
+      .page-hero h1 { font-size: clamp(1.9rem, 7.5vw, 2.6rem); }
+      .hero-stats-strip { border-radius: 18px; padding: 14px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <div id="header"></div>
+
+  <main id="main">
+
+    <!-- HERO SECTION -->
+    <section class="page-hero">
+      <div class="container">
+        <p class="eyebrow">OUR PORTFOLIO</p>
+        <h1>Real Projects. Real Businesses. Real Results.</h1>
+        <p class="lead">Browse the live websites we've designed, built and launched for clients across cleaning, construction, finance, technology and community sectors.</p>
+
+        <div style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
+          <a href="#showcase" class="btn btn-primary">Explore Projects <i data-lucide="arrow-down"></i></a>
+          <a href="contact.html" class="btn btn-outline">Get a Quote</a>
+        </div>
+
+        
+      </div>
+    </section>
+
+    <!-- LIVE WEBSITES SHOWCASE -->
+    <section class="catalog-section" id="showcase">
+      <div class="container">
+        <div class="section-head" style="text-align:center; display:block;">
+          <p class="section-kicker">LIVE WEBSITE SHOWCASE</p>
+          <h2>Our Client Projects</h2>
+          <p class="section-sub" style="margin: 10px auto 0;">Explore our live client websites. Click any card to visit the actual live site.</p>
+        </div>
+
+        <div class="showcase-grid" id="showcaseGrid">
+
+          <!-- 1. AS Automate -->
+          <article class="showcase-card" data-category="tech">
+             <div class="browser-frame">
+              <div class="browser-dots">
+                <span class="browser-dot red"></span>
+                <span class="browser-dot yellow"></span>
+                <span class="browser-dot green"></span>
+              </div>
+              <div class="browser-url">
+                <i data-lucide="lock"></i> asautomate.com
+              </div>
+            </div>
+            <div class="card-preview">
+              <a href="https://asautomate.com/" target="_blank" rel="noopener noreferrer" class="iframe-overlay-link" aria-label="Open AS Automate in new tab"></a>
+              <div class="iframe-container">
+                <iframe src="https://asautomate.com/" title="AS Automate Live Preview" class="live-iframe" loading="lazy"></iframe>
+              </div>
+              <span class="category-badge">Tech & Automation</span>
+            </div>
+            <div class="card-body">
+              <h3 class="showcase-title">AS Automate</h3>
+              <p class="showcase-desc">High-performance digital engineering agency platform highlighting custom software, workflow automation, AI solutions, and full-stack web platforms.</p>
+              <div class="tech-stack-wrap">
+                <span class="tech-chip">Digital Solutions</span>
+                <span class="tech-chip">AI Integration</span>
+                <span class="tech-chip">Automation</span>
+                <span class="tech-chip">Cloud Ready</span>
+              </div>
+              <div class="card-actions-bar">
+                <a href="https://asautomate.com/" target="_blank" rel="noopener noreferrer" class="btn-live-view" aria-label="Visit AS Automate live website">
+                  Visit Live Website <i data-lucide="external-link"></i>
+                </a>
+                <a href="contact-project.html?ref=asautomate" class="btn-inquire-icon" title="Build something like this" aria-label="Inquire similar website">
+                  <i data-lucide="message-square-plus"></i>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 2. Cleaning Express -->
+          <article class="showcase-card" data-category="services">
+            <div class="browser-frame">
+              <div class="browser-dots">
+                <span class="browser-dot red"></span>
+                <span class="browser-dot yellow"></span>
+                <span class="browser-dot green"></span>
+              </div>
+              <div class="browser-url">
+                <i data-lucide="lock"></i> cleaning-express.com
+              </div>
+            </div>
+            <div class="card-preview">
+              <a href="https://cleaning-express.com/" target="_blank" rel="noopener noreferrer" class="iframe-overlay-link" aria-label="Open Cleaning Express in new tab"></a>
+              <div class="iframe-container">
+                <iframe src="https://cleaning-express.com/" title="Cleaning Express Live Preview" class="live-iframe" loading="lazy"></iframe>
+              </div>
+              <span class="category-badge">Commercial Cleaning</span>
+            </div>
+            <div class="card-body">
+              <h3 class="showcase-title">Cleaning Express</h3>
+              <p class="showcase-desc">Leading commercial & domestic cleaning services portal based in London, UK. Built with instant quotation flows, booking requests, and multi-service catalog.</p>
+              <div class="tech-stack-wrap">
+                <span class="tech-chip">Quote Calculator</span>
+                <span class="tech-chip">Online Booking</span>
+                <span class="tech-chip">London, UK</span>
+                <span class="tech-chip">Local SEO</span>
+              </div>
+              <div class="card-actions-bar">
+                <a href="https://cleaning-express.com/" target="_blank" rel="noopener noreferrer" class="btn-live-view" aria-label="Visit Cleaning Express live website">
+                  Visit Live Website <i data-lucide="external-link"></i>
+                </a>
+                <a href="contact-project.html?ref=cleaning-express" class="btn-inquire-icon" title="Build something like this" aria-label="Inquire similar website">
+                  <i data-lucide="message-square-plus"></i>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 3. Diamond Cleaners USA -->
+          <article class="showcase-card" data-category="services">
+            <div class="browser-frame">
+              <div class="browser-dots">
+                <span class="browser-dot red"></span>
+                <span class="browser-dot yellow"></span>
+                <span class="browser-dot green"></span>
+              </div>
+              <div class="browser-url">
+                <i data-lucide="lock"></i> diamondcleanersusa.com
+              </div>
+            </div>
+            <div class="card-preview">
+              <a href="https://diamondcleanersusa.com/" target="_blank" rel="noopener noreferrer" class="iframe-overlay-link" aria-label="Open Diamond Cleaners USA in new tab"></a>
+              <div class="iframe-container">
+                <iframe src="https://diamondcleanersusa.com/" title="Diamond Cleaners USA Live Preview" class="live-iframe" loading="lazy"></iframe>
+              </div>
+              <span class="category-badge">Cleaning & Facility</span>
+            </div>
+            <div class="card-body">
+              <h3 class="showcase-title">Diamond Cleaners USA</h3>
+              <p class="showcase-desc">Professional residential and commercial eco-friendly cleaning services company in the United States, optimized for customer inquiries and booking conversions.</p>
+              <div class="tech-stack-wrap">
+                <span class="tech-chip">Commercial & Home</span>
+                <span class="tech-chip">USA Market</span>
+                <span class="tech-chip">Lead Generation</span>
+                <span class="tech-chip">Fast UI</span>
+              </div>
+              <div class="card-actions-bar">
+                <a href="https://diamondcleanersusa.com/" target="_blank" rel="noopener noreferrer" class="btn-live-view" aria-label="Visit Diamond Cleaners USA live website">
+                  Visit Live Website <i data-lucide="external-link"></i>
+                </a>
+                <a href="contact-project.html?ref=diamondcleanersusa" class="btn-inquire-icon" title="Build something like this" aria-label="Inquire similar website">
+                  <i data-lucide="message-square-plus"></i>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 4. CST Tax Advisors -->
+          <article class="showcase-card" data-category="finance">
+            <div class="browser-frame">
+              <div class="browser-dots">
+                <span class="browser-dot red"></span>
+                <span class="browser-dot yellow"></span>
+                <span class="browser-dot green"></span>
+              </div>
+              <div class="browser-url">
+                <i data-lucide="lock"></i> csttax.com
+              </div>
+            </div>
+            <div class="card-preview">
+              <a href="https://csttax.com/" target="_blank" rel="noopener noreferrer" class="iframe-overlay-link" aria-label="Open CST Tax Advisors in new tab"></a>
+              <div class="iframe-container">
+                <iframe src="https://csttax.com/" title="CST Tax Advisors Live Preview" class="live-iframe" loading="lazy"></iframe>
+              </div>
+              <span class="category-badge">Finance & Tax</span>
+            </div>
+            <div class="card-body">
+              <h3 class="showcase-title">CST Tax Advisors</h3>
+              <p class="showcase-desc">Premier international tax advisory and private client accounting firm serving global expats and international enterprises across the US, UK, and Asia-Pacific.</p>
+              <div class="tech-stack-wrap">
+                <span class="tech-chip">International CPA</span>
+                <span class="tech-chip">Cross-Border Tax</span>
+                <span class="tech-chip">Enterprise Portal</span>
+                <span class="tech-chip">Multi-Regional</span>
+              </div>
+              <div class="card-actions-bar">
+                <a href="https://csttax.com/" target="_blank" rel="noopener noreferrer" class="btn-live-view" aria-label="Visit CST Tax live website">
+                  Visit Live Website <i data-lucide="external-link"></i>
+                </a>
+                <a href="contact-project.html?ref=csttax" class="btn-inquire-icon" title="Build something like this" aria-label="Inquire similar website">
+                  <i data-lucide="message-square-plus"></i>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 5. Harnoor Pallak Construction -->
+          <article class="showcase-card" data-category="construction">
+            <div class="browser-frame">
+              <div class="browser-dots">
+                <span class="browser-dot red"></span>
+                <span class="browser-dot yellow"></span>
+                <span class="browser-dot green"></span>
+              </div>
+              <div class="browser-url">
+                <i data-lucide="lock"></i> harnoorpallakconstruction.ca
+              </div>
+            </div>
+            <div class="card-preview">
+              <a href="https://harnoorpallakconstruction.ca/" target="_blank" rel="noopener noreferrer" class="iframe-overlay-link" aria-label="Open Harnoor Pallak Construction in new tab"></a>
+              <div class="iframe-container">
+                <iframe src="https://harnoorpallakconstruction.ca/" title="Harnoor Pallak Construction Live Preview" class="live-iframe" loading="lazy"></iframe>
+              </div>
+              <span class="category-badge">Construction & Infra</span>
+            </div>
+            <div class="card-body">
+              <h3 class="showcase-title">Harnoor Pallak Construction</h3>
+              <p class="showcase-desc">Canadian construction and framing specialist portal showcasing civil engineering projects, residential buildouts, heavy structural work, and project bids.</p>
+              <div class="tech-stack-wrap">
+                <span class="tech-chip">Canada (.ca)</span>
+                <span class="tech-chip">Portfolio Gallery</span>
+                <span class="tech-chip">Project Quotations</span>
+                <span class="tech-chip">Responsive Grid</span>
+              </div>
+              <div class="card-actions-bar">
+                <a href="https://harnoorpallakconstruction.ca/" target="_blank" rel="noopener noreferrer" class="btn-live-view" aria-label="Visit Harnoor Pallak Construction live website">
+                  Visit Live Website <i data-lucide="external-link"></i>
+                </a>
+                <a href="contact-project.html?ref=harnoorpallak" class="btn-inquire-icon" title="Build something like this" aria-label="Inquire similar website">
+                  <i data-lucide="message-square-plus"></i>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 6. Masjid Ul Ummah -->
+          <article class="showcase-card" data-category="community">
+            <div class="browser-frame">
+              <div class="browser-dots">
+                <span class="browser-dot red"></span>
+                <span class="browser-dot yellow"></span>
+                <span class="browser-dot green"></span>
+              </div>
+              <div class="browser-url">
+                <i data-lucide="lock"></i> masjidulummah.ca
+              </div>
+            </div>
+            <div class="card-preview">
+              <a href="https://masjidulummah.ca/" target="_blank" rel="noopener noreferrer" class="iframe-overlay-link" aria-label="Open Masjid Ul Ummah in new tab"></a>
+              <div class="iframe-container">
+                <iframe src="https://masjidulummah.ca/" title="Masjid Ul Ummah Live Preview" class="live-iframe" loading="lazy"></iframe>
+              </div>
+              <span class="category-badge">Community & Islamic Center</span>
+            </div>
+            <div class="card-body">
+              <h3 class="showcase-title">Masjid Ul Ummah</h3>
+              <p class="showcase-desc">Official Islamic center community hub in Canada featuring live prayer timetables, community event schedules, educational programs, and secure online donations.</p>
+              <div class="tech-stack-wrap">
+                <span class="tech-chip">Prayer Times API</span>
+                <span class="tech-chip">Donations</span>
+                <span class="tech-chip">Events Calendar</span>
+                <span class="tech-chip">Community Portal</span>
+              </div>
+              <div class="card-actions-bar">
+                <a href="https://masjidulummah.ca/" target="_blank" rel="noopener noreferrer" class="btn-live-view" aria-label="Visit Masjid Ul Ummah live website">
+                  Visit Live Website <i data-lucide="external-link"></i>
+                </a>
+                <a href="contact-project.html?ref=masjidulummah" class="btn-inquire-icon" title="Build something like this" aria-label="Inquire similar website">
+                  <i data-lucide="message-square-plus"></i>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 7. United Kanadian Foundations Club -->
+          <article class="showcase-card" data-category="community">
+            <div class="browser-frame">
+              <div class="browser-dots">
+                <span class="browser-dot red"></span>
+                <span class="browser-dot yellow"></span>
+                <span class="browser-dot green"></span>
+              </div>
+              <div class="browser-url">
+                <i data-lucide="lock"></i> unitedkanadianfoundationsclub.com
+              </div>
+            </div>
+            <div class="card-preview">
+              <a href="https://unitedkanadianfoundationsclub.com/" target="_blank" rel="noopener noreferrer" class="iframe-overlay-link" aria-label="Open United Kanadian Foundations Club in new tab"></a>
+              <div class="iframe-container">
+                <iframe src="https://unitedkanadianfoundationsclub.com/" title="United Kanadian Foundations Club Live Preview" class="live-iframe" loading="lazy"></iframe>
+              </div>
+              <span class="category-badge">Club & Non-Profit</span>
+            </div>
+            <div class="card-body">
+              <h3 class="showcase-title">UKFC (United Kanadian)</h3>
+              <p class="showcase-desc">Community association and foundation web platform delivering youth engagement programs, cultural events, membership management, and welfare initiatives.</p>
+              <div class="tech-stack-wrap">
+                <span class="tech-chip">Membership Hub</span>
+                <span class="tech-chip">Non-Profit</span>
+                <span class="tech-chip">Events & Welfare</span>
+                <span class="tech-chip">Mobile First</span>
+              </div>
+              <div class="card-actions-bar">
+                <a href="https://unitedkanadianfoundationsclub.com/" target="_blank" rel="noopener noreferrer" class="btn-live-view" aria-label="Visit United Kanadian Foundations Club live website">
+                  Visit Live Website <i data-lucide="external-link"></i>
+                </a>
+                <a href="contact-project.html?ref=ukfc" class="btn-inquire-icon" title="Build something like this" aria-label="Inquire similar website">
+                  <i data-lucide="message-square-plus"></i>
+                </a>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== TESTIMONIALS ===================== -->
+    <section class="testimonials" id="testimonials">
+      <div class="container">
+        <div class="testimonials-grid">
+          <div class="testimonials-intro reveal">
+            <p class="section-kicker">WHAT OUR CLIENTS SAY</p>
+            <h2>What Our <span>Customers</span> Say</h2>
+            <p class="testimonials-lead">Over 700 clients have used our services to grow their businesses with our smart solutions and technologies. Our main goal is to bring superior quality to the innovative technology developed by our professional team.</p>
+            <div class="carousel-nav">
+              <button type="button" id="prevTestimonial" aria-label="Previous testimonial"><i data-lucide="chevron-left"></i></button>
+              <button type="button" id="nextTestimonial" aria-label="Next testimonial"><i data-lucide="chevron-right"></i></button>
+            </div>
+          </div>
+
+          <div class="testimonials-stage reveal">
+            <div class="testimonial-blob">
+              <div class="testimonial-viewport">
+                <div class="testimonial-track" id="testimonialTrack">
+                  <article class="quote-card">
+                    <p>“AS Web Solution transformed our ideas into a professional digital experience that exceeded our expectations.”</p>
+                    <div class="quote-person">
+                      <strong>harnoorpallak</strong>
+                    </div>
+                  </article>
+                  <article class="quote-card">
+                    <p>“Their team is professional, creative and always delivers on time. Our website is now our biggest asset.”</p>
+                    <div class="quote-person">
+                      <strong>masjidulummah</strong>
+                    </div>
+                  </article>
+                  <article class="quote-card">
+                    <p>“Excellent service, great communication and amazing results. Highly recommend them for any web project.”</p>
+                    <div class="quote-person">
+                      <strong>diamondcleanerusa</strong>
+                    </div>
+                  </article>
+                  <article class="quote-card">
+                    <p>“They understood our workflow and automated the parts that used to slow us down every week.”</p>
+                    <div class="quote-person">
+                      <strong>csttax</strong>
+                    </div>
+                  </article>
+                </div>
+              </div>
+            </div>
+            <div class="dots" id="testimonialDots" aria-label="Testimonial pagination"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== STATS ===================== -->
+    <section class="stats" id="stats">
+      <div class="container">
+        <div class="stats-header reveal">
+          <p class="section-kicker">OUR RESULTS</p>
+          <h2>Numbers That Speak</h2>
+          <p class="stats-subtitle">Our track record proves our commitment to excellence and client success.</p>
+        </div>
+
+        <div class="stats-grid">
+          <div class="stat-card reveal">
+            <div class="stat-icon">
+              <i data-lucide="rocket"></i>
+            </div>
+            <div class="stat-content">
+              <div class="stat-number" data-count="50" data-suffix="+">0+</div>
+              <h3>Projects Delivered</h3>
+              <p>Successfully completed web projects across various industries.</p>
+            </div>
+            <div class="stat-progress">
+              <div class="progress-bar" style="width: 85%"></div>
+            </div>
+          </div>
+
+          <div class="stat-card reveal delay-1">
+            <div class="stat-icon">
+              <i data-lucide="users"></i>
+            </div>
+            <div class="stat-content">
+              <div class="stat-number" data-count="20" data-suffix="+">0+</div>
+              <h3>Happy Clients</h3>
+              <p>Businesses that trust us with their digital presence.</p>
+            </div>
+            <div class="stat-progress">
+              <div class="progress-bar" style="width: 92%"></div>
+            </div>
+          </div>
+
+          <div class="stat-card reveal delay-2">
+            <div class="stat-icon">
+              <i data-lucide="globe"></i>
+            </div>
+            <div class="stat-content">
+              <div class="stat-number" data-count="5" data-suffix="+">0+</div>
+              <h3>Countries Served</h3>
+              <p>Global reach with clients across multiple continents.</p>
+            </div>
+            <div class="stat-progress">
+              <div class="progress-bar" style="width: 78%"></div>
+            </div>
+          </div>
+
+          <div class="stat-card reveal">
+            <div class="stat-icon">
+              <i data-lucide="star"></i>
+            </div>
+            <div class="stat-content">
+              <div class="stat-number" data-count="99" data-suffix="%">0%</div>
+              <h3>Client Satisfaction</h3>
+              <p>Consistently delivering exceptional results and service.</p>
+            </div>
+            <div class="stat-progress">
+              <div class="progress-bar" style="width: 99%"></div>
+            </div>
+          </div>
+
+          <div class="stat-card reveal delay-1">
+            <div class="stat-icon">
+              <i data-lucide="award"></i>
+            </div>
+            <div class="stat-content">
+              <div class="stat-number" data-count="8" data-suffix="+">0+</div>
+              <h3>Years Experience</h3>
+              <p>Industry expertise with cutting-edge technologies.</p>
+            </div>
+            <div class="stat-progress">
+              <div class="progress-bar" style="width: 88%"></div>
+            </div>
+          </div>
+
+          <div class="stat-card reveal delay-2">
+            <div class="stat-icon">
+              <i data-lucide="trending-up"></i>
+            </div>
+            <div class="stat-content">
+              <div class="stat-number" data-count="320" data-suffix="%">0%</div>
+              <h3>Average Growth</h3>
+              <p>Client business growth after our solutions implementation.</p>
+            </div>
+            <div class="stat-progress">
+              <div class="progress-bar" style="width: 95%"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="stats-footer reveal">
+          <div class="trust-badges">
+            <div class="badge-item">
+              <i data-lucide="shield-check"></i>
+              <span>Quality Assured</span>
+            </div>
+            <div class="badge-item">
+              <i data-lucide="clock"></i>
+              <span>On-Time Delivery</span>
+            </div>
+            <div class="badge-item">
+              <i data-lucide="headphones"></i>
+              <span>24/7 Support</span>
+            </div>
+            <div class="badge-item">
+              <i data-lucide="refresh-cw"></i>
+              <span>Lifetime Updates</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ===================== CTA ===================== -->
+    <section class="faq-cta">
+      <div class="container">
+        <div class="faq-cta-banner reveal">
+          <div class="faq-cta-banner-left"><p class="cta-kicker">LIKE WHAT YOU SEE?</p><h2>Let's build a website your customers will love.</h2><p>Your project could be the next one featured on this page. Tell us about your idea and we'll make it happen.</p></div>
+          <div class="faq-cta-banner-right"><a href="contact-project.html" class="btn btn-white">Start a Project <i data-lucide="arrow-right"></i></a><a href="pricing.html" class="btn btn-white-outline">Check Pricing</a></div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <div id="footer"></div>
+
+  <script src="script.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // =========================================================
+      // LIVE IFRAMES AUTO-SCROLL SYNCHRONIZATION
+      // =========================================================
+      const iframes = document.querySelectorAll('.live-iframe');
+      const showcaseSection = document.getElementById('showcase');
+
+      let ticking = false;
+
+      function onScrollSync() {
+        if (!showcaseSection) return;
+
+        const rect = showcaseSection.getBoundingClientRect();
+        const windowHeight = window.innerHeight;
+
+        // Check if showcase section is visible in viewport
+        if (rect.bottom > 0 && rect.top < windowHeight) {
+          // Calculate how far we scrolled through the showcase section (0 to 1)
+          const totalDistance = rect.height + windowHeight;
+          const currentProgress = (windowHeight - rect.top) / totalDistance;
+          const clamped = Math.max(0, Math.min(1, currentProgress));
+
+          // Move the iframes content up/down proportionally (up to -260px)
+          const offsetY = Math.round(clamped * 260);
+
+          iframes.forEach(iframe => {
+            iframe.style.transform = `scale(0.5) translateY(-${offsetY}px)`;
+          });
+        }
+        ticking = false;
+      }
+
+      window.addEventListener('scroll', function () {
+        if (!ticking) {
+          requestAnimationFrame(onScrollSync);
+          ticking = true;
+        }
+      }, { passive: true });
+
+      // Run once on load
+      onScrollSync();
+
+    });
+  </script>
+</body>
+</html>

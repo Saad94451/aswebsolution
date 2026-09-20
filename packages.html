@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Website Packages | AS Web Solution</title>
+  <meta name="description" content="Fixed-price website development packages — Basic, Premium and Advance tiers with transparent USD & CAD pricing. Pick a plan and launch your professional website.">
+  <meta name="theme-color" content="#062A5C">
+  <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="mobile.css">
+  <style>
+    /* PAGE HERO */
+    .page-hero {
+      position: relative;
+      padding: 85px 0 65px;
+      background: url("https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=1600&h=800&fit=crop") center/cover no-repeat;
+      text-align: center;
+      overflow: hidden;
+    }
+    .page-hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(6,42,92,.88) 0%, rgba(3,27,61,.78) 100%);
+      z-index: 0;
+    }
+    .page-hero .container { position: relative; z-index: 1; }
+    .page-hero h1 { color: #fff; margin-bottom: 14px; font-weight: 800; }
+    .page-hero .lead { color: rgba(255,255,255,.88); max-width: 660px; margin: 0 auto 26px; font-size: 1.05rem; }
+    .page-hero .eyebrow { color: #93C5FD; margin-bottom: 12px; }
+
+    .hero-stats-strip {
+      display: inline-flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 20px 32px;
+      margin-top: 26px;
+      padding: 12px 28px;
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.16);
+      border-radius: 999px;
+      backdrop-filter: blur(10px);
+    }
+    .hero-stat-item {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      color: #fff;
+      font-size: 0.86rem;
+      font-weight: 500;
+    }
+    .hero-stat-item i, .hero-stat-item svg { width: 17px; height: 17px; color: #60A5FA; }
+
+    /* HOW IT WORKS */
+    .hiw-section { padding: 90px 0; background: #fff; }
+    .hiw-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      margin-top: 52px;
+    }
+    .hiw-card {
+      background: #F8FAFC;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 32px 26px;
+      position: relative;
+      overflow: hidden;
+      transition: all .3s ease;
+    }
+    .hiw-card:hover {
+      background: #fff;
+      border-color: #BFDBFE;
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-sm);
+    }
+    .hiw-num {
+      position: absolute;
+      top: 16px;
+      right: 22px;
+      font-size: 2.4rem;
+      font-weight: 800;
+      color: #DBEAFE;
+      line-height: 1;
+    }
+    .hiw-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      background: var(--light);
+      color: var(--blue);
+      display: grid;
+      place-items: center;
+      margin-bottom: 20px;
+      transition: all .3s ease;
+    }
+    .hiw-card:hover .hiw-icon {
+      background: var(--blue);
+      color: #fff;
+    }
+    .hiw-icon i, .hiw-icon svg { width: 24px; height: 24px; }
+    .hiw-card h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+    .hiw-card p {
+      font-size: 0.88rem;
+      color: var(--muted);
+      line-height: 1.6;
+      margin: 0;
+    }
+    @media (max-width: 1024px) {
+      .hiw-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 575px) {
+      .hiw-grid { grid-template-columns: 1fr; }
+      .hiw-section { padding: 65px 0; }
+    }
+
+    /* BOTTOM CTA */
+    .pkg-page-cta {
+      padding: 80px 0;
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-dark) 100%);
+      color: #fff;
+      text-align: center;
+    }
+    .pkg-page-cta h2 { color: #fff; margin-bottom: 12px; }
+    .pkg-page-cta p { color: #CBD5E1; max-width: 600px; margin: 0 auto 28px; font-size: 1.02rem; }
+
+    @media (max-width: 767px) {
+      .page-hero { padding: 60px 0 45px; }
+      .page-hero h1 { font-size: clamp(1.9rem, 7.5vw, 2.6rem); }
+      .hero-stats-strip { border-radius: 18px; padding: 14px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <div id="header"></div>
+
+  <main id="main">
+
+    <!-- HERO SECTION -->
+    <section class="page-hero">
+      <div class="container">
+        <p class="eyebrow">FIXED-PRICE WEBSITE PLANS</p>
+        <h1>Website Packages Built for Every Stage.</h1>
+        <p class="lead">Transparent tiers, honest pricing in USD &amp; CAD, and everything you need to launch a professional online presence — no surprises, no hidden costs.</p>
+
+        <div style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
+          <a href="#packages" class="btn btn-primary">View Packages <i data-lucide="arrow-down"></i></a>
+          <a href="pricing.html" class="btn btn-outline" style="background:rgba(255,255,255,0.15);color:#fff;border-color:rgba(255,255,255,0.4);">Build a Custom Quote</a>
+        </div>
+
+        <div class="hero-stats-strip">
+          <div class="hero-stat-item">
+            <i data-lucide="badge-check"></i>
+            <span>100% Transparent Pricing</span>
+          </div>
+          <div class="hero-stat-item">
+            <i data-lucide="smartphone"></i>
+            <span>Fully Responsive Builds</span>
+          </div>
+          <div class="hero-stat-item">
+            <i data-lucide="shield-check"></i>
+            <span>Post-Launch Support</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="hiw-section" id="how-it-works">
+      <div class="container">
+        <div class="section-head" style="text-align:center; display:block;">
+          <p class="section-kicker">HOW IT WORKS</p>
+          <h2>From Package to Launch in 4 Simple Steps</h2>
+          <p class="section-sub" style="margin: 10px auto 0;">Pick the plan that fits your goals — we handle everything from design to deployment while you focus on your business.</p>
+        </div>
+
+        <div class="hiw-grid">
+          <div class="hiw-card reveal">
+            <span class="hiw-num">01</span>
+            <div class="hiw-icon"><i data-lucide="package-check"></i></div>
+            <h3>Pick Your Package</h3>
+            <p>Choose Basic, Premium or Advance based on your pages, features and growth plans.</p>
+          </div>
+          <div class="hiw-card reveal delay-1">
+            <span class="hiw-num">02</span>
+            <div class="hiw-icon"><i data-lucide="lightbulb"></i></div>
+            <h3>Share Your Vision</h3>
+            <p>Tell us about your brand, content and goals in a quick discovery call or form.</p>
+          </div>
+          <div class="hiw-card reveal delay-2">
+            <span class="hiw-num">03</span>
+            <div class="hiw-icon"><i data-lucide="code"></i></div>
+            <h3>We Design &amp; Build</h3>
+            <p>Our team crafts a modern, fast and SEO-ready website with regular progress updates.</p>
+          </div>
+          <div class="hiw-card reveal delay-3">
+            <span class="hiw-num">04</span>
+            <div class="hiw-icon"><i data-lucide="trending-up"></i></div>
+            <h3>Launch &amp; Grow</h3>
+            <p>We deploy, test and hand over your site — with support to keep it growing.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== WEBSITE DEVELOPMENT PACKAGES ===================== -->
+    <section class="dev-packages-section" id="packages">
+      <div class="container">
+        <!-- Header -->
+        <div class="pkg-header-row">
+          <div>
+            <span class="pkg-title-eyebrow">TRANSPARENT TIERS</span>
+            <h2 class="pkg-main-title">Website Packages</h2>
+            <p class="pkg-subtitle">Professional websites. Modern design. Built for your success.</p>
+          </div>
+          <div class="pkg-currency-pill">
+            <i data-lucide="coins"></i>
+            <span>Pricing in USD &amp; CAD</span>
+          </div>
+        </div>
+
+        <!-- Pricing Cards -->
+        <div class="pkg-cards-grid">
+
+          <!-- BASIC CARD -->
+          <div class="pkg-card">
+            <span class="pkg-tier-label">BASIC</span>
+            <h3 class="pkg-plan-name">Website Development</h3>
+            <p class="pkg-plan-desc">Perfect for small businesses &amp; startups needing a professional online presence.</p>
+
+            <div class="pkg-price-row">
+              <div class="pkg-price-col">
+                <span class="pkg-price-curr">USD</span>
+                <span class="pkg-price-val">$499</span>
+              </div>
+              <div class="pkg-price-divider"></div>
+              <div class="pkg-price-col">
+                <span class="pkg-price-curr">CAD</span>
+                <span class="pkg-price-val">$699</span>
+              </div>
+            </div>
+
+            <ul class="pkg-features-list">
+              <li class="pkg-feature-item">
+                <span class="pkg-check-icon"><i data-lucide="check"></i></span>
+                <span>5 Custom Pages (Home, About, Services, etc.)</span>
+              </li>
+              <li class="pkg-feature-item">
+                <span class="pkg-check-icon"><i data-lucide="check"></i></span>
+                <span>100% Mobile &amp; Tablet Responsive</span>
+              </li>
+              <li class="pkg-feature-item">
+                <span class="pkg-check-icon"><i data-lucide="check"></i></span>
+                <span>Contact &amp; Inquiry Form Integration</span>
+              </li>
+              <li class="pkg-feature-item">
+                <span class="pkg-check-icon"><i data-lucide="check"></i></span>
+                <span>Basic On-Page SEO Optimization</span>
+              </li>
+              <li class="pkg-feature-item">
+                <span class="pkg-check-icon"><i data-lucide="check"></i></span>
+                <span>Social Media Links Integration</span>
+              </li>
+              <li class="pkg-feature-item">
+                <span class="pkg-check-icon"><i data-lucide="check"></i></span>
+                <span>High-Speed Performance Optimization</span>
+              </li>
+            </ul>
+
+            <a href="contact.html" class="pkg-action-btn btn-primary-pkg">Choose Basic Plan <i data-lucide="arrow-right"></i></a>
+          </div>
+
+          <!-- PREMIUM CARD (MOST POPULAR) -->
+          <div class="pkg-card featured">
+            <span class="pkg-popular-badge">MOST POPULAR</span>
+            <span class="pkg-tier-label">PREMIUM</span>
+            <h3 class="pkg-plan-name">Website Development</h3>
+            <p class="pkg-plan-desc">Ideal for growing businesses looking for advanced features and better performance.</p>
+
+            <div class="pkg-price-row">
+              <div class="pkg-price-col">
+                <span class="pkg-price-curr">USD</span>
+                <span class="pkg-price-val">$999</span>
+              </div>
+              <div class="pkg-price-divider"></div>
+              <div class="pkg-price-col">
+                <span class="pkg-price-curr">CAD</span>
+                <span class="pkg-price-val">$1,399</span>
+              </div>
+            </div>
+
+            <ul class="pkg-features-list">
+              <li class="pkg-feature-item">
+                <span class="pkg-check-icon"><i data-lucide="check"></i></span>
+                <span>Up to 12 Custom Designed Pages</span>
+              </li>
+              <li class="pkg-feature-item">
+                <span class="pkg-check-icon"><i data-lucide="check"></i></span>
+                <span>Modern Glassmorphism &amp; Animations</span>
+              </li>
+              <li class="pkg-feature-item">
+                <span class="pkg-check-icon"><i data-lucide="check"></i></span>
+                <span>Dynamic Blog / CMS Integration</span>
+              </li>
+              <li class="pkg-feature-item">
+                <span class="pkg-check-icon"><i data-lucide="check"></i></span>
+                <span>Advanced Technical &amp; On-Page SEO</span>
+              </li>
+              <li class="pkg-feature-item">
+                <span class="pkg-check-icon"><i data-lucide="check"></i></span>
+                <span>Custom Lead Generation Forms</span>
+              </li>
+              <li class="pkg-feature-item">
+                <span class="pkg-check-icon"><i data-lucide="check"></i></span>
+                <span>Speed &amp; Security Hardening (SSL/CDN)</span>
+              </li>
+              <li class="pkg-feature-item">
+                <span class="pkg-check-icon"><i data-lucide="check"></i></span>
+                <span>WhatsApp Chat &amp; Live Support</span>
+              </li>
+              <li class="pkg-feature-item">
+                <span class="pkg-check-icon"><i data-lucide="check"></i></span>
+                <span>1 Month Free Post-Launch Support</span>
+              </li>
+            </ul>
+
+            <a href="contact.html" class="pkg-action-btn btn-primary-pkg">Choose Premium Plan <i data-lucide="arrow-right"></i></a>
+          </div>
+
+          <!-- ADVANCE CARD -->
+          <div class="pkg-card">
+            <span class="pkg-tier-label">ADVANCE</span>
+            <h3 class="pkg-plan-name">Website Development</h3>
+            <p class="pkg-plan-desc">Full-scale custom web applications, e-commerce stores, and custom software systems.</p>
+
+            <div class="pkg-price-row">
+              <div class="pkg-price-col">
+                <span class="pkg-price-curr">USD</span>
+                <span class="pkg-price-val">$1,499</span>
+              </div>
+              <div class="pkg-price-divider"></div>
+              <div class="pkg-price-col">
+                <span class="pkg-price-curr">CAD</span>
+                <span class="pkg-price-val">$1,999</span>
+              </div>
+            </div>
+
+            <ul class="pkg-features-list">
+              <li class="pkg-feature-item">
+                <span class="pkg-check-icon"><i data-lucide="check"></i></span>
+                <span>Unlimited Custom Pages &amp; Workflows</span>
+              </li>
+              <li class="pkg-feature-item">
+                <span class="pkg-check-icon"><i data-lucide="check"></i></span>
+                <span>Full E-Commerce / Custom Portal</span>
+              </li>
+              <li class="pkg-feature-item">
+                <span class="pkg-check-icon"><i data-lucide="check"></i></span>
+                <span>Payment Gateways (Stripe/PayPal)</span>
+              </li>
+              <li class="pkg-feature-item">
+                <span class="pkg-check-icon"><i data-lucide="check"></i></span>
+                <span>Admin Dashboard &amp; Database Backend</span>
+              </li>
+              <li class="pkg-feature-item">
+                <span class="pkg-check-icon"><i data-lucide="check"></i></span>
+                <span>API Integration &amp; Cloud Deployment</span>
+              </li>
+              <li class="pkg-feature-item">
+                <span class="pkg-check-icon"><i data-lucide="check"></i></span>
+                <span>Enterprise Grade Security &amp; Firewall</span>
+              </li>
+              <li class="pkg-feature-item">
+                <span class="pkg-check-icon"><i data-lucide="check"></i></span>
+                <span>GEO / AI Search Optimization</span>
+              </li>
+              <li class="pkg-feature-item">
+                <span class="pkg-check-icon"><i data-lucide="check"></i></span>
+                <span>3 Months Priority VIP Support &amp; SLA</span>
+              </li>
+            </ul>
+
+            <a href="contact.html" class="pkg-action-btn btn-primary-pkg">Choose Advance Plan <i data-lucide="arrow-right"></i></a>
+          </div>
+
+        </div>
+
+        <!-- Bottom Disclaimer Banner -->
+        <div class="pkg-disclaimer-card">
+          <div class="pkg-disclaimer-left">
+            <div class="pkg-disclaimer-icon">
+              <i data-lucide="server"></i>
+            </div>
+            <div>
+              <div class="pkg-disclaimer-title">HOSTING &amp; DOMAIN ARE EXCLUDED</div>
+              <p class="pkg-disclaimer-text">In all packages. You can choose your own hosting and domain provider or we can help you with the setup if needed.</p>
+            </div>
+          </div>
+          <div class="pkg-disclaimer-script">
+            Let's Build Something Great
+          </div>
+        </div>
+
+        <!-- Contact Strip -->
+        <div class="pkg-contact-bar">
+          <a href="mailto:info@aswebsolution.com" class="pkg-contact-item">
+            <div class="pkg-contact-icon"><i data-lucide="mail"></i></div>
+            <div class="pkg-contact-meta">
+              <span class="pkg-contact-lbl">Email Us</span>
+              <span class="pkg-contact-val">info@aswebsolution.com</span>
+            </div>
+          </a>
+          <a href="tel:+923433458001" class="pkg-contact-item">
+            <div class="pkg-contact-icon"><i data-lucide="phone"></i></div>
+            <div class="pkg-contact-meta">
+              <span class="pkg-contact-lbl">Call / WhatsApp</span>
+              <span class="pkg-contact-val">+92 343 3458001</span>
+            </div>
+          </a>
+          <a href="https://aswebsolution.com" target="_blank" rel="noopener noreferrer" class="pkg-contact-item">
+            <div class="pkg-contact-icon"><i data-lucide="globe"></i></div>
+            <div class="pkg-contact-meta">
+              <span class="pkg-contact-lbl">Visit Us</span>
+              <span class="pkg-contact-val">aswebsolution.com</span>
+            </div>
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- BOTTOM CTA -->
+    <section class="pkg-page-cta">
+      <div class="container">
+        <p class="section-kicker light">NEED SOMETHING FULLY CUSTOM?</p>
+        <h2>Can't Find the Perfect Fit? Let's Build It.</h2>
+        <p>Packages not matching your vision? Use our interactive calculator for a tailored estimate, or send us a project inquiry and we'll craft a custom proposal.</p>
+        <div style="display:flex; gap:14px; justify-content:center; flex-wrap:wrap;">
+          <a href="contact-project.html" class="btn btn-primary" style="background:#fff; color:var(--navy); box-shadow:none;">Get a Free Proposal <i data-lucide="arrow-right"></i></a>
+          <a href="pricing.html" class="btn btn-outline" style="background:transparent; color:#fff; border-color:rgba(255,255,255,.5);">Calculate Custom Price</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <div id="footer"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>

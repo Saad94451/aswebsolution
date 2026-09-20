@@ -75,11 +75,12 @@
     });
   }
 
-  /* ---------- Nav Dropdown (Contact) ---------- */
+  /* ---------- Nav Dropdown (Contact / Services split) ---------- */
   function setupNavDropdown() {
     const triggers = document.querySelectorAll('.nav-dropdown-trigger');
     triggers.forEach(trigger => {
-      const menu = trigger.nextElementSibling;
+      const wrap = trigger.closest('.nav-dropdown');
+      const menu = wrap ? wrap.querySelector('.nav-dropdown-menu') : null;
       if (!menu) return;
 
       // Mobile: toggle on click
@@ -97,7 +98,8 @@
     document.addEventListener('click', () => {
       document.querySelectorAll('.nav-dropdown-menu.open').forEach(m => {
         m.classList.remove('open');
-        const t = m.previousElementSibling;
+        const wrap = m.closest('.nav-dropdown');
+        const t = wrap ? wrap.querySelector('.nav-dropdown-trigger') : m.previousElementSibling;
         if (t) t.setAttribute('aria-expanded', 'false');
       });
     });
@@ -230,7 +232,7 @@
     let index = 0;
     let timer;
 
-    const perView = () => (window.innerWidth < 900 ? 1 : 3);
+    const perView = () => 1;
     const maxIndex = () => Math.max(0, cards.length - perView());
 
     function buildDots() {
@@ -251,7 +253,7 @@
       if (i > maxIndex()) i = 0;
       if (i < 0) i = maxIndex();
       index = i;
-      const gap = parseFloat(window.getComputedStyle(track).gap) || 18;
+      const gap = parseFloat(window.getComputedStyle(track).gap) || 0;
       const cardWidth = cards[0] ? cards[0].getBoundingClientRect().width : 0;
       track.style.transform = `translateX(-${index * (cardWidth + gap)}px)`;
       if (dotsWrap) {

@@ -7,8 +7,23 @@
       <nav class="nav" id="nav" aria-label="Primary">
         <a href="index.html" class="nav-link active">Home</a>
         <a href="about.html" class="nav-link">About</a>
-        <a href="services.html" class="nav-link">Services</a>
-        <a href="catalog.html" class="nav-link">Catalog</a>
+        <div class="nav-dropdown">
+          <div class="nav-split">
+            <a href="services.html" class="nav-link">Services</a>
+            <button class="nav-dropdown-trigger nav-split-toggle" type="button" aria-expanded="false" aria-haspopup="true" aria-label="Toggle packages menu"><i data-lucide="chevron-down" class="dd-arrow"></i></button>
+          </div>
+          <div class="nav-dropdown-menu" role="menu">
+            <a href="packages.html" class="nav-dropdown-item" role="menuitem">
+              <div class="ndi-icon"><i data-lucide="package"></i></div>
+              <div><strong>Packages</strong><span>Our website plans</span></div>
+            </a>
+          </div>
+        </div>
+        <a href="portfolio.html" class="nav-link">Portfolio</a>
+        <a href="pricing.html" class="nav-link">Pricing</a>
+
+
+        <a href="store.html" class="nav-link">Store</a>
 
         <div class="nav-dropdown">
           <button class="nav-link nav-dropdown-trigger" type="button" aria-expanded="false" aria-haspopup="true">Contact <i data-lucide="chevron-down" class="dd-arrow"></i></button>
@@ -31,7 +46,7 @@
       <div class="nav-overlay" id="navOverlay"></div>
 
       <div class="header-actions">
-        <a href="contact.html" class="btn btn-primary header-cta">Get a Quote <i data-lucide="arrow-right"></i></a>
+        <a href="pricing.html" class="btn btn-primary header-cta">Get a Cost <i data-lucide="arrow-right"></i></a>
         <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav">
           <span></span><span></span><span></span>
         </button>
