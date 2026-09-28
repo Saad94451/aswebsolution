@@ -21,6 +21,7 @@
     setupBackToTop();
     setupStoryModal();
     setupContactForm();
+    setupPortfolioFilter();
   }
 
   /* ---------- Load Navbar & Footer Components ---------- */
@@ -557,6 +558,40 @@
         if (sl) sl.classList.toggle('done', i < n);
       }
     }
+  }
+
+  /* ---------- Portfolio Filter ---------- */
+  function setupPortfolioFilter() {
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const portfolioCards = document.querySelectorAll('.portfolio-card');
+
+    if (filterBtns.length === 0 || portfolioCards.length === 0) return;
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        // Remove active class from all buttons
+        filterBtns.forEach(b => b.classList.remove('active'));
+        // Add active class to clicked button
+        btn.classList.add('active');
+
+        const filterValue = btn.getAttribute('data-filter');
+
+        // Filter portfolio cards
+        portfolioCards.forEach(card => {
+          const cardCategory = card.getAttribute('data-category');
+
+          if (filterValue === 'all' || cardCategory === filterValue) {
+            card.style.display = 'block';
+            card.style.opacity = '0';
+            setTimeout(() => {
+              card.style.opacity = '1';
+            }, 50);
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
   }
 
 })();
